@@ -1,0 +1,9 @@
+En este repositorio se encuentra todo lo relacionado con el front-end
+del sitio en AWS.
+
+Esto incluye:
+
+- modulos de base (ecommerce)
+- generador de contenido
+- funcionalidad de front-end (buscador, login, etc)
+
