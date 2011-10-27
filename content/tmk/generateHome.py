@@ -9,7 +9,7 @@ Proceso de generacion de la HOME de Tematika.
 from jinja2.environment import Environment
 from jinja2.loaders import FileSystemLoader
 
-# OUT directory
+# OUT directory 
 #outDir = '/Users/mgoldsman/workspaces/python_workspace/PythonJinja/src/tmk/out/'
 outDir = './out/'
 # templates temporales
