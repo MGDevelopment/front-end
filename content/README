@@ -1,1 +1,5 @@
 Archivos para la generacion del conenido del nuevo sitio.
+--------------------------------------------------------
+
+Dependencias:
+	- Jinja2
