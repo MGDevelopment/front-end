@@ -1,0 +1,30 @@
+<div class=\"solapaModulos\"><!-- este div contiene a las calles de los comentarios -->
+	{%- for articulo in comments_data.articulos -%}
+        <div class=\"solapaCalle\" id=\"calleLibrosComents\" style=\"height: 250px;\">
+              <div class=\"tapaContenedor\">
+                  <a href=\"{{ articulo.urlDetalle }}\">
+                  	<img src=\"http://{{ site_domain }}/{{ articulo.urlImagen }}\" alt=\"{{ articulo.altImagen }}\" class=\"{{ articulo.class }}\">
+                  </a>
+                  <div class=\"tapaInfo\" style=\"visibility: hidden;\"></div>
+              </div>
+            <div class=\"hComentarios\" id=\"comentarios01\">
+                  <!-- <a href=\"#\"><tmpl_var comentador></a>  dijo sobre-->
+                  <a>{{ articulo.comentador }}</a>  dijo sobre
+                  <a href=\"{{ articulo.urlDetalle }}\" class=\"fTitulos\">{{ articulo.titulo }}</a>
+                  <span>
+                  	{{ articulo.comentario }}
+                  </span>
+            </div>
+            <div class=\"calificacionMod\">
+                <span>Calificaci&oacute;n del producto:</span>
+                {%- for calificacion in articulo.calificacionXArticulo -%}
+             		<div class=\"{{ calificacion.estrellaClass }}\"></div>                       	 			
+              	{%- endfor %}
+            </div>
+            <a href=\"/{{ articulo.enSeccion }}#coment\" class=\"vermas\">+ comentarios de {{ articulo.enSeccion }}</a>
+          </div>	
+          {%- if articulo.llevaLineaDivisora -%}
+          	<div class=\"solapaCalleSeparador\" id=\"calleSeparadorComents\" style=\"height: 250px;\"></div><!-- lineas divisorias -->
+          {%- endif %}
+	{%- endfor %}
+</div>

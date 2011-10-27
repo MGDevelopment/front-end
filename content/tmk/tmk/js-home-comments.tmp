@@ -1,0 +1,38 @@
+/**
+* home-comments.js
+*/
+var dataComments = {};
+
+{%- if comments_data_last -%}
+dataComments['last'] = '{{ comments_data_last|replace("\n", "") }}';
+{% endif %}
+{%- if comments_data_books -%}
+dataComments['books'] = '{{ comments_data_books|replace("\n", "") }}';
+{% endif %}
+{%- if comments_data_music -%}
+dataComments['music'] = '{{ comments_data_music|replace("\n", "") }}';
+{% endif %}
+{%- if comments_data_movies -%}
+dataComments['movies'] = '{{ comments_data_movies|replace("\n", "") }}';
+{% endif %}
+
+function loadComments() {
+	TMK.addData('comments', dataComments);
+	return;
+} 
+
+var callBackDropDownComments = function (section) {
+	if(section == 'books'){
+		$('#optComentarios').html('Solo libros');
+	}else if(section == 'music') {
+		$('#optComentarios').html('Solo m&uacute;sica');
+	}else if(section == 'movies') {
+		$('#optComentarios').html('Solo peliculas');
+	}else{
+		$('#optComentarios').html('&Uacute;ltimos  comentados');
+	}
+	return;
+}
+
+loadComments();
+

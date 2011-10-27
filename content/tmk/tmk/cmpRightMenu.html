@@ -1,0 +1,25 @@
+<div class="panelSecciones" id="divBarraDerecha">
+{% for seccion in menu_data.secciones -%}
+	{%- if seccion.idSeccion == "seccion1" -%}
+	<a href="/libros" id="panelSeccLibros" title="Libros"><span></span></a>
+	{%- endif %}
+	{%- if seccion.idSeccion == "seccion4" -%}
+	<a href="/musica" id="panelSeccMusica" title="M&uacute;sica"><span></span></a>
+	{%- endif %}
+	{%- if seccion.idSeccion == "seccion5" -%}
+	<a href="/peliculas" id="panelSeccPeliculas" title="Pel&iacute;culas"><span></span></a>
+	{%- endif %}
+	{%- if seccion.idSeccion == "seccion3" -%}
+	<a href="/juguetes" id="panelSeccPasatiempos" title="Pasatiempos"><span></span></a>
+	{%- endif %}
+	{%- if seccion.idSeccion == "seccion200" -%}
+	<a href="/sucursales" id="panelSeccSucursales" title="Sucursales"><span></span></a>
+	{%- endif %}
+	{%- if seccion.idSeccion == "seccion300" -%}
+	<a href="#" onclick="window.open('http://www.yenny-elateneo.com/index.php?idS=1');return false;" id="panelSeccQuid" title="Quid"><span></span></a>
+	{%- endif %}
+	{%- if seccion.idSeccion == "seccion400" -%}
+	<a href="/extra" id="panelSeccExtra" title="eXtra!"><span></span></a>
+	{%- endif %}
+{%- endfor %}
+</div>

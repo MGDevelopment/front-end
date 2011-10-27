@@ -1,0 +1,18 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html>
+<head>{% block head -%}{%- endblock %}
+</head>
+<body>
+	{% block js_top -%} {%- endblock %}
+	<center>
+		<div id="lienzo" class="lienzo">
+			<div id="top">{% block top -%}{%- endblock %}</div>
+			<div id="messages">{% block messages -%} {%- endblock %}</div>
+			<div id="content">{% block content -%}{%- endblock %}</div>
+			<div id="bottom">{% block bottom -%} {%- endblock %}</div>
+		</div>
+	</center>
+	{% block extra -%} {%- endblock %}
+	{% block js_bottom -%} {%- endblock %}
+</body>
+</html>

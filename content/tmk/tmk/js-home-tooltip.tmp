@@ -1,0 +1,92 @@
+/**
+* home-tooltip.js
+*/
+var dataToolTip = {};
+
+{%- if tooltip_data_TMK_RDAM -%}
+dataToolTip['TMK_RDAMBooks'] = '{{ tooltip_data_TMK_RDAM.books|replace("\n", "") }}';
+dataToolTip['TMK_RDAMMusic'] = '{{ tooltip_data_TMK_RDAM.music|replace("\n", "") }}';
+dataToolTip['TMK_RDAMMovies'] = '{{ tooltip_data_TMK_RDAM.movies|replace("\n", "") }}';
+dataToolTip['TMK_RDAMGames'] = '{{ tooltip_data_TMK_RDAM.games|replace("\n", "") }}';
+{%- endif %}
+{%- if tooltip_data_TMK_RDAY -%}
+dataToolTip['TMK_RDAYBooks'] = '{{ tooltip_data_TMK_RDAY.books|replace("\n", "") }}';
+dataToolTip['TMK_RDAYMusic'] = '{{ tooltip_data_TMK_RDAY.music|replace("\n", "") }}';
+dataToolTip['TMK_RDAYMovies'] = '{{ tooltip_data_TMK_RDAY.movies|replace("\n", "") }}';
+dataToolTip['TMK_RDAYGames'] = '{{ tooltip_data_TMK_RDAY.games|replace("\n", "") }}';
+{%- endif %}
+{%- if tooltip_data_TMK_RDAT -%}
+dataToolTip['TMK_RDATBooks'] = '{{ tooltip_data_TMK_RDAT.books|replace("\n", "") }}';
+dataToolTip['TMK_RDATMusic'] = '{{ tooltip_data_TMK_RDAT.music|replace("\n", "") }}';
+dataToolTip['TMK_RDATMovies'] = '{{ tooltip_data_TMK_RDAT.movies|replace("\n", "") }}';
+dataToolTip['TMK_RDATGames'] = '{{ tooltip_data_TMK_RDAT.games|replace("\n", "") }}';
+{%- endif %}
+
+{%- if tooltip_data_MVM -%}
+dataToolTip['MVMBooks'] = '{{ tooltip_data_MVM.books|replace("\n", "") }}';
+dataToolTip['MVMMusic'] = '{{ tooltip_data_MVM.music|replace("\n", "") }}';
+dataToolTip['MVMMovies'] = '{{ tooltip_data_MVM.movies|replace("\n", "") }}';
+dataToolTip['MVMGames'] = '{{ tooltip_data_MVM.games|replace("\n", "") }}';
+{%- endif %}
+{%- if tooltip_data_MVY -%}
+dataToolTip['MVYBooks'] = '{{ tooltip_data_MVY.books|replace("\n", "") }}';
+dataToolTip['MVYMusic'] = '{{ tooltip_data_MVY.music|replace("\n", "") }}';
+dataToolTip['MVYMovies'] = '{{ tooltip_data_MVY.movies|replace("\n", "") }}';
+dataToolTip['MVYGames'] = '{{ tooltip_data_MVY.games|replace("\n", "") }}';
+{%- endif %}
+{%- if tooltip_data_MVT -%}
+dataToolTip['MVTBooks'] = '{{ tooltip_data_MVT.books|replace("\n", "") }}';
+dataToolTip['MVTMusic'] = '{{ tooltip_data_MVT.music|replace("\n", "") }}';
+dataToolTip['MVTMovies'] = '{{ tooltip_data_MVT.movies|replace("\n", "") }}';
+dataToolTip['MVTGames'] = '{{ tooltip_data_MVT.games|replace("\n", "") }}';
+{%- endif %}
+
+{%- if tooltip_data_MPM -%}
+dataToolTip['MPMBooks'] = '{{ tooltip_data_MPM.books|replace("\n", "") }}';
+dataToolTip['MPMMusic'] = '{{ tooltip_data_MPM.music|replace("\n", "") }}';
+dataToolTip['MPMMovies'] = '{{ tooltip_data_MPM.movies|replace("\n", "") }}';
+dataToolTip['MPMGames'] = '{{ tooltip_data_MPM.games|replace("\n", "") }}';
+{%- endif %}
+{%- if tooltip_data_MPY -%}
+dataToolTip['MPYBooks'] = '{{ tooltip_data_MPY.books|replace("\n", "") }}';
+dataToolTip['MPYMusic'] = '{{ tooltip_data_MPY.music|replace("\n", "") }}';
+dataToolTip['MPYMovies'] = '{{ tooltip_data_MPY.movies|replace("\n", "") }}';
+dataToolTip['MPYGames'] = '{{ tooltip_data_MPY.games|replace("\n", "") }}';
+{%- endif %}
+{%- if tooltip_data_MPT -%}
+dataToolTip['MPTBooks'] = '{{ tooltip_data_MPT.books|replace("\n", "") }}';
+dataToolTip['MPTMusic'] = '{{ tooltip_data_MPT.music|replace("\n", "") }}';
+dataToolTip['MPTMovies'] = '{{ tooltip_data_MPT.movies|replace("\n", "") }}';
+dataToolTip['MPTGames'] = '{{ tooltip_data_MPT.games|replace("\n", "") }}';
+{%- endif %}
+
+{%- if tooltip_data_MVAM -%}
+dataToolTip['MVAMBooks'] = '{{ tooltip_data_MVAM.books|replace("\n", "") }}';
+dataToolTip['MVAMMusic'] = '{{ tooltip_data_MVAM.music|replace("\n", "") }}';
+dataToolTip['MVAMMovies'] = '{{ tooltip_data_MVAM.movies|replace("\n", "") }}';
+dataToolTip['MVAMGames'] = '{{ tooltip_data_MVAM.games|replace("\n", "") }}';
+{%- endif %}
+{%- if tooltip_data_MVAY -%}
+dataToolTip['MVAYBooks'] = '{{ tooltip_data_MVAY.books|replace("\n", "") }}';
+dataToolTip['MVAYMusic'] = '{{ tooltip_data_MVAY.music|replace("\n", "") }}';
+dataToolTip['MVAYMovies'] = '{{ tooltip_data_MVAY.movies|replace("\n", "") }}';
+dataToolTip['MVAYGames'] = '{{ tooltip_data_MVAY.games|replace("\n", "") }}';
+{%- endif %}
+{%- if tooltip_data_MVAT -%}
+dataToolTip['MVATBooks'] = '{{ tooltip_data_MVAT.books|replace("\n", "") }}';
+dataToolTip['MVATMusic'] = '{{ tooltip_data_MVAT.music|replace("\n", "") }}';
+dataToolTip['MVATMovies'] = '{{ tooltip_data_MVAT.movies|replace("\n", "") }}';
+dataToolTip['MVATGames'] = '{{ tooltip_data_MVAT.games|replace("\n", "") }}';
+{%- endif %}
+
+function loadToolTip() {
+	TMK.addData('tooltip', dataToolTip);
+	return;
+} 
+
+var callBackDropDownToolTip = function (section) {
+	
+	return;
+}
+loadToolTip();
+
