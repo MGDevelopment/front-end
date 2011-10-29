@@ -1,9 +1,11 @@
 '''
 Created on 01/10/2011
-Proceso de generacion de la HOME de Tematika.
+Proceso de generacion de la HOME de Secciones de Tematika.
 
 @author: mgoldsman
 '''
+"""
+"""
 
 from jinja2.environment import Environment
 from jinja2.loaders import FileSystemLoader
@@ -11,7 +13,7 @@ from generatorClass import CMPGeneric, FileGenerate
 import yaml
 
 
-stream = open('./cfg/home.yaml')
+stream = open('./cfg/homeBooks.yaml')
 cfg = yaml.load(stream)
 
 messageData = {
@@ -87,165 +89,83 @@ sliderDataMVAT = {"articulos" : [{"img_src" : "http://static.flickr.com/77/19948
               }
 # seteo del ambiente para recuperar los archivos template y componentes
 env = Environment(loader=FileSystemLoader(cfg['tplDocBase']))
+        
+homeHTML = ""
 
 # slider
 jinjaSlider = CMPGeneric(env, cfg['tmpSlider'])
 # slider TMK_RDA
 sliderHomeBooksTMK_RDAM = jinjaSlider.generate({'prefix': 'books', 'slider_data': sliderDataTMK_RDAM})
-sliderHomeMusicTMK_RDAM = jinjaSlider.generate({'prefix': 'music', 'slider_data': sliderDataTMK_RDAM})
-sliderHomeMoviesTMK_RDAM = jinjaSlider.generate({'prefix': 'movies', 'slider_data': sliderDataTMK_RDAM})
-sliderHomeGamesTMK_RDAM = jinjaSlider.generate({'prefix': 'games', 'slider_data': sliderDataTMK_RDAM})
 sliderHomeBooksTMK_RDAY = jinjaSlider.generate({'prefix': 'books', 'slider_data': sliderDataTMK_RDAY})
-sliderHomeMusicTMK_RDAY = jinjaSlider.generate({'prefix': 'music', 'slider_data': sliderDataTMK_RDAY})
-sliderHomeMoviesTMK_RDAY = jinjaSlider.generate({'prefix': 'movies', 'slider_data': sliderDataTMK_RDAY})
-sliderHomeGamesTMK_RDAY = jinjaSlider.generate({'prefix': 'games', 'slider_data': sliderDataTMK_RDAY})
 sliderHomeBooksTMK_RDAT = jinjaSlider.generate({'prefix': 'books', 'slider_data': sliderDataTMK_RDAT})
-sliderHomeMusicTMK_RDAT = jinjaSlider.generate({'prefix': 'music', 'slider_data': sliderDataTMK_RDAT})
-sliderHomeMoviesTMK_RDAT = jinjaSlider.generate({'prefix': 'movies', 'slider_data': sliderDataTMK_RDAT})
-sliderHomeGamesTMK_RDAT = jinjaSlider.generate({'prefix': 'games', 'slider_data': sliderDataTMK_RDAT})
 sliderHomeBooksTMK_RDAT = jinjaSlider.generate({'prefix': 'books', 'slider_data': sliderDataTMK_RDAT})
-sliderHomeMusicTMK_RDAT = jinjaSlider.generate({'prefix': 'music', 'slider_data': sliderDataTMK_RDAT})
-sliderHomeMoviesTMK_RDAT = jinjaSlider.generate({'prefix': 'movies', 'slider_data': sliderDataTMK_RDAT})
-sliderHomeGamesTMK_RDAT = jinjaSlider.generate({'prefix': 'games', 'slider_data': sliderDataTMK_RDAT})
 # slider MV
 sliderHomeBooksMVM = jinjaSlider.generate({'prefix': 'books', 'slider_data': sliderDataMVM})
-sliderHomeMusicMVM = jinjaSlider.generate({'prefix': 'music', 'slider_data': sliderDataMVM})
-sliderHomeMoviesMVM = jinjaSlider.generate({'prefix': 'movies', 'slider_data': sliderDataMVM})
-sliderHomeGamesMVM = jinjaSlider.generate({'prefix': 'games', 'slider_data': sliderDataMVM})
 sliderHomeBooksMVY = jinjaSlider.generate({'prefix': 'books', 'slider_data': sliderDataMVY})
-sliderHomeMusicMVY = jinjaSlider.generate({'prefix': 'music', 'slider_data': sliderDataMVY})
-sliderHomeMoviesMVY = jinjaSlider.generate({'prefix': 'movies', 'slider_data': sliderDataMVY})
-sliderHomeGamesMVY = jinjaSlider.generate({'prefix': 'games', 'slider_data': sliderDataMVY})
 sliderHomeBooksMVT = jinjaSlider.generate({'prefix': 'books', 'slider_data': sliderDataMVT})
-sliderHomeMusicMVT = jinjaSlider.generate({'prefix': 'music', 'slider_data': sliderDataMVT})
-sliderHomeMoviesMVT = jinjaSlider.generate({'prefix': 'movies', 'slider_data': sliderDataMVT})
-sliderHomeGamesMVT = jinjaSlider.generate({'prefix': 'games', 'slider_data': sliderDataMVT})
 # slider MP
 sliderHomeBooksMPM = jinjaSlider.generate({'prefix': 'books', 'slider_data': sliderDataMPM})
-sliderHomeMusicMPM = jinjaSlider.generate({'prefix': 'music', 'slider_data': sliderDataMPM})
-sliderHomeMoviesMPM = jinjaSlider.generate({'prefix': 'movies', 'slider_data': sliderDataMPM})
-sliderHomeGamesMPM = jinjaSlider.generate({'prefix': 'games', 'slider_data': sliderDataMPM})
 sliderHomeBooksMPY = jinjaSlider.generate({'prefix': 'books', 'slider_data': sliderDataMPY})
-sliderHomeMusicMPY = jinjaSlider.generate({'prefix': 'music', 'slider_data': sliderDataMPY})
-sliderHomeMoviesMPY = jinjaSlider.generate({'prefix': 'movies', 'slider_data': sliderDataMPY})
-sliderHomeGamesMPY = jinjaSlider.generate({'prefix': 'games', 'slider_data': sliderDataMPY})
 sliderHomeBooksMPT = jinjaSlider.generate({'prefix': 'books', 'slider_data': sliderDataMPT})
-sliderHomeMusicMPT = jinjaSlider.generate({'prefix': 'music', 'slider_data': sliderDataMPT})
-sliderHomeMoviesMPT = jinjaSlider.generate({'prefix': 'movies', 'slider_data': sliderDataMPT})
-sliderHomeGamesMPT = jinjaSlider.generate({'prefix': 'games', 'slider_data': sliderDataMPT})
 # slider MVA
 sliderHomeBooksMVAM = jinjaSlider.generate({'prefix': 'books', 'slider_data': sliderDataMVAM})
-sliderHomeMusicMVAM = jinjaSlider.generate({'prefix': 'music', 'slider_data': sliderDataMVAM})
-sliderHomeMoviesMVAM = jinjaSlider.generate({'prefix': 'movies', 'slider_data': sliderDataMVAM})
-sliderHomeGamesMVAM = jinjaSlider.generate({'prefix': 'games', 'slider_data': sliderDataMVAM})
 sliderHomeBooksMVAY = jinjaSlider.generate({'prefix': 'books', 'slider_data': sliderDataMVAY})
-sliderHomeMusicMVAY = jinjaSlider.generate({'prefix': 'music', 'slider_data': sliderDataMVAY})
-sliderHomeMoviesMVAY = jinjaSlider.generate({'prefix': 'movies', 'slider_data': sliderDataMVAY})
-sliderHomeGamesMVAY = jinjaSlider.generate({'prefix': 'games', 'slider_data': sliderDataMVAY})
 sliderHomeBooksMVAT = jinjaSlider.generate({'prefix': 'books', 'slider_data': sliderDataMVAT})
-sliderHomeMusicMVAT = jinjaSlider.generate({'prefix': 'music', 'slider_data': sliderDataMVAT})
-sliderHomeMoviesMVAT = jinjaSlider.generate({'prefix': 'movies', 'slider_data': sliderDataMVAT})
-sliderHomeGamesMVAT = jinjaSlider.generate({'prefix': 'games', 'slider_data': sliderDataMVAT})
-
 # tooltip
 jinjaToolTip = CMPGeneric(env, cfg['tmpToolTip'])
 # tooltip TMK_RDA
 tooltipHomeBooksTMK_RDAM = jinjaToolTip.generate({'prefix': 'books', 'slider_data': sliderDataTMK_RDAM})
-tooltipHomeMusicTMK_RDAM = jinjaToolTip.generate({'prefix': 'music', 'slider_data': sliderDataTMK_RDAM})
-tooltipHomeMoviesTMK_RDAM = jinjaToolTip.generate({'prefix': 'movies', 'slider_data': sliderDataTMK_RDAM})
-tooltipHomeGamesTMK_RDAM = jinjaToolTip.generate({'prefix': 'games', 'slider_data': sliderDataTMK_RDAM})
 tooltipHomeBooksTMK_RDAY = jinjaToolTip.generate({'prefix': 'books', 'slider_data': sliderDataTMK_RDAY})
-tooltipHomeMusicTMK_RDAY = jinjaToolTip.generate({'prefix': 'music', 'slider_data': sliderDataTMK_RDAY})
-tooltipHomeMoviesTMK_RDAY = jinjaToolTip.generate({'prefix': 'movies', 'slider_data': sliderDataTMK_RDAY})
-tooltipHomeGamesTMK_RDAY = jinjaToolTip.generate({'prefix': 'games', 'slider_data': sliderDataTMK_RDAY})
 tooltipHomeBooksTMK_RDAT = jinjaToolTip.generate({'prefix': 'books', 'slider_data': sliderDataTMK_RDAT})
-tooltipHomeMusicTMK_RDAT = jinjaToolTip.generate({'prefix': 'music', 'slider_data': sliderDataTMK_RDAT})
-tooltipHomeMoviesTMK_RDAT = jinjaToolTip.generate({'prefix': 'movies', 'slider_data': sliderDataTMK_RDAT})
-tooltipHomeGamesTMK_RDAT = jinjaToolTip.generate({'prefix': 'games', 'slider_data': sliderDataTMK_RDAT})
 tooltipHomeBooksTMK_RDAT = jinjaToolTip.generate({'prefix': 'books', 'slider_data': sliderDataTMK_RDAT})
-tooltipHomeMusicTMK_RDAT = jinjaToolTip.generate({'prefix': 'music', 'slider_data': sliderDataTMK_RDAT})
-tooltipHomeMoviesTMK_RDAT = jinjaToolTip.generate({'prefix': 'movies', 'slider_data': sliderDataTMK_RDAT})
-tooltipHomeGamesTMK_RDAT = jinjaToolTip.generate({'prefix': 'games', 'slider_data': sliderDataTMK_RDAT})
 # tooltip MV
 tooltipHomeBooksMVM = jinjaToolTip.generate({'prefix': 'books', 'slider_data': sliderDataMVM})
-tooltipHomeMusicMVM = jinjaToolTip.generate({'prefix': 'music', 'slider_data': sliderDataMVM})
-tooltipHomeMoviesMVM = jinjaToolTip.generate({'prefix': 'movies', 'slider_data': sliderDataMVM})
-tooltipHomeGamesMVM = jinjaToolTip.generate({'prefix': 'games', 'slider_data': sliderDataMVM})
 tooltipHomeBooksMVY = jinjaToolTip.generate({'prefix': 'books', 'slider_data': sliderDataMVY})
-tooltipHomeMusicMVY = jinjaToolTip.generate({'prefix': 'music', 'slider_data': sliderDataMVY})
-tooltipHomeMoviesMVY = jinjaToolTip.generate({'prefix': 'movies', 'slider_data': sliderDataMVY})
-tooltipHomeGamesMVY = jinjaToolTip.generate({'prefix': 'games', 'slider_data': sliderDataMVY})
 tooltipHomeBooksMVT = jinjaToolTip.generate({'prefix': 'books', 'slider_data': sliderDataMVT})
-tooltipHomeMusicMVT = jinjaToolTip.generate({'prefix': 'music', 'slider_data': sliderDataMVT})
-tooltipHomeMoviesMVT = jinjaToolTip.generate({'prefix': 'movies', 'slider_data': sliderDataMVT})
-tooltipHomeGamesMVT = jinjaToolTip.generate({'prefix': 'games', 'slider_data': sliderDataMVT})
 # tooltip MP
 tooltipHomeBooksMPM = jinjaToolTip.generate({'prefix': 'books', 'slider_data': sliderDataMPM})
-tooltipHomeMusicMPM = jinjaToolTip.generate({'prefix': 'music', 'slider_data': sliderDataMPM})
-tooltipHomeMoviesMPM = jinjaToolTip.generate({'prefix': 'movies', 'slider_data': sliderDataMPM})
-tooltipHomeGamesMPM = jinjaToolTip.generate({'prefix': 'games', 'slider_data': sliderDataMPM})
 tooltipHomeBooksMPY = jinjaToolTip.generate({'prefix': 'books', 'slider_data': sliderDataMPY})
-tooltipHomeMusicMPY = jinjaToolTip.generate({'prefix': 'music', 'slider_data': sliderDataMPY})
-tooltipHomeMoviesMPY = jinjaToolTip.generate({'prefix': 'movies', 'slider_data': sliderDataMPY})
-tooltipHomeGamesMPY = jinjaToolTip.generate({'prefix': 'games', 'slider_data': sliderDataMPY})
 tooltipHomeBooksMPT = jinjaToolTip.generate({'prefix': 'books', 'slider_data': sliderDataMPT})
-tooltipHomeMusicMPT = jinjaToolTip.generate({'prefix': 'music', 'slider_data': sliderDataMPT})
-tooltipHomeMoviesMPT = jinjaToolTip.generate({'prefix': 'movies', 'slider_data': sliderDataMPT})
-tooltipHomeGamesMPT = jinjaToolTip.generate({'prefix': 'games', 'slider_data': sliderDataMPT})
 # tooltip MVA
 tooltipHomeBooksMVAM = jinjaToolTip.generate({'prefix': 'books', 'slider_data': sliderDataMVAM})
-tooltipHomeMusicMVAM = jinjaToolTip.generate({'prefix': 'music', 'slider_data': sliderDataMVAM})
-tooltipHomeMoviesMVAM = jinjaToolTip.generate({'prefix': 'movies', 'slider_data': sliderDataMVAM})
-tooltipHomeGamesMVAM = jinjaToolTip.generate({'prefix': 'games', 'slider_data': sliderDataMVAM})
 tooltipHomeBooksMVAY = jinjaToolTip.generate({'prefix': 'books', 'slider_data': sliderDataMVAY})
-tooltipHomeMusicMVAY = jinjaToolTip.generate({'prefix': 'music', 'slider_data': sliderDataMVAY})
-tooltipHomeMoviesMVAY = jinjaToolTip.generate({'prefix': 'movies', 'slider_data': sliderDataMVAY})
-tooltipHomeGamesMVAY = jinjaToolTip.generate({'prefix': 'games', 'slider_data': sliderDataMVAY})
 tooltipHomeBooksMVAT = jinjaToolTip.generate({'prefix': 'books', 'slider_data': sliderDataMVAT})
-tooltipHomeMusicMVAT = jinjaToolTip.generate({'prefix': 'music', 'slider_data': sliderDataMVAT})
-tooltipHomeMoviesMVAT = jinjaToolTip.generate({'prefix': 'movies', 'slider_data': sliderDataMVAT})
-tooltipHomeGamesMVAT = jinjaToolTip.generate({'prefix': 'games', 'slider_data': sliderDataMVAT})
 
 # Genero los JS
 # comments
 comments = CMPGeneric(env, cfg['tmpComments']).generate({'comments_data' : commentsData, 'site_domain': cfg['siteDomain']})
 jsComments = CMPGeneric(env, cfg['jsHomeComments']).generate({'comments_data_last' : comments, 'comments_data_books' : comments, 'comments_data_music' : comments, 'comments_data_movies' : comments})
 FileGenerate(cfg['outDir'] + cfg['home-comments-file']).generate(jsComments)    
-# messages
-jsMessages = CMPGeneric(env, cfg['jsHomeMessages']).generate({'messages_data' : messageData})
-FileGenerate(cfg['outDir'] + cfg['home-messages-file']).generate(jsMessages)
 # showcase
-jsShowCase = CMPGeneric(env, cfg['jsHomeShowCase']).generate({'showcase_data_TMK_RDAM' : {'books': sliderHomeBooksTMK_RDAM, 'music' : sliderHomeMusicTMK_RDAM, 'movies' : sliderHomeMoviesTMK_RDAM, 'games' : sliderHomeGamesTMK_RDAM},
-                                                  'showcase_data_TMK_RDAY' : {'books': sliderHomeBooksTMK_RDAY, 'music' : sliderHomeMusicTMK_RDAY, 'movies' : sliderHomeMoviesTMK_RDAY, 'games' : sliderHomeGamesTMK_RDAY},
-                                                  'showcase_data_TMK_RDAT' : {'books': sliderHomeBooksTMK_RDAT, 'music' : sliderHomeMusicTMK_RDAT, 'movies' : sliderHomeMoviesTMK_RDAT, 'games' : sliderHomeGamesTMK_RDAT},
-                                                  'showcase_data_MVM' : {'books': sliderHomeBooksMVM, 'music' : sliderHomeMusicMVM, 'movies' : sliderHomeMoviesMVM, 'games' : sliderHomeGamesMVM},
-                                                  'showcase_data_MVY' : {'books': sliderHomeBooksMVY, 'music' : sliderHomeMusicMVY, 'movies' : sliderHomeMoviesMVY, 'games' : sliderHomeGamesMVY},
-                                                  'showcase_data_MVT' : {'books': sliderHomeBooksMVT, 'music' : sliderHomeMusicMVT, 'movies' : sliderHomeMoviesMVT, 'games' : sliderHomeGamesMVT},
-                                                  'showcase_data_MPM' : {'books': sliderHomeBooksMPM, 'music' : sliderHomeMusicMPM, 'movies' : sliderHomeMoviesMPM, 'games' : sliderHomeGamesMPM},
-                                                  'showcase_data_MPY' : {'books': sliderHomeBooksMPY, 'music' : sliderHomeMusicMPY, 'movies' : sliderHomeMoviesMPY, 'games' : sliderHomeGamesMPY},
-                                                  'showcase_data_MPT' : {'books': sliderHomeBooksMPT, 'music' : sliderHomeMusicMPT, 'movies' : sliderHomeMoviesMPT, 'games' : sliderHomeGamesMPT},
-                                                  'showcase_data_MVAM' : {'books': sliderHomeBooksMVAM, 'music' : sliderHomeMusicMVAM, 'movies' : sliderHomeMoviesMVAM, 'games' : sliderHomeGamesMVAM},
-                                                  'showcase_data_MVAY' : {'books': sliderHomeBooksMVAY, 'music' : sliderHomeMusicMVAY, 'movies' : sliderHomeMoviesMVAY, 'games' : sliderHomeGamesMVAY},
-                                                  'showcase_data_MVAT' : {'books': sliderHomeBooksMVAT, 'music' : sliderHomeMusicMVAT, 'movies' : sliderHomeMoviesMVAT, 'games' : sliderHomeGamesMVAT},
+jsShowCase = CMPGeneric(env, cfg['jsHomeShowCase']).generate({'showcase_data_TMK_RDAM' : {'books': sliderHomeBooksTMK_RDAM},
+                                                  'showcase_data_TMK_RDAY' : {'books': sliderHomeBooksTMK_RDAY},
+                                                  'showcase_data_TMK_RDAT' : {'books': sliderHomeBooksTMK_RDAT},
+                                                  'showcase_data_MVM' : {'books': sliderHomeBooksMVM},
+                                                  'showcase_data_MVY' : {'books': sliderHomeBooksMVY},
+                                                  'showcase_data_MVT' : {'books': sliderHomeBooksMVT},
+                                                  'showcase_data_MPM' : {'books': sliderHomeBooksMPM},
+                                                  'showcase_data_MPY' : {'books': sliderHomeBooksMPY},
+                                                  'showcase_data_MPT' : {'books': sliderHomeBooksMPT},
+                                                  'showcase_data_MVAM' : {'books': sliderHomeBooksMVAM},
+                                                  'showcase_data_MVAY' : {'books': sliderHomeBooksMVAY},
+                                                  'showcase_data_MVAT' : {'books': sliderHomeBooksMVAT},
                                                   })
 FileGenerate(cfg['outDir'] + cfg['home-showcase-file']).generate(jsShowCase)
 # tooltip
-jsToolTip = CMPGeneric(env, cfg['jsHomeToolTip']).generate({'tooltip_data_TMK_RDAM' : {'books': tooltipHomeBooksTMK_RDAM, 'music' : tooltipHomeMusicTMK_RDAM, 'movies' : tooltipHomeMoviesTMK_RDAM, 'games' : tooltipHomeGamesTMK_RDAM},
-                                                  'tooltip_data_TMK_RDAY' : {'books': tooltipHomeBooksTMK_RDAY, 'music' : tooltipHomeMusicTMK_RDAY, 'movies' : tooltipHomeMoviesTMK_RDAY, 'games' : tooltipHomeGamesTMK_RDAY},
-                                                  'tooltip_data_TMK_RDAT' : {'books': tooltipHomeBooksTMK_RDAT, 'music' : tooltipHomeMusicTMK_RDAT, 'movies' : tooltipHomeMoviesTMK_RDAT, 'games' : tooltipHomeGamesTMK_RDAT},
-                                                  'tooltip_data_MVM' : {'books': tooltipHomeBooksMVM, 'music' : tooltipHomeMusicMVM, 'movies' : tooltipHomeMoviesMVM, 'games' : tooltipHomeGamesMVM},
-                                                  'tooltip_data_MVY' : {'books': tooltipHomeBooksMVY, 'music' : tooltipHomeMusicMVY, 'movies' : tooltipHomeMoviesMVY, 'games' : tooltipHomeGamesMVY},
-                                                  'tooltip_data_MVT' : {'books': tooltipHomeBooksMVT, 'music' : tooltipHomeMusicMVT, 'movies' : tooltipHomeMoviesMVT, 'games' : tooltipHomeGamesMVT},
-                                                  'tooltip_data_MPM' : {'books': tooltipHomeBooksMPM, 'music' : tooltipHomeMusicMPM, 'movies' : tooltipHomeMoviesMPM, 'games' : tooltipHomeGamesMPM},
-                                                  'tooltip_data_MPY' : {'books': tooltipHomeBooksMPY, 'music' : tooltipHomeMusicMPY, 'movies' : tooltipHomeMoviesMPY, 'games' : tooltipHomeGamesMPY},
-                                                  'tooltip_data_MPT' : {'books': tooltipHomeBooksMPT, 'music' : tooltipHomeMusicMPT, 'movies' : tooltipHomeMoviesMPT, 'games' : tooltipHomeGamesMPT},
-                                                  'tooltip_data_MVAM' : {'books': tooltipHomeBooksMVAM, 'music' : tooltipHomeMusicMVAM, 'movies' : tooltipHomeMoviesMVAM, 'games' : tooltipHomeGamesMVAM},
-                                                  'tooltip_data_MVAY' : {'books': tooltipHomeBooksMVAY, 'music' : tooltipHomeMusicMVAY, 'movies' : tooltipHomeMoviesMVAY, 'games' : tooltipHomeGamesMVAY},
-                                                  'tooltip_data_MVAT' : {'books': tooltipHomeBooksMVAT, 'music' : tooltipHomeMusicMVAT, 'movies' : tooltipHomeMoviesMVAT, 'games' : tooltipHomeGamesMVAT},
+jsToolTip = CMPGeneric(env, cfg['jsHomeToolTip']).generate({'tooltip_data_TMK_RDAM' : {'books': tooltipHomeBooksTMK_RDAM},
+                                                  'tooltip_data_TMK_RDAY' : {'books': tooltipHomeBooksTMK_RDAY},
+                                                  'tooltip_data_TMK_RDAT' : {'books': tooltipHomeBooksTMK_RDAT},
+                                                  'tooltip_data_MVM' : {'books': tooltipHomeBooksMVM},
+                                                  'tooltip_data_MVY' : {'books': tooltipHomeBooksMVY},
+                                                  'tooltip_data_MVT' : {'books': tooltipHomeBooksMVT},
+                                                  'tooltip_data_MPM' : {'books': tooltipHomeBooksMPM},
+                                                  'tooltip_data_MPY' : {'books': tooltipHomeBooksMPY},
+                                                  'tooltip_data_MPT' : {'books': tooltipHomeBooksMPT},
+                                                  'tooltip_data_MVAM' : {'books': tooltipHomeBooksMVAM},
+                                                  'tooltip_data_MVAY' : {'books': tooltipHomeBooksMVAY},
+                                                  'tooltip_data_MVAT' : {'books': tooltipHomeBooksMVAT},
                                                   })
-FileGenerate(cfg['outDir'] + cfg['home-tooltip-file']).generate(jsToolTip)  
-# Genero la Home
-homeHTML = ""
+FileGenerate(cfg['outDir'] + cfg['home-tooltip-file']).generate(jsToolTip)   
 try:
     # Genero el temporal para los mensajes, arbol y comentarios
     #tree = CMPGeneric(tmpTree).generate()
@@ -262,18 +182,17 @@ try:
               'top' : CMPGeneric(env, cfg['cmpTop']).generate({'search_opts': searchOpts}),
               'messages' : CMPGeneric(env, cfg['cmpMessages']).generate(),
               'extra' : CMPGeneric(env, cfg['cmpExtra']).generate(),
-              'showcase' : CMPGeneric(env, cfg['cmpShowCase']).generate({'slider_home_books' : sliderHomeBooksTMK_RDAM, 'slider_home_music': sliderHomeMusicTMK_RDAM, 'slider_home_movies' : sliderHomeMoviesTMK_RDAM, 'slider_home_games' : sliderHomeGamesTMK_RDAM,
-                                                             'tooltip_home_books' : tooltipHomeBooksTMK_RDAM, 'tooltip_home_music': tooltipHomeMusicTMK_RDAM, 'tooltip_home_movies' : tooltipHomeMoviesTMK_RDAM, 'tooltip_home_games' : tooltipHomeGamesTMK_RDAM}),
+              'showcase' : CMPGeneric(env, cfg['cmpShowCase']).generate({'slider_home_books' : sliderHomeBooksTMK_RDAM,
+                                                             'tooltip_home_books' : tooltipHomeBooksTMK_RDAM}),
               'rightmenu' : CMPGeneric(env, cfg['cmpRightMenu']).generate({'menu_data': menuData}),
               'comments' : CMPGeneric(env, cfg['cmpComments']).generate(),
               'lastvisited' : CMPGeneric(env, cfg['cmpLastVisited']).generate()
               }
     #'tree' : CMPGeneric(cmpTree).generate({'tree': tree}),
     # Generacion del HTML de la home
-    homeHTML = CMPGeneric(env, cfg['tplHome']).generate(params)
+    homeHTML = CMPGeneric(env, cfg['tplHomeSection']).generate(params)
 except Exception as e:
     print e
-# Imprime el codigo HTML producido
+
 print homeHTML
-# Genera el archivo de salida
-FileGenerate(cfg['outDir'] + cfg['home-file']).generate(homeHTML)
+FileGenerate(cfg['outDir'] + cfg['home-section-file']).generate(homeHTML)
