@@ -1,5 +1,4 @@
 outDir : ./out/
-tmpTree : tmpTree.html
 tmpComments : tmpComments.html
 tmpSlider : tmpSlider.html
 tmpToolTip : tmpToolTip.html
@@ -8,21 +7,21 @@ tplHomeSection : tplHomeSection.html
 cmpHead : cmpHead.html
 cmpFooter : cmpFooter.html
 cmpMetaTag : cmpMetaTag.html
-cmpCss : cmpCss.html
+cmpCss : ./section/cmpSectionCss.html
 cmpJavaScriptTop : cmpJavaScriptTop.html
-cmpJavaScriptBottom : cmpJavaScriptBottom.html
+cmpJavaScriptBottom : ./section/cmpSectionJavaScriptBottom.html
 cmpTop : cmpTop.html
 cmpMessages : cmpMessages.html
 cmpExtra : cmpExtra.html
-cmpShowCase : cmpShowCase.html
+cmpShowCase : ./section/cmpSectionShowCase.html
 cmpRightMenu : cmpRightMenu.html
-cmpTree : cmpTree.html
-cmpComments : cmpComments.html
+cmpTree : ./section/cmpSectionTree.html
+cmpComments : ./section/cmpSectionComments.html
 cmpLastVisited : cmpLastVisited.html
-jsHomeComments : js-home-comments.tmp
+jsSectionComments : ./section/js-section-comments.tmp
 jsHomeMessages : js-home-messages.tmp
-jsHomeShowCase : js-home-showcase.tmp
-jsHomeToolTip : js-home-tooltip.tmp
+jsHomeShowCase : ./section/js-section-showcase.tmp
+jsHomeToolTip : ./section/js-section-tooltip.tmp
 siteDomain : www.tematika.com
 SECCION_HOME : 0
 SECCION_LIBRO : 1
@@ -32,7 +31,7 @@ SECCION_MUSICA : 4
 SECCION_PELICULA : 5
 prefix : books
 # archivos a generar
-home-comments-file : home-books-comments.js
+section-comments-file : home-books-comments.js
 home-showcase-file : home-books-showcase.js
 home-tooltip-file : home-books-tooltip.js
 home-section-file : HomeBooks.html

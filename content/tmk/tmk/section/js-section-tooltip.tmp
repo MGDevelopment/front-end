@@ -1,0 +1,56 @@
+/**
+* section-tooltip.js
+*/
+var dataToolTip = {};
+
+{%- if tooltip_data_TMK_RDAM -%}
+dataToolTip['TMK_RDAMSection'] = '{{ tooltip_data_TMK_RDAM.books|replace("\n", "") }}';
+{%- endif %}
+{%- if tooltip_data_TMK_RDAY -%}
+dataToolTip['TMK_RDAYSection'] = '{{ tooltip_data_TMK_RDAY.books|replace("\n", "") }}';
+{%- endif %}
+{%- if tooltip_data_TMK_RDAT -%}
+dataToolTip['TMK_RDATSection'] = '{{ tooltip_data_TMK_RDAT.books|replace("\n", "") }}';
+{%- endif %}
+
+{%- if tooltip_data_MVM -%}
+dataToolTip['MVMSection'] = '{{ tooltip_data_MVM.books|replace("\n", "") }}';
+{%- endif %}
+{%- if tooltip_data_MVY -%}
+dataToolTip['MVYSection'] = '{{ tooltip_data_MVY.books|replace("\n", "") }}';
+{%- endif %}
+{%- if tooltip_data_MVT -%}
+dataToolTip['MVTSection'] = '{{ tooltip_data_MVT.books|replace("\n", "") }}';
+{%- endif %}
+
+{%- if tooltip_data_MPM -%}
+dataToolTip['MPMSection'] = '{{ tooltip_data_MPM.books|replace("\n", "") }}';
+{%- endif %}
+{%- if tooltip_data_MPY -%}
+dataToolTip['MPYSection'] = '{{ tooltip_data_MPY.books|replace("\n", "") }}';
+{%- endif %}
+{%- if tooltip_data_MPT -%}
+dataToolTip['MPTSection'] = '{{ tooltip_data_MPT.books|replace("\n", "") }}';
+{%- endif %}
+
+{%- if tooltip_data_MVAM -%}
+dataToolTip['MVAMSection'] = '{{ tooltip_data_MVAM.books|replace("\n", "") }}';
+{%- endif %}
+{%- if tooltip_data_MVAY -%}
+dataToolTip['MVAYSection'] = '{{ tooltip_data_MVAY.books|replace("\n", "") }}';
+{%- endif %}
+{%- if tooltip_data_MVAT -%}
+dataToolTip['MVATSection'] = '{{ tooltip_data_MVAT.books|replace("\n", "") }}';
+{%- endif %}
+
+function loadToolTip() {
+	TMK.addData('tooltip', dataToolTip);
+	return;
+} 
+
+var callBackDropDownToolTip = function (section) {
+	
+	return;
+}
+loadToolTip();
+

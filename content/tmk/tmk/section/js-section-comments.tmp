@@ -1,0 +1,16 @@
+/**
+* section-comments.js
+*/
+var dataComments = {};
+
+{%- if comments_data_section -%}
+dataComments['section'] = '{{ comments_data_section|replace("\n", "") }}';
+{% endif %}
+
+function loadComments() {
+	TMK.addData('comments', dataComments);
+	return;
+} 
+
+loadComments();
+

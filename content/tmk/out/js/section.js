@@ -3,4 +3,4 @@
  */
 
 fillMessages(null);
-fillComments(null);
+fillComments('section');
