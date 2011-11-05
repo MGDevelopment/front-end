@@ -1,0 +1,45 @@
+/**
+* section-related.js
+* OPT1 = MAS_VENDIDOS
+* OPT2 = PRECIO_VENTA_1 + economicos primero
+* OPT3 = FECHA_APARICION_1 + antiguos primero
+* OPT4 = FECHA_APARICION_2 + recientes primero
+* OPT5 = PRECIO_VENTA_2 + costosos primero
+* OPT6 = ALFABETICAMENTE_AZ
+* OPT7 = ALFABETICAMENTE_ZA
+*/
+var dataRelated = {};
+
+{%- if related_data_OPT1 -%}
+dataRelated['OPT1'] = '{{ related_data_OPT1|replace("\n", "") }}';
+{%- endif %}
+{%- if related_data_OPT2 -%}
+dataRelated['OPT2'] = '{{ related_data_OPT2|replace("\n", "") }}';
+{%- endif %}
+{%- if related_data_OPT3 -%}
+dataRelated['OPT3'] = '{{ related_data_OPT3|replace("\n", "") }}';
+{%- endif %}
+{%- if related_data_OPT4 -%}
+dataRelated['OPT4'] = '{{ related_data_OPT4|replace("\n", "") }}';
+{%- endif %}
+{%- if related_data_OPT5 -%}
+dataRelated['OPT5'] = '{{ related_data_OPT5|replace("\n", "") }}';
+{%- endif %}
+{%- if related_data_OPT6 -%}
+dataRelated['OPT6'] = '{{ related_data_OPT6|replace("\n", "") }}';
+{%- endif %}
+{%- if related_data_OPT7 -%}
+dataRelated['OPT7'] = '{{ related_data_OPT7|replace("\n", "") }}';
+{%- endif %}
+
+function loadRelated() {
+	TMK.addData('related', dataRelated);
+	return;
+} 
+
+var callBackRelated = function (order) {
+	
+	return;
+}
+loadRelated();
+

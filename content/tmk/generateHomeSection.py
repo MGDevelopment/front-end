@@ -132,6 +132,10 @@ tooltipHomeBooksMVAM = jinjaToolTip.generate({'prefix': 'books', 'slider_data': 
 tooltipHomeBooksMVAY = jinjaToolTip.generate({'prefix': 'books', 'slider_data': sliderDataMVAY})
 tooltipHomeBooksMVAT = jinjaToolTip.generate({'prefix': 'books', 'slider_data': sliderDataMVAT})
 
+# related
+jinjaRelated = CMPGeneric(env, cfg['tmpRelated'])
+relatedData = jinjaRelated.generate({'maxItemPage': 2, 'articulos' : [{},{},{},{},{},{}]})
+
 # Genero los JS
 # comments
 comments = CMPGeneric(env, cfg['tmpComments']).generate({'comments_data' : commentsData, 'site_domain': cfg['siteDomain']})
@@ -167,6 +171,9 @@ jsToolTip = CMPGeneric(env, cfg['jsHomeToolTip']).generate({'tooltip_data_TMK_RD
                                                   'tooltip_data_MVAT' : {'books': tooltipHomeBooksMVAT},
                                                   })
 FileGenerate(cfg['outDir'] + cfg['home-tooltip-file']).generate(jsToolTip)   
+# related
+jsRelated = CMPGeneric(env, cfg['jsSectionRelated']).generate({'related_data_OPT1' : relatedData, 'related_data_OPT2' : relatedData, 'related_data_OPT3' : relatedData, 'related_data_OPT4' : relatedData, 'related_data_OPT5' : relatedData, 'related_data_OPT6' : relatedData, 'related_data_OPT7' : relatedData})
+FileGenerate(cfg['outDir'] + cfg['section-related-file']).generate(jsRelated)
 try:
     # Genero el temporal para los mensajes, arbol y comentarios
     #tree = CMPGeneric(tmpTree).generate()
@@ -188,7 +195,8 @@ try:
               'rightmenu' : CMPGeneric(env, cfg['cmpRightMenu']).generate({'menu_data': menuData}),
               'comments' : CMPGeneric(env, cfg['cmpComments']).generate(),
               'lastvisited' : CMPGeneric(env, cfg['cmpLastVisited']).generate(),
-              'tree' : CMPGeneric(env, cfg['cmpTree']).generate({'tree_data': treeData})   
+              'tree' : CMPGeneric(env, cfg['cmpTree']).generate({'tree_data': treeData}),
+              'related' : CMPGeneric(env, cfg['cmpRelated']).generate({'related' : relatedData})
               }
     #'tree' : CMPGeneric(cmpTree).generate({'tree': tree}),
     # Generacion del HTML de la home

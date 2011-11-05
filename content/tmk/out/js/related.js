@@ -1,0 +1,67 @@
+/**
+ * related.js 
+ */
+TMK.addData('relatedFilter_order', 'OPT1');
+
+function fillRelated(order, callback) {
+	var relatedHTML = '';
+	var defaultOrder = TMK.getData('relatedFilter_order');
+	
+	if (order == null) {
+		order = defaultOrder;
+	} else {
+		TMK.addData('relatedFilter_order', order);
+	}
+		
+	try {
+		if (TMK.getData('related')[order]) {
+			relatedHTML = TMK.getData('related')[order];
+		}
+		
+	} catch (e) {
+		relatedHTML = 'Sin comentarios';
+	}
+	// render
+	if (document.getElementById('relatedSection')) {
+		document.getElementById('relatedSection').innerHTML = relatedHTML;
+	}
+	
+	var pageCount = 1;
+	if (document.getElementById('relatedPageCount')) {
+		pageCount = document.getElementById('relatedPageCount').value;
+	}
+	if (pageCount > 1) {
+		var display = pageCount;
+		if (pageCount > 5) {
+			display = 5;
+		}
+		$("#paginator").paginate({
+			count 		: pageCount,
+			start 		: 1,
+			display     : display,
+			border					: true,
+			border_color			: '#fff',
+			text_color  			: '#fff',
+			background_color    	: 'black',	
+			border_hover_color		: '#ccc',
+			text_hover_color  		: '#000',
+			background_hover_color	: '#fff', 
+			images					: false,
+			mouse					: 'press',
+			onChange     			: function(page){
+										$('._current','#paginationdemo').removeClass('_current').hide();
+										$('#p'+page).addClass('_current').show();
+									  }
+		});
+	}
+	
+	try {
+		if (callback && typeof (callback) === "function") {
+			// execute the callback, passing parameters as necessary
+			callback(order);
+		}
+	} catch (e) {
+		// TODO: handle exception
+	}
+	return;
+}

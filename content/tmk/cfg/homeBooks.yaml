@@ -2,6 +2,7 @@ outDir : ./out/
 tmpComments : tmpComments.html
 tmpSlider : tmpSlider.html
 tmpToolTip : tmpToolTip.html
+tmpRelated : ./section/tmpSectionRelated.html
 tplDocBase : tmk
 tplHomeSection : tplHomeSection.html
 cmpHead : cmpHead.html
@@ -18,10 +19,12 @@ cmpRightMenu : cmpRightMenu.html
 cmpTree : ./section/cmpSectionTree.html
 cmpComments : ./section/cmpSectionComments.html
 cmpLastVisited : cmpLastVisited.html
+cmpRelated: ./section/cmpSectionRelated.html
 jsSectionComments : ./section/js-section-comments.tmp
 jsHomeMessages : js-home-messages.tmp
 jsHomeShowCase : ./section/js-section-showcase.tmp
 jsHomeToolTip : ./section/js-section-tooltip.tmp
+jsSectionRelated : ./section/js-section-related.tmp
 siteDomain : www.tematika.com
 SECCION_HOME : 0
 SECCION_LIBRO : 1
@@ -35,3 +38,4 @@ section-comments-file : home-books-comments.js
 home-showcase-file : home-books-showcase.js
 home-tooltip-file : home-books-tooltip.js
 home-section-file : HomeBooks.html
+section-related-file : home-books-related.js
