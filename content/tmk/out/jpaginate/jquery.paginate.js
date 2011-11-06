@@ -28,6 +28,8 @@
 		rotate      			: true,
 		images					: true,
 		mouse					: 'slide',
+		text_first				: 'Primero',
+		text_last				: "&Uacute;ltimo",
 		onChange				: function(){return false;}
 	};
 	$.fn.draw = function(o,obj,selectedpage){
@@ -46,7 +48,7 @@
 			var snextclass 		= 'jPag-snext';
 			var nextclass 		= 'jPag-next';
 		}
-		var _first		= $(document.createElement('a')).addClass('jPag-first').html('First');
+		var _first		= $(document.createElement('a')).addClass('jPag-first').html(o.text_first);
 		
 		if(o.rotate){
 			if(o.images) var _rotleft	= $(document.createElement('span')).addClass(spreviousclass);
@@ -80,7 +82,7 @@
 			else var _rotright	= $(document.createElement('span')).addClass(snextclass).html('&raquo;');
 		}
 		
-		var _last		= $(document.createElement('a')).addClass('jPag-last').html('Last');
+		var _last		= $(document.createElement('a')).addClass('jPag-last').html(o.text_last);
 		var _divwrapright	= $(document.createElement('div')).addClass('jPag-control-front');
 		_divwrapright.append(_rotright).append(_last);
 		

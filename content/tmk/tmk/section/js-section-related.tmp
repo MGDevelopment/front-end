@@ -38,7 +38,55 @@ function loadRelated() {
 } 
 
 var callBackRelated = function (order) {
-	
+	if (order == 'OPT1') {
+		document.getElementById('OPT1OFF').style.display = 'block';
+		document.getElementById('OPT1ON').style.display = 'none';
+	} else {
+		document.getElementById('OPT1OFF').style.display = 'none';
+		document.getElementById('OPT1ON').style.display = 'block';
+	}
+	if (order == 'OPT2') {
+		document.getElementById('OPT2OFF').style.display = 'block';
+		document.getElementById('OPT2ON').style.display = 'none';
+	} else {
+		document.getElementById('OPT2OFF').style.display = 'none';
+		document.getElementById('OPT2ON').style.display = 'block';
+	}
+	if (order == 'OPT3') {
+		document.getElementById('OPT3OFF').style.display = 'block';
+		document.getElementById('OPT3ON').style.display = 'none';
+	} else {
+		document.getElementById('OPT3OFF').style.display = 'none';
+		document.getElementById('OPT3ON').style.display = 'block';
+	}
+	if (order == 'OPT4') {
+		document.getElementById('OPT4OFF').style.display = 'block';
+		document.getElementById('OPT4ON').style.display = 'none';
+	} else {
+		document.getElementById('OPT4OFF').style.display = 'none';
+		document.getElementById('OPT4ON').style.display = 'block';
+	}
+	if (order == 'OPT5') {
+		document.getElementById('OPT5OFF').style.display = 'block';
+		document.getElementById('OPT5ON').style.display = 'none';
+	} else {
+		document.getElementById('OPT5OFF').style.display = 'none';
+		document.getElementById('OPT5ON').style.display = 'block';
+	}
+	if (order == 'OPT6') {
+		document.getElementById('OPT6OFF').style.display = 'block';
+		document.getElementById('OPT6ON').style.display = 'none';
+	} else {
+		document.getElementById('OPT6OFF').style.display = 'none';
+		document.getElementById('OPT6ON').style.display = 'block';
+	}
+	if (order == 'OPT7') {
+		document.getElementById('OPT7OFF').style.display = 'block';
+		document.getElementById('OPT7ON').style.display = 'none';
+	} else {
+		document.getElementById('OPT7OFF').style.display = 'none';
+		document.getElementById('OPT7ON').style.display = 'block';
+	}
 	return;
 }
 loadRelated();

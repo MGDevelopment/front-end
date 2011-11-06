@@ -6,10 +6,11 @@ TMK.addData('relatedFilter_order', 'OPT1');
 function fillRelated(order, callback) {
 	var relatedHTML = '';
 	var defaultOrder = TMK.getData('relatedFilter_order');
-	
+
 	if (order == null) {
 		order = defaultOrder;
 	} else {
+		order = 'OPT' + order;
 		TMK.addData('relatedFilter_order', order);
 	}
 		
@@ -40,12 +41,12 @@ function fillRelated(order, callback) {
 			start 		: 1,
 			display     : display,
 			border					: true,
-			border_color			: '#fff',
-			text_color  			: '#fff',
-			background_color    	: 'black',	
-			border_hover_color		: '#ccc',
-			text_hover_color  		: '#000',
-			background_hover_color	: '#fff', 
+			border_color			: '#BEF8B8',
+			text_color  			: '#68BA64',
+			background_color    	: '#E3F2E1',	
+			border_hover_color		: '#68BA64',
+			text_hover_color  		: 'black',
+			background_hover_color	: '#CAE6C6',  
 			images					: false,
 			mouse					: 'press',
 			onChange     			: function(page){

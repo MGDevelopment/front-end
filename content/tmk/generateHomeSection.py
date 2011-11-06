@@ -134,7 +134,13 @@ tooltipHomeBooksMVAT = jinjaToolTip.generate({'prefix': 'books', 'slider_data': 
 
 # related
 jinjaRelated = CMPGeneric(env, cfg['tmpRelated'])
-relatedData = jinjaRelated.generate({'maxItemPage': 2, 'articulos' : [{},{},{},{},{},{}]})
+relatedData1 = jinjaRelated.generate({'maxItemPage': 10, 'order': 1, 'articulos' : [{},{},{},{},{},{},{}]})
+relatedData2 = jinjaRelated.generate({'maxItemPage': 1, 'order': 2, 'articulos' : [{},{},{},{},{},{},{}]})
+relatedData3 = jinjaRelated.generate({'maxItemPage': 4, 'order': 3, 'articulos' : [{},{},{},{},{},{},{}]})
+relatedData4 = jinjaRelated.generate({'maxItemPage': 10, 'order': 4, 'articulos' : [{},{},{},{},{},{},{}]})
+relatedData5 = jinjaRelated.generate({'maxItemPage': 1, 'order': 5, 'articulos' : [{},{},{},{},{},{},{}]})
+relatedData6 = jinjaRelated.generate({'maxItemPage': 2, 'order': 6, 'articulos' : [{},{},{},{},{},{},{}]})
+relatedData7 = jinjaRelated.generate({'maxItemPage': 3, 'order': 7, 'articulos' : [{},{},{},{},{},{},{}]})
 
 # Genero los JS
 # comments
@@ -172,7 +178,7 @@ jsToolTip = CMPGeneric(env, cfg['jsHomeToolTip']).generate({'tooltip_data_TMK_RD
                                                   })
 FileGenerate(cfg['outDir'] + cfg['home-tooltip-file']).generate(jsToolTip)   
 # related
-jsRelated = CMPGeneric(env, cfg['jsSectionRelated']).generate({'related_data_OPT1' : relatedData, 'related_data_OPT2' : relatedData, 'related_data_OPT3' : relatedData, 'related_data_OPT4' : relatedData, 'related_data_OPT5' : relatedData, 'related_data_OPT6' : relatedData, 'related_data_OPT7' : relatedData})
+jsRelated = CMPGeneric(env, cfg['jsSectionRelated']).generate({'related_data_OPT1' : relatedData1, 'related_data_OPT2' : relatedData2, 'related_data_OPT3' : relatedData3, 'related_data_OPT4' : relatedData4, 'related_data_OPT5' : relatedData5, 'related_data_OPT6' : relatedData6, 'related_data_OPT7' : relatedData7})
 FileGenerate(cfg['outDir'] + cfg['section-related-file']).generate(jsRelated)
 try:
     # Genero el temporal para los mensajes, arbol y comentarios
@@ -196,7 +202,7 @@ try:
               'comments' : CMPGeneric(env, cfg['cmpComments']).generate(),
               'lastvisited' : CMPGeneric(env, cfg['cmpLastVisited']).generate(),
               'tree' : CMPGeneric(env, cfg['cmpTree']).generate({'tree_data': treeData}),
-              'related' : CMPGeneric(env, cfg['cmpRelated']).generate({'related' : relatedData})
+              'related' : CMPGeneric(env, cfg['cmpRelated']).generate({'related' : relatedData1})
               }
     #'tree' : CMPGeneric(cmpTree).generate({'tree': tree}),
     # Generacion del HTML de la home
