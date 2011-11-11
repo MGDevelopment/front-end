@@ -22,64 +22,63 @@ dasta query to obtain those parameters is closely related to the template.
 
 ### Example: Home Page
 
-[TOC]
 
 Templates
 ---------
 
 ### page.html (base)
 
-Description:   Basic structure for an HTML page
-Blocks:
-    head:             html head section
-    body_top:         start of body section
-    canvas_top:       start of canvas section
-    canvas_messages:  start of canvas section
-    canvas_content:   start of canvas section
-    canvas_bottom:    end of canvas section
-    body_bottom:      end of body section (javascript)
+    Description:   Basic structure for an HTML page
+    Blocks:
+        head:             html head section
+        body_top:         start of body section
+        canvas_top:       start of canvas section
+        canvas_messages:  start of canvas section
+        canvas_content:   start of canvas section
+        canvas_bottom:    end of canvas section
+        body_bottom:      end of body section (javascript)
 
 ### Home
 
-Description: homepage for the site
-Extends:     page.html
-Includes:    home/bottom.js
-References:  home.css, home/showcase.js
+    Description: homepage for the site
+    Extends:     page.html
+    Includes:    home/bottom.js
+    References:  home.css, home/showcase.js
 
 ### Section
 
-Description: sections and sub-sections
-Extends:     page.html
-References:  section.css
+    Description: sections and sub-sections
+    Extends:     page.html
+    References:  section.css
 
 ### static.html (base)
 
-Description: Base template for static content pages
-Extends:     page.html
-References:  site.css
+    Description: Base template for static content pages
+    Extends:     page.html
+    References:  site.css
 
 ### Static Help
 
-Description: help for the site
-Extends:     static.html
-References:  static.css
+    Description: help for the site
+    Extends:     static.html
+    References:  static.css
 
 ### script.js
 
-Description: help for the site
-Extends:     static.html
+    Description: help for the site
+    Extends:     static.html
 
 ### home/showcase.js
 
-Description: gallery navigation data for dynamic scrolling
-Extends:     script.js
-Requires:    (jquery)
+    Description: gallery navigation data for dynamic scrolling
+    Extends:     script.js
+    Requires:    (jquery)
 
 ### comments.js
 
-Description: comments for a product, section or page
-Extends:     script.js
-Requires:    
+    Description: comments for a product, section or page
+    Extends:     script.js
+    Requires:    
 
 
 Fragments
@@ -91,5 +90,5 @@ resources directly (if possible).
 
 ### gallery_showcase.html
 
-Description: gallery of products
+    Description: gallery of products
 
