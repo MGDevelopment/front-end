@@ -1,0 +1,26 @@
+{% extends "page.html" %}
+
+{% block head_extra -%} {% include gallery.html %} {%- endblock %}
+{% block bottom -%} {% include home/bottom.html %} {%- endblock %}
+{% block body_top -%} {% include home/js_top.html %} {%-endblock %}
+{% block canvas_top -%} {% include home/top.html %} {%- endblock %}
+{% block canvas_messages -%} {% include messages.html %} {%- endblock %}
+
+{% block canvas_content -%}
+    <div class="barraCentral" id="barraCentral">
+        <div id="seccionTematika">
+            <div id="showcase"> {% include home/showcase.html %} </div>
+            <div id="comments"> {% include home/comments.html %} </div>
+            <div id="lastvisited"
+                    style="width: 900px; padding-top: 10px; float: left;">
+                {% include home/lastvisited.html %}
+            </div>
+        </div>
+        <div id="rightmenu"> {% include home/rightmenu.html %} </div>
+    </div> 
+{%- endblock %}
+
+{% block body_bottom -%}
+    {% include home/extra.html %}
+    {% include home/bottom.js %}
+{%-endblock %}
