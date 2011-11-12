@@ -28,9 +28,17 @@
             {% include "fragments/top.html" %}
         {% endblock %}
         </div>
-        <div id="messages">{% block canvas_messages %} {% endblock %}</div>
+        <div id="messages">
+        {% block canvas_messages %}
+            {% include "fragments/messages.html" %}
+        {% endblock %}
+        </div>
         <div id="content">{% block canvas_content %}{% endblock %}</div>
-        <div id="bottom">{% block canvas_bottom %} {% endblock %}</div>
+        <div id="bottom">
+        {% block canvas_bottom %}
+            {% include "fragments/canvas_footer.html" %}
+        {% endblock %}
+        </div>
     </div>
     {% block scripts %}
         {% include "fragments/scripts.html" %}
