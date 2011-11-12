@@ -42,21 +42,23 @@ Templates
         body_bottom:      end of body section (javascript)
     References:  page.css, cart.css, section.css, section_start.css,
                  gallery,css, last_visited.css
+    Parameters:  section:(home|books|movies|music|games|quid|extra|*)
 
 ### Home
 
-    Description:   homepage for the site
-    Extends:       page.html
-    Includes:      home/bottom.js
-    References:    home.css, home/showcase.js
-    Parameters:  
-    important div: product-gallery
+    Description: homepage for the site
+    Extends:     page.html
+    Includes:    index.css, home/bottom.html, home/showcase.js, home/bottom.js
+    Fragments:   top.html, messages.html, product_gallery.html,
+                 comments.html, last_visited.html, right_menu.html, extra.html
+    Parameters:  section:home
 
 ### Section
 
     Description: sections and sub-sections
     Extends:     page.html
     References:  section.css
+    Parameters:  
 
 ### static.html (base)
 
