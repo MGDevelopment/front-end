@@ -8,7 +8,7 @@
         {% include "css/page.css" %}
         {% include "css/cart.css" %}
         {% include "css/section.css" %}
-        {% include "css/section_start.css" %}
+        {% include "css/section_index.css" %}
         {% include "css/gallery.css" %}
         {% include "css/last_visited.css" %}
     {% endblock %}
@@ -28,6 +28,12 @@
         <div id="content">{% block canvas_content %}{% endblock %}</div>
         <div id="bottom">{% block canvas_bottom %} {% endblock %}</div>
     </div>
+    {% block scripts %}
+        {% include "fragments/scripts.html" %}
+    {% endblock %}
     {% block body_bottom %} {% endblock %}
+    {%- block analytics -%}
+        {%- include "fragments/analytics.html" -%}
+    {%- endblock %}
 </body>
 </html>
