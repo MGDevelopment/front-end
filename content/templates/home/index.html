@@ -7,31 +7,31 @@
     {% include "home/bottom.html" %}
 {% endblock %}
 {% block canvas_top %}
-    {% include "top.html" %}
+    {% include "fragments/top.html" %}
 {% endblock %}
 {% block canvas_messages %}
-    {% include "messages.html" %}
+    {% include "fragments/messages.html" %}
 {% endblock %}
 
 {% block canvas_content -%}
     <div class="barraCentral" id="barraCentral">
         <div id="seccionTematika">
             <div id="product-gallery">
-                {% include "product_gallery.html" %}
+                {% include "fragments/product_gallery.html" %}
             </div>
             <div id="comments">
 {# DISABLED WAITING FOR DATASET
-                {% include "comments.html" %}
+                {% include "fragments/comments.html" %}
 #}
             </div>
             <div id="lastvisited"
                     style="width: 900px; padding-top: 10px; float: left;">
-                {% include "last_visited.html" %}
+                {% include "fragments/last_visited.html" %}
             </div>
         </div>
         <div id="rightmenu">
             {# XXX move to page.html #}
-            {% include "right_menu.html" %}
+            {% include "fragments/right_menu.html" %}
         </div>
     </div> 
 {%- endblock %}
