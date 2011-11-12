@@ -41,7 +41,7 @@ Templates
         canvas_bottom:    end of canvas section
         body_bottom:      end of body section (javascript)
     References:  page.css, cart.css, section.css, section_start.css,
-                 gallery,css, last_visited.css
+                 gallery.css, last_visited.css
     Parameters:  section:(home|books|movies|music|games|quid|extra|*)
 
 ### Home
@@ -90,6 +90,44 @@ Templates
     Requires:    
 
 
+Styles
+------
+
+The style definitions for pages.
+
+### css/page.css
+
+    Description:   styles common to all pages derived from base template
+
+### css/cart.css
+
+    Description:   styles for shopping cart fragment
+
+### css/section.css
+
+    Description:   styles for sections
+
+### css/section_index.css
+
+    Description:   styles homepage sections (?)
+
+### css/gallery.css
+
+    Description:   styles for product gallery
+
+### css/last_visited.css
+
+    Description:   styles for last visited products panel
+
+### css/home/index.css
+
+    Description:   styles for the home page
+
+### css/section/section.css
+
+    Description:   styles for section pages
+
+
 Fragments
 ---------
 
@@ -97,15 +135,32 @@ Fragments are standalone parts of a page, usually components. These templates
 do not extend from base page templates and should not reference external
 resources directly (if possible).
 
-### messages.html
+### fragments/scripts.html
 
-    Description:   site-wide messages block (top of the canvas)
+    Description:   basic scripts (base template)
 
-### gallery_showcase.html
+### fragments/analytics.html
+
+    Description:   Google analytics snippet
+
+### fragments/product_gallery.html
 
     Description: gallery of products
 
-### home/head.html
+### fragments/canvas_top.html
 
-    Description: gallery of products
+    Description:   common top (base template)
+                   includes search, cart
+
+### fragments/messages.html
+
+    Description:   global messages to the user (base template)
+
+### fragments/canvas_footer.html
+
+    Description:   common page footer (base template)
+
+### fragments/canvas_footer.html
+
+    Description:   generic footer of the canvas
 
