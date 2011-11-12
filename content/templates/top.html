@@ -9,12 +9,16 @@
 				<ul style="display: none;" id="listaBuscador"
 					onmouseover="clearTimeout(tempo);"
 					onmouseout="ocultarOpcionesT('listaBuscador');">
+
+{# Cambiar por el nuevo buscador
 					{% for opt in search_opts.options %}
 					<li><a id="{{ opt.idOpt }}"
 						href="javascript:mostrarBuscarPor('{{ opt.idOpt }}','optBusqueda','listaBuscador','{{ opt.idSeccion }}','{{ opt.idSeccionPropia }}','{{ opt.seccionBusqueda }}');">
 						{{ opt.txtOpt }} 
 					</a></li>
 					 {% endfor %}
+#}
+
 				</ul></li>
 		</ul>
 		<input id="txtBuscar" name="buscadorTxtField" type="text" value=""

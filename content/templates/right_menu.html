@@ -1,0 +1,23 @@
+<div class="panelSecciones" id="divBarraDerecha">
+	{%- if section not in ('books', 'home') -%}
+	<a href="/libros" id="panelSeccLibros" title="Libros"><span></span></a>
+	{%- endif %}
+	{%- if section not in ('music', 'home') -%}
+	<a href="/musica" id="panelSeccMusica" title="M&uacute;sica"><span></span></a>
+	{%- endif %}
+	{%- if section not in ('movies', 'home') -%}
+	<a href="/peliculas" id="panelSeccPeliculas" title="Pel&iacute;culas"><span></span></a>
+	{%- endif %}
+	{%- if section not in ('games', 'home') -%}
+	<a href="/juguetes" id="panelSeccPasatiempos" title="Pasatiempos"><span></span></a>
+	{%- endif %}
+	{%- if section not in ('branches', 'home') -%}
+	<a href="/sucursales" id="panelSeccSucursales" title="Sucursales"><span></span></a>
+	{%- endif %}
+	{%- if section not in ('quid', 'home') -%}
+	<a href="#" onclick="window.open('http://www.yenny-elateneo.com/index.php?idS=1');return false;" id="panelSeccQuid" title="Quid"><span></span></a>
+	{%- endif %}
+	{%- if section not in ('extra', 'home') -%}
+	<a href="/extra" id="panelSeccExtra" title="eXtra!"><span></span></a>
+	{%- endif %}
+</div>
