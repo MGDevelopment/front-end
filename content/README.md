@@ -40,6 +40,8 @@ Templates
         canvas_content:   start of canvas section
         canvas_bottom:    end of canvas section
         body_bottom:      end of body section (javascript)
+    References:  page.css, cart.css, section.css, section_start.css,
+                 gallery,css, last_visited.css
 
 ### Home
 
