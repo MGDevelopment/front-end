@@ -4,7 +4,7 @@
     {% include "home/index.css" %}
 {% endblock %}
 {% block canvas_bottom %}
-    {% include "home/bottom.html" %}
+    {% include "fragments/canvas_footer.html" %}
 {% endblock %}
 {% block canvas_top %}
     {% include "fragments/top.html" %}
@@ -36,7 +36,7 @@
     </div> 
 {%- endblock %}
 
-{% block body_bottom -%}
+{% block body_bottom %}
     {% include "fragments/extra.html" %}
-    {% include "home/bottom.js" %}
-{%-endblock %}
+    {% include "fragments/scripts.html" %}
+{% endblock %}
