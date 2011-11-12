@@ -30,7 +30,10 @@ Templates
 
     Description:   Basic structure for an HTML page
     Blocks:
-        head:             html head section
+        content_type:     basic content type defined
+        page_css:         global stylesheets
+        ie_fix:           Internet Explorer fix stylesheet
+        head_extra:       placeholder for extra html head elements
         body_top:         start of body section
         canvas_top:       start of canvas section
         canvas_messages:  start of canvas section
@@ -44,6 +47,7 @@ Templates
     Extends:     page.html
     Includes:    home/bottom.js
     References:  home.css, home/showcase.js
+    Parameters:  
 
 ### Section
 
@@ -88,7 +92,15 @@ Fragments are standalone parts of a page, usually components. These templates
 do not extend from base page templates and should not reference external
 resources directly (if possible).
 
+### messages.html
+
+    Description:   site-wide messages block (top of the canvas)
+
 ### gallery_showcase.html
+
+    Description: gallery of products
+
+### home/head.html
 
     Description: gallery of products
 
