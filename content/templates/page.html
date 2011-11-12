@@ -23,7 +23,11 @@
 <body>
     {% block body_top %} {% endblock %}
     <div id="canvas" class="canvas">
-        <div id="top">{% block canvas_top %}{% endblock %}</div>
+        <div id="top">
+        {% block canvas_top %}
+            {% include "fragments/top.html" %}
+        {% endblock %}
+        </div>
         <div id="messages">{% block canvas_messages %} {% endblock %}</div>
         <div id="content">{% block canvas_content %}{% endblock %}</div>
         <div id="bottom">{% block canvas_bottom %} {% endblock %}</div>
