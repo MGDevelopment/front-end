@@ -45,11 +45,12 @@ Templates
 
 ### Home
 
-    Description: homepage for the site
-    Extends:     page.html
-    Includes:    home/bottom.js
-    References:  home.css, home/showcase.js
+    Description:   homepage for the site
+    Extends:       page.html
+    Includes:      home/bottom.js
+    References:    home.css, home/showcase.js
     Parameters:  
+    important div: product-gallery
 
 ### Section
 
