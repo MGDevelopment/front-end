@@ -70,13 +70,18 @@ query_main:     &query_main
             LEFT JOIN   EntitySnapshotRatings ESR
                 ON      ESR.EntityType = 'PROD' AND
                         P.ProductId = ESR.EntityId
+            -------------- Publishing Status
+            INNER JOIN  ProductSupplyPublishingDetail PSPD
+                ON      P.ProductId = PSPD.ProductId AND
+                        PSPD.MarketPublishingStatus = '04'
             -------------- Publishing Date
             LEFT JOIN   ProductSupplyPublishingDetailDates PSPDD
                 ON      P.ProductId = PSPDD.ProductId AND
                         PSPDD.DateRole = '01'
             -------------- Availability and Price
             INNER JOIN  ProductSupplyDetail PSD
-                ON      P.ProductId = PSD.ProductId
+                ON      P.ProductId = PSD.ProductId AND
+                        PSD.ProductAvailability = '21'
             LEFT JOIN   ProductSupplyDetailPrice PSDP
                 ON      PSD.ProductId = PSDP.ProductId
             -------------- Pages/Duration
