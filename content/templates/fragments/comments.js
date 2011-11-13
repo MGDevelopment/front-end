@@ -8,8 +8,8 @@ function fillComments(section, callback) {
     }
     
     try {
-        if (section != null && TMK.getData('comments')[section]) {
-            commentsHTML = TMK.getData('comments')[section];
+        if (section != null && APP.getData('comments')[section]) {
+            commentsHTML = APP.getData('comments')[section];
         }
     } catch (e) {
         commentsHTML = 'Sin comentarios';
