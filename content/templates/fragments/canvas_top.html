@@ -24,10 +24,10 @@
 		</ul>
 		<input id="txtBuscar" name="buscadorTxtField" type="text" value=""
 			class="hBuscTxtF"
-			onkeypress="javascript: if(pressEnter(event)) buscador_setBusqueda(document.getElementById('optBusqueda').innerHTML, document.getElementById('txtBuscar').value, '','',document.getElementById('seccionBusqueda').value);" />
-		<input type="hidden" id="seccionBusqueda" value="" /> <input
-			type="hidden" id="idSeccionPropia" value="" /> <input type="hidden"
-			id="idSeccion" value="" /> <a id="btnBuscar" class="hBuscButton"
+			onkeypress="javascript: if(pressEnter(event)) buscador_setBusqueda(document.getElementById('optBusqueda').innerHTML, document.getElementById('txtBuscar').value, '','',document.getElementById('seccionBusqueda').value);">
+		<input type="hidden" id="seccionBusqueda" value=""> <input
+			type="hidden" id="idSeccionPropia" value=""> <input type="hidden"
+			id="idSeccion" value=""> <a id="btnBuscar" class="hBuscButton"
 			title="Buscar"
 			href="javascript:buscador_setBusqueda(document.getElementById('optBusqueda').innerHTML,document.getElementById('txtBuscar').value,'',document.getElementById('idSeccionPropia').value,document.getElementById('seccionBusqueda').value);">&nbsp;</a>
 	</div>
@@ -41,7 +41,7 @@
 		<a id="divSalir" style="visibility: hidden;" class="hModUsrCerrar"
 			href="/TerminarSesion" title="Salir">salir</a>
 		<div class="hModUsrExtra">
-			Consulta&acute; tus <br /> <a id="lnkCantPuntExtra" href="/extra">puntos</a>eXtra!
+			Consulta&acute; tus <br> <a id="lnkCantPuntExtra" href="/extra">puntos</a>eXtra!
 		</div>
 		<a href="/IniciarCompra" id="textoCarrito" class="hModUsrCarrito"
 			title="Finalizar la compra"></a> <a href="/compra/carrito.jsp"
