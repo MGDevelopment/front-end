@@ -1,0 +1,260 @@
+---
+###########################################################
+#
+# the dataset output is defined after the query_main and
+# augment_query_authors
+#
+###########################################################
+
+#
+# the master query
+#
+# Returns a list of the products that must be shown in each showcase
+#
+query_showcase_main:    &query_showcase_main
+    query.sql:  >
+        SELECT          *
+            FROM        (
+                SELECT  ERE.EntityType                  AS EntityType,
+                        ERE.EntityId                    AS EntityId,
+                        ERE.EntryOrder                  AS EntryOrder,
+                        P.ProductId                     AS ProductId,
+                        -------------- title
+                        PT.EffectiveTitle               AS Title,
+                        -------------- links
+                        PEUR.LinkBase                   AS LinkBase,
+                        '/' || CAST(P.ProductId AS VARCHAR(32)) || '.jpg'
+                                                        AS CoverSmall,
+                        -------------- Comments and Ratings
+                        CAST (  (ESR.Rating1Count * 1 + ESR.Rating2Count * 2 + ESR.Rating3Count * 3 + ESR.Rating4Count * 4 + ESR.Rating5Count * 5) /
+                                COALESCE(NULLIF(ESR.Rating1Count + ESR.Rating2Count + ESR.Rating3Count + ESR.Rating4Count + ESR.Rating5Count, 0), 1.0)
+                                AS DECIMAL(3, 2))
+                                                        AS Rating,
+                        ESR.Rating1Count + ESR.Rating2Count + ESR.Rating3Count + ESR.Rating4Count + ESR.Rating5Count
+                                                        AS CommentCount,
+                        -------------- Imprint
+                        I.ImprintId                     AS ImprintId,
+                        I.Name                          AS ImprintName,
+                        IEUR.LinkBase                   AS ImprintURLBase,
+                        -------------- Ranking????
+                        -- WHAT IS THIS???
+                        P.ProductId % 4000              AS Ranking,
+                        -------------- Publishing Date
+                        PSPDD.DateFormat                AS PublishingDateFormat,
+                        PSPDD.DateValue                 AS PublishingDateValue,
+                        COALESCE(PL.LanguageCode, 'es') AS LanguageCode,
+                        -------------- Pages/Duration
+                        PE.ExtentType                   AS ExtentType,
+                        PE.ExtentUnit                   AS ExtentUnit,
+                        PE.ExtentValue                  AS ExtentValue,
+                        -------------- Product Form
+                        PF.ProductForm                  AS ProductForm,
+                        -------------- Availability and Price
+                        PSPD.MarketPublishingStatus     AS MarketPublishingStatus,
+                        PSD.ProductAvailability         AS ProductAvailability,
+                        PSD.FulfillmentType             AS FulfillmentType,
+                        PSD.FulfillmentValue            AS FulfillmentValue,
+                        PSDP.CurrencyCode               AS CurrencyCode,
+                        PSDP.PriceAmount                AS PriceAmount,
+                        -------------- USED TO LIMIT THE COUNT OF RETRIEVED ITEMS
+                        row_number() OVER (PARTITION BY ERE.EntityType, ERE.EntityId
+                                           ORDER BY ERE.EntryOrder DESC)
+                                AS Row_Number
+                    FROM        EntityRelatedEntities ERE
+                    -------------- Product Info
+                    INNER JOIN  Products P
+                        ON      ERE.RelatedEntityId = P.ProductId AND
+                                P.FlagDeleted = false
+                    -------------- Product Form
+                    INNER JOIN  ProductForm PF
+                        ON      P.ProductId = PF.ProductId
+                    -------------- Language
+                    LEFT JOIN   ProductLanguages PL
+                        ON      P.ProductId = PL.ProductId AND
+                                PL.LanguageRole = '01'
+                    -------------- Title
+                    INNER JOIN  ProductTitles PT
+                        ON      P.ProductId = PT.ProductId AND
+                                PT.TitleType = '01' AND
+                                PT.EffectiveLanguageCode = 'es'
+                    -------------- Comments and Ratings
+                    LEFT JOIN   EntitySnapshotRatings ESR
+                        ON      ESR.EntityType = 'PROD' AND
+                                P.ProductId = ESR.EntityId
+                    -------------- Publishing Status
+                    INNER JOIN  ProductSupplyPublishingDetail PSPD
+                        ON      P.ProductId = PSPD.ProductId AND
+                                PSPD.MarketPublishingStatus = '04'
+                    -------------- Publishing Date
+                    INNER JOIN  ProductSupplyPublishingDetailDates PSPDD
+                        ON      P.ProductId = PSPDD.ProductId AND
+                                PSPDD.DateRole = '01' AND
+                                PSPDD.DateValue {{VAR:operator}}
+                                        (CURRENT_DATE - {{CONFIG:constants.content.classics.days}})
+                    -------------- Availability and Price
+                    INNER JOIN  ProductSupplyDetail PSD
+                        ON      P.ProductId = PSD.ProductId AND
+                                PSD.ProductAvailability = '21'
+                    LEFT JOIN   ProductSupplyDetailPrice PSDP
+                        ON      PSD.ProductId = PSDP.ProductId
+                    -------------- Pages/Duration
+                    LEFT JOIN   ProductExtents PE
+                        ON      P.ProductId = PE.ProductId AND
+                                PE.ExtentType = (SELECT     MIN(PE2.ExtentType)
+                                                    FROM    ProductExtents PE2
+                                                    WHERE   PE2.ProductId = P.ProductId)
+                    -------------- Imprint
+                    LEFT JOIN   ProductImprints PI
+                        ON      P.ProductId = PI.ProductId AND
+                                PI.EntryOrder = 0
+                    LEFT JOIN   Imprints I
+                        ON      PI.ImprintId = I.ImprintId AND
+                                I.FlagDeleted = false
+                    LEFT JOIN   EntityURLs IEU
+                        ON      IEU.EntityType = 'IMPR' AND
+                                IEU.EntityId = I.ImprintId
+                    LEFT JOIN   URLs IEUR
+                        ON      IEU.URLId = IEUR.URLId
+                    -------------- Link and Cover
+                    LEFT JOIN   URLs PEUR
+                        ON      PEUR.URLId = (SELECT    MIN(PEUR.URLId)
+                                                FROM    EntityURLs PEUR
+                                                WHERE   PEUR.EntityType = 'PROD' AND
+                                                        PEUR.EntityId = P.ProductId)
+                    -------------- main condition
+                    WHERE       ERE.EntityType = 'SUBJ' AND
+                                {{ID:EntityId}} AND
+                                ERE.EntityRelationCode = 'YV' AND
+                                ERE.RelatedEntityType = 'PROD'
+                    ORDER BY    ERE.EntityType, ERE.EntityId, ERE.EntryOrder DESC
+                ) Q
+            WHERE   Q.Row_Number <= {{VAR:limit}}
+    query.prefix:       ERE
+    query.id:           [ "EntityId" ]
+    que_ry.output:       list
+    query.group:        [ "EntityId" ]
+    query.key:          [ "EntityId" ]
+    query.columns:      [ "EntityType", "EntityId", "EntryOrder",
+                          "ProductId", "Title", "LinkBase", "CoverSmall", "Rating", "CommentCount",
+                          "ImprintId", "ImprintName", "ImprintURLBase", "Ranking",
+                          "PublishingDateFormat", "PublishingDateValue", "LanguageCode",
+                          "ExtentType", "ExtentUnit", "ExtentValue", "ProductForm",
+                          "MarketPublishingStatus", "ProductAvailability", "FulfillmentType",
+                          "FulfillmentValue", "CurrencyCode", "PriceAmount", "Row_Number" ]
+    query.translate:    { "PublishingDateFormat" : "ONIX.55",
+                          "ExtentType" : "ONIX.23",
+                          "ExtentUnit" : "ONIX.24",
+                          "ProductForm" : "ONIX.150",
+                          "LanguageCode" : "ONIX.74",
+                          "MarketPublishingStatus" : "ONIX.68",
+                          "ProductAvailability" : "ONIX.65",
+                          "FulfillmentType" : "eCommerce.FulfillmentType",
+                          "CurrencyCode" : "ONIX.96" }
+
+#
+# the Authors query
+#
+# Returns a list of the authors for each product that must be shown in each showcase
+#
+augment_query_showcase_authors:  &augment_query_showcase_authors
+    query.sql:  >
+        SELECT          PC.ProductId                AS ProductId,
+                        PC.ProductId                AS EntityId,
+                        PC.EntryOrder               AS EntryOrder,
+                        PC.ContributorRole          AS ContributorRole,
+                        C.ContributorId             AS ContributorId,
+                        C.PersonName                AS PersonName,
+                        EUR.LinkBase                AS LinkBase
+                FROM        ProductContributors PC
+                -------------- Contributor
+                INNER JOIN  Contributors C
+                    ON      PC.ContributorId = C.ContributorId
+                -------------- Link
+                LEFT JOIN   URLs EUR
+                    ON      EUR.URLId = (SELECT     MIN(CEUR.URLId)
+                                            FROM    EntityURLs CEUR
+                                            WHERE   CEUR.EntityType = 'CONT' AND
+                                                    CEUR.EntityId = C.ContributorId)
+                -------------- Main condition
+                WHERE       PC.ProductId IN (
+                                SELECT          Q.ProductId
+                                    FROM        (
+                                        SELECT  P.ProductId                     AS ProductId,
+                                                -------------- USED TO LIMIT THE COUNT OF RETRIEVED ITEMS
+                                                row_number() OVER (PARTITION BY ERE.EntityType, ERE.EntityId
+                                                                   ORDER BY ERE.EntryOrder DESC)
+                                                        AS Row_Number
+                                            FROM        EntityRelatedEntities ERE
+                                            -------------- Product Info
+                                            INNER JOIN  Products P
+                                                ON      ERE.RelatedEntityId = P.ProductId AND
+                                                        P.FlagDeleted = false
+                                            -------------- Publishing Status
+                                            INNER JOIN  ProductSupplyPublishingDetail PSPD
+                                                ON      P.ProductId = PSPD.ProductId AND
+                                                        PSPD.MarketPublishingStatus = '04'
+                                            -------------- Publishing Date
+                                            INNER JOIN  ProductSupplyPublishingDetailDates PSPDD
+                                                ON      P.ProductId = PSPDD.ProductId AND
+                                                        PSPDD.DateRole = '01' AND
+                                                        PSPDD.DateValue {{VAR:operator}}
+                                                                (CURRENT_DATE - {{CONFIG:constants.content.classics.days}})
+                                            -------------- Availability and Price
+                                            INNER JOIN  ProductSupplyDetail PSD
+                                                ON      P.ProductId = PSD.ProductId AND
+                                                        PSD.ProductAvailability = '21'
+                                            WHERE       ERE.EntityType = 'SUBJ' AND
+                                                        {{ID:EntityId}} AND
+                                                        ERE.EntityRelationCode = 'YV' AND
+                                                        ERE.RelatedEntityType = 'PROD'
+                                            ORDER BY    ERE.EntityType, ERE.EntityId, ERE.EntryOrder DESC
+                                        ) Q
+                                    WHERE   Q.Row_Number <= {{VAR:limit}}
+                                    ) AND
+                            PC.ContributorRole IN ('A01', 'D02', 'E01')
+                ORDER BY    PC.ProductId, PC.EntryOrder
+    query.prefix:       ERE
+    query.id:           [ "EntityId" ]
+    query.group:        [ "ProductId" ]
+    query.ouput:        list
+    query.columns:      [ "ProductId", "EntryOrder", "ContributorRole", "ContributorId",
+                          "PersonName", "LinkBase" ]
+    query.translate:    { "ContributorRole" : "ONIX.17" }
+
+
+
+#
+# expand
+#
+# Get showcase and recents for subject page
+#
+query.sql:          >
+    SELECT          S.SubjectId             AS SubjectId,
+                    S.Title                 AS Title
+        FROM        Subjects S
+        WHERE       {{ID:SubjectId}}
+        ORDER BY    S.SubjectId
+query.prefix:       S
+query.id:           [ "SubjectId" ]
+query.key:          [ "SubjectId" ]
+query.columns:      [ "SubjectId", "Title" ]
+query.augment:
+    Showcase:
+        #
+        # this query gets the top selling items for the subject
+        #
+        # NOTE: the query selects the top selling (as opposed to "clasics") by
+        #       considering the publication date. If it's less than a specified
+        #       system constant is a top selling, if it's greater than that
+        #       constant, it's a classic. The operator is passed to the query
+        #
+        <<:             *query_showcase_main      # get the main query
+        query.var:                       # set the vars
+            operator:   ">="             # we want items whose date is recent
+            limit:      24
+        query.augment:                   # augment with Authors
+            Authors:
+                <<:     *augment_query_showcase_authors   # get the authors query
+                query.var:               # set the vars
+                    operator:   ">="             # we want items whose date is recent
+                    limit:      24

@@ -45,6 +45,8 @@ query_main:     &query_main
                 -------------- Product Form
                 PF.ProductForm                  AS ProductForm,
                 -------------- Availability and Price
+                PSPD.MarketPublishingStatus     AS MarketPublishingStatus,
+                PSD.ProductAvailability         AS ProductAvailability,
                 PSD.FulfillmentType             AS FulfillmentType,
                 PSD.FulfillmentValue            AS FulfillmentValue,
                 PSDP.CurrencyCode               AS CurrencyCode,
@@ -123,13 +125,15 @@ query_main:     &query_main
                           "ImprintId", "ImprintName", "ImprintURLBase", "Ranking",
                           "PublishingDateFormat", "PublishingDateValue", "LanguageCode",
                           "ExtentType", "ExtentUnit", "ExtentValue", "ProductForm",
-                          "FulfillmentType", "FulfillmentValue",
-                          "CurrencyCode", "PriceAmount" ]
+                          "MarketPublishingStatus", "ProductAvailability", "FulfillmentType",
+                          "FulfillmentValue", "CurrencyCode", "PriceAmount" ]
     query.translate:    { "PublishingDateFormat" : "ONIX.55",
                           "ExtentType" : "ONIX.23",
                           "ExtentUnit" : "ONIX.24",
                           "ProductForm" : "ONIX.150",
                           "LanguageCode" : "ONIX.74",
+                          "MarketPublishingStatus" : "ONIX.68",
+                          "ProductAvailability" : "ONIX.65",
                           "FulfillmentType" : "eCommerce.FulfillmentType",
                           "CurrencyCode" : "ONIX.96" }
 
@@ -228,39 +232,43 @@ augment:
         <<:             *query_main      # get the main query
         query.var:                       # set the vars
             subjectId:  "{{CONFIG:constants.content.categories.books.subjectid}}"
-            limit:      "24"
+            limit:      24
         query.augment:                   # augment with Authors
             Authors:
                 <<:     *augment_query_authors   # get the authors query
                 query.var:               # set the vars
                     subjectId:  "{{CONFIG:constants.content.categories.books.subjectid}}"
+                    limit:      24
     Showcase-Movies:
         <<:             *query_main      # get the main query
         query.var:                       # set the vars
             subjectId:  "{{CONFIG:constants.content.categories.movies.subjectid}}"
-            limit:      "24"
+            limit:      24
         query.augment:                   # augment with Authors
             Authors:
                 <<:     *augment_query_authors   # get the authors query
                 query.var:               # set the vars
                     subjectId:  "{{CONFIG:constants.content.categories.movies.subjectid}}"
+                    limit:      24
     Showcase-Music:
         <<:             *query_main      # get the main query
         query.var:                       # set the vars
             subjectId:  "{{CONFIG:constants.content.categories.music.subjectid}}"
-            limit:      "36"
+            limit:      36
         query.augment:                   # augment with Authors
             Authors:
                 <<:     *augment_query_authors   # get the authors query
                 query.var:               # set the vars
                     subjectId:  "{{CONFIG:constants.content.categories.music.subjectid}}"
+                    limit:      36
     Showcase-Games:
         <<:             *query_main      # get the main query
         query.var:                       # set the vars
             subjectId:  "{{CONFIG:constants.content.categories.games.subjectid}}"
-            limit:      "24"
+            limit:      24
         query.augment:                   # augment with Authors
             Authors:
                 <<:     *augment_query_authors   # get the authors query
                 query.var:               # set the vars
                     subjectId:  "{{CONFIG:constants.content.categories.games.subjectid}}"
+                    limit:      24

@@ -45,6 +45,8 @@ query_main:     &query_main
                 -------------- Product Form
                 PF.ProductForm                  AS ProductForm,
                 -------------- Availability and Price
+                PSPD.MarketPublishingStatus     AS MarketPublishingStatus,
+                PSD.ProductAvailability         AS ProductAvailability,
                 PSD.FulfillmentType             AS FulfillmentType,
                 PSD.FulfillmentValue            AS FulfillmentValue,
                 PSDP.CurrencyCode               AS CurrencyCode,
@@ -123,13 +125,15 @@ query_main:     &query_main
                           "ImprintId", "ImprintName", "ImprintURLBase", "Ranking",
                           "PublishingDateFormat", "PublishingDateValue", "LanguageCode",
                           "ExtentType", "ExtentUnit", "ExtentValue", "ProductForm",
-                          "FulfillmentType", "FulfillmentValue",
-                          "CurrencyCode", "PriceAmount" ]
+                          "MarketPublishingStatus", "ProductAvailability", "FulfillmentType",
+                          "FulfillmentValue", "CurrencyCode", "PriceAmount" ]
     query.translate:    { "PublishingDateFormat" : "ONIX.55",
                           "ExtentType" : "ONIX.23",
                           "ExtentUnit" : "ONIX.24",
                           "ProductForm" : "ONIX.150",
                           "LanguageCode" : "ONIX.74",
+                          "MarketPublishingStatus" : "ONIX.68",
+                          "ProductAvailability" : "ONIX.65",
                           "FulfillmentType" : "eCommerce.FulfillmentType",
                           "CurrencyCode" : "ONIX.96" }
 
@@ -165,7 +169,7 @@ augment_query_authors:  &augment_query_authors
                                                 ERE.EntityRelationCode = 'YV' AND
                                                 ERE.RelatedEntityType = 'PROD'
                                     ORDER BY    ERE.EntryOrder
-                                    LIMIT       24) AND
+                                    LIMIT       {{VAR:limit}}) AND
                             PC.ContributorRole IN ('A01', 'D02', 'E01')
                 ORDER BY    PC.ProductId, PC.EntryOrder
     query.prefix:       PC
@@ -188,39 +192,43 @@ augment:
         <<:             *query_main      # get the main query
         query.var:                       # set the vars
             subjectId:  "{{CONFIG:constants.content.categories.books.subjectid}}"
-            limit:      "4"
+            limit:      4
         query.augment:                   # augment with Authors
             Authors:
                 <<:     *augment_query_authors   # get the authors query
                 query.var:               # set the vars
                     subjectId:  "{{CONFIG:constants.content.categories.books.subjectid}}"
+                    limit:      4
     Movies:
         <<:             *query_main      # get the main query
         query.var:                       # set the vars
             subjectId:  "{{CONFIG:constants.content.categories.movies.subjectid}}"
-            limit:      "4"
+            limit:      4
         query.augment:                   # augment with Authors
             Authors:
                 <<:     *augment_query_authors   # get the authors query
                 query.var:               # set the vars
                     subjectId:  "{{CONFIG:constants.content.categories.movies.subjectid}}"
+                    limit:      4
     Music:
         <<:             *query_main      # get the main query
         query.var:                       # set the vars
             subjectId:  "{{CONFIG:constants.content.categories.music.subjectid}}"
-            limit:      "6"
+            limit:      6
         query.augment:                   # augment with Authors
             Authors:
                 <<:     *augment_query_authors   # get the authors query
                 query.var:               # set the vars
                     subjectId:  "{{CONFIG:constants.content.categories.music.subjectid}}"
+                    limit:      6
     Games:
         <<:             *query_main      # get the main query
         query.var:                       # set the vars
             subjectId:  "{{CONFIG:constants.content.categories.games.subjectid}}"
-            limit:      "4"
+            limit:      4
         query.augment:                   # augment with Authors
             Authors:
                 <<:     *augment_query_authors   # get the authors query
                 query.var:               # set the vars
                     subjectId:  "{{CONFIG:constants.content.categories.games.subjectid}}"
+                    limit:      4
