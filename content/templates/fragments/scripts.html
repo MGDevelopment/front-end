@@ -33,23 +33,28 @@
 	tamView[catMusica]=6;
 	tamView[catPelicula]=4;
 	//]]>
+
+    {% include "fragments/app.js" %}
+    {% include "fragments/comments.js" %}
+    {% include "fragments/messages.js" %}
+    {% include "fragments/gallery.js" %}
+    {% include "fragments/dropDownMenu.js" %}
+
+    fillMessages(null);
+    fillComments(null);
+
 </script>
 
 <!-- New Scripts -->
-{% include "fragments/app.js" %}
-<script type="text/javascript" src="/js/comments.js"></script>
 <script type="text/javascript" src="home-comments.js"></script>
-<script type="text/javascript" src="/js/messages.js"></script>
 <script type="text/javascript" src="home-messages.js"></script>
-<script type="text/javascript" src="/js/showcase.js"></script>
 <script type="text/javascript" src="home-showcase.js"></script>
 <script type="text/javascript" src="home-tooltip.js"></script>
-<script type="text/javascript" src="/js/home.js"></script>
 <!-- Scripts por herencia -->
-<script type="text/javascript" src="/js/dropDownMenu.js"></script>
 <!-- JQuery Carousel -->
 <script type="text/javascript" src="/carousel/jquery.tinycarousel.js"></script>
 <script type="text/javascript" src="/carousel/jquery.colorbox.js"></script>
+
 <script type="text/javascript">
 
 jQuery(document).ready(function() {
