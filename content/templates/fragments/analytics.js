@@ -1,4 +1,4 @@
-<script type="text/javascript">
+  /* Google Analytics */
   var _gaq = _gaq || [];
   _gaq.push(['_setAccount', 'UA-635166-1']);
   _gaq.push(['_trackPageview']);
@@ -10,4 +10,3 @@
     var s = document.getElementsByTagName('script')[0];
     s.parentNode.insertBefore(ga, s);
   })();
-</script>
