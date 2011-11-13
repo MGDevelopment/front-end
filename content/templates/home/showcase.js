@@ -80,7 +80,7 @@ dataShowCase['MVATGames'] = '{{ showcase_data_MVAT.games|replace("\n", "") }}';
 {%- endif %}
 
 function loadShowCase() {
-	TMK.addData('showcase', dataShowCase);
+	APP.addData('showcase', dataShowCase);
 	return;
 } 
 
