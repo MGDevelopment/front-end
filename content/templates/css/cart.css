@@ -1,4 +1,3 @@
-<style type="text/css">
 /* cart.css */
 .efectoCarritoMod {
 position:fixed;
@@ -8,7 +7,7 @@ left:50%;
 margin-left:-147px;
 top:40%;
 margin-top:-87px;
-background-image:url(/imagenes/back-efectocarrito.gif);
+background-image:url({{ url_static}}/imagenes/back-efectocarrito.gif);
 border:solid 1px #CCC;
 text-align:left;
 z-index:10001;
@@ -70,5 +69,3 @@ text-align:left;
 color:#777;
 text-decoration:none;
 }
-
-</style>

@@ -22,14 +22,17 @@
         <link rel="search" type="application/opensearchdescription+xml" title="Tematika" href="/plugin/search/busquedaInicio.xml">
     {%- endblock %}
     
+    <style type="text/css; charsert=utf-8">
     {% block page_css %}
-        {% include "css/page.html" %}
-        {% include "css/cart.html" %}
-        {% include "css/section.html" %}
-        {% include "css/section_index.html" %}
-        {% include "css/gallery.html" %}
-        {% include "css/last_visited.html" %}
+        {% include "css/common.css" %}
+        {% include "css/cart.css" %}
+        {% include "css/section.css" %}
+        {% include "css/section_index.css" %}
+        {% include "css/gallery.css" %}
+        {% include "css/last_visited.css" %}
+        {% include "css/page.css" %}
     {% endblock %}
+    </style>
     {% block ie_fix %}
         <!--[if lt IE 7]>
             <link href="/estilos/ie.css" type="text/css" rel="stylesheet">

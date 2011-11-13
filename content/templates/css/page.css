@@ -1,4 +1,3 @@
-<style type="text/css">
 /* page.css */
 .Gtablaprincipal
 {
@@ -221,7 +220,7 @@ a.Flogin
 	padding-left:25px;
 	color:#FF070F;
 	background-color:#FFFFFF;
-	background-image:url(/imagenes/error-icon.gif);
+	background-image:url({{ url_static}}/imagenes/error-icon.gif);
 	background-repeat:no-repeat;
 	background-position:left top;
 	text-align:left;
@@ -793,5 +792,3 @@ a.FSubCategorias3:hover
 	color:#FF0000;
 	text-decoration:none;
 }
-
-</style>
