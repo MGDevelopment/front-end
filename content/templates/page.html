@@ -4,6 +4,24 @@
     {% block content_type %}
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     {% endblock %}
+    {% block metaTag -%}
+        <title>Tematika.com: Venta de libros, discos, peliculas. Libreria, disqueria online</title>
+        <meta name="description" content="Tematika.com: Portal de venta por internet de libros, musica (discos), peliculas, pasatiempos. Gran variedad y disponibilidad. Ofertas, promociones. Envios a domicilio a todo el mundo." >
+        <meta name="keywords" content="libros, discos, musica, peliculas, agendas, almanaques, calendarios, venta, online, comprar, compra, libreria, disqueria, envios, domicilio, todo el mundo, argentina, tematika, ranking, sucursales, compra segura, mas vendidos, lista de deseos, servicio, afiliados, regalos, promociones, yenny, el ateneo, grupo ilhsa, biografias, sinopsis, capitulo, indice, best seller, banda de sonido, novedades, recomendados, textos escolares" >
+        <meta name="distribution" content="Global" >
+        <meta name="copyright" content="Tematika.com" >
+        <meta http-equiv="Pragma" content="no-cache" >
+        <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" >
+        <meta name="AUTHOR" content="Tematika.com" >
+        <meta name="AuthorMetatags" content="NetOne" >
+        <meta name="Resource-type" content="Document" >
+        <link href="http://{{ site_domain }}/rss/rankingLibros.xml" title="RSS" type="application/rss+xml" rel="alternate">
+        <link href="http://{{ site_domain }}/rss/rankingMusica.xml" title="RSS" type="application/rss+xml" rel="alternate">
+        <link href="http://{{ site_domain }}/rss/rankingPeliculas.xml" title="RSS" type="application/rss+xml" rel="alternate">
+        <link href="http://{{ site_domain }}/rss/rankingPasatiempos.xml" title="RSS" type="application/rss+xml" rel="alternate">
+        <link rel="search" type="application/opensearchdescription+xml" title="Tematika" href="/plugin/search/busquedaInicio.xml">
+    {%- endblock %}
+    
     {% block page_css %}
         {% include "css/page.html" %}
         {% include "css/cart.html" %}
