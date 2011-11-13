@@ -11,7 +11,7 @@ var indiceMensajeActual = 0;
 
 
 function getMensaje() {
-    var obj = TMK.getData('messages');
+    var obj = APP.getData('messages');
     if (obj != undefined) {
         if (obj.mensajes.lista.length > 0) {
             listaMensaje = obj.mensajes.lista;
