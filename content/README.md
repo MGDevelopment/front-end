@@ -90,8 +90,8 @@ Templates
     Requires:    
 
 
-Styles
-------
+Style Fragments
+---------------
 
 The style definitions for pages.
 
@@ -163,4 +163,17 @@ resources directly (if possible).
 ### fragments/canvas_footer.html
 
     Description:   generic footer of the canvas
+
+Script Fragments
+----------------
+
+Script fragments contain code to be appended to a page.
+
+### fragments/app.js
+
+    Description:   The main application code, creates an object with the app.
+
+### fragments/popups.js
+
+    Description:   Pop-up messages code
 
