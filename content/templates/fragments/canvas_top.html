@@ -4,13 +4,14 @@
 		<ul class="dropdown">
 			<li class="dir"
 				onclick="javascript:desplegarOpciones('listaBuscador');"><span
-				id="optBusqueda"><tmpl_var optSeleccionada>
+				id="optBusqueda">
+                <!-- ??? <tmpl_var optSeleccionada> -->
 			</span>
+{# Cambiar por el nuevo buscador
 				<ul style="display: none;" id="listaBuscador"
 					onmouseover="clearTimeout(tempo);"
 					onmouseout="ocultarOpcionesT('listaBuscador');">
 
-{# Cambiar por el nuevo buscador
 					{% for opt in search_opts.options %}
 					<li><a id="{{ opt.idOpt }}"
 						href="javascript:mostrarBuscarPor('{{ opt.idOpt }}','optBusqueda','listaBuscador','{{ opt.idSeccion }}','{{ opt.idSeccionPropia }}','{{ opt.seccionBusqueda }}');">
@@ -37,7 +38,7 @@
 		<div class="hModUsrNombre" style="cursor: pointer"
 			onclick="window.location.href='/miCuenta/modificarSocio.jsp';">Mi
 			Cuenta</div>
-		<a id="divSalir" style="visibility: " hidden;" class="hModUsrCerrar"
+		<a id="divSalir" style="visibility: hidden;" class="hModUsrCerrar"
 			href="/TerminarSesion" title="Salir">salir</a>
 		<div class="hModUsrExtra">
 			Consulta&acute; tus <br /> <a id="lnkCantPuntExtra" href="/extra">puntos</a>eXtra!
