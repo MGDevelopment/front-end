@@ -1,14 +1,10 @@
-<!-- JavaScript bottom -->
-<script type="text/javascript" src="{{ url_static }}/js/jquery-1.4.2.min.js"></script>
-
-<!-- script type="text/javascript" src="/js/equalcolumnsInicio.js"></script>
-<script type="text/javascript" src="/js/buscador.js"></script>
-<script type="text/javascript" src="/js/jsutil.js"></script>
-<script type="text/javascript" src="/js/carritoNew.js"></script>
-<script type="text/javascript" src="/js/popups.js"></script>
-<script type="text/javascript" src="/js/hashtable.js"></script-->
+<!-- Scripts -->
+<script type="text/javascript"
+        src="{{ url_static }}/js/jquery-1.4.2.min.js"></script>
 
 <script type="text/javascript">
+
+    {% include "fragments/app.js" %} /* Main Application */
 
     {% include "fragments/popups.js" %}
 
@@ -29,20 +25,15 @@
 	tamView[catPasatiempo]=4;
 	tamView[catMusica]=6;
 	tamView[catPelicula]=4;
-	//]]>
 
-    {% include "fragments/app.js" %}
     {% include "fragments/comments.js" %}
     {% include "fragments/messages.js" %}
     {% include "fragments/gallery.js" %}
     {% include "fragments/dropDownMenu.js" %}
 
-    fillMessages(null);
-    fillComments(null);
-
 </script>
 
-<!-- New Scripts -->
+<!-- Data Scripts -->
 <script type="text/javascript" src="home-comments.js"></script>
 <script type="text/javascript" src="home-messages.js"></script>
 <script type="text/javascript" src="home-showcase.js"></script>
@@ -60,10 +51,14 @@ jQuery(document).ready(function() {
 	$('#sliderHomeMovies').tinycarousel({ axis: 'y', display: 1} );
 	$('#sliderHomeGames').tinycarousel({ axis: 'y', display: 1} );
 	$(".inline").colorbox({opacity: 0, inline:true, width:"400px"});
-	//.bind("mouseover", function(){$(this).trigger("click"); 
+	/* .bind("mouseover", function(){$(this).trigger("click");  */
 });
 
 {% include "fragments/analytics.js" %}
+
+    /* Update data */
+    fillMessages(null);
+    fillComments(null);
 
 </script>
 
