@@ -1,8 +1,6 @@
 <!-- JavaScript bottom -->
 <script type="text/javascript" src="{{ url_static }}/js/jquery-1.4.2.min.js"></script>
 
-{% include "fragments/popups.js" %}
-
 <!-- script type="text/javascript" src="/js/equalcolumnsInicio.js"></script>
 <script type="text/javascript" src="/js/buscador.js"></script>
 <script type="text/javascript" src="/js/jsutil.js"></script>
@@ -11,16 +9,15 @@
 <script type="text/javascript" src="/js/hashtable.js"></script-->
 
 <script type="text/javascript">
-	//<![CDATA[ 
+
+    {% include "fragments/popups.js" %}
+
 	$(document).ready(function(){
 		//verificarFiltros();
 		aux = '#ctrlDisabled';
 		$(aux).get(0).style.display="none";
 	});
-	//]]>
-</script>
-<script type="text/javascript">
-	//<![CDATA[ 
+
 	var idsCat = new Array();
 	var catLibro = 1,catPasatiempo = 3,catMusica = 4,catPelicula = 5;
 	var tamView = new Array();
