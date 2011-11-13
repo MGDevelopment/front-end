@@ -197,6 +197,7 @@ outline:none;
 }
 
 .canvas {
+margin: auto;
 position:relative;
 width:970px;
 top:0;
