@@ -1,6 +1,8 @@
 <!-- JavaScript bottom -->
-<script type="text/javascript" src="/jquery/jquery.min.js"></script>
-<script type="text/javascript" src="/js/popups.js"></script>
+<script type="text/javascript" src="{{ url_static }}/js/jquery-1.4.2.min.js"></script>
+
+{% include "js/popups.js" %}
+
 <!-- script type="text/javascript" src="/js/equalcolumnsInicio.js"></script>
 <script type="text/javascript" src="/js/buscador.js"></script>
 <script type="text/javascript" src="/js/jsutil.js"></script>
@@ -34,7 +36,7 @@
 </script>
 
 <!-- New Scripts -->
-<script type="text/javascript" src="/js/tematika.js"></script>
+{% include "js/app.js" %}
 <script type="text/javascript" src="/js/comments.js"></script>
 <script type="text/javascript" src="home-comments.js"></script>
 <script type="text/javascript" src="/js/messages.js"></script>
