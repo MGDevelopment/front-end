@@ -1,4 +1,9 @@
+from   ecommerce.storage  import S3Storage
+import jinja2
 import sample_data
+
+# Config
+bucket = 'tmk-a'
 
 
 ############################################################
@@ -223,29 +228,63 @@ def save(document, headers, targetRepo, targetPath):
 
     return True
 
+#print "------------------------"
+#print "Por generar %d documentos" % len(documentos)
+#for i in range(len(documentos)):
+#
+#    # obtenemos los datos
+#    entityType  = documentos[i]["EntityType"]
+#    entityId    = documentos[i]["EntityId"]
+#    data        = documentos[i]["_data"]
+#    url         = documentos[i]["_url"]
+#    template    = documentos[i]["template"]
+#    headers     = documentos[i]["headers"]
+#    targetPath  = documentos[i]["target.path"]
+#    targetRepo  = documentos[i]["target.repo"]
+#
+#    print "- generando para %s/%d target %s@%s" % \
+#          (entityType, entityId, targetRepo, targetPath),   # no new line
+#
+#    # generate document from template
+#    document = templating(template, data, url, targetPath)
+#
+#    # save document to file
+#    saved = save(document, headers, targetRepo, targetPath)
+#    print "%s" % ("OK" if saved else "ERR")
+#
+#print "----> DONE!"
 
-print "------------------------"
-print "Por generar %d documentos" % len(documentos)
-for i in range(len(documentos)):
+if __name__ == '__main__':
+
+    env = jinja2.Environment(loader=jinja2.FileSystemLoader('templates'))
+    s = S3Storage(bucket)
+
+    for d in documentos:
 
     # obtenemos los datos
-    entityType  = documentos[i]["EntityType"]
-    entityId    = documentos[i]["EntityId"]
-    data        = documentos[i]["_data"]
-    url         = documentos[i]["_url"]
-    template    = documentos[i]["template"]
-    headers     = documentos[i]["headers"]
-    targetPath  = documentos[i]["target.path"]
-    targetRepo  = documentos[i]["target.repo"]
+#    entityType  = documentos[i]["EntityType"]
+#    entityId    = documentos[i]["EntityId"]
+#    data        = documentos[i]["_data"]
+#    url         = documentos[i]["_url"]
+#    template    = documentos[i]["template"]
+#    headers     = documentos[i]["headers"]
+#    targetPath  = documentos[i]["target.path"]
+#    targetRepo  = documentos[i]["target.repo"]
+#
+#    print "- generando para %s/%d target %s@%s" % \
+#          (entityType, entityId, targetRepo, targetPath),   # no new line
+#
+#    # generate document from template
+#    document = templating(template, data, url, targetPath)
+#
+#    # save document to file
+#    saved = save(document, headers, targetRepo, targetPath)
+#    print "%s" % ("OK" if saved else "ERR")
+#
+        t = env.get_template(d['template'])
+        #s.send(d['target.path'], t.render(d['_data']),
+                d['headers.content_type'] )
+        open('./' + d['target.path'], 'w').write(t.render(d['_data']))
 
-    print "- generando para %s/%d target %s@%s" % \
-          (entityType, entityId, targetRepo, targetPath),   # no new line
+        break # XXX
 
-    # generate document from template
-    document = templating(template, data, url, targetPath)
-
-    # save document to file
-    saved = save(document, headers, targetRepo, targetPath)
-    print "%s" % ("OK" if saved else "ERR")
-
-print "----> DONE!"
