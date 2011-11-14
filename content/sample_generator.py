@@ -2,8 +2,14 @@ from   ecommerce.storage  import S3Storage
 import jinja2
 import sample_data
 
+#
 # Config
-bucket = 'tmk-a'
+#
+# What S3 bucket is target for what host.domain
+bucket_domain = {
+    "www.tematika.com":       "tmk-a",
+    "estatico.tematika.com":  "estatico.testmatika.com",
+}
 
 
 ############################################################
@@ -254,22 +260,18 @@ def save(document, headers, targetRepo, targetPath):
 #
 #print "----> DONE!"
 
+
 if __name__ == '__main__':
 
     env = jinja2.Environment(loader=jinja2.FileSystemLoader('templates'))
-    s = S3Storage(bucket)
+    bucket_cache = {}
 
     for d in documentos:
 
-    # obtenemos los datos
-#    entityType  = documentos[i]["EntityType"]
-#    entityId    = documentos[i]["EntityId"]
-#    data        = documentos[i]["_data"]
-#    url         = documentos[i]["_url"]
-#    template    = documentos[i]["template"]
-#    headers     = documentos[i]["headers"]
-#    targetPath  = documentos[i]["target.path"]
-#    targetRepo  = documentos[i]["target.repo"]
+#        entityType  = documentos[i]["EntityType"]
+#        entityId    = documentos[i]["EntityId"]
+#        data        = documentos[i]["_data"]
+#        url         = documentos[i]["_url"]
 #
 #    print "- generando para %s/%d target %s@%s" % \
 #          (entityType, entityId, targetRepo, targetPath),   # no new line
@@ -280,11 +282,16 @@ if __name__ == '__main__':
 #    # save document to file
 #    saved = save(document, headers, targetRepo, targetPath)
 #    print "%s" % ("OK" if saved else "ERR")
-#
+
+        # d['headers']['Content-Encoding']
+        # d['headers']['Cache-Control']
+        bucket_name = bucket_domain[d['_url'][d['target.repo']]]
+        s = S3Storage(bucket_name)  # Get corresponding bucket (XXX cache)
+
         t = env.get_template(d['template'])
-        #s.send(d['target.path'], t.render(d['_data']),
-                d['headers.content_type'] )
-        open('./' + d['target.path'], 'w').write(t.render(d['_data']))
+        s.send(d['target.path'], t.render(d['_data']),
+                d['headers']['Content-Type'] )
+        #open('./' + d['target.path'], 'w').write(t.render(d['_data']))
 
         break # XXX
 
