@@ -60,7 +60,7 @@ documentos = [
         "template"      : "home/index.html",
         "headers"       : {
             "Content-Type"      : "text/html",
-            "Content-Encoding"  : "deflate",
+            "Content-Encoding"  : "gzip",
             "Cache-Control"     : "max-age=3600, must-revalidate"
         },
         "target.path"   : "/index.html",
@@ -75,7 +75,7 @@ documentos = [
         "template"      : "home/index.html",
         "headers"       : {
             "Content-Type"      : "text/html",
-            "Content-Encoding"  : "deflate",
+            "Content-Encoding"  : "gzip",
             "Cache-Control"     : "max-age=3600, must-revalidate"
         },
         "target.path"   : "/index.jsp",
@@ -92,7 +92,7 @@ documentos = [
         "template"      : "home/showcase.js",
         "headers"       : {
             "Content-Type"      : "text/javascript",        # requerido por IE
-            "Content-Encoding"  : "deflate",
+            "Content-Encoding"  : "gzip",
             "Cache-Control"     : "max-age=3600, must-revalidate"
         },
         "target.path"   : "/home-showcase.js",
@@ -109,7 +109,7 @@ documentos = [
         "template"      : "home/comments.js",
         "headers"       : {
             "Content-Type"      : "text/javascript",        # requerido por IE
-            "Content-Encoding"  : "deflate",
+            "Content-Encoding"  : "gzip",
             "Cache-Control"     : "max-age=3600, must-revalidate"
         },
         "target.path"   : "/home-comments.js",
@@ -128,7 +128,7 @@ documentos = [
         "template"      : "subject/index.html",
         "headers"       : {
             "Content-Type"      : "text/html",
-            "Content-Encoding"  : "deflate",
+            "Content-Encoding"  : "gzip",
             "Cache-Control"     : "max-age=3600, must-revalidate"
         },
         "target.path"   : "/libros",
@@ -143,7 +143,7 @@ documentos = [
         "template"      : "subject/index.html",
         "headers"       : {
             "Content-Type"      : "text/html",
-            "Content-Encoding"  : "deflate",
+            "Content-Encoding"  : "gzip",
             "Cache-Control"     : "max-age=3600, must-revalidate"
         },
         "target.path"   : "/libros/index.html",
@@ -158,7 +158,7 @@ documentos = [
         "template"      : "subject/index.html",
         "headers"       : {
             "Content-Type"      : "text/html",
-            "Content-Encoding"  : "deflate",
+            "Content-Encoding"  : "gzip",
             "Cache-Control"     : "max-age=3600, must-revalidate"
         },
         "target.path"   : "/libros/index.jsp",
@@ -176,7 +176,7 @@ documentos = [
         "template"      : "subject/showcase.js",
         "headers"       : {
             "Content-Type"      : "text/javascript",        # requerido por IE
-            "Content-Encoding"  : "deflate",
+            "Content-Encoding"  : "gzip",
             "Cache-Control"     : "max-age=3600, must-revalidate"
         },
         "target.path"   : "/libros/showcase.js",
@@ -193,7 +193,7 @@ documentos = [
         "template"      : "subject/comments.js",
         "headers"       : {
             "Content-Type"      : "text/javascript",        # requerido por IE
-            "Content-Encoding"  : "deflate",
+            "Content-Encoding"  : "gzip",
             "Cache-Control"     : "max-age=3600, must-revalidate"
         },
         "target.path"   : "/libros/comments.js",
