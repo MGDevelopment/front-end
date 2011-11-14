@@ -289,8 +289,7 @@ if __name__ == '__main__':
         s = S3Storage(bucket_name)  # Get corresponding bucket (XXX cache)
 
         t = env.get_template(d['template'])
-        s.send(d['target.path'], t.render(d['_data']),
-                d['headers']['Content-Type'] )
+        s.send(d['target.path'], t.render(d['_data']), d['headers'])
         #open('./' + d['target.path'], 'w').write(t.render(d['_data']))
 
         break # XXX
