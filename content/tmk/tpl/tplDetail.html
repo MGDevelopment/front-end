@@ -1,0 +1,16 @@
+{% extends "tplBase.html" %}
+{% block head -%} {{ head }} {%- endblock %}
+{% block bottom -%} {{ bottom }} {%- endblock %}
+{% block js_top -%} {{ js_top }} {%-endblock %}
+{% block js_bottom -%} {{ js_bottom }} {%-endblock %}
+{% block top -%} {{ top }} {%- endblock %}
+{% block messages -%} {{ messages }} {%- endblock %}
+{% block content -%}
+<div class="barraCentral" id="barraCentral">
+	<div id="seccionTematika">
+		{{ detail }}
+	</div>
+	<div id="rightmenu"> {{ rightmenu }} </div>
+</div> 
+{%- endblock %}
+{% block extra -%} {{ extra }} {%- endblock %}

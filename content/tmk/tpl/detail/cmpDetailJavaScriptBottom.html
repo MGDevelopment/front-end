@@ -1,0 +1,79 @@
+<!-- JavaScript bottom -->
+<script type="text/javascript" src="/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="/js/popups.js"></script>
+<!-- script type="text/javascript" src="/js/equalcolumnsInicio.js"></script>
+<script type="text/javascript" src="/js/buscador.js"></script>
+<script type="text/javascript" src="/js/jsutil.js"></script>
+<script type="text/javascript" src="/js/carritoNew.js"></script>
+<script type="text/javascript" src="/js/popups.js"></script>
+<script type="text/javascript" src="/js/hashtable.js"></script-->
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-635166-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script');
+    ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+	
+<script type="text/javascript">
+	//<![CDATA[ 
+	var idsCat = new Array();
+	var catLibro = 1,catPasatiempo = 3,catMusica = 4,catPelicula = 5;
+	var tamView = new Array();
+	idsCat[0]=catLibro; 
+	idsCat[1]=catPasatiempo;
+	idsCat[2]=catMusica;
+	idsCat[3]=catPelicula;
+	tamView[catLibro]= 4;
+	tamView[catPasatiempo]=4;
+	tamView[catMusica]=6;
+	tamView[catPelicula]=4;
+	//]]>
+</script>
+
+<!-- New Scripts -->
+<script type="text/javascript" src="/js/tematika.js"></script>
+<!-- messages -->
+<script type="text/javascript" src="/home-messages.js"></script>
+<!-- New Scripts -->
+<script type="text/javascript" src="/js/messages.js"></script>
+<script type="text/javascript" src="/js/comments.js"></script>
+<script type="text/javascript" src="/js/modExtra.js"></script>
+<script type="text/javascript" src="/js/relatedDetail.js"></script>
+<!-- comments -->
+<script type="text/javascript" src="{{ jssrc }}detail-books-comments.js"></script>
+<script type="text/javascript" src="{{ jssrc }}detail-books-modExtra.js"></script>
+<script type="text/javascript" src="{{ jssrc }}detail-books-related.js"></script>
+<!-- detail -->
+<script type="text/javascript" src="/js/detail.js"></script>
+<!-- Scripts por herencia -->
+<script type="text/javascript" src="/js/dropDownMenu.js"></script>
+
+<script type="text/javascript">
+startList = function() {
+
+	// code for IE
+	if(!document.body.currentStyle) return;
+	var subs = document.getElementsByName('submenu');
+	for(var i=0; i<subs.length; i++) {
+		var li = subs[i].parentNode;
+		if(li && li.lastChild.style) {
+			li.onmouseover = function() {
+				this.lastChild.style.visibility = 'visible';
+			}
+			li.onmouseout = function() {
+				this.lastChild.style.visibility = 'hidden';
+			}
+		}
+	}
+}
+window.onload=startList;
+</script>
+

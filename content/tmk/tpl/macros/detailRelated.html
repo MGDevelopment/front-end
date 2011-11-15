@@ -1,0 +1,20 @@
+{%- macro renderRelated(related_data) -%}
+	<div class="dRecomendTit">Obras relacionadas</div>
+	{%- for articulo in related_data.articulos -%}
+		<div class="dRecomendMod">
+		    <div class="tapaContenedor">
+		        <a href="{{ articulo.urlDetalle }}">
+		        	<img src="{{ articulo.img }}" class="tapaLibros">
+		        </a>
+		        <div class="tapaInfo" style="visibility: hidden;">
+		    </div>
+		    </div>    
+		    <a href="{{ articulo.urlDetalle }}" class="fTitulos">{{ articulo.titulo }}</a>
+		    <span>Precio:{{ articulo.precio }}</span>
+		    <div class="calificacionMod">
+		      <span>Calificaci&oacute;n:</span>
+		      {%- for number in range(0, articulo.calificacion|int) -%}<div class="dInfoCalifStar"></div> {%- endfor %}  
+		    </div>
+	 {%- endfor %}
+</div>
+{%- endmacro %}
