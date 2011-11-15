@@ -283,8 +283,9 @@ if __name__ == '__main__':
         s = storage_cache(bucket_domain[d['_url'][d['target.repo']]])
 
         t = env.get_template(d['template'])
-        t_params['data'] = d['_data']
-        t_params['url'] = d['_url']
+        t_params = d['_data'].copy() # Shallow copy
+        t_params['url'] = d['_url']  # Add urls
+
         s.send(d['target.path'], t.render(t_params), d['headers'])
         #open('./' + d['target.path'], 'w').write(t.render(d['_data']))
 
