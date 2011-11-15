@@ -279,24 +279,6 @@ if __name__ == '__main__':
 
     for d in documentos:
 
-#        entityType  = d["EntityType"]
-#        entityId    = d["EntityId"]
-#        data        = d["_data"]
-#        url         = d["_url"]
-#
-#    print "- generando para %s/%d target %s@%s" % \
-#          (entityType, entityId, targetRepo, targetPath),   # no new line
-#
-#    # generate document from template
-#    document = templating(template, data, url, targetPath)
-#
-#    # save document to file
-#    saved = save(document, headers, targetRepo, targetPath)
-#    print "%s" % ("OK" if saved else "ERR")
-
-        # d['headers']['Content-Encoding']
-        # d['headers']['Cache-Control']
-
         # Get corresponding bucket from storage connection cache
         s = storage_cache(bucket_domain[d['_url'][d['target.repo']]])
 
