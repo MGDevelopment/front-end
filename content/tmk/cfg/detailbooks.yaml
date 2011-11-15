@@ -1,0 +1,31 @@
+outDir : ../../out/
+tplDocBase : tpl
+tplDetail : tplDetail.html
+tplDetailComments : ./detail/tplDetail-comments.js
+tplDetailModExtra : ./detail/tplDetail-modExtra.js
+tplDetailRelated : ./detail/tplDetail-related.js
+cmpHead : ./home/cmpHead.html
+cmpFooter : ./home/cmpFooter.html
+cmpMetaTag : ./home/cmpMetaTag.html
+cmpCss : ./detail/cmpDetailCss.html
+cmpJavaScriptTop : ./home/cmpJavaScriptTop.html
+cmpJavaScriptBottom : ./detail/cmpDetailJavaScriptBottom.html
+cmpTop : ./home/cmpTop.html
+cmpMessages : ./home/cmpMessages.html
+cmpExtra : ./home/cmpExtra.html
+cmpRightMenu : ./home/cmpRightMenu.html
+cmpRelated: ./section/cmpSectionRelated.html
+cmpDetail: ./detail/cmpDetail.html
+siteDomain : www.tematika.com
+SECCION_HOME : 0
+SECCION_LIBRO : 1
+SECCION_REVISTAS : 2
+SECCION_JUGUETES : 3
+SECCION_MUSICA : 4
+SECCION_PELICULA : 5
+prefix : books
+# archivos a generar
+detail-file : detail.html
+detail-comments-file : detail-books-comments.js
+detail-modExtra-file : detail-books-modExtra.js
+detail-related-file : detail-books-related.js

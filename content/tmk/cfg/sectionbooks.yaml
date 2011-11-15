@@ -1,0 +1,36 @@
+outDir : ../../out/
+tplDocBase : tpl
+tplHomeSection : tplHomeSection.html
+tplSectionComments : ./section/tplSection-comments.js
+tplSectionShowCase: ./section/tplSection-showcase.js
+tplSectionToolTip: ./section/tplSection-tooltip.js
+tplSectionRelated: ./section/tplSection-related.js
+cmpHead : ./home/cmpHead.html
+cmpFooter : ./home/cmpFooter.html
+cmpMetaTag : ./home/cmpMetaTag.html
+cmpCss : ./section/cmpSectionCss.html
+cmpJavaScriptTop : ./home/cmpJavaScriptTop.html
+cmpJavaScriptBottom : ./section/cmpSectionJavaScriptBottom.html
+cmpTop : ./home/cmpTop.html
+cmpMessages : ./home/cmpMessages.html
+cmpExtra : ./home/cmpExtra.html
+cmpShowCase : ./section/cmpSectionShowCase.html
+cmpRightMenu : ./home/cmpRightMenu.html
+cmpTree : ./section/cmpSectionTree.html
+cmpComments : ./section/cmpSectionComments.html
+cmpLastVisited : ./home/cmpLastVisited.html
+cmpRelated: ./section/cmpSectionRelated.html
+siteDomain : www.tematika.com
+SECCION_HOME : 0
+SECCION_LIBRO : 1
+SECCION_REVISTAS : 2
+SECCION_JUGUETES : 3
+SECCION_MUSICA : 4
+SECCION_PELICULA : 5
+prefix : books
+# archivos a generar
+section-comments-file : home-books-comments.js
+section-showcase-file : home-books-showcase.js
+section-tooltip-file : home-books-tooltip.js
+section-file : sectionbooks.html
+section-related-file : home-books-related.js

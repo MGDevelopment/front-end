@@ -1,31 +1,26 @@
 # output directory
-outDir : ./out/
-# template temporales
-tmpComments : tmpComments.html
-tmpSlider : tmpSlider.html
-tmpToolTip : tmpToolTip.html
+outDir : ../../out/
 # doc base
-tplDocBase : tmk
+tplDocBase : tpl
 # templates necesarios para la generacion
 tplHome : tplHome.html
-cmpHead : cmpHead.html
-cmpFooter : cmpFooter.html
-cmpMetaTag : cmpMetaTag.html
-cmpCss : cmpCss.html
-cmpJavaScriptTop : cmpJavaScriptTop.html
-cmpJavaScriptBottom : cmpJavaScriptBottom.html
-cmpTop : cmpTop.html
-cmpMessages : cmpMessages.html
-cmpExtra : cmpExtra.html
-cmpShowCase : cmpShowCase.html
-cmpRightMenu : cmpRightMenu.html
-cmpComments : cmpComments.html
-cmpLastVisited : cmpLastVisited.html
-# templates para la generacion de los archivos js
-jsHomeComments : js-home-comments.tmp
-jsHomeMessages : js-home-messages.tmp
-jsHomeShowCase : js-home-showcase.tmp
-jsHomeToolTip : js-home-tooltip.tmp
+tplHomeComments: ./home/tplHome-comments.js
+tplHomeMessages: ./home/tplHome-messages.js
+tplHomeShowCase: ./home/tplHome-showcase.js
+tplHomeToolTip: ./home/tplHome-tooltip.js
+cmpHead : ./home/cmpHead.html
+cmpFooter : ./home/cmpFooter.html
+cmpMetaTag : ./home/cmpMetaTag.html
+cmpCss : ./home/cmpCss.html
+cmpJavaScriptTop : ./home/cmpJavaScriptTop.html
+cmpJavaScriptBottom : ./home/cmpJavaScriptBottom.html
+cmpTop : ./home/cmpTop.html
+cmpMessages : ./home/cmpMessages.html
+cmpExtra : ./home/cmpExtra.html
+cmpShowCase : ./home/cmpShowCase.html
+cmpRightMenu : ./home/cmpRightMenu.html
+cmpComments : ./home/cmpComments.html
+cmpLastVisited : ./home/cmpLastVisited.html
 # valores globales
 siteDomain : www.tematika.com
 SECCION_HOME : 0
@@ -39,4 +34,4 @@ home-comments-file : home-comments.js
 home-messages-file : home-messages.js
 home-showcase-file : home-showcase.js
 home-tooltip-file : home-tooltip.js
-home-file : Home.html
+home-file : home.html
