@@ -260,18 +260,29 @@ def save(document, headers, targetRepo, targetPath):
 #
 #print "----> DONE!"
 
+class Storage_Cache(object):
+    '''Cache of bucket objects'''
+    def __init__(self):
+        self._buckets = {}
+    def get_bucket(self, name):
+        '''Get a bucket object from cache or create a new one'''
+        if not self._buckets.has_key(name):
+            self._buckets[name] = S3Storage(name)
+
+        return self._buckets[name]
+
 
 if __name__ == '__main__':
 
     env = jinja2.Environment(loader=jinja2.FileSystemLoader('templates'))
-    bucket_cache = {}
+    storage_cache = Storage_Cache()
 
     for d in documentos:
 
-#        entityType  = documentos[i]["EntityType"]
-#        entityId    = documentos[i]["EntityId"]
-#        data        = documentos[i]["_data"]
-#        url         = documentos[i]["_url"]
+#        entityType  = d["EntityType"]
+#        entityId    = d["EntityId"]
+#        data        = d["_data"]
+#        url         = d["_url"]
 #
 #    print "- generando para %s/%d target %s@%s" % \
 #          (entityType, entityId, targetRepo, targetPath),   # no new line
@@ -285,8 +296,9 @@ if __name__ == '__main__':
 
         # d['headers']['Content-Encoding']
         # d['headers']['Cache-Control']
-        bucket_name = bucket_domain[d['_url'][d['target.repo']]]
-        s = S3Storage(bucket_name)  # Get corresponding bucket (XXX cache)
+
+        # Get corresponding bucket from storage connection cache
+        s = storage_cache(bucket_domain[d['_url'][d['target.repo']]])
 
         t = env.get_template(d['template'])
         s.send(d['target.path'], t.render(d['_data']), d['headers'])
