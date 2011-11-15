@@ -41,14 +41,14 @@ margin-left:-30px;
 .globoArticuloTop {
 float:left;
 width:342px;
-background-image:url({{ url_static}}/imagenes/rediseno/imagenes/globoArticuloTop-back.png);
+background-image:url(http://{{ url.static }}/imagenes/rediseno/imagenes/globoArticuloTop-back.png);
 padding:15px 15px 0 30px;
 }
 
 .globoArticuloRightTop {
 float:left;
 width:342px;
-background-image:url({{ url_static}}/imagenes/rediseno/imagenes/globoArticuloRightTop-back.png);
+background-image:url(http://{{ url.static }}/imagenes/rediseno/imagenes/globoArticuloRightTop-back.png);
 padding:15px 30px 0 15px;
 }
 
@@ -135,7 +135,7 @@ margin:10px 0 5px;
 .globoArticuloBottom {
 float:left;
 width:244px;
-background-image:url({{ url_static}}/imagenes/rediseno/imagenes/globoArticuloBottom-back.png);
+background-image:url(http://{{ url.static }}/imagenes/rediseno/imagenes/globoArticuloBottom-back.png);
 height:90px;
 background-repeat:no-repeat;
 padding-left:143px;
@@ -144,7 +144,7 @@ padding-left:143px;
 .globoArticuloRightBottom {
 float:left;
 width:244px;
-background-image:url({{ url_static}}/imagenes/rediseno/imagenes/globoArticuloRightBottom-back.png);
+background-image:url(http://{{ url.static }}/imagenes/rediseno/imagenes/globoArticuloRightBottom-back.png);
 height:90px;
 background-repeat:no-repeat;
 padding-left:130px;
@@ -202,7 +202,7 @@ z-index:9998;
 float:left;
 margin:5px 0 3px;
 display:inline;
-background-image:url({{ url_static}}/imagenes/rediseno/imagenes/comun/arbolShadow-back.png);
+background-image:url(http://{{ url.static }}/imagenes/rediseno/imagenes/comun/arbolShadow-back.png);
 background-color:transparent;
 }
 
@@ -229,22 +229,22 @@ border:none;
 }
 
 .mesaSiguiente {
-background-image:url({{ url_static}}/imagenes/rediseno/imagenes/seccionTematika/mesaSiguiente.png);
+background-image:url(http://{{ url.static }}/imagenes/rediseno/imagenes/seccionTematika/mesaSiguiente.png);
 margin-top:1px;
 }
 
 .mesaSiguiente:hover {
-background-image:url({{ url_static}}/imagenes/rediseno/imagenes/seccionTematika/mesaSiguiente-hover.png);
+background-image:url(http://{{ url.static }}/imagenes/rediseno/imagenes/seccionTematika/mesaSiguiente-hover.png);
 }
 
 .mesaAnterior {
-background-image:url({{ url_static}}/imagenes/rediseno/imagenes/seccionTematika/mesaAnterior.png);
+background-image:url(http://{{ url.static }}/imagenes/rediseno/imagenes/seccionTematika/mesaAnterior.png);
 margin-bottom:1px;
 margin-top:10px;
 }
 
 .mesaAnterior:hover {
-background-image:url({{ url_static}}/imagenes/rediseno/imagenes/seccionTematika/mesaAnterior-hover.png);
+background-image:url(http://{{ url.static }}/imagenes/rediseno/imagenes/seccionTematika/mesaAnterior-hover.png);
 }
 
 .mesaSiguienteDeshabilitada,.mesaAnteriorDeshabilitada {
@@ -254,12 +254,12 @@ border:none;
 }
 
 .mesaSiguienteDeshabilitada {
-background-image:url({{ url_static}}/imagenes/rediseno/imagenes/seccionTematika/mesaSiguienteGris.png);
+background-image:url(http://{{ url.static }}/imagenes/rediseno/imagenes/seccionTematika/mesaSiguienteGris.png);
 margin-top:1px;
 }
 
 .mesaAnteriorDeshabilitada {
-background-image:url({{ url_static}}/imagenes/rediseno/imagenes/seccionTematika/mesaAnteriorGris.png);
+background-image:url(http://{{ url.static }}/imagenes/rediseno/imagenes/seccionTematika/mesaAnteriorGris.png);
 margin-bottom:1px;
 margin-top:10px;
 }

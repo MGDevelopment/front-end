@@ -22,7 +22,8 @@ bucket_domain = {
 homeURL = {
     "cannonical"    : "/index.html",
     "urls"          : [ "/index.html", "/index.jsp" ],
-    "static"        : "estatico.tematika.com",
+    "static"        : "estatico.testmatika.com.s3-website-us-east-1.amazonaws.com",
+#    "static"        : ""estatico.tematika.com",
     "dynamic"       : "www.tematika.com",
     "search"        : "buscador.tematika.com",
     "checkout"      : "seguro.tematika.com",
@@ -264,7 +265,7 @@ class Storage_Cache(object):
     '''Cache of bucket objects'''
     def __init__(self):
         self._buckets = {}
-    def get_bucket(self, name):
+    def __call__(self, name):
         '''Get a bucket object from cache or create a new one'''
         if not self._buckets.has_key(name):
             self._buckets[name] = S3Storage(name)
@@ -277,13 +278,16 @@ if __name__ == '__main__':
     env = jinja2.Environment(loader=jinja2.FileSystemLoader('templates'))
     storage_cache = Storage_Cache()
 
+    t_params = {}
     for d in documentos:
 
         # Get corresponding bucket from storage connection cache
         s = storage_cache(bucket_domain[d['_url'][d['target.repo']]])
 
         t = env.get_template(d['template'])
-        s.send(d['target.path'], t.render(d['_data']), d['headers'])
+        t_params['data'] = d['_data']
+        t_params['url'] = d['_url']
+        s.send(d['target.path'], t.render(t_params), d['headers'])
         #open('./' + d['target.path'], 'w').write(t.render(d['_data']))
 
         break # XXX

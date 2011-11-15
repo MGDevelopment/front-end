@@ -14,11 +14,11 @@ color:#004B85;
 }
 
 .hBuscador {
-background-image:url({{ url_static}}/imagenes/rediseno/imagenes/seccionTematika/hBuscador-back.png);
+background-image:url(http://{{ url.static }}/imagenes/rediseno/imagenes/seccionTematika/hBuscador-back.png);
 }
 
 .hBuscMenu {
-background-image:url({{ url_static}}/imagenes/rediseno/imagenes/seccionTematika/hBuscMenu-back.png);
+background-image:url(http://{{ url.static }}/imagenes/rediseno/imagenes/seccionTematika/hBuscMenu-back.png);
 }
 
 a.hBuscMenuDesplItem:hover {
@@ -27,11 +27,11 @@ color:#FFF;
 }
 
 .hServClientes {
-background-image:url({{ url_static}}/imagenes/rediseno/imagenes/seccionTematika/hServClientes-back.png);
+background-image:url(http://{{ url.static }}/imagenes/rediseno/imagenes/seccionTematika/hServClientes-back.png);
 }
 
 .hModUsuarioBack {
-background-image:url({{ url_static}}/imagenes/rediseno/imagenes/seccionTematika/hModUsuario-back.png);
+background-image:url(http://{{ url.static }}/imagenes/rediseno/imagenes/seccionTematika/hModUsuario-back.png);
 }
 
 .panelMensajes a:visited {
@@ -43,19 +43,19 @@ color:#004B85;
 }
 
 .panelMsjCerrar {
-background-image:url({{ url_static}}/imagenes/rediseno/imagenes/seccionTematika/b-panelMsjCerrar.gif);
+background-image:url(http://{{ url.static }}/imagenes/rediseno/imagenes/seccionTematika/b-panelMsjCerrar.gif);
 }
 
 .panelMsjCerrar:hover {
-background-image:url({{ url_static}}/imagenes/rediseno/imagenes/seccionTematika/b-panelMsjCerrar-hover.gif);
+background-image:url(http://{{ url.static }}/imagenes/rediseno/imagenes/seccionTematika/b-panelMsjCerrar-hover.gif);
 }
 
 .panelMsjAbrir {
-background-image:url({{ url_static}}/imagenes/rediseno/imagenes/seccionTematika/b-panelMsjAbrir.gif);
+background-image:url(http://{{ url.static }}/imagenes/rediseno/imagenes/seccionTematika/b-panelMsjAbrir.gif);
 }
 
 .panelMsjAbrir:hover {
-background-image:url({{ url_static}}/imagenes/rediseno/imagenes/seccionTematika/b-panelMsjAbrir-hover.gif);
+background-image:url(http://{{ url.static }}/imagenes/rediseno/imagenes/seccionTematika/b-panelMsjAbrir-hover.gif);
 }
 
 #seccionTematika {
@@ -74,7 +74,7 @@ margin:15px 0 0 278px;
 .tmtkMesa-back {
 float:left;
 width:906px;
-background-image:url({{ url_static}}/imagenes/rediseno/imagenes/seccionTematika/solapas-back.png);
+background-image:url(http://{{ url.static }}/imagenes/rediseno/imagenes/seccionTematika/solapas-back.png);
 }
 
 .tmtkMesa {
@@ -86,11 +86,11 @@ display:inline;
 .solapas {
 float:left;
 width:896px;
-background-image:url({{ url_static}}/imagenes/rediseno/imagenes/seccionTematika/solapas-back.png);
+background-image:url(http://{{ url.static }}/imagenes/rediseno/imagenes/seccionTematika/solapas-back.png);
 }
 
 .solapasMenu {
-background-image:url({{ url_static}}/imagenes/rediseno/imagenes/seccionTematika/solapasMenu-back.png);
+background-image:url(http://{{ url.static }}/imagenes/rediseno/imagenes/seccionTematika/solapasMenu-back.png);
 }
 
 .arbol {
@@ -100,21 +100,21 @@ margin:10px 0 0 10px;
 #arbolMusica,#arbolLibros,#arbolPeliculas,#arbolPasatiempos {
 border:solid 1px #F5CFAA;
 width:215px;
-background-image:url({{ url_static}}/imagenes/rediseno/imagenes/seccionTematika/arbolMod-back.gif);
+background-image:url(http://{{ url.static }}/imagenes/rediseno/imagenes/seccionTematika/arbolMod-back.gif);
 background-position:bottom;
 background-repeat:no-repeat;
 }
 
 .arbolItemMas {
-background-image:url({{ url_static}}/imagenes/rediseno/imagenes/seccionTematika/arbolItemMas-b.png);
+background-image:url(http://{{ url.static }}/imagenes/rediseno/imagenes/seccionTematika/arbolItemMas-b.png);
 }
 
 .arbolItemMin {
-background-image:url({{ url_static}}/imagenes/rediseno/imagenes/seccionTematika/arbolItemMin-b.png);
+background-image:url(http://{{ url.static }}/imagenes/rediseno/imagenes/seccionTematika/arbolItemMin-b.png);
 }
 
 .arbolItemF {
-background-image:url({{ url_static}}/imagenes/rediseno/imagenes/seccionTematika/arbolItemF.png);
+background-image:url(http://{{ url.static }}/imagenes/rediseno/imagenes/seccionTematika/arbolItemF.png);
 }
 
 .arbolItemLink {
@@ -140,11 +140,11 @@ width:170px;
 }
 
 .arbolItemMax {
-background-image:url({{ url_static}}/imagenes/rediseno/imagenes/seccionTematika/arbolItemMax.png);
+background-image:url(http://{{ url.static }}/imagenes/rediseno/imagenes/seccionTematika/arbolItemMax.png);
 }
 
 .arbolItemMini {
-background-image:url({{ url_static}}/imagenes/rediseno/imagenes/seccionTematika/arbolItemMini.png);
+background-image:url(http://{{ url.static }}/imagenes/rediseno/imagenes/seccionTematika/arbolItemMini.png);
 }
 
 .solapaCalle {
@@ -172,7 +172,7 @@ color:#ED7C24;
 }
 
 .tapaInfo {
-background-image:url({{ url_static}}/imagenes/rediseno/imagenes/seccionTematika/tapaInfo-back.png);
+background-image:url(http://{{ url.static }}/imagenes/rediseno/imagenes/seccionTematika/tapaInfo-back.png);
 }
 
 .footer a:hover {
@@ -189,11 +189,11 @@ color:#FFF;
 }
 
 ul.dropdown *.dir {
-background-image:url({{ url_static}}/imagenes/rediseno/imagenes/seccionTematika/hBuscMenu-back.png);
+background-image:url(http://{{ url.static }}/imagenes/rediseno/imagenes/seccionTematika/hBuscMenu-back.png);
 }
 
 .tmtkMesaMenuMod ul.dropdown *.dir,.busqFiltMenu ul.dropdown *.dir {
-background-image:url({{ url_static}}/imagenes/rediseno/imagenes/seccionTematika/solapasMenu-back.png);
+background-image:url(http://{{ url.static }}/imagenes/rediseno/imagenes/seccionTematika/solapasMenu-back.png);
 }
 
 .dropdown span:hover {
@@ -201,19 +201,19 @@ color:#ED7C24;
 }
 
 ul.dropdown *.diri {
-background-image:url({{ url_static}}/imagenes/rediseno/imagenes/seccionTematika/solapasMenu-back.png);
+background-image:url(http://{{ url.static }}/imagenes/rediseno/imagenes/seccionTematika/solapasMenu-back.png);
 }
 
 .tmtkMesaMenuMod ul.dropdown *.diri {
-background-image:url({{ url_static}}/imagenes/rediseno/imagenes/seccionTematika/solapasMenu-back.png);
+background-image:url(http://{{ url.static }}/imagenes/rediseno/imagenes/seccionTematika/solapasMenu-back.png);
 }
 
 .globoArticuloComprar {
-background-image:url({{ url_static}}/imagenes/rediseno/imagenes/seccionTematika/b-comprar.png);
+background-image:url(http://{{ url.static }}/imagenes/rediseno/imagenes/seccionTematika/b-comprar.png);
 }
 
 .globoArticuloPedir {
-background-image:url({{ url_static}}/imagenes/rediseno/imagenes/seccionTematika/b-pedir.png);
+background-image:url(http://{{ url.static }}/imagenes/rediseno/imagenes/seccionTematika/b-pedir.png);
 }
 
 .disabledEfectCtrl {
@@ -239,13 +239,13 @@ margin-left:-78px;
 
 .solapasTitDatosPrinc {
 width:175px;
-background-image:url({{ url_static}}/imagenes/rediseno/imagenes/comun/t-datosPrinc.gif);
+background-image:url(http://{{ url.static }}/imagenes/rediseno/imagenes/comun/t-datosPrinc.gif);
 margin:10px 5px 0 -53px;
 }
 
 .dCompra {
 border:solid 1px #F5CFAA;
-background-image:url({{ url_static}}/imagenes/rediseno/imagenes/seccionTematika/arbolMod-back.gif);
+background-image:url(http://{{ url.static }}/imagenes/rediseno/imagenes/seccionTematika/arbolMod-back.gif);
 }
 
 .dCompra ul,.dComprarEnvio {
@@ -254,11 +254,11 @@ border-bottom:dotted 1px #F5CFAA;
 }
 
 .dComprarButton {
-background-image:url({{ url_static}}/imagenes/rediseno/imagenes/seccionTematika/b-comprarD.png);
+background-image:url(http://{{ url.static }}/imagenes/rediseno/imagenes/seccionTematika/b-comprarD.png);
 }
 
 .detalleBotonMenu {
-background-image:url({{ url_static}}/imagenes/rediseno/imagenes/seccionTematika/detalleBotonMenu-back.png);
+background-image:url(http://{{ url.static }}/imagenes/rediseno/imagenes/seccionTematika/detalleBotonMenu-back.png);
 }
 
 .detalleBotonMenu span,.detalleBoton span {
@@ -270,7 +270,7 @@ color:#004B85;
 }
 
 .detalleListaMenu {
-background-image:url({{ url_static}}/imagenes/rediseno/imagenes/seccionTematika/arbolMod-back.gif);
+background-image:url(http://{{ url.static }}/imagenes/rediseno/imagenes/seccionTematika/arbolMod-back.gif);
 }
 
 p.dListaMenuCheck {
@@ -292,11 +292,11 @@ border-right:solid 1px #F5CFAA;
 }
 
 .detalleImagenAnt {
-background-image:url({{ url_static}}/imagenes/rediseno/imagenes/seccionTematika/detalleImagenAnt-back.gif);
+background-image:url(http://{{ url.static }}/imagenes/rediseno/imagenes/seccionTematika/detalleImagenAnt-back.gif);
 }
 
 .detalleImagenSig {
-background-image:url({{ url_static}}/imagenes/rediseno/imagenes/seccionTematika/detalleImagenSig-back.gif);
+background-image:url(http://{{ url.static }}/imagenes/rediseno/imagenes/seccionTematika/detalleImagenSig-back.gif);
 }
 
 .dSolapas .hTags {
@@ -310,11 +310,11 @@ border-bottom:dotted 1px #F5CFAA;
 }
 
 .dComentsCalifP {
-background-image:url({{ url_static}}/imagenes/rediseno/imagenes/seccionTematika/dComentsCalifP-back.gif);
+background-image:url(http://{{ url.static }}/imagenes/rediseno/imagenes/seccionTematika/dComentsCalifP-back.gif);
 }
 
 .dComentsCalifN {
-background-image:url({{ url_static}}/imagenes/rediseno/imagenes/seccionTematika/dComentsCalifN-back.gif);
+background-image:url(http://{{ url.static }}/imagenes/rediseno/imagenes/seccionTematika/dComentsCalifN-back.gif);
 }
 
 .panelMensajes a:visited {
@@ -326,19 +326,19 @@ color:#004B85;
 }
 
 .panelMsjCerrar {
-background-image:url({{ url_static}}/imagenes/rediseno/imagenes/seccionTematika/b-panelMsjCerrar.gif);
+background-image:url(http://{{ url.static }}/imagenes/rediseno/imagenes/seccionTematika/b-panelMsjCerrar.gif);
 }
 
 .panelMsjCerrar:hover {
-background-image:url({{ url_static}}/imagenes/rediseno/imagenes/seccionTematika/b-panelMsjCerrar-hover.gif);
+background-image:url(http://{{ url.static }}/imagenes/rediseno/imagenes/seccionTematika/b-panelMsjCerrar-hover.gif);
 }
 
 .panelMsjAbrir {
-background-image:url({{ url_static}}/imagenes/rediseno/imagenes/seccionTematika/b-panelMsjAbrir.gif);
+background-image:url(http://{{ url.static }}/imagenes/rediseno/imagenes/seccionTematika/b-panelMsjAbrir.gif);
 }
 
 .panelMsjAbrir:hover {
-background-image:url({{ url_static}}/imagenes/rediseno/imagenes/seccionTematika/b-panelMsjAbrir-hover.gif);
+background-image:url(http://{{ url.static }}/imagenes/rediseno/imagenes/seccionTematika/b-panelMsjAbrir-hover.gif);
 }
 
 .rAtrPri {
@@ -351,7 +351,7 @@ color:#FAA94F;
 }
 
 .listadoMod {
-background-image:url({{ url_static}}/imagenes/rediseno/imagenes/seccionTematika/listadoMod.gif);
+background-image:url(http://{{ url.static }}/imagenes/rediseno/imagenes/seccionTematika/listadoMod.gif);
 }
 
 .listadoMod .dInfoLinks {
@@ -360,7 +360,7 @@ border-top:dotted 1px #F5CFAA;
 }
 
 .listadoModAcciones div {
-background-image:url({{ url_static}}/imagenes/rediseno/imagenes/seccionTematika/arbolMod-back.gif);
+background-image:url(http://{{ url.static }}/imagenes/rediseno/imagenes/seccionTematika/arbolMod-back.gif);
 border:solid 1px #F5CFAA;
 }
 
@@ -370,7 +370,7 @@ height:46px;
 display:block;
 background-position:center;
 margin:5px 0;
-background-image:url({{ url_static}}/imagenes/rediseno/imagenes/seccionTematika/b-comprar.png);
+background-image:url(http://{{ url.static }}/imagenes/rediseno/imagenes/seccionTematika/b-comprar.png);
 }
 
 .busqTit {
@@ -389,7 +389,7 @@ border-color:#F5CFAA;
 }
 
 a.busqFiltApl {
-background-image:url({{ url_static}}/imagenes/rediseno/imagenes/seccionTematika/busqFiltApl.gif);
+background-image:url(http://{{ url.static }}/imagenes/rediseno/imagenes/seccionTematika/busqFiltApl.gif);
 width:190px;
 }
 
@@ -400,7 +400,7 @@ width:660px;
 .busqOrden {
 border:solid 1px #F5CFAA;
 width:655px;
-background-image:url({{ url_static}}/imagenes/rediseno/imagenes/seccionTematika/arbolMod-back.gif);
+background-image:url(http://{{ url.static }}/imagenes/rediseno/imagenes/seccionTematika/arbolMod-back.gif);
 }
 
 .busqContenido .listadoMod {
