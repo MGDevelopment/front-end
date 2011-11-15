@@ -258,8 +258,6 @@ def save(document, headers, targetRepo, targetPath):
 #    # save document to file
 #    saved = save(document, headers, targetRepo, targetPath)
 #    print "%s" % ("OK" if saved else "ERR")
-#
-#print "----> DONE!"
 
 class Storage_Cache(object):
     '''Cache of bucket objects'''
