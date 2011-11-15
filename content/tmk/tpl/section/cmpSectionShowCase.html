@@ -1,0 +1,77 @@
+{%- import './macros/slider.html' as renderS -%}
+{%- import './macros/tooltip.html' as renderT -%}
+<div class="tmtkMesaNovedades" id="mesa">
+	<!-- mesa y t&iacute;tulos de secciones -->
+	<a href="/libros" class="tmtkMesaSeccionesTit" title="Libros"
+		onmouseover="javascript:mostrarDiv('tmtkMesaSeccionesTitLibros');"
+		onmouseout="javascript:mostrarDiv('tmtkMesaSeccionesTitLibros');"><object>
+			<div id="tmtkMesaSeccionesTitLibros" style="display: none;"></div>
+		</object>
+	</a> 
+	<div class="tmtkMesa-back">
+		<div class="tmtkMesaMenuMod">
+			<div class="tmtkMesaMenuTit"></div>
+			<ul class="dropdown">
+				<li class="diri"><span
+					onclick="javascript:desplegarOpciones('orden');"
+					id="mostrarRanking">Te Recomendamos</span>
+					<ul id="orden" onmouseover="clearTimeout(tempo);"
+						onmouseout="ocultarOpcionesT('orden');">
+						<li><a href="javascript:mostrarBuscarPor('TMK_RDA','mostrarRanking','orden');fillShowCase('TMK_RDA', null ,null);" id="TMK_RDA">Te Recomendamos</a></li>
+						<li><a href="javascript:mostrarBuscarPor('MV','mostrarRanking','orden');fillShowCase('MV', null ,null);" id="MV">M&aacute;s Vendidos</a></li>
+						<li><a href="javascript:mostrarBuscarPor('MP','mostrarRanking','orden');fillShowCase('MP', null ,null);" id="MP">M&aacute;s Populares</a></li>
+						<li><a href="javascript:mostrarBuscarPor('MVA','mostrarRanking','orden');fillShowCase('MVA', null ,null);" id="MVA">M&aacute;s Valorados</a></li>
+					</ul></li>
+			</ul>
+			<ul class="dropdown">
+				<li class="diri"><span
+					onclick="javascript:desplegarOpciones('filtro');"
+					id="mostrarTiempo">Todos</span>
+					<ul id="filtro" onmouseover="clearTimeout(tempo);"
+						onmouseout="ocultarOpcionesT('filtro')">
+						<li><a href="javascript:mostrarBuscarPor('M','mostrarTiempo','filtro');fillShowCase(null, 'M' ,null);" id="M">&Uacute;ltimos tres meses</a></li>
+						<li><a href="javascript:mostrarBuscarPor('Y','mostrarTiempo','filtro');fillShowCase(null, 'Y' ,null);" id="Y">&Uacute;ltimo a&ntilde;o</a></li>
+						<li><a href="javascript:mostrarBuscarPor('T','mostrarTiempo','filtro');fillShowCase(null, 'T' ,null);" id="T">Todos</a></li>
+					</ul></li>
+			</ul>
+		</div>
+		<div class="tmtkMesa">
+			<table border="0" cellpadding="0" cellspacing="0">
+				<tr>
+					<td>
+						<table border="0" cellpadding="0" cellspacing="0">
+							<tr>
+								<td>
+									<div class="disabledEfectCtrl" id="ctrlDisabled"
+										style="font-family: 'Tahoma'; text-align: center; vertical-align: middle; font-size: 30px;">
+									</div></td>
+							</tr>
+							<tr style="display: none;">
+								<td align="center">
+									</td>
+							</tr>
+							<tr>
+								<td>
+									<div class="" id="cat1Disabled"></div></td>
+							</tr>
+							<tr>
+								<td align="center">
+								<div id="sliderSection{{ key }}">
+									<a class="buttons prev" id="anterior1" onfocus="this.blur()"
+										href="#"><object>
+											<div id="anterior1DIV" class="mesaAnterior"></div>
+										</object>
+								</a><div id="slider{{ key }}">{{ renderS.renderSlider(slider_home_books, key)|replace("\n", "") }}</div>
+									 <a class="buttons next" id="siguiente1" onfocus="this.blur()" href="#"><object>
+											<div id="siguiente1DIV" class="mesaSiguiente"></div>
+										</object>
+								</a></div></td>
+							</tr>
+						</table></td>
+				</tr>
+			</table>
+		</div>
+	</div>
+</div>
+<!-- FIN mesa y t&iacute;tulos de secciones -->
+<div id="tooltip_content_section_{{ key }}" style="display: none;">{{ renderT.renderToolTip(tooltip_home_books, key)|replace("\n", "") }}</div>

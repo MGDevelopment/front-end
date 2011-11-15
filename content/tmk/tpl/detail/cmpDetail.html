@@ -1,0 +1,90 @@
+<!-- **** SECCION TEMATIKA **** -->
+<div id="divCarrito" class="efectoCarritoMod" style="display:none">    
+	<div class="efectoCarritoTxt"><span class="txtMsgCarritoOK" id="msgCarritoOK"></span><br /><div id="msgCarritoERROR" style="font-size:12;color:red"></div><span id="spnPrecioCarrito" class="txtPrecioCarrito">PRECIO: $ <span  class="txtPrecioCarrito" id="precioCarrito"></span>.-</span></div>        
+	<div class="efectoCarritoImages"><img id="carritoImagen" src="" class="efectoCarritoImag"></div>        
+	<div id="efectoCarritoB"><a href="javascript:carrito_CloseCarrito();"><img src="/imagenes/b-carrContinuar.gif" alt="Continuar" border="0"></a></div>
+</div>
+<div id="modalBack" style="display:none"></div>    
+<div class="globoArticuloLoad" id="loadArticulo" style="display:none;" ></div>    
+<div class="globoArticulo" style="display:none;" id="globo" onMouseOver="this.style.display=''"><table  bgcolor="dddddd" border="0" cellspacing="0" cellpadding="0" onMouseOver="this.style.display=''" onMouseOut="ocultarGlobo()">
+	<tr><td>Titulo:</td><td id="artTitulo"></td></tr>
+	<tr id="trAutor"><td id="autor"></td><td id="artAutor"></td></tr>
+	<tr id="trEditor"><td id="editor"></td><td id="artEditor"></td></tr>
+	<tr id="trRanking"><td>Ranking:</td><td id="artRanking"></td></tr>
+	<tr></tr>
+	<tr><td>Fecha de Publicaci&oacute;n:</td><td id="artPublicacion"></td></tr>
+	<tr><td>Idioma:</td><td id="artIdioma"></td></tr>
+	<tr id="trPagina"><td id="pagina"></td><td id="artPagina"></td></tr>
+	<tr id="trFormato"><td>Formato:</td><td id="artFormato"></td></tr>
+	<tr id="trDisponibilidad"><td>Disponibilidad:</td><td id="artDisponibilidad"></td></tr>
+	<tr id="trComprar"><td colspan="2"><input id="btnComprar" onClick="" type="button"  value="Agregar al Carrito"></td></tr>
+	<tr id="trPedir"><td colspan="2"><input id="btnPedir" type="button"  value="Pedido Especial"></td></tr>
+</table></div>
+<!-- <tmpl_var contenidoSEO> -->
+<a href="/{{ linkSection }}" class="panelSeccAct"></a>
+<div class="detalleInfoPrinc">
+   	<div id="dTopLeft">
+        <div class="dImagenes"><div class="detalleImagen"><img src="{{ detail_main_data.urlImg }}" alt="{{ detail_main_data.altImg }}" title="{{ detail_main_data.titleImg }}"></div></div>
+		<div class="dInfoPrincipal">
+			<div class="dInfoTit"><h1><b style="font-size:20px;">{{ detail_main_data.titulo }}</b></h1></div>
+            <div class="dInfoAutor"><h2>{%- for autor in detail_main_data.autores -%}<a href="{{ autor.urlAutor }}"><b>{{ autor.nombre }}</b></a>&nbsp;{%- endfor %}</h2></div>            
+            <span>*Editorial: <a href="{{ detail_main_data.editorial.urlEditorial }}">{{ detail_main_data.editorial.nombre }}</a></span>
+            <span>I.S.B.N : {{ detail_main_data.ISBN }}</span>
+            <span>Clasificaci&oacute;n: {%- for clasificacion in detail_main_data.clasificaciones -%}<a href="{{ clasificacion.urlGenero }}">{{ clasificacion.genero }}</a>&nbsp;{%- endfor %}</span>
+            {%- if detail_main_data.formato -%}<span>Formato: {{ detail_main_data.formato }} {{detail_main_data.tipoArticulo }}</span>{%- endif %}
+            <span>Disponibilidad: {{ detail_main_data.disponibilidad }}</span>
+            {%- if detail_main_data.paginas -%}<span>*Paginas:{{ detail_main_data.paginas }} {{ detail_main_data.duracion }}</span>{%- endif %}
+            <span>Publicaci&oacute;n: {{ detail_main_data.publicacion }} | Idioma: {{ detail_main_data.idioma }}</span>
+            <div class="dInfoM">{%- if detail_main_data.primerCapitulo -%}<a href="#primerCap">[+] Primer capitulo</a>&nbsp;{%- endif %}{%- if detail_main_data.indice -%}<a href="#indCont">[+] Indice de contenidos</a>&nbsp;{%- endif %}{%- if detail_main_data.biografia -%}<a href="#biogra">[+] Biografia</a>&nbsp;{%- endif %}{%- if detail_main_data.entrevista -%}<a href="#entrevista">[+] Ver Entrevista</a>&nbsp;{%- endif %}</div>
+            {%- if detail_main_data.urlFullImg %}<a href="javascript:mostrarImagen('{{ detail_main_data.urlFullImg }}')">Ampliar imagen</a>{%- endif %}
+			<div id="divEvaluacion"><div id="divEvaluacion"><div class="dInfoCalif"><div class="dInfoCalifStarMod"><span>Calificaci&oacute;n de lectores:</span>{%- for number in range(0, detail_main_data.calificacion|int) -%}<div class="dInfoCalifStar"></div> {%- endfor %} </div>
+			<div class="dInfoCalifBoton"><span><a href="#"></a></span><a href="#"><div>AGREGAR COMENTARIO</div></a></div></div></div></div>
+		</div>
+	</div>
+    <div id="dInfoCompl">
+    	<div class="dSolapas" id="datosCompl"> 
+			<div class="tmtkMesaMenuMod"><img class="solapasTitDatosPrinc" title="Datos principales"  alt="<tmpl_var altDatosPrincipales>" src="/imagenes/rediseno/imagenes/comun/t-datosPrinc.gif" /></div>            
+			<div class="dResena">{%- if detail_main_data.solapa -%}<span>Solapa:</span>{{ detail_main_data.solapa }}{%- endif %}{%- if detail_main_data.contratapa -%}<span>Contratapa:</span>{{ detail_main_data.contratapa }}{%- endif %}{%- if detail_main_data.sinopsis -%}<span>Sinopsis:</span>{{ detail_main_data.sinopsis }}{%- endif %}</div>
+        </div>  	
+		{%- if detail_main_data.indice -%}
+			<div class="dSolapas" id="indCont">
+	            <div class="tmtkMesaMenuMod"><div class="solapasTitIndCont" title="&Iacute;ndice de contenidos"/></div></div>
+	            <div class="dResena" id="divIndContenido" style="border:thin solid;border-color: white;">{{ detail_main_data.indice }}</div>
+			</div>
+		{%- endif %}
+		{%- if detail_main_data.primerCapitulo -%}
+		   	<div class="dSolapas" id="primerCap">           
+				<div class="tmtkMesaMenuMod"><div class="solapasTitprimerCap" title="Primer cap&iacute;tulo"/></div></div>      
+				<div class="dResena" id="divPrimerCapitulo" style="border:thin solid;border-color: white;">{{ detail_main_data.primerCapitulo }}</div>
+			</div>
+		{%- endif %} 
+		{%- if detail_main_data.biografia -%}
+			<div class="dSolapas" id="biogra">
+				<div class="tmtkMesaMenuMod"><div class="solapasTitBio" title="&Iacute;ndice de contenidos" /></div></div>
+	        	<div class="dResena" id="divBiografia"><span></span>{{ detail_main_data.biografia }}</div>
+			</div>
+		{%- endif %}		
+		<a name="coment"></a><div class="dSolapas" id="comentarios"><div class="tmtkMesaMenuMod"><img class="solapasTitComent" alt="<tmp_var altComentarios>" src="/imagenes/rediseno/imagenes/comun/t-comentarios.gif" /></div></div>    
+		<div id="divComentarios"><div id="comments_detail"></div></div>
+		{%- if detail_main_data.entrevista -%}
+			<div class="dSolapas" id="entrevista">
+		    	<div class="tmtkMesaMenuMod"><div class="solapasTitEntrev" title="Entrevista"/></div></div>
+				<div class="dResena" id="divEnrevista"><span></span>{{ detail_main_data.entrevista }}</div>
+			</div>
+		{%- endif %} 
+		<div id="googleBook" class="dSolapas1"><div id="viewerCanvas" style="height: 500px;">
+		</div></div>
+		<input type="hidden" value="{{ idArticle }}" id="articulo">
+		<div class="dSolapas" id="listas" style="height: 200px;display: none;"></div>
+		<div class="dSolapas" id="tags"></div>
+	</div>
+</div>
+<!-- <tmpl_var contenidoSEO> -->
+<div id="divModuloExtra"><div id="modExtra_detail"><div id="dTopRight"><div class="dCompra"><p align="center"></p></div></div></div></div>	
+<input type="hidden" value="<tmpl_var idSeccion>" id="idSccion">
+<input type="hidden" value="<tmpl_var precio>" id="precio">
+<input type="hidden" value="<tmpl_var idArticulo>" id="idArticulo">
+<input type="hidden" value="<tmpl_var estaDisponible>" id="estaDisponible">
+<input type="hidden" value="<tmpl_var urlPage>" id="urlPage">
+<input type="hidden" value="<tmpl_var titulo>" id="titulParaRedSocial">
+<div id="dRecomendaciones" style="height: 550px;" ><div id="divArticulosRelacionados"><div id="related_detail"><div class="dRecomendTit" ></div></div></div></div>

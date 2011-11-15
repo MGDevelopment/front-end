@@ -1,0 +1,40 @@
+{%- macro renderModExtra(idArticle, section, modExtra_data) -%}
+<div id="dTopRight">
+	<div class="dCompra">
+		<ul>
+			<span> {{ modExtra_data.precioFinal }}
+				<br>
+				{{ modExtra_data.precioFinalDolar }}
+				<br>
+				{{ modExtra_data.precioFinalEuro }}> <!-- <p>tu precio</p>-->
+			</span>
+			<span><p>
+					+
+					<tmpl_var puntosExtra> puntos <img
+						src="/imagenes/rediseno/imagenes/comun/detalleExtraLogo.gif" /> <a
+						href="/fidelizacion/panel/index.jsp">ingresar a extra</a>
+				</p> </span>
+		</ul>
+		{%- if modExtra_data.disponible -%} <a
+			href="javascript:agregarProducto({{ idArticle }})">
+			<div class="dComprarButton" title="Agregar al carrito"></div> </a>
+		{%- else -%}
+		<img style="padding-left: 20px; cursor: pointer;"
+			onclick="javascript:if (confirm('Este producto no esta disponible actualmente. Desea hacer un pedido?'))document.location = '/PedidoEspecial?ID_ARTICULO={{ idArticle }}';"
+			src="/imagenes/rediseno/imagenes/seccion{{ section }}/b-pedir.png"
+			alt="Pedir" />
+		{%- endif %}
+		<a href="/ayuda/ayudaEstandar.jsp?url=/ayuda/enviosPlazos.jsp"
+			target="_blank" class="dComprarEnvio">Ver costos de env&iacute;o y
+			Tiempos de Entrega</a>
+		<!-- seccion de mensajes, como promociones -->
+		{%- for mensaje in modExtra_data.mensajesExtra -%}
+			<a href="{{ mensaje.href }}" class="dComprarEnvio">{{ mensaje.texto }}</a>
+		{%- endfor %}
+
+		<div class="detalleAcciones">
+		</div>
+		<br>
+	</div>
+</div>
+{%- endmacro %}
