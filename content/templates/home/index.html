@@ -7,22 +7,22 @@
 {% endblock %}
 
 {% block canvas_content -%}
-        <div id="seccionTematika">
-            <div id="product-gallery">
-                {% include "fragments/product_gallery.html" %}
-            </div>
-            <div id="comments">
+    <div id="seccionTematika">
+        <div id="product-gallery">
+            {% include "fragments/product_gallery.html" %}
+        </div>
+        <div id="comments">
 {# DISABLED WAITING FOR DATASET
                 {% include "fragments/comments.html" %}
 #}
-            </div>
-            <div id="lastvisited"
-                    style="width: 900px; padding-top: 10px; float: left;">
-                {% include "fragments/last_visited.html" %}
-            </div>
         </div>
-        <div id="rightmenu">
-            {# XXX move to page.html #}
-            {% include "fragments/right_menu.html" %}
+        <div id="lastvisited"
+                style="width: 900px; padding-top: 10px; float: left;">
+            {% include "fragments/last_visited.html" %}
         </div>
+    </div>
+    <div id="rightmenu">
+        {# XXX move to page.html #}
+        {% include "fragments/right_menu.html" %}
+    </div>
 {%- endblock %}
