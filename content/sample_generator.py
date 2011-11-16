@@ -7,7 +7,7 @@ import sample_data
 #
 # What S3 bucket is target for what host.domain
 bucket_domain = {
-    "www.tematika.com":       "tmk-a",
+    "www.tematika.com":       "beta1.testmatika.com",
     "estatico.tematika.com":  "estatico.testmatika.com",
 }
 
@@ -22,8 +22,7 @@ bucket_domain = {
 homeURL = {
     "cannonical"    : "/index.html",
     "urls"          : [ "/index.html", "/index.jsp" ],
-    "static"        : "estatico.testmatika.com.s3-website-us-east-1.amazonaws.com",
-#    "static"        : ""estatico.tematika.com",
+    "static"        : "estatico.testmatika.com",
     "dynamic"       : "www.tematika.com",
     "search"        : "buscador.tematika.com",
     "checkout"      : "seguro.tematika.com",
