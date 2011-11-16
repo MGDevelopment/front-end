@@ -54,7 +54,12 @@
             {% include "fragments/messages.html" %}
         {% endblock %}
         </div>
-        <div id="content">{% block canvas_content %}{% endblock %}</div>
+        <div id="content">
+            {% block canvas_content %}{% endblock %}
+            <div id="rightmenu">
+                {% include "fragments/right_menu.html" %}
+            </div>
+        </div>
         <div id="bottom">
         {% block canvas_footer %}
             {% include "fragments/canvas_footer.html" %}
