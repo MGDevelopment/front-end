@@ -1,6 +1,10 @@
-from   ecommerce.storage  import S3Storage
+from   ecommerce.storage  import FilesystemStorage, S3Storage
 import jinja2
 import sample_data
+from   json               import dumps as js_dump
+
+USE_SCRIPT_TAG = True
+JS_WRAP = '''with(window.open("","_blank","width="+screen.width*.6+",left="+screen.width*.2+",height="+screen.height*.9+",resizable,scrollbars=yes")){document.write( %s );document.close();}void 0'''
 
 #
 # Config
@@ -9,6 +13,8 @@ import sample_data
 bucket_domain = {
     "www.tematika.com":       "beta1.testmatika.com",
     "estatico.tematika.com":  "estatico.testmatika.com",
+    #"www.tematika.com":       "./out",
+    #"estatico.tematika.com":  "./out"
 }
 
 
@@ -285,8 +291,19 @@ if __name__ == '__main__':
         t_params = d['_data'].copy() # Shallow copy
         t_params['url'] = d['_url']  # Add urls
 
-        s.send(d['target.path'], t.render(t_params), d['headers'])
-        #open('./' + d['target.path'], 'w').write(t.render(d['_data']))
+        page_html = t.render(t_params)
+        target_path = d['target.path']
+        headers = d['headers'].copy()
+        content_type = headers['Content-Type']
+
+        if content_type == 'text/html' and USE_SCRIPT_TAG:
+
+            # Convert to script tag replacing document.body
+            target_path = target_path.replace('.html', '_html.js')
+            headers['Content-Type'] = 'text/javascript'
+            page_html = JS_WRAP % js_dump(page_html)
+
+        s.send(target_path, page_html, headers)
 
         break # XXX
 
