@@ -220,7 +220,7 @@ a.Flogin
 	padding-left:25px;
 	color:#FF070F;
 	background-color:#FFFFFF;
-	background-image:url(http://{{ url.static}}/imagenes/error-icon.gif);
+	background-image:url(/imagenes/error-icon.gif);
 	background-repeat:no-repeat;
 	background-position:left top;
 	text-align:left;

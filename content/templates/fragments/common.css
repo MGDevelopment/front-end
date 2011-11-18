@@ -85,7 +85,7 @@ display:block;
 margin:0 5px;
 height:20px;
        background-color:#004B85;
-       background-image:url(http://{{ url.static}}/imagenes/rediseno/imagenes/comun/vModTop-back.gif);
+       background-image:url(/imagenes/rediseno/imagenes/comun/vModTop-back.gif);
        background-repeat:no-repeat;
        background-position:99% center;
 }
@@ -152,7 +152,7 @@ display:inline;
 float:left;
 width:163px;
 height:22px;
-       background-image:url(http://{{ url.static}}/imagenes/rediseno/imagenes/comun/detalleBoton-back.png);
+       background-image:url(/imagenes/rediseno/imagenes/comun/detalleBoton-back.png);
 margin:15px 0 0 168px;
        padding-top:7px;
        text-align:center;
@@ -183,7 +183,7 @@ display:inline;
 body {
 margin:0;
        text-align:left;
-       background-image:url(http://{{ url.static}}/imagenes/rediseno/imagenes/comun/boddy-back.jpg);
+       background-image:url(/imagenes/rediseno/imagenes/comun/boddy-back.jpg);
        background-position:center;
        background-repeat:repeat-y;
        font-family:Tahoma, Geneva, sans-serif, Helvetica;
@@ -216,7 +216,7 @@ float:left;
 width:960px;
       margin-left:6px;
 display:inline;
-        background-image:url(http://{{ url.static}}/imagenes/rediseno/imagenes/comun/lienzo-back.gif);
+        background-image:url(/imagenes/rediseno/imagenes/comun/lienzo-back.gif);
         background-repeat:repeat-x;
 }
 
@@ -287,7 +287,7 @@ display:inline;
 float:left;
 width:77px;
 height:30px;
-       background-image:url(http://{{ url.static}}/imagenes/rediseno/imagenes/comun/b-buscar.png);
+       background-image:url(/imagenes/rediseno/imagenes/comun/b-buscar.png);
 cursor:pointer;
 margin:12px 0 0 6px;
        z-index:99;
@@ -475,67 +475,67 @@ cursor:pointer;
 }
 
 #panelSeccLibros {
-    background-image:url(http://{{ url.static}}/imagenes/rediseno/imagenes/comun/panelSeccLibros-back.gif);
+    background-image:url(/imagenes/rediseno/imagenes/comun/panelSeccLibros-back.gif);
 }
 
 .panelSeccionesLeft #panelSeccLibros {
-    background-image:url(http://{{ url.static}}/imagenes/rediseno/imagenes/comun/panelSeccLibrosLeft-back.gif);
+    background-image:url(/imagenes/rediseno/imagenes/comun/panelSeccLibrosLeft-back.gif);
 }
 
 #panelSeccLibros span {
-    background-image:url(http://{{ url.static}}/imagenes/rediseno/imagenes/comun/panelSeccLibrosTop-back.gif);
+    background-image:url(/imagenes/rediseno/imagenes/comun/panelSeccLibrosTop-back.gif);
 }
 
 .panelSeccionesLeft #panelSeccLibros span {
-    background-image:url(http://{{ url.static}}/imagenes/rediseno/imagenes/comun/panelSeccLibrosLeftTop-back.gif);
+    background-image:url(/imagenes/rediseno/imagenes/comun/panelSeccLibrosLeftTop-back.gif);
 }
 
 #panelSeccMusica {
-    background-image:url(http://{{ url.static}}/imagenes/rediseno/imagenes/comun/panelSeccMusica-back.gif);
+    background-image:url(/imagenes/rediseno/imagenes/comun/panelSeccMusica-back.gif);
 }
 
 .panelSeccionesLeft #panelSeccMusica {
-    background-image:url(http://{{ url.static}}/imagenes/rediseno/imagenes/comun/panelSeccMusicaLeft-back.gif);
+    background-image:url(/imagenes/rediseno/imagenes/comun/panelSeccMusicaLeft-back.gif);
 }
 
 #panelSeccMusica span {
-    background-image:url(http://{{ url.static}}/imagenes/rediseno/imagenes/comun/panelSeccMusicaTop-back.gif);
+    background-image:url(/imagenes/rediseno/imagenes/comun/panelSeccMusicaTop-back.gif);
 }
 
 .panelSeccionesLeft #panelSeccMusica span {
-    background-image:url(http://{{ url.static}}/imagenes/rediseno/imagenes/comun/panelSeccMusicaLeftTop-back.gif);
+    background-image:url(/imagenes/rediseno/imagenes/comun/panelSeccMusicaLeftTop-back.gif);
 }
 
 #panelSeccPasatiempos {
-    background-image:url(http://{{ url.static}}/imagenes/rediseno/imagenes/comun/panelSeccPasatiempos-back.gif);
+    background-image:url(/imagenes/rediseno/imagenes/comun/panelSeccPasatiempos-back.gif);
 }
 
 .panelSeccionesLeft #panelSeccPasatiempos {
-    background-image:url(http://{{ url.static}}/imagenes/rediseno/imagenes/comun/panelSeccPasatiemposLeft-back.gif);
+    background-image:url(/imagenes/rediseno/imagenes/comun/panelSeccPasatiemposLeft-back.gif);
 }
 
 #panelSeccPasatiempos span {
-    background-image:url(http://{{ url.static}}/imagenes/rediseno/imagenes/comun/panelSeccPasatiemposTop-back.gif);
+    background-image:url(/imagenes/rediseno/imagenes/comun/panelSeccPasatiemposTop-back.gif);
 }
 
 .panelSeccionesLeft #panelSeccPasatiempos span {
-    background-image:url(http://{{ url.static}}/imagenes/rediseno/imagenes/comun/panelSeccPasatiemposLeftTop-back.gif);
+    background-image:url(/imagenes/rediseno/imagenes/comun/panelSeccPasatiemposLeftTop-back.gif);
 }
 
 #panelSeccPeliculas {
-    background-image:url(http://{{ url.static}}/imagenes/rediseno/imagenes/comun/panelSeccPeliculas-back.gif);
+    background-image:url(/imagenes/rediseno/imagenes/comun/panelSeccPeliculas-back.gif);
 }
 
 .panelSeccionesLeft #panelSeccPeliculas {
-    background-image:url(http://{{ url.static}}/imagenes/rediseno/imagenes/comun/panelSeccPeliculasLeft-back.gif);
+    background-image:url(/imagenes/rediseno/imagenes/comun/panelSeccPeliculasLeft-back.gif);
 }
 
 #panelSeccPeliculas span {
-    background-image:url(http://{{ url.static}}/imagenes/rediseno/imagenes/comun/panelSeccPeliculasTop-back.gif);
+    background-image:url(/imagenes/rediseno/imagenes/comun/panelSeccPeliculasTop-back.gif);
 }
 
 .panelSeccionesLeft #panelSeccPeliculas span {
-    background-image:url(http://{{ url.static}}/imagenes/rediseno/imagenes/comun/panelSeccPeliculasLeftTop-back.gif);
+    background-image:url(/imagenes/rediseno/imagenes/comun/panelSeccPeliculasLeftTop-back.gif);
 }
 
 #panelSeccLibros span,#panelSeccMusica span,#panelSeccPeliculas
@@ -548,27 +548,27 @@ cursor:pointer;
 }
 
 .panelSeccionesLeft #panelSeccSucursales {
-    background-image:url(http://{{ url.static}}/imagenes/rediseno/imagenes/comun/panelSeccSucursalesLeft-back.gif);
+    background-image:url(/imagenes/rediseno/imagenes/comun/panelSeccSucursalesLeft-back.gif);
 }
 
 .panelSeccionesLeft #panelSeccSucursales span {
-    background-image:url(http://{{ url.static}}/imagenes/rediseno/imagenes/comun/panelSeccSucursalesLeftTop-back.gif);
+    background-image:url(/imagenes/rediseno/imagenes/comun/panelSeccSucursalesLeftTop-back.gif);
 }
 
 .panelSeccionesLeft #panelSeccQuid {
-    background-image:url(http://{{ url.static}}/imagenes/rediseno/imagenes/comun/panelSeccQuidLeft-back.gif);
+    background-image:url(/imagenes/rediseno/imagenes/comun/panelSeccQuidLeft-back.gif);
 }
 
 .panelSeccionesLeft #panelSeccQuid span {
-    background-image:url(http://{{ url.static}}/imagenes/rediseno/imagenes/comun/panelSeccQuidLeftTop-back.gif);
+    background-image:url(/imagenes/rediseno/imagenes/comun/panelSeccQuidLeftTop-back.gif);
 }
 
 .panelSeccionesLeft #panelSeccExtra {
-    background-image:url(http://{{ url.static}}/imagenes/rediseno/imagenes/comun/panelSeccExtraLeft-back.gif);
+    background-image:url(/imagenes/rediseno/imagenes/comun/panelSeccExtraLeft-back.gif);
 }
 
 .panelSeccionesLeft #panelSeccExtra span {
-    background-image:url(http://{{ url.static}}/imagenes/rediseno/imagenes/comun/panelSeccExtraLeftTop-back.gif);
+    background-image:url(/imagenes/rediseno/imagenes/comun/panelSeccExtraLeftTop-back.gif);
 }
 
 #seccionTematika {
@@ -644,7 +644,7 @@ display:inline;
 float:left;
 width:79px;
 height:16px;
-       background-image:url(http://{{ url.static}}/imagenes/rediseno/imagenes/comun/t-vidriera.gif);
+       background-image:url(/imagenes/rediseno/imagenes/comun/t-vidriera.gif);
 margin:10px 5px 0 6px;
 display:inline;
 }
@@ -773,13 +773,13 @@ height:16px;
 
 .solapasTitComent {
 width:123px;
-      background-image:url(http://{{ url.static}}/imagenes/rediseno/imagenes/comun/t-comentarios.gif);
+      background-image:url(/imagenes/rediseno/imagenes/comun/t-comentarios.gif);
 margin:10px 5px 0 45px;
 }
 
 .solapasTitListas {
 width:57px;
-      background-image:url(http://{{ url.static}}/imagenes/rediseno/imagenes/comun/t-listas.gif);
+      background-image:url(/imagenes/rediseno/imagenes/comun/t-listas.gif);
 margin:10px 5px 0 75px;
 }
 
@@ -789,7 +789,7 @@ margin:10px 5px 0 136px;
 
 .solapasTitUsuarios {
 width:85px;
-      background-image:url(http://{{ url.static}}/imagenes/rediseno/imagenes/comun/t-usuarios.gif);
+      background-image:url(/imagenes/rediseno/imagenes/comun/t-usuarios.gif);
 margin:10px 5px 0 57px;
 }
 
@@ -800,38 +800,38 @@ margin:10px 5px 0 122px;
 .solapasTitTags {
 width:91px;
 height:18px;
-       background-image:url(http://{{ url.static}}/imagenes/rediseno/imagenes/comun/t-etiquetas.gif);
+       background-image:url(/imagenes/rediseno/imagenes/comun/t-etiquetas.gif);
 margin:10px 5px 0 55px;
 }
 
 .solapasTitBio {
 width:90px;
-      background-image:url(http://{{ url.static}}/imagenes/rediseno/imagenes/comun/t-biografia.gif);
+      background-image:url(/imagenes/rediseno/imagenes/comun/t-biografia.gif);
 margin:10px 5px 0 112px;
 }
 
 .solapasTitObjetos {
 width:55px;
-      background-image:url(http://{{ url.static}}/imagenes/rediseno/imagenes/comun/t-obras.gif);
+      background-image:url(/imagenes/rediseno/imagenes/comun/t-obras.gif);
 margin:10px 0 0 130px;
 }
 
 .solapasTitIndCont {
 width:203px;
-      background-image:url(http://{{ url.static}}/imagenes/rediseno/imagenes/comun/T-indContenidos.gif);
+      background-image:url(/imagenes/rediseno/imagenes/comun/T-indContenidos.gif);
 margin:10px 0 0 55px;
        font-family:tahoma;
 }
 
 .solapasTitprimerCap {
 width:157px;
-      background-image:url(http://{{ url.static}}/imagenes/rediseno/imagenes/comun/t-primCap.gif);
+      background-image:url(/imagenes/rediseno/imagenes/comun/t-primCap.gif);
 margin:10px 0 0 79px;
 }
 
 .solapasTitEntrev {
 width:114px;
-      background-image:url(http://{{ url.static}}/imagenes/rediseno/imagenes/comun/t-entrevistas.gif);
+      background-image:url(/imagenes/rediseno/imagenes/comun/t-entrevistas.gif);
 margin:10px 0 0 101px;
 }
 
@@ -872,7 +872,7 @@ width:311px;
 .solapaCalleSeparador {
 float:left;
 width:20px;
-      background-image:url(http://{{ url.static}}/imagenes/rediseno/imagenes/comun/solapaCalleSeparador-back.gif);
+      background-image:url(/imagenes/rediseno/imagenes/comun/solapaCalleSeparador-back.gif);
       background-repeat:repeat-y;
       background-position:center;
 }
@@ -1056,7 +1056,7 @@ color:#8C8C8C;
 .footer {
 float:left;
 width:970px;
-      background-image:url(http://{{ url.static}}/imagenes/rediseno/imagenes/comun/footer-back.gif);
+      background-image:url(/imagenes/rediseno/imagenes/comun/footer-back.gif);
 }
 
 .footer div {
@@ -1077,14 +1077,14 @@ color:#333;
 .footerShadow {
 float:left;
 height:48px;
-       background-image:url(http://{{ url.static}}/imagenes/rediseno/imagenes/comun/footerShadow-back.gif);
+       background-image:url(/imagenes/rediseno/imagenes/comun/footerShadow-back.gif);
 }
 
 .footer div.footerLogos {
 float:left;
 height:31px;
 width:281px;
-      background-image:url(http://{{ url.static}}/imagenes/rediseno/imagenes/comun/footerLogos-back.png);
+      background-image:url(/imagenes/rediseno/imagenes/comun/footerLogos-back.png);
 margin:-5px 0 0 344px;
 display:inline;
 }
@@ -1139,24 +1139,24 @@ margin:-1px 0 0 -2px;
 }
 
 .calificacionStar {
-    background-image:url(http://{{ url.static}}/imagenes/rediseno/imagenes/comun/calificacionStar-back.png);
+    background-image:url(/imagenes/rediseno/imagenes/comun/calificacionStar-back.png);
 }
 
 .calificacionStarAct {
-    background-image:url(http://{{ url.static}}/imagenes/rediseno/imagenes/comun/calificacionStarAct-back.png);
+    background-image:url(/imagenes/rediseno/imagenes/comun/calificacionStarAct-back.png);
 }
 
 .calificacionStarDes {
-    background-image:url(http://{{ url.static}}/imagenes/rediseno/imagenes/comun/calificacionStarDes-back.png);
+    background-image:url(/imagenes/rediseno/imagenes/comun/calificacionStarDes-back.png);
 }
 
 .calificacionStarMed {
-    background-image:url(http://{{ url.static}}/imagenes/rediseno/imagenes/comun/calificacionStarMed.png);
+    background-image:url(/imagenes/rediseno/imagenes/comun/calificacionStarMed.png);
 }
 
 .calificacionStar:hover,.calificacionStarDes:hover,.calificacionStarMed:hover
 {
-    background-image:url(http://{{ url.static}}/imagenes/rediseno/imagenes/comun/calificacionStarAct-back.png);
+    background-image:url(/imagenes/rediseno/imagenes/comun/calificacionStarAct-back.png);
 }
 
 .tapaContenedor {
@@ -1458,7 +1458,7 @@ margin:0 0 0 30px;
 }
 
 .detalleBoton,.dSolapasPie div {
-    background-image:url(http://{{ url.static}}/imagenes/rediseno/imagenes/comun/detalleBoton-back.png);
+    background-image:url(/imagenes/rediseno/imagenes/comun/detalleBoton-back.png);
 }
 
 .detalleModMenu {
@@ -1610,20 +1610,20 @@ cursor:pointer;
 }
 
 .dInfoCalifStar {
-    background-image:url(http://{{ url.static}}/imagenes/rediseno/imagenes/comun/dInfoCalifStar-back.png);
+    background-image:url(/imagenes/rediseno/imagenes/comun/dInfoCalifStar-back.png);
 }
 
 .dInfoCalifStarDes {
-    background-image:url(http://{{ url.static}}/imagenes/rediseno/imagenes/comun/dInfoCalifStarDes-back.png);
+    background-image:url(/imagenes/rediseno/imagenes/comun/dInfoCalifStarDes-back.png);
 }
 
 .dInfoCalifStarMed {
-    background-image:url(http://{{ url.static}}/imagenes/rediseno/imagenes/comun/dInfoCalifStarMed.png);
+    background-image:url(/imagenes/rediseno/imagenes/comun/dInfoCalifStarMed.png);
 }
 
 .dInfoCalifStarAct,.dInfoCalifStar:hover,.dInfoCalifStarMed:hover,.dInfoCalifStarDes:hover
 {
-    background-image:url(http://{{ url.static}}/imagenes/rediseno/imagenes/comun/dInfoCalifStarAct-back.png);
+    background-image:url(/imagenes/rediseno/imagenes/comun/dInfoCalifStarAct-back.png);
 }
 
 .dInfoCalifBoton {
@@ -1635,7 +1635,7 @@ display:inline;
 .dInfoCalifBoton div {
 width:147px;
 height:23px;
-       background-image:url(http://{{ url.static}}/imagenes/rediseno/imagenes/comun/detalleBoton2-back.png);
+       background-image:url(/imagenes/rediseno/imagenes/comun/detalleBoton2-back.png);
 cursor:pointer;
        text-align:center;
        font-size:10px;
@@ -1670,7 +1670,7 @@ float:right;
 width:224px;
 margin:20px 15px 20px 0;
 display:inline;
-        background-image:url(http://{{ url.static}}/imagenes/rediseno/imagenes/comun/solapaCalleSeparador-back.gif);
+        background-image:url(/imagenes/rediseno/imagenes/comun/solapaCalleSeparador-back.gif);
         background-repeat:repeat-y;
         background-position:-4px 0;
 }
@@ -1719,7 +1719,7 @@ width:614px;
 .dSolapas {
 float:left;
 width:608px;
-      background-image:url(http://{{ url.static}}/imagenes/rediseno/imagenes/comun/dSolapas-back.jpg);
+      background-image:url(/imagenes/rediseno/imagenes/comun/dSolapas-back.jpg);
       background-position:top;
       background-repeat:no-repeat;
 margin:10px 0 15px 6px;
@@ -1770,12 +1770,12 @@ color:#666;
 }
 
 .dComentarios .calificacionStar:hover,.dRecomendMod .calificacionStar:hover {
-    background-image:url(http://{{ url.static}}/imagenes/rediseno/imagenes/comun/calificacionStar-back.png);
+    background-image:url(/imagenes/rediseno/imagenes/comun/calificacionStar-back.png);
 }
 
 .dComentarios .calificacionStarDes:hover,.dRecomendMod
 .calificacionStarDes:hover {
-    background-image:url(http://{{ url.static}}/imagenes/rediseno/imagenes/comun/calificacionStarDes-back.png);
+    background-image:url(/imagenes/rediseno/imagenes/comun/calificacionStarDes-back.png);
 }
 
 .dComentarios .calificacionStarDes,.dComentarios
@@ -1840,7 +1840,7 @@ width:75px;
       text-align:center;
       font-weight:bold;
       font-size:9px;
-      background-image:url(http://{{ url.static}}/imagenes/rediseno/imagenes/comun/detalleBoton3-back.png);
+      background-image:url(/imagenes/rediseno/imagenes/comun/detalleBoton3-back.png);
       padding-top:5px;
 }
 
@@ -2203,7 +2203,7 @@ width:113px;
 float:left;
 width:815px;
       padding-bottom:10px;
-      background-image:url(http://{{ url.static}}/imagenes/rediseno/imagenes/seccionTematika/listadoMod.gif);
+      background-image:url(/imagenes/rediseno/imagenes/seccionTematika/listadoMod.gif);
       background-position:5px bottom;
       background-repeat:repeat-x;
 margin:20px 0 0 45px;
@@ -2305,19 +2305,19 @@ color:#004B85;
 
 .b-next,.b-nextConf {
 float:right;
-      background-image:url(http://{{ url.static}}/imagenes/rediseno/imagenes/seccionTematika/b-next.png);
+      background-image:url(/imagenes/rediseno/imagenes/seccionTematika/b-next.png);
       text-align:right;
 padding:22px 42px 0 0;
 margin:15px 50px 40px 0;
 }
 
 .b-nextConf {
-    background-image:url(http://{{ url.static}}/imagenes/rediseno/imagenes/seccionTematika/b-nextConf.png);
+    background-image:url(/imagenes/rediseno/imagenes/seccionTematika/b-nextConf.png);
 }
 
 .b-prev {
 float:left;
-      background-image:url(http://{{ url.static}}/imagenes/rediseno/imagenes/seccionTematika/b-prev.png);
+      background-image:url(/imagenes/rediseno/imagenes/seccionTematika/b-prev.png);
       text-align:LEFT;
 padding:22px 0 0 42px;
 margin:15px 0 40px 50px;
@@ -2335,7 +2335,7 @@ height:61px;
 margin:-2px 2px 2px -2px;
 border:1px solid #F5CFAA;
        background-color:#FFF;
-       background-image:url(http://{{ url.static}}/imagenes/rediseno/imagenes/seccionTematika/compraProc-back.png);
+       background-image:url(/imagenes/rediseno/imagenes/seccionTematika/compraProc-back.png);
 }
 
 .compraProcL-act,.compraProcL-ok,.compraProcR-des,.compraProcR-act {
@@ -2347,19 +2347,19 @@ height:61px;
 }
 
 .compraProcL-act {
-    background-image:url(http://{{ url.static}}/imagenes/rediseno/imagenes/seccionTematika/compraProcL-act.png);
+    background-image:url(/imagenes/rediseno/imagenes/seccionTematika/compraProcL-act.png);
 }
 
 .compraProcL-ok {
-    background-image:url(http://{{ url.static}}/imagenes/rediseno/imagenes/seccionTematika/compraProcL-ok.png);
+    background-image:url(/imagenes/rediseno/imagenes/seccionTematika/compraProcL-ok.png);
 }
 
 .compraProcR-des {
-    background-image:url(http://{{ url.static}}/imagenes/rediseno/imagenes/seccionTematika/compraProcR1-des.png);
+    background-image:url(/imagenes/rediseno/imagenes/seccionTematika/compraProcR1-des.png);
 }
 
 .compraProcR-act {
-    background-image:url(http://{{ url.static}}/imagenes/rediseno/imagenes/seccionTematika/compraProcR-act.png);
+    background-image:url(/imagenes/rediseno/imagenes/seccionTematika/compraProcR-act.png);
 }
 
 .compraProc-act,.compraProc-des,.compraProc-ok {
@@ -2370,15 +2370,15 @@ height:61px;
 }
 
 .compraProc-act {
-    background-image:url(http://{{ url.static}}/imagenes/rediseno/imagenes/seccionTematika/compraProc-act.png);
+    background-image:url(/imagenes/rediseno/imagenes/seccionTematika/compraProc-act.png);
 }
 
 .compraProc-des {
-    background-image:url(http://{{ url.static}}/imagenes/rediseno/imagenes/seccionTematika/compraProc-des.png);
+    background-image:url(/imagenes/rediseno/imagenes/seccionTematika/compraProc-des.png);
 }
 
 .compraProc-ok {
-    background-image:url(http://{{ url.static}}/imagenes/rediseno/imagenes/seccionTematika/compraProc-ok.png);
+    background-image:url(/imagenes/rediseno/imagenes/seccionTematika/compraProc-ok.png);
 }
 
 .cProcTxt-act {
@@ -2534,7 +2534,7 @@ bottom:3px;
 .cProcPapel-wrapper {
 float:left;
 width:791px;
-      background-image:url(http://{{ url.static}}/imagenes/rediseno/imagenes/seccionTematika/listadoMod.gif);
+      background-image:url(/imagenes/rediseno/imagenes/seccionTematika/listadoMod.gif);
       background-position:left bottom;
       background-repeat:repeat-x;
       padding-bottom:25px;
