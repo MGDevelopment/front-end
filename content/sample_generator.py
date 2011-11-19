@@ -12,7 +12,7 @@ JS_WRAP = '''with(window.open("","_blank","width="+screen.width*.6+",left="+scre
 # What S3 bucket is target for what host.domain
 bucket_domain = {
     "www.tematika.com":       "beta1.testmatika.com",
-    "estatico.tematika.com":  "estatico.testmatika.com",
+    "estatico.tematika.com":  "beta1.testmatika.com",
     #"www.tematika.com":       "./out",
     #"estatico.tematika.com":  "./out"
 }
@@ -28,7 +28,7 @@ bucket_domain = {
 homeURL = {
     "cannonical"    : "/index.html",
     "urls"          : [ "/index.html", "/index.jsp" ],
-    "static"        : "estatico.testmatika.com",
+    "static"        : "estatico.tematika.com",
     "dynamic"       : "www.tematika.com",
     "search"        : "buscador.tematika.com",
     "checkout"      : "seguro.tematika.com",
@@ -43,7 +43,8 @@ librosURL = {
     "dynamic"       : "www.tematika.com",
     "search"        : "buscador.tematika.com",
     "checkout"      : "seguro.tematika.com",
-    "service"       : "servicios.tematika.com"
+    "service"       : "servicios.tematika.com",
+    "data"          : "http://beta1.testmatika.com.s3.amazonaws.com/"
 }
 
 ############################################################
@@ -285,6 +286,9 @@ if __name__ == '__main__':
     t_params = {}
     for d in documentos:
 
+        print "Generating: ", d['target.path'], " for ", d['target.repo'], \
+            bucket_domain[d['_url'][d['target.repo']]]
+
         # Get corresponding bucket from storage connection cache
         s = storage_cache(bucket_domain[d['_url'][d['target.repo']]])
 
@@ -297,15 +301,15 @@ if __name__ == '__main__':
         headers = d['headers'].copy()
         content_type = headers['Content-Type']
 
-        if content_type == 'text/html' and USE_SCRIPT_TAG:
-
-            # Convert to script tag replacing document.body
-            target_path = target_path.replace('.html', '_html.js')
-            headers['Content-Type'] = 'text/javascript'
-            page_html = JS_WRAP % js_dump(page_html)
+        if USE_SCRIPT_TAG:
+            if content_type == 'text/html':
+                # Convert to script tag replacing document.body
+                target_path = target_path.replace('.html', '_html.js')
+                headers['Content-Type'] = 'text/javascript'
+                page_html = JS_WRAP % js_dump(page_html)
             headers['Cache-control'] = "no-cache, must-revalidate"
 
         s.send(target_path, page_html, headers)
 
-        break # XXX
+        #break # XXX
 
