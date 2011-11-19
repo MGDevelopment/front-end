@@ -1,5 +1,6 @@
 <!-- JavaScript bottom -->>
 <script type="text/javascript" src="/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="/jquery/jquery.cookie.js"></script>
 <script type="text/javascript" src="/js/popups.js"></script>
 <!-- script type="text/javascript" src="/js/equalcolumnsInicio.js"></script>
 <script type="text/javascript" src="/js/buscador.js"></script>
@@ -62,6 +63,10 @@
 <!-- JQuery Carousel -->
 <script type="text/javascript" src="/carousel/jquery.tinycarousel.js"></script>
 <script type="text/javascript" src="/carousel/jquery.colorbox.js"></script>
+<!-- Last visited -->
+<script type="text/javascript" src="/jfather/jfather.js"></script>
+<script type="text/javascript" src="/js/lastVisited.js"></script>
+
 <script type="text/javascript">
 
 jQuery(document).ready(function() {
@@ -70,7 +75,8 @@ jQuery(document).ready(function() {
 	$('#sliderHomeMovies').tinycarousel({ axis: 'y', display: 1} );
 	$('#sliderHomeGames').tinycarousel({ axis: 'y', display: 1} );
 	$(".inline").colorbox({opacity: 0, inline:true, width:"400px"});
-	//.bind("mouseover", function(){$(this).trigger("click"); 
+	//.bind("mouseover", function(){$(this).trigger("click");
+	renderLastVisited('lastvisited'); 
 });
 
 </script>
