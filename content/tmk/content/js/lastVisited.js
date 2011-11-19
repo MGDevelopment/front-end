@@ -1,21 +1,21 @@
 /**
  * lastVisited.js
- * 
+ *
  */
 
-var _cookieName = "TMKLastVisitedCookie";
+var _cookieLastVisitedName = "TMKLastVisitedCookie";
 var _numberOfItems = 3;
 
 function addLastVisited(article) {
 	var articleList = null;
-	
+
 	if (article == null) {
 		return;
 	}
-	
+
 	// check if cookie exists
-	if ($.cookie(_cookieName) != null) {
-		articleList = JFather.unserialize($.cookie(_cookieName));
+	if ($.cookie(_cookieLastVisitedName) != null) {
+		articleList = JFather.unserialize($.cookie(_cookieLastVisitedName));
 		for (var i = 0; i < _numberOfItems; i++) {
 			tmpArticle = articleList[i];
 			if (tmpArticle != null && tmpArticle.getArticleId() == article.getArticleId()) {
@@ -23,24 +23,24 @@ function addLastVisited(article) {
 			}
 		}
 	} else {
-		articleList = new Array(3); 
+		articleList = new Array(3);
 	}
-	
+
 	for (var i = _numberOfItems; i > 1; i--) {
 		articleList[i-1] = articleList[i-2];
 	}
 	articleList[0] = article;
-	
+
 	// create cookie
-	$.cookie(_cookieName, JFather.serialize(articleList), { expires: null, path: '/'});
+	$.cookie(_cookieLastVisitedName, JFather.serialize(articleList), { expires: null, path: '/'});
 	return;
 }
 
 function renderLastVisited(divTarget) {
 	var articleList = null;
-	if ($.cookie(_cookieName) != null) {
-		articleList = JFather.unserialize($.cookie(_cookieName));
-	} 
+	if ($.cookie(_cookieLastVisitedName) != null) {
+		articleList = JFather.unserialize($.cookie(_cookieLastVisitedName));
+	}
 	var lastVisitedHTML = getNoItems();
 	if (articleList != null) {
 		lastVisitedHTML = getItems(articleList);
@@ -55,7 +55,7 @@ function getNoItems() {
 	return '<table align="center" width="389" border="0" cellpadding="0" cellspacing="0" class="modulosmedio">' +
 	  '<tr>' +
 	  	'<td class="titulosceldas"><table width="387" border="0" cellpadding="0" cellspacing="0" class="titulosceldas2">' +
-	  		'<tr>' + 
+	  		'<tr>' +
 	      '<td><img src="/imagenes/libros/t-ultimosvisitados.gif" alt="&Uacute;ltimos visitados" width="127" height="10" /></td>' +
 	      	'</tr>' +
 	      	'</table></td>' +
@@ -74,7 +74,7 @@ function getItems(articleList) {
 	HTML = '<table align="center" width="390" border="0" cellpadding="0" cellspacing="0" class="modulosmedio">' +
 		'<tr>' +
 			'<td class="titulosceldas">' +
-				'<table width="390" border="0" cellpadding="0" cellspacing="0" class="titulosceldas2">' + 
+				'<table width="390" border="0" cellpadding="0" cellspacing="0" class="titulosceldas2">' +
 					'<tr>' +
 						'<td>' +
 							'<img src="/imagenes/libros/t-ultimosvisitados.gif" alt="&Uacute;ltimos visitados" width="127" height="10" />' +
@@ -106,9 +106,9 @@ function getItems(articleList) {
  		     						'<span class="Fprecio">PRECIO: ' + article.getPrice() + '</span>' +
 		     					'</div>' +
 		     				'</td>' +
-		     				'<td valign="bottom">' + 
+		     				'<td valign="bottom">' +
 		     					'<div align="right">' +
-		           					'<table width="2" border="0" cellspacing="0" cellpadding="0" class="divComprar">' + 
+		           					'<table width="2" border="0" cellspacing="0" cellpadding="0" class="divComprar">' +
 		             					'<tr>' +
 		               						'<td height="19" class="divInfo">' +
 			               						'<a class="FProductos" href="' + article.getURL() + '" alt="' + article.getTitle() +'">' +
@@ -116,7 +116,7 @@ function getItems(articleList) {
 			               						'</a>' +
 		               						'</td>' +
 		               						'<td class="divComprarPedir">';
-		               							
+
 		    if (article.getAvailable()) {
 		    	HTML = HTML + '<a href="javascript:carrito_AgregarArticulo(\"' + article.getArticleId() + '\");window.scrollTo(0,0);" rel="nofollow">' +
 		               			'<img src="/imagenes/inicio/b-comprar.gif" alt="Comprar"  border="0" /></a>';
@@ -141,7 +141,7 @@ function getItems(articleList) {
 }
 
 function Article(url, title, urlPrincipalAttribute, principalAttribute, urlGroup, group, price, available, id) {
-    this._url = url; 
+    this._url = url;
     this._title = title;
     this._urlPrincipalAttribute = urlPrincipalAttribute;
     this._principalAttribute = principalAttribute;
@@ -150,8 +150,8 @@ function Article(url, title, urlPrincipalAttribute, principalAttribute, urlGroup
     this._price = price;
     this._available = available;
     this._id = id;
-    
- 
+
+
     this.getURL = function() {
 			return this._url;
 		};
@@ -179,5 +179,5 @@ function Article(url, title, urlPrincipalAttribute, principalAttribute, urlGroup
 	this.getArticleId = function() {
 			return this._id;
 		};
-		
+
 }

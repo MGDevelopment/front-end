@@ -1,23 +1,77 @@
 /**
  * messages.js
  */
+var _cookieMessagesName = "TMKMessagesCookie";
+var _cookieViewMessagesName = "TMKViewMessagesCookie";
+var _expiration = 1000;
 
 function fillMessages(callback) {
+	// check if cookie exists
+	if ($.cookie(_cookieMessagesName) == null) {
+		setMessagesReaded('');
+	}
 	getVisualizaMensaje();
 	return;
 }
 
+function setMessagesReaded(messages) {
+	// create cookie
+	$.cookie(_cookieMessagesName, JFather.serialize(messages), { expires: _expiration, path: '/'});
+}
+function getMessagesReaded() {
+	var messagesReaded = '';
+	if ($.cookie(_cookieMessagesName) != null) {
+		messagesReaded = JFather.unserialize($.cookie(_cookieMessagesName));
+	}
+	return messagesReaded;
+}
+function getMessages() {
+	var messages = TMK.getData('messages');
+	var messagesReaded = getMessagesReaded();
+	if (messages != null) {
+		for (var i = messages.mensajes.lista.length-1; i >= 0; i--) {
+			var msg = messages.mensajes.lista[i];
+			if (messagesReaded.indexOf(getToken(msg.id)) >= 0) {
+				messages.mensajes.lista.splice(i, 1);
+			}
+		}
+	}
+	return messages;
+}
+
+function removeMessage(msgId) {
+	var messagesReaded = getMessagesReaded();
+	messagesReaded = messagesReaded + getToken(msgId);
+	setMessagesReaded(messagesReaded);
+}
+
+function getToken(id) {
+	return "msg.Id=" + id + ";";
+}
+
+function getViewMessages() {
+	var view = true;
+	if ($.cookie(_cookieViewMessagesName) != null) {
+		view = JFather.unserialize($.cookie(_cookieViewMessagesName));
+	}
+	return view;
+}
+
+function setViewMessages(view) {
+	$.cookie(_cookieViewMessagesName, JFather.serialize(view), { expires: null, path: '/'});
+}
+
+
+/** legacy code **/
 var listaMensaje = null;
-var visualizaMensaje = false;
 var indiceMensajeActual = 0;
 
-
 function getMensaje() {
-	var obj = TMK.getData('messages');
+	var obj = getMessages();
 	if (obj != undefined) {
 		if (obj.mensajes.lista.length > 0) {
 			listaMensaje = obj.mensajes.lista;
-			getMensajeActual()
+			getMensajeActual();
 		} else {
 			$('#msjMin').get(0).style.display = 'none';
 			$('#msjMax').get(0).style.display = 'none'
@@ -41,7 +95,7 @@ function setMensajeUsuario(indice) {
 	$('#pagMsg').get(0).innerHTML = 'Mensaje ' + (indice + 1) + '/'
 			+ listaMensaje.length + ':';
 	$('#textoMsgActual').get(0).innerHTML = listaMensaje[indice].texto;
-	if (visualizaMensaje) {
+	if (getViewMessages()) {
 		$('#msjMax').get(0).style.display = 'block';
 		$('#msjMin').get(0).style.display = 'none'
 	} else {
@@ -76,7 +130,8 @@ function msgIrSiguiente() {
 	setMensajeActual(indiceMensajeActual)
 }
 function setVisualizaMensaje(visualiza) {
-	visualizaMensaje = visualiza;
+	//visualizaMensaje = visualiza;
+	setViewMessages(visualiza);
 }
 function setMensajeLeido() {
 	$('#msgAnterior').get(0).href = 'javascript:nada()';
@@ -86,10 +141,12 @@ function setMensajeLeido() {
 	$('#msgLeido').get(0).className = 'linkDisabled';
 	$('#msgLeido').get(0).href = 'javascript:nada()';
 	var id = listaMensaje[indiceMensajeActual].id;
+	removeMessage(id);
 	if (indiceMensajeActual == (listaMensaje.length - 1)) {
 		indiceMensajeActual--;
 		setMensajeActual(indiceMensajeActual)
 	}
+	getMensaje();
 }
 function setMensajeActual(indice) {
 	if (indice != -1) {
