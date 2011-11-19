@@ -302,6 +302,7 @@ if __name__ == '__main__':
             target_path = target_path.replace('.html', '_html.js')
             headers['Content-Type'] = 'text/javascript'
             page_html = JS_WRAP % js_dump(page_html)
+            headers['Cache-control'] = "no-cache, must-revalidate"
 
         s.send(target_path, page_html, headers)
 
