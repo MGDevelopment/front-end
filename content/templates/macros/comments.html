@@ -1,0 +1,57 @@
+{%- macro getClass(productForm) -%}
+	{%- if productForm == 'BA' -%}
+		tapaLibros
+	{%- elif productForm == 'AC'-%}
+		tapaMusica
+	{%- elif productForm == 'VI' -%}
+		tapaPeliculas
+	{%- else -%}
+		tapaLibros
+	{%- endif -%}
+{%- endmacro %}
+{%- macro getSection(productForm) -%}
+	{%- if productForm == 'BA' -%}
+		libros
+	{%- elif productForm == 'AC'-%}
+		musica
+	{%- elif productForm == 'VI' -%}
+		peliculas
+	{%- else -%}
+		libros
+	{%- endif -%}
+{%- endmacro %}
+{%- macro renderComments(comments_data) -%}
+	<div class=\"solapaModulos\">
+		{%- for article in comments_data -%}
+	        <div class=\"solapaCalle\" id=\"calleLibrosComents\" style=\"height: 250px;\">
+				<div class=\"tapaContenedor\">
+				    <a href=\"{{ article.LinkBase }}\">
+				    	<img src=\"{{ article.CoverSmall }}\" alt=\"{{ article.Title }}\" class=\"{{ getClass(article.ProductForm)|trim }}\">
+				    </a>
+				    <div class=\"tapaInfo\" style=\"visibility: hidden;\"></div>
+				</div>
+	            <div class=\"hComentarios\" id=\"comentarios01\">
+	            	<a>{{ article.NickName }}</a>  dijo sobre
+	                <a href=\"{{ article.LinkBase }}\" class=\"fTitulos\">{{ article.Title }}</a>
+	                <span>
+	                 	{{ article.CommentText|escape }}
+	                </span>
+	            </div>
+	            <div class=\"calificacionMod\">
+	                <span>Calificaci&oacute;n del producto:</span>
+	                {%- for number in range(0, 4) -%}
+	                	{%- if number+1 <= article.Rating|int -%}
+	                		<div class="calificacionStar"></div>
+	                	{%- else -%}
+	                		<div class="calificacionStarDes"></div>
+	                	{%- endif %}
+	                {%- endfor %}
+	            <a href=\"/{{ getSection(article.ProductForm)|trim }}#coment\" class=\"vermas\">+ comentarios de {{ getSection(article.ProductForm)|trim }}</a>
+	          </div>
+	          {%- if not loop.last -%}
+	          	<!-- lineas divisorias -->
+	          	<div class=\"solapaCalleSeparador\" id=\"calleSeparadorComents\" style=\"height: 250px;\"></div>
+	          {%- endif %}
+		{%- endfor %}
+	</div>
+{%- endmacro %}
