@@ -16,7 +16,7 @@ var dataComments = {};
 {%- endfor -%}
 
 function loadComments() {
-	TMK.addData('comments', dataComments);
+	APP.addData('comments', dataComments);
 	return;
 }
 
