@@ -12,7 +12,7 @@ dataComments['section'] = '{{ render.renderComments(data["Comments"])|replace("\
 {% endif %}
 
 function loadComments() {
-	TMK.addData('comments', dataComments);
+	APP.addData('comments', dataComments);
 	return;
 }
 
