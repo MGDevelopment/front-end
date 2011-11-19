@@ -32,7 +32,8 @@ homeURL = {
     "dynamic"       : "www.tematika.com",
     "search"        : "buscador.tematika.com",
     "checkout"      : "seguro.tematika.com",
-    "service"       : "servicios.tematika.com"
+    "service"       : "servicios.tematika.com",
+    "data"          : "http://beta1.testmatika.com.s3.amazonaws.com/"
 }
 
 librosURL = {
