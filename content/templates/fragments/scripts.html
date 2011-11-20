@@ -2,13 +2,11 @@
 <script type="text/javascript"
         src="/js/jquery-1.4.2.min.js"></script>
 <!-- Site scripts -->
-<script type="text/javascript" src="{{ url.data }}js/cart.js"></script>
+<script type="text/javascript" src="{{ url.data }}js/app.js"></script>
 
 <script type="text/javascript">
 
-    carrito_ActualizarCarrito();
-
-    {% include "fragments/app.js" %} /* Main Application */
+    APP.cartUpdate();
 
     {% include "fragments/popups.js" %}
 
