@@ -20,7 +20,7 @@
 		libros
 	{%- endif -%}
 {%- endmacro %}
-{%- macro renderComments(comments_data) -%}
+{%- macro renderComments(comments_data, extraComments=None) -%}
 	<div class=\"solapaModulos\">
 		{%- for article in comments_data -%}
 	        <div class=\"solapaCalle\" id=\"calleLibrosComents\" style=\"height: 250px;\">
@@ -46,11 +46,18 @@
 	                		<div class="calificacionStarDes"></div>
 	                	{%- endif %}
 	                {%- endfor %}
-	            <a href=\"/{{ getSection(article.ProductForm)|trim }}#coment\" class=\"vermas\">+ comentarios de {{ getSection(article.ProductForm)|trim }}</a>
+	            {%- if extraComments == None -%}
+	            	<a href=\"/{{ getSection(article.ProductForm)|trim }}#coment\" class=\"vermas\">+ comentarios de {{ getSection(article.ProductForm)|trim }}</a>
+	            {%- endif %}
 	          </div>
-	          {%- if not loop.last -%}
-	          	<!-- lineas divisorias -->
-	          	<div class=\"solapaCalleSeparador\" id=\"calleSeparadorComents\" style=\"height: 250px;\"></div>
+	          {%- if extraComments == None -%}
+		          {%- if not loop.last -%}
+		          	<div class=\"solapaCalleSeparador\" id=\"calleSeparadorComents\" style=\"height: 250px;\"></div>
+		          {%- endif %}
+		      {%- else -%}
+		  		  {%- if not loop.index in [3, 6] -%}
+		          	<div class=\"solapaCalleSeparador\" id=\"calleSeparadorComents\" style=\"height: 250px;\"></div>
+		  		  {%- endif -%}
 	          {%- endif %}
 		{%- endfor %}
 	</div>
