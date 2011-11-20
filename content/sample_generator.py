@@ -140,23 +140,6 @@ documentos = [
         "target.path"   : "/js/app.js",
         "target.repo"   : "static"
     },
-    #
-    # carrito
-    #
-    {
-        "EntityType"    : "PAGE",
-        "EntityId"      : 1,
-        "dataset"       : "homeComments",       "_data" : {},
-                                                "_url"  : homeURL,
-        "template"      : "js/cart.js",
-        "headers"       : {
-            "Content-Type"      : "text/javascript",
-            "Content-Encoding"  : "gzip",
-            "Cache-Control"     : "max-age=3600, must-revalidate"
-        },
-        "target.path"   : "/js/cart.js",
-        "target.repo"   : "static"
-    },
     #######################################################
     #
     # libros - html

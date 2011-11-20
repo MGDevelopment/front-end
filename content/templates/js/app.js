@@ -1,6 +1,74 @@
 APP = (function() {
 
-    var session = False;
+    // Internal (unreachable)
+    var _data    = {};    // Stored data
+    var _session = false; // Is there a site session cookie?
+
+    // Cookie methods inspired by quirksmode.org
+    function createCookie(name, value, days) {
+
+        var cookie = name + "=" + value;
+        if (days) {
+            var date = new Date();
+            date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+            cookie += "; expires=" + date.toGMTString();
+        }
+
+        document.cookie = cookie + "; path=/";
+    }
+
+    function readCookie(name) {
+
+        if (!document.cookie)
+            return null; // No cookie
+
+        var nameEQ = name + "=";
+        var ca = document.cookie.split(';'); // Split cookies
+
+        for (var i = 0; i < ca.length; i++) {
+            var c = ca[i];                    // This cookie
+            while (c.charAt(0) == ' ')
+                c = c.substring(1, c.length); // Remove leading spaces
+            if (c.indexOf(nameEQ) == 0)
+                return c.substring(nameEQ.length, c.length); // Found
+        }
+
+        return null; // Not found
+    }
+
+    function eraseCookie(name) {
+
+        createCookie(name, "", -1); // Cookie overwritten with expired
+    }
+    
+    function getStatus() {
+
+        return readCookie('status'); // Return status cookie (to be parsed)
+    }
+
+    //
+    // Application methods
+    //
+
+    function getStatus() {
+
+        var statusCookie = readCookie('status')
+        if (!statusCookie)
+            return false;
+
+        var statusVars = statusCookie.split(',');
+        var statusMap = {};
+        for (var i = 0; i < statusVars.length; i++) {
+            var kv = statusVars[i].split(':'); // key:value -> [key, value]
+            statusMap[kv[0]] = kv[1];
+        }
+
+        return statusMap;
+    }
+    
+    function checkSession() {
+        _session = document.cookie.indexOf('JSESSIONID') != -1;
+    }
 
     function cartAdd(idArticulo) {
         $('#modalBack').css("display", "block");
@@ -52,7 +120,7 @@ APP = (function() {
     }
 
     function cartUpdate() {
-        if (!session)
+        if (!_session)
             return; /* nothing to do */
         $.ajax({
                type: "POST",
@@ -91,17 +159,22 @@ APP = (function() {
 
         return (((signo) ? '' : '-') + num + '.' + cents);
     }
+    
+    function init() {
 
-    var data = {};  // APP object
+        checkSession();
+        cartUpdate();
+
+    }
 
     return {
         addData: function(name, value) {
-            data[name] = value;
+            _data[name] = value;
         },
         getData: function(name) {
-            return data[name];
+            return _data[name];
         },
-        cartAdd:     cartAdd,
-        cartUpdate:  cartUpdate
+        cartAdd:   cartAdd,
+        init:      init
     }
 })();
