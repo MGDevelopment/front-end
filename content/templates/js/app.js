@@ -71,6 +71,42 @@ APP = (function() {
         _session = document.cookie.indexOf('JSESSIONID') != -1;
     }
 
+    function checkAffiliate() {
+
+        var affiliate    = false; // Default to no affiliate
+        var section      = 0;
+        var _partnerRe   = /--[0-9]+--([0-9]+)--([0-9]+)/; // affiliate,section
+        var _affiliateRe = /ID_ALIANZA=([0-9]+)/;
+        var _sectionRe   = /ID_SECCION=([0-9]+)/;
+        var _m, _ma, _ms; // Local
+
+        if ((_ma = location.href.match(_affiliateRe)) &&
+            (_ms = location.href.match(_sectionRe))) {
+
+            affiliate = _ma[1];
+            section   = _ms[1];
+
+        } else if (_m = location.href.match(_partnerRe)) {
+
+            affiliate = _m[1];
+            section   = _m[2];
+
+        }
+
+        if (affiliate) { // Call affiliate logger
+
+            var img = document.createElement('img');
+            img.src = '/register_affiliate.jsp' +
+                      '?ID_ALIANZA='    + affiliate +
+                      '&ID_SECCION=' + section   +
+                      '&URL=' + escape(location.href);
+
+            document.body.appendChild(img);
+
+        }
+
+    }
+
     function cartAdd(idArticulo) {
         $('#modalBack').css("display", "block");
         $('#modalBack').css("visibility", "visible");
@@ -161,21 +197,23 @@ APP = (function() {
         return (((signo) ? '' : '-') + num + '.' + cents);
     }
     
+    function addData(name, value) {
+        _data[name] = value;
+    }
+    function getData(name) {
+        return _data[name];
+    }
+
     function init() {
 
+        checkAffiliate(); // Called img sets cookies and session
         checkSession();
         cartUpdate();
 
     }
 
-    // Data methods
-    _app.addData = function (name, value) {
-        _data[name] = value;
-    }
-    _app.getData = function (name) {
-        return _data[name];
-    }
-
+    _app.addData = addData;
+    _app.getData = getData;
     _app.cartAdd = cartAdd;
     _app.init    = init;
 
