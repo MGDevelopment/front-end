@@ -172,13 +172,18 @@ APP = (function() {
         });
     }
 
-    function cartSet(objCarrito) {
-        if (objCarrito!= null && typeof(objCarrito.cantidad) != undefined && objCarrito.cantidad < 1) {
-            $('#textoCarrito').get(0).innerHTML = 'No hay<br/> items'
-        } else {
-            if(objCarrito !=null && typeof(objCarrito.cantidad) != undefined) {
-                $('#textoCarrito').get(0).innerHTML =  objCarrito.cantidad + ((objCarrito.cantidad>1)?' items':' item') + '<br/>$ ' + formatCurrency(objCarrito.total);
-            }
+    function cartSet(cart) {
+
+        if (cart && cart.cantidad && cart.cantidad < 1) {
+
+            $('#textoCarrito').get(0).innerHTML = 'No hay<br> items';
+
+        } else if (cart && cart.cantidad && cart.total) {
+
+            $('#textoCarrito').get(0).innerHTML =  ( cart.cantidad
+                + 'item'   + ((cart.cantidad > 1)?'s': '')
+                + '<br>$ ' + formatCurrency(cart.total) );
+
         }
     }
 
