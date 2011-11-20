@@ -187,20 +187,12 @@ APP = (function() {
         }
     }
 
-    function formatCurrency(num) {
-        num = num.toString().replace(/\$|\,/g,'');
-        if (isNaN(num))
-          num = 0;
-        var signo = (num == (num = Math.abs(num)));
-        num = Math.floor(num * 100 + 0.50000000001);
-        cents = num % 100;
-        num = Math.floor(num / 100).toString();
-        if (cents < 10)
-          cents = '0' + cents;
-        for (var i = 0; i < Math.floor((num.length - (1 + i)) / 3); i++)
-            num = num.substring(0, num.length - (4 * i + 3)) + ',' + num.substring(num.length - (4 * i + 3));
+    function formatCurrency(n) { // XXX missing i18n support
 
-        return (((signo) ? '' : '-') + num + '.' + cents);
+        return n;
+        //n         = n.toString().replace(/\$|\,/g,'');
+        //var cents = Math.round(n * 100) % 100;
+        //return (Math.floor(n / 100) + ',' + (cents < 10 ? "0" : "") + cents);
     }
     
     function addData(name, value) {
