@@ -1,6 +1,7 @@
 APP = (function() {
 
     // Internal (unreachable)
+    var _app     = {};    // Application object
     var _data    = {};    // Stored data
     var _session = false; // Is there a site session cookie?
 
@@ -167,14 +168,17 @@ APP = (function() {
 
     }
 
-    return {
-        addData: function(name, value) {
-            _data[name] = value;
-        },
-        getData: function(name) {
-            return _data[name];
-        },
-        cartAdd:   cartAdd,
-        init:      init
+    // Data methods
+    _app.addData = function (name, value) {
+        _data[name] = value;
     }
+    _app.getData = function (name) {
+        return _data[name];
+    }
+
+    _app.cartAdd = cartAdd;
+    _app.init    = init;
+
+    return _app;
+
 })();
