@@ -302,12 +302,12 @@ if __name__ == '__main__':
         content_type = headers['Content-Type']
 
         if USE_SCRIPT_TAG:
+            headers['Cache-Control'] = "no-cache, must-revalidate"
             if content_type == 'text/html':
                 # Convert to script tag replacing document.body
                 target_path = target_path.replace('.html', '_html.js')
                 headers['Content-Type'] = 'text/javascript'
                 page_html = JS_WRAP % js_dump(page_html)
-            headers['Cache-control'] = "no-cache, must-revalidate"
 
         s.send(target_path, page_html, headers)
 
