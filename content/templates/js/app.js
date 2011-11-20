@@ -120,6 +120,7 @@ APP = (function() {
                     var obj= jQuery.parseJSON(msg);
                     cartAlert(obj.Articulo);
                     cartSet(obj.Carrito);
+                    checkSession();
                }
         });
     }
