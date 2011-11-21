@@ -1,0 +1,95 @@
+---
+#
+# comments for subject pages
+#
+query.sql:          >
+    SELECT          S.SubjectId             AS SubjectId,
+                    S.Title                 AS Title
+        FROM        Subjects S
+        WHERE       {{ID:SubjectId}}
+        ORDER BY    S.SubjectId
+query.prefix:       S
+query.id:           [ "SubjectId" ]
+query.key:          [ "SubjectId" ]
+query.columns:      [ "SubjectId", "Title" ]
+query.augment:
+    Comments:
+        query.sql:  >
+            SELECT          *
+                FROM        (
+                    SELECT          S.SubjectId                     AS SubjectId,
+                                    ER.EntityType                   AS EntityType,
+                                    ER.EntityId                     AS EntityId,
+                                    -------------- comment
+                                    ER.RatingId                     AS RatingId,
+                                    ER.CommentStatus                AS CommentStatus,
+                                    ER.CommentText                  AS CommentText,
+                                    ER.Rating                       AS Rating,
+                                    ER.LastUpdateDate               AS CommentDate,
+                                    -------------- links
+                                    PEUR.LinkBase                   AS LinkBase,
+                                    '/' || CAST(P.ProductId AS VARCHAR(32)) || '.jpg'
+                                                                    AS CoverSmall,
+                                    -------------- title
+                                    PT.EffectiveTitle               AS Title,
+                                    -------------- product Form
+                                    PF.ProductForm                  AS ProductForm,
+                                    -------------- user
+                                    COALESCE(UN.NickName, UN.FirstNames)
+                                                                    AS NickName,
+                                    -------------- USED TO LIMIT THE COUNT OF RETRIEVED ITEMS
+                                    row_number() OVER (PARTITION BY S.SubjectId ORDER BY ER.RatingId DESC)
+                                                                    AS Row_Number
+                        FROM        Subjects S
+                        ------------------- CONDITION - FILTER BY SUBJECT
+                        INNER JOIN  ProductSubjects PS
+                            ON      S.SubjectId = PS.SubjectId
+                        ------------------- Products
+                        INNER JOIN  Products P
+                            ON      PS.ProductId = P.ProductId
+                        ------------------- CONDITION - PRODUCT IS ACTIVE
+                        INNER JOIN  ProductSupplyPublishingDetail PSPD
+                            ON      P.ProductId = PSPD.ProductId AND
+                                    PSPD.MarketPublishingStatus = '04'
+                        ------------------- CONDITION - PRODUCT IS ON STOCK
+                        INNER JOIN  ProductSupplyDetail PSD
+                            ON      P.ProductId = PSD.ProductId AND
+                                    PSD.ProductAvailability = '21'
+                        ------------------- CONDITION - MAIN
+                        INNER JOIN  EntityRatings ER
+                            ON      ER.EntityType = 'PROD' AND
+                                    ER.EntityId = P.ProductId AND
+                                    ER.CommentStatus = 'A'
+                        ------------------- Product Form
+                        INNER JOIN  ProductForm PF
+                            ON      P.ProductId = PF.ProductId
+                        ------------------- Title
+                        INNER JOIN  ProductTitles PT
+                            ON      P.ProductId = PT.ProductId AND
+                                    PT.TitleType = '01' AND
+                                    PT.EffectiveLanguageCode = 'es'
+                        -------------- Link and Cover
+                        LEFT JOIN   URLs PEUR
+                            ON      PEUR.URLId = (SELECT    MIN(PEUR.URLId)
+                                                    FROM    EntityURLs PEUR
+                                                    WHERE   PEUR.EntityType = 'PROD' AND
+                                                            PEUR.EntityId = P.ProductId)
+                        ------------------- User Name
+                        LEFT JOIN   UserName UN
+                            ON      ER.UserId = UN.UserId
+                        WHERE       {{ID:SubjectId}}
+                        ORDER BY    S.SubjectId, ER.RatingId DESC
+                    ) Q
+                WHERE   Q.Row_Number <= {{VAR:limit}}
+        query.prefix:       S
+        query.id:           [ "SubjectId" ]
+        query.group:        [ "SubjectId" ]
+        query.columns:      [ "SubjectId", "EntityType", "EntityId", "RatingId",
+                              "CommentStatus", "CommentText",
+                              "Rating", "CommentDate",
+                              "LinkBase", "CoverSmall", "Title", "ProductForm",
+                              "NickName" ]
+        query.translate:    { "CommentStatus" : "User.User",
+                              "ProductForm" : "ONIX.150" }
+        query.var:                       # set the vars
+            limit:      "6"
