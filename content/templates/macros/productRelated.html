@@ -1,0 +1,26 @@
+{%- macro renderRelated(related_data) -%}
+	<div class="dRecomendTit">Obras relacionadas</div>
+	{%- for article in related_data -%}
+		<div class="dRecomendMod">
+		    <div class="tapaContenedor">
+		        <a href="{{ article.LinkBase }}">
+		        	<img src="{{ article.CoverSmall }}" class="tapaLibros">
+		        </a>
+		        <div class="tapaInfo" style="visibility: hidden;">
+		    </div>
+		    </div>
+		    <a href="{{ article.LinkBase }}" class="fTitulos">{{ article.Title }}</a>
+		    <span>Precio:$ {{ article.PriceAmount }}</span>
+		    <div class="calificacionMod">
+		      <span>Calificaci&oacute;n:</span>
+		      {%- for number in range(0, 4) -%}
+              	{%- if number+1 <= article.Rating|int -%}
+               		<div class="calificacionStar"></div>
+               	{%- else -%}
+               		<div class="calificacionStarDes"></div>
+               	{%- endif %}
+              {%- endfor %}
+		    </div>
+	 {%- endfor %}
+</div>
+{%- endmacro %}
