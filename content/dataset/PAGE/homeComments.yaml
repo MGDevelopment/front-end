@@ -9,154 +9,85 @@
 #
 # the unified query
 #
-# Returns a list of recent comments in all sections
+# Returns a list of recent comments in a set of sections
 #
 query_unified:  &query_unified
     query.sql:  >
-        SELECT          *
-            FROM        (
-                SELECT          ER.EntityType                   AS EntityType,
-                                ER.EntityId                     AS EntityId,
+        SELECT      *
+            FROM    (
+                SELECT          'PROD'                          AS EntityType,
+                                A.Id_Articulo                   AS EntityId,
                                 -------------- comment
-                                ER.RatingId                     AS RatingId,
-                                ER.CommentStatus                AS CommentStatus,
-                                ER.CommentText                  AS CommentText,
-                                ER.Rating                       AS Rating,
-                                ER.LastUpdateDate               AS CommentDate,
+                                C.Id_Comentario                 AS RatingId,
+                                C.Estado                        AS CommentStatus,
+                                C.Comentario                    AS CommentText,
+                                C.Evaluacion                    AS Rating,
+                                C.Fecha                         AS CommentDate,
                                 -------------- links
-                                PEUR.LinkBase                   AS LinkBase,
-                                '/' || CAST(P.ProductId AS VARCHAR(32)) || '.jpg'
-                                                                AS CoverSmall,
+                                --
+                                -- calculated by post-processing
+                                NULL                            AS LinkBase,
+                                NULL                            AS CoverSmall,
+                                NULL                            AS CoverSmallGeneric,
+                                NULL                            AS CoverLarge,
                                 -------------- title
-                                PT.EffectiveTitle               AS Title,
-                                -------------- product Form
-                                PF.ProductForm                  AS ProductForm,
-                                -------------- user
-                                COALESCE(UN.NickName, UN.FirstNames)
-                                                                AS NickName
-                    FROM        EntityRatings ER
-                    ------------------- User Name
-                    LEFT JOIN   UserName UN
-                        ON      ER.UserId = UN.UserId
-                    ------------------- Products
-                    INNER JOIN  Products P
-                        ON      ER.EntityId = P.ProductId
-                    ------------------- Product Form
-                    INNER JOIN  ProductForm PF
-                        ON      P.ProductId = PF.ProductId
-                    ------------------- Title
-                    INNER JOIN  ProductTitles PT
-                        ON      P.ProductId = PT.ProductId AND
-                                PT.TitleType = '01' AND
-                                PT.EffectiveLanguageCode = 'es'
-                    -------------- Link and Cover
-                    LEFT JOIN   URLs PEUR
-                        ON      PEUR.URLId = (SELECT    MIN(PEUR.URLId)
-                                                FROM    EntityURLs PEUR
-                                                WHERE   PEUR.EntityType = 'PROD' AND
-                                                        PEUR.EntityId = P.ProductId)
-                    ------------------- CONDITION - PRODUCT IS ACTIVE
-                    INNER JOIN  ProductSupplyPublishingDetail PSPD
-                        ON      P.ProductId = PSPD.ProductId AND
-                                PSPD.MarketPublishingStatus = '04'
-                    ------------------- CONDITION - PRODUCT IS ON STOCK
-                    INNER JOIN  ProductSupplyDetail PSD
-                        ON      P.ProductId = PSD.ProductId AND
-                                PSD.ProductAvailability = '21'
-                    ------------------- CONDITION - MAIN
-                    WHERE       ER.EntityType = 'PROD' AND
-                                ER.CommentStatus = 'A'
-                    ORDER BY    ER.RatingId DESC
-            ) Q
-            LIMIT       {{VAR:limit}}
-    query.prefix:       ER
-    query.id:           [ "RatingId" ]
-    query.key:          [ "RatingId" ]
-    query.output:       list
-    query.columns:      [ "EntityType", "EntityId", "RatingId", "CommentStatus", "CommentText",
-                          "Rating", "CommentDate",
-                          "LinkBase", "CoverSmall", "Title", "ProductForm",
-                          "NickName" ]
-    query.translate:    { "CommentStatus" : "User.User",
-                          "ProductForm" : "ONIX.150" }
+                                --
+                                -- capitalized by post-processing
+                                -- TODO ---- com.tmk.kernel.Convert.corregir
+                                A.Titulo                        AS Title,
 
-#
-# the unified query
-#
-# Returns a list of recent comments in a specific section
-#
-query_section:  &query_section
-    query.sql:  >
-        SELECT          *
-            FROM        (
-                SELECT          ER.EntityType                   AS EntityType,
-                                ER.EntityId                     AS EntityId,
-                                -------------- comment
-                                ER.RatingId                     AS RatingId,
-                                ER.CommentStatus                AS CommentStatus,
-                                ER.CommentText                  AS CommentText,
-                                ER.Rating                       AS Rating,
-                                ER.LastUpdateDate               AS CommentDate,
-                                -------------- links
-                                PEUR.LinkBase                   AS LinkBase,
-                                '/' || CAST(P.ProductId AS VARCHAR(32)) || '.jpg'
-                                                                AS CoverSmall,
-                                -------------- title
-                                PT.EffectiveTitle               AS Title,
                                 -------------- product Form
-                                PF.ProductForm                  AS ProductForm,
+                                CASE A.Categoria_Seccion
+                                    WHEN 1 THEN         'BA'
+                                    WHEN 4 THEN         'AA'
+                                    WHEN 5 THEN         'VA'
+                                    WHEN 3 THEN         'ZA'
+                                    ELSE                'ZA'
+                                END                             AS ProductForm,
                                 -------------- user
-                                COALESCE(UN.NickName, UN.FirstNames)
-                                                                AS NickName
-                    FROM        EntityRatings ER
-                    ------------------- User Name
-                    LEFT JOIN   UserName UN
-                        ON      ER.UserId = UN.UserId
-                    ------------------- Products
-                    INNER JOIN  Products P
-                        ON      ER.EntityId = P.ProductId
-                    ------------------- Product Form
-                    INNER JOIN  ProductForm PF
-                        ON      P.ProductId = PF.ProductId
-                    ------------------- Title
-                    INNER JOIN  ProductTitles PT
-                        ON      P.ProductId = PT.ProductId AND
-                                PT.TitleType = '01' AND
-                                PT.EffectiveLanguageCode = 'es'
-                    -------------- Link and Cover
-                    LEFT JOIN   URLs PEUR
-                        ON      PEUR.URLId = (SELECT    MIN(PEUR.URLId)
-                                                FROM    EntityURLs PEUR
-                                                WHERE   PEUR.EntityType = 'PROD' AND
-                                                        PEUR.EntityId = P.ProductId)
-                    ------------------- CONDITION - PRODUCT IS ACTIVE
-                    INNER JOIN  ProductSupplyPublishingDetail PSPD
-                        ON      P.ProductId = PSPD.ProductId AND
-                                PSPD.MarketPublishingStatus = '04'
-                    ------------------- CONDITION - PRODUCT IS ON STOCK
-                    INNER JOIN  ProductSupplyDetail PSD
-                        ON      P.ProductId = PSD.ProductId AND
-                                PSD.ProductAvailability = '21'
-                    ------------------- CONDITION - FILTER BY SUBJECT
-                    INNER JOIN  ProductSubjects PS
-                        ON      P.ProductId = PS.ProductId AND
-                                PS.SubjectId = {{VAR:subjectId}}
-                    ------------------- CONDITION - MAIN
-                    WHERE       ER.EntityType = 'PROD' AND
-                                ER.CommentStatus = 'A'
-                    ORDER BY    ER.RatingId DESC
-            ) Q
-            LIMIT       {{VAR:limit}}
-    query.prefix:       ER
+
+                                -- TODO ---- From socios2 if nickname not defined
+                                C.NickName                      AS NickName,
+
+                                -------------- support attributes
+                                A.Categoria_Seccion             AS Categoria_Seccion,
+                                A.Categoria_Grupo               AS Categoria_Grupo,
+                                A.Categoria_Familia             AS Categoria_Familia,
+                                A.Categoria_Subfamilia          AS Categoria_Subfamilia,
+                                A.Archivo_Imagen                AS Archivo_Imagen
+
+                    FROM        Comentario_Articulos C
+                    INNER JOIN  Articulos A
+                        ON      C.Id_Articulo = A.Id_Articulo AND
+                                A.Categoria_Seccion IN ({{VAR:filter}}) AND
+                                A.Archivo_Imagen != 'N' AND
+                                A.Activo = 'SI' AND
+                                A.Habilitado_Tematika = 'S'
+                    INNER JOIN  Disponibilidades D
+                        ON      A.Id_Disponibilidad = D.Id_Disponibilidad AND
+                                D.Id_Esquema = 'PROD' AND
+                                D.Pedido_especial = 'N'
+                    WHERE       C.Estado = 'A'
+                    ORDER BY    C.Id_Comentario DESC
+            ) d
+            WHERE       ROWNUM <= {{VAR:limit}}
+    query.prefix:       C
     query.id:           [ "RatingId" ]
     query.key:          [ "RatingId" ]
     query.output:       list
-    query.columns:      [ "EntityType", "EntityId", "RatingId", "CommentStatus", "CommentText",
-                          "Rating", "CommentDate",
-                          "LinkBase", "CoverSmall", "Title", "ProductForm",
-                          "NickName" ]
-    query.translate:    { "CommentStatus" : "User.User",
-                          "ProductForm" : "ONIX.150" }
+    query.columns:      [ "EntityType", "EntityId", "RatingId", "CommentStatus",
+                          "CommentText", "Rating", "CommentDate",
+                          "LinkBase", "CoverSmall", "CoverSmallGeneric", "CoverLarge",
+                          "Title", "ProductForm", "NickName",
+                          "Categoria_Seccion", "Categoria_Grupo",
+                          "Categoria_Familia", "Categoria_Subfamilia",
+                          "Archivo_Imagen" ]
+    query.post:         [ "dataset.lib.tmkArticulos.fixTitle",
+                          "dataset.lib.tmkArticulos.calcImages",
+                          "dataset.lib.tmkArticulos.calcURL" ]
+
+
+
 
 #
 # expand
@@ -168,24 +99,25 @@ augment:
     All:
         <<:             *query_unified   # get the unified query
         query.var:                       # set the vars
-            limit:      "4"
+            limit:      4
+            filter:     "{{CONFIG:constants.content.secciones.all}}"
     Books:
-        <<:             *query_section   # get the section query
+        <<:             *query_unified   # get the unified query
         query.var:                       # set the vars
-            subjectId:  "{{CONFIG:constants.content.categories.books.subjectid}}"
-            limit:      "4"
+            limit:      4
+            filter:     "{{CONFIG:constants.content.secciones.book}}"
     Movies:
-        <<:             *query_section   # get the section query
+        <<:             *query_unified   # get the unified query
         query.var:                       # set the vars
-            subjectId:  "{{CONFIG:constants.content.categories.movies.subjectid}}"
-            limit:      "4"
+            limit:      4
+            filter:     "{{CONFIG:constants.content.secciones.movie}}"
     Music:
-        <<:             *query_section   # get the section query
+        <<:             *query_unified   # get the unified query
         query.var:                       # set the vars
-            subjectId:  "{{CONFIG:constants.content.categories.music.subjectid}}"
-            limit:      "4"
+            limit:      4
+            filter:     "{{CONFIG:constants.content.secciones.music}}"
     Games:
-        <<:             *query_section   # get the section query
+        <<:             *query_unified   # get the unified query
         query.var:                       # set the vars
-            subjectId:  "{{CONFIG:constants.content.categories.games.subjectid}}"
-            limit:      "4"
+            limit:      4
+            filter:     "{{CONFIG:constants.content.secciones.game}}"
