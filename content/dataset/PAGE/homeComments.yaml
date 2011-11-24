@@ -35,7 +35,6 @@ query_unified:  &query_unified
                                 -- capitalized by post-processing
                                 -- TODO ---- com.tmk.kernel.Convert.corregir
                                 A.Titulo                        AS Title,
-
                                 -------------- product Form
                                 CASE A.Categoria_Seccion
                                     WHEN 1 THEN         'BA'
@@ -55,7 +54,6 @@ query_unified:  &query_unified
                                 A.Categoria_Familia             AS Categoria_Familia,
                                 A.Categoria_Subfamilia          AS Categoria_Subfamilia,
                                 A.Archivo_Imagen                AS Archivo_Imagen
-
                     FROM        Comentario_Articulos C
                     INNER JOIN  Articulos A
                         ON      C.Id_Articulo = A.Id_Articulo AND
