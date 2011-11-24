@@ -1,6 +1,5 @@
 {%- import './macros/slider.html' as renderS -%}
 {%- import './macros/tooltip.html' as renderT -%}
-<!-- INICIO mesa y t&iacute;tulos de secciones -->
 <div class="tmtkMesaNovedades" id="mesa">
 	<!-- mesa y t&iacute;tulos de secciones -->
 	<a href="/libros" class="tmtkMesaSeccionesTit" title="Libros"
@@ -88,7 +87,7 @@
 										href="#"><object>
 											<div id="anterior1DIV" class="mesaAnterior"></div>
 										</object>
-								</a><div id="sliderBooks">{{ renderS.renderSlider(slider['books'][slider['books'].keys()[0]], 'books')|replace("\n", "") }}</div>
+								</a><div id="sliderBooks">{{ renderS.renderSlider(Books, 'books', url) }}</div>
 									 <a class="buttons next" id="siguiente1" onfocus="this.blur()" href="#"><object>
 											<div id="siguiente1DIV" class="mesaSiguiente"></div>
 										</object>
@@ -99,7 +98,7 @@
 										href="#"><object>
 											<div id="anterior4DIV" class="mesaAnterior"></div>
 										</object>
-								</a><div id="sliderMusic">{{ renderS.renderSlider(slider['music'][slider['music'].keys()[0]], 'music')|replace("\n", "") }}</div>
+								</a><div id="sliderMusic">{{ renderS.renderSlider(Music, 'music', url) }}</div>
 									 <a class="buttons next" id="siguiente4" onfocus="this.blur()" href="#"><object>
 											<div id="siguiente4DIV" class="mesaSiguiente"></div>
 										</object>
@@ -110,7 +109,7 @@
 										href="#"><object>
 											<div id="anterior5DIV" class="mesaAnterior"></div>
 										</object>
-								</a><div id="sliderMovies">{{ renderS.renderSlider(slider['movies'][slider['movies'].keys()[0]], 'movies')|replace("\n", "") }}</div>
+								</a><div id="sliderMovies">{{ renderS.renderSlider(Movies, 'movies', url) }}</div>
 									 <a class="buttons next" id="siguiente5" onfocus="this.blur()" href="#"><object>
 											<div id="siguiente5DIV" class="mesaSiguiente"></div>
 										</object>
@@ -121,7 +120,7 @@
 										href="#"><object>
 											<div id="anterior3DIV" class="mesaAnterior"></div>
 										</object>
-								</a><div id="sliderGames">{{ renderS.renderSlider(slider['games'][slider['games'].keys()[0]], 'games')|replace("\n", "") }}</div>
+								</a><div id="sliderGames">{{ renderS.renderSlider(Games, 'games', url) }}</div>
 									 <a class="buttons next" id="siguiente3" onfocus="this.blur()" href="#"><object>
 											<div id="siguiente3DIV" class="mesaSiguiente"></div>
 										</object>
@@ -133,9 +132,10 @@
 		</div>
 	</div>
 </div>
+{#
 <!-- FIN mesa y t&iacute;tulos de secciones -->
 <div id="tooltip_content_books" style="display: none;">{{ renderT.renderToolTip(tooltip['books'][tooltip['books'].keys()[0]], 'books')|replace("\n", "") }}</div>
 <div id="tooltip_content_music" style="display: none;">{{ renderT.renderToolTip(tooltip['music'][tooltip['music'].keys()[0]], 'music')|replace("\n", "") }}</div>
 <div id="tooltip_content_movies" style="display: none;">{{ renderT.renderToolTip(tooltip['movies'][tooltip['movies'].keys()[0]], 'movies')|replace("\n", "") }}</div>
 <div id="tooltip_content_games" style="display: none;">{{ renderT.renderToolTip(tooltip['games'][tooltip['games'].keys()[0]], 'games')|replace("\n", "") }}</div>
-<!-- FIN tooltips -->
+#}
