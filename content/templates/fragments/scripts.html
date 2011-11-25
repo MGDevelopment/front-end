@@ -1,7 +1,8 @@
 <!-- Scripts -->
-<script type="text/javascript"
-        src="/js/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="/js/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="{{ url.data }}js/jquery.qtip.min.js"></script>
 <!-- Site scripts -->
+<script type="text/javascript" src="{{ url.data }}js/app.js"></script>
 <script type="text/javascript" src="{{ url.data }}js/app.js"></script>
 
 <script type="text/javascript">
@@ -42,7 +43,7 @@
 <script type="text/javascript" src="{{ url.data }}home-tooltip.js"></script>
 <!-- JQuery Carousel -->
 <script type="text/javascript" src="{{ url.data }}js/jquery.tinycarousel.js"></script>
-<script type="text/javascript" src="{{ url.data }}js/jquery.colorbox.js"></script>
+<script type="text/javascript" src="{{ url.data }}js/jquery.qtip.min.js"></script>
 
 <script type="text/javascript">
 
@@ -51,7 +52,7 @@ jQuery(document).ready(function() {
 	$('#sliderHomeMusic').tinycarousel({ axis: 'y', display: 1} );
 	$('#sliderHomeMovies').tinycarousel({ axis: 'y', display: 1} );
 	$('#sliderHomeGames').tinycarousel({ axis: 'y', display: 1} );
-	$(".inline").colorbox({opacity: 0, inline:true, width:"400px"});
+	/* $(".inline").colorbox({opacity: 0, inline:true, width:"400px"}); */
 	/* .bind("mouseover", function(){$(this).trigger("click");  */
 });
 
