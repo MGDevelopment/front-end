@@ -20,9 +20,11 @@
 			    </li>
 			{%- endif %}
 	{%- endfor %}
-	{%- if loop.index is divisibleby cols -%}
+	{%- if loop.index is divisibleby cols -%} {# fill remaining cols #}
+        {%- for c in range(cols - (loop.index % cols)) -%}
 				<td>&nbsp;</td>
 				<td>&nbsp;</td>	
+        {%- endfor -%}
 			</tr>
 		</table>
 		</li>
