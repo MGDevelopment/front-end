@@ -81,50 +81,22 @@
 									<div class="" id="cat3Disabled"></div></td>
 							</tr>
 							<tr>
+							{%- for section, cols in (("Books", 2), ("Music", 2), ("Movies", 2), ("Games", 2)) -%}
 								<td align="center">
-								<div id="sliderHomeBooks">
-									<a class="buttons prev" id="anterior1" onfocus="this.blur()"
-										href="#"><object>
-											<div id="anterior1DIV" class="mesaAnterior"></div>
+								<div id="sliderHome{{ section }}">
+									<a class="buttons prev" id="anterior{{ loop.index }}" onfocus="this.blur()" href="#">
+                                        <object>
+											<div id="anterior{{ loop.index }}DIV" class="mesaAnterior"></div>
 										</object>
-								</a><div id="sliderBooks">{{ renderS.renderSlider(Books, 'books', url) }}</div>
-									 <a class="buttons next" id="siguiente1" onfocus="this.blur()" href="#"><object>
-											<div id="siguiente1DIV" class="mesaSiguiente"></div>
+								    </a>
+                                <div id="slider{{ section }}">{{ renderS.renderSlider(d[section], section|lower, cols, url) }}</div>
+									 <a class="buttons next" id="siguiente{{ loop.index }}" onfocus="this.blur()" href="#">
+                                        <object>
+											<div id="siguiente{{ loop.index }}DIV" class="mesaSiguiente"></div>
 										</object>
-								</a></div></td>
-								<td align="center">
-								<div id="sliderHomeMusic">
-									<a class="buttons prev" id="anterior4" onfocus="this.blur()"
-										href="#"><object>
-											<div id="anterior4DIV" class="mesaAnterior"></div>
-										</object>
-								</a><div id="sliderMusic">{{ renderS.renderSlider(Music, 'music', url) }}</div>
-									 <a class="buttons next" id="siguiente4" onfocus="this.blur()" href="#"><object>
-											<div id="siguiente4DIV" class="mesaSiguiente"></div>
-										</object>
-								</a></div></td>
-								<td align="center">
-								<div id="sliderHomeMovies">
-									<a class="buttons prev" id="anterior5" onfocus="this.blur()"
-										href="#"><object>
-											<div id="anterior5DIV" class="mesaAnterior"></div>
-										</object>
-								</a><div id="sliderMovies">{{ renderS.renderSlider(Movies, 'movies', url) }}</div>
-									 <a class="buttons next" id="siguiente5" onfocus="this.blur()" href="#"><object>
-											<div id="siguiente5DIV" class="mesaSiguiente"></div>
-										</object>
-								</a></div></td>
-								<td align="center">
-								<div id="sliderHomeGames">
-									<a class="buttons prev" id="anterior3" onfocus="this.blur()"
-										href="#"><object>
-											<div id="anterior3DIV" class="mesaAnterior"></div>
-										</object>
-								</a><div id="sliderGames">{{ renderS.renderSlider(Games, 'games', url) }}</div>
-									 <a class="buttons next" id="siguiente3" onfocus="this.blur()" href="#"><object>
-											<div id="siguiente3DIV" class="mesaSiguiente"></div>
-										</object>
-								</a></div></td>
+								    </a>
+                                </div></td>
+                            {%- endfor -%}
 							</tr>
 						</table></td>
 				</tr>

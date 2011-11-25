@@ -1,23 +1,23 @@
-{%- macro renderSlider(product_list, prefix, url) -%}
+{%- macro renderSlider(product_list, prefix, cols, url) -%}
 <div class="viewport">
 	<ul class="overview">
 	{%- for product in product_list -%}
-			{% set href = '#inline_content' + '_' + prefix + '_'  + loop.index|string %}
-			{%- if loop.index is odd -%}
-			<li>
-			<table>	
-				<tr>
+			{%- if ((loop.index + 1) % cols) == 0 -%} {# odd #}
+			    <li>
+			    <table>	
+				    <tr>
 			{%- else -%}
 					<td>&nbsp;</td>
 			{%- endif -%}
-					<td><a class="inline" href="{{ href }}">
-							<img src="{{ url.images ~ "/tapas/sitio" ~ product.CoverSmall|escape }}" width="98" alt="">
+					<td>
+                        <a class="inline" href="{{'#inline_content' + '_' + prefix + '_' + loop.index|string }}" title="{{ product.Title.decode('utf-8') }}">
+							<img src="{{ url.images ~ product.SmallCover|escape }}" width="98" alt="{{ product.Title.decode('utf-8')}}">
 						</a>
 					</td>
-			{%- if not loop.index is odd -%}
-				</tr>
-			</table>
-			</li>
+			{%- if not ((loop.index + 1) % cols) == 0 -%} {# not odd #}
+				    </tr>
+			    </table>
+			    </li>
 			{%- endif %}
 	{%- endfor %}
 	{%- if not loop.index is odd -%}
