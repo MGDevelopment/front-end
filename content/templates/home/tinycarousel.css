@@ -4,7 +4,8 @@
 #sliderHomeBooks .next { background-position: 0 -112px; margin: 0 0 0 0px;  }
 #sliderHomeBooks .disable { visibility: hidden; }
 #sliderHomeBooks .overview { list-style: none; position: absolute; width: 240px; left: 0; top: 0; }
-#sliderHomeBooks .overview li{ float: left; margin: 0 0px 0 0; padding: 1px; height: 121px;}
+#sliderHomeBooks .overview li{ float: left; margin: 0 0px 0 0; padding: 1px;
+height: 156px;}
 
 #sliderHomeMusic { height: 1%; overflow:hidden; padding: 0 0 0px; margin: 0 0 0 0px;  }
 #sliderHomeMusic .viewport { width: 224px; height: 310px; overflow: hidden; position: relative; }
@@ -12,7 +13,8 @@
 #sliderHomeMusic .next { background-position: 0 -112px; margin: 0 0 0 0px;  }
 #sliderHomeMusic .disable { visibility: hidden; }
 #sliderHomeMusic .overview { list-style: none; position: absolute; width: 240px; left: 0; top: 0; }
-#sliderHomeMusic .overview li{ float: left; margin: 0 0px 0 0; padding: 1px; height: 121px;}
+#sliderHomeMusic .overview li{ float: left; margin: 0 0px 0 0; padding: 1px;
+/* height: 121px; */ }
 
 #sliderHomeMovies { height: 1%; overflow:hidden; padding: 0 0 0px; margin: 0 0 0 0px;  }
 #sliderHomeMovies .viewport { width: 224px; height: 310px; overflow: hidden; position: relative; }
@@ -20,7 +22,8 @@
 #sliderHomeMovies .next { background-position: 0 -112px; margin: 0 0 0 0px;  }
 #sliderHomeMovies .disable { visibility: hidden; }
 #sliderHomeMovies .overview { list-style: none; position: absolute; width: 240px; left: 0; top: 0; }
-#sliderHomeMovies .overview li{ float: left; margin: 0 0px 0 0; padding: 1px; height: 121px;}
+#sliderHomeMovies .overview li{ float: left; margin: 0 0px 0 0; padding: 1px;
+/* height: 156px; */ }
 
 #sliderHomeGames { height: 1%; overflow:hidden; padding: 0 0 0px; margin: 0 0 0 0px;  }
 #sliderHomeGames .viewport { width: 224px; height: 310px; overflow: hidden; position: relative; }
@@ -28,7 +31,8 @@
 #sliderHomeGames .next { background-position: 0 -112px; margin: 0 0 0 0px;  }
 #sliderHomeGames .disable { visibility: hidden; }
 #sliderHomeGames .overview { list-style: none; position: absolute; width: 240px; left: 0; top: 0; }
-#sliderHomeGames .overview li{ float: left; margin: 0 0px 0 0; padding: 1px; height: 121px;}
+#sliderHomeGames .overview li{ float: left; margin: 0 0px 0 0; padding: 1px;
+/* height: 121px; */ }
 
 #sliderSectionbooks { height: 1%; overflow:hidden; padding: 0 0 0px; margin: 0 0 0 0px;  }
 #sliderSectionbooks .viewport { width: 652px; height: 310px; overflow: hidden; position: relative; }
@@ -36,4 +40,5 @@
 #sliderSectionbooks .next { background-position: 0 -112px; margin: 0 0 0 0px;  }
 #sliderSectionbooks .disable { visibility: hidden; }
 #sliderSectionbooks .overview { list-style: none; position: absolute; width: 650px; left: 0; top: 0; }
-#sliderSectionbooks .overview li{ float: left; margin: 0 0px 0 0; padding: 1px; height: 121px;}
+#sliderSectionbooks .overview li { float: left; margin: 0 0px 0 0; padding:
+    1px; height: 156px;}
