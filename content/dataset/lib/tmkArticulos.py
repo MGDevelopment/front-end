@@ -67,27 +67,27 @@ def calcImages(row):
     }
 
     # try to find the small image
-    row["SmallCover"] = None
-    row["SmallCoverGeneric"] = True
+    row["CoverSmall"] = None
+    row["CoverSmallGeneric"] = True
     for i in range(len(small)):
         path = checkImageFile(basePath, small[i], variables)
         if path is not None:
-            row["SmallCover"] = path
-            row["SmallCoverGeneric"] = False
+            row["CoverSmall"] = path
+            row["CoverSmallGeneric"] = False
             break
     # still no image? => check for a default
-    if row["SmallCover"] is None and smallDef is not None:
+    if row["CoverSmall"] is None and smallDef is not None:
         path = checkImageFile(basePath, smallDef, variables)
         if path is not None:
-            row["SmallCover"] = path
-            row["SmallCoverGeneric"] = True
+            row["CoverSmall"] = path
+            row["CoverSmallGeneric"] = True
 
     # try to find the large image
-    row["LargeCover"] = None
+    row["CoverLarge"] = None
     for i in range(len(large)):
         path = checkImageFile(basePath, large[i], variables)
         if path is not None:
-            row["LargeCover"] = path
+            row["CoverLarge"] = path
             break
 
     return row
