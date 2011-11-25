@@ -18,9 +18,13 @@ def decode(value, encoding = None):
         return value
 
     # only for strings (non-unicode)
-    if isinstance(value, types.StringType):
-        if encoding != "UTF-8" and encoding != "utf-8":
-            return value.decode(encoding).encode('utf8')
+    try:
+        if isinstance(value, types.StringType):
+            if encoding != "UTF-8" and encoding != "utf-8":
+                value = value.decode(encoding).encode('utf8')
+    except UnicodeEncodeError:
+        # if there was a unicode error, assume the input is unicode
+        value = value.decode('utf-8') ###unicode(value)
 
     return value
 
@@ -30,9 +34,26 @@ def decode(value, encoding = None):
 def noDiacritics(s):
     """Removes any diacritics"""
 
-    str = unicode(s, 'utf-8')
-    ret = unicodedata.normalize('NFKD', str)
-    ret = ret.encode('ascii', 'ignore')
+    # sanity check
+    if s is None:
+        return None
+
+    # try the right way first
+    try:
+        str = unicode(s, 'utf-8')
+        ret = unicodedata.normalize('NFKD', str)
+        ret = ret.encode('ascii', 'ignore')
+    except:
+        ret = None
+
+    # try as a unicode encoded string
+    if ret is None:
+        try:
+            str = s.decode(s, 'utf-8')
+            ret = unicodedata.normalize('NFKD', str)
+            ret = ret.encode('ascii', 'ignore')
+        except:
+            ret = s     # return as received
 
     return ret
 
