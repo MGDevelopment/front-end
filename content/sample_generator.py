@@ -302,7 +302,6 @@ if __name__ == '__main__':
     env = jinja2.Environment(loader=jinja2.FileSystemLoader('templates'))
     storage_cache = Storage_Cache()
 
-    t_params = {}
     for d in documentos:
 
         print "Generating: ", d['target.path'], " for ", d['target.repo'], \
@@ -312,8 +311,7 @@ if __name__ == '__main__':
         s = storage_cache(bucket_domain[d['_url'][d['target.repo']]])
 
         t = env.get_template(d['template'])
-        t_params = d['_data'].copy() # Shallow copy
-        t_params['url'] = d['_url']  # Add urls
+        t_params = { 'd': d['_data'], 'url': d['_url'] }
 
         page_html = t.render(t_params)
         target_path = d['target.path']
