@@ -2,7 +2,7 @@
 <div class="viewport">
 	<ul class="overview">
 	{%- for product in product_list -%}
-			{%- if not loop.index is divisibleby cols -%}
+			{%- if (loop.index % cols) == 1 -%}
 			    <li>
 			    <table>	
 				    <tr>
