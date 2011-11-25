@@ -1,15 +1,16 @@
 {% extends "page.html" %}
 
 {% block head_extra %}
-    <style type="text/css; charsert=utf-8">
+    <style type="text/css">
         {% include "home/styles.css" %}
+        {% include "home/tinycarousel.css" %}
     </style>
 {% endblock %}
 
 {% block canvas_content -%}
     <div id="seccionTematika">
-        <div id="product-gallery">
-            {% include "fragments/product_gallery.html" %}
+        <div id="showcase">
+            {% include "home/gallery.html" %}
         </div>
         <div id="comments">
 {# DISABLED WAITING FOR DATASET

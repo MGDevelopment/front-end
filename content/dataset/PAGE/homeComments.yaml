@@ -35,7 +35,6 @@ query_unified:  &query_unified
                                 -- capitalized by post-processing
                                 -- TODO ---- com.tmk.kernel.Convert.corregir
                                 A.Titulo                        AS Title,
-
                                 -------------- product Form
                                 CASE A.Categoria_Seccion
                                     WHEN 1 THEN         'BA'
@@ -45,17 +44,14 @@ query_unified:  &query_unified
                                     ELSE                'ZA'
                                 END                             AS ProductForm,
                                 -------------- user
-
-                                -- TODO ---- From socios2 if nickname not defined
-                                C.NickName                      AS NickName,
-
+                                COALESCE(C.NickName, S.Nombres, STMK.Nombres)
+                                                                AS NickName,
                                 -------------- support attributes
                                 A.Categoria_Seccion             AS Categoria_Seccion,
                                 A.Categoria_Grupo               AS Categoria_Grupo,
                                 A.Categoria_Familia             AS Categoria_Familia,
                                 A.Categoria_Subfamilia          AS Categoria_Subfamilia,
                                 A.Archivo_Imagen                AS Archivo_Imagen
-
                     FROM        Comentario_Articulos C
                     INNER JOIN  Articulos A
                         ON      C.Id_Articulo = A.Id_Articulo AND
@@ -65,8 +61,17 @@ query_unified:  &query_unified
                                 A.Habilitado_Tematika = 'S'
                     INNER JOIN  Disponibilidades D
                         ON      A.Id_Disponibilidad = D.Id_Disponibilidad AND
+                                --------------- condition
                                 D.Id_Esquema = 'PROD' AND
                                 D.Pedido_especial = 'N'
+                    ----------- One of these two must have an entry
+                    LEFT JOIN   Socios2 S
+                        ON      C.Id_Sucursal_Socio = S.Id_Sucursal AND
+                                C.Id_Socio = S.Id_Socio
+                    LEFT JOIN   Socios2 STMK
+                        ON      C.Id_Sucursal_Socio = STMK.Id_Sucursal AND
+                                C.Id_Socio = STMK.Id_Socio
+                    --------------- main condition
                     WHERE       C.Estado = 'A'
                     ORDER BY    C.Id_Comentario DESC
             ) d

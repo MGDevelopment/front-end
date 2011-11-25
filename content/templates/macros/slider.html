@@ -1,0 +1,33 @@
+{%- macro renderSlider(product_list, prefix, cols, url) -%}
+<div class="viewport">
+	<ul class="overview">
+	{%- for product in product_list -%}
+			{%- if not loop.index is divisibleby cols -%}
+			    <li>
+			    <table>	
+				    <tr>
+			{%- else -%}
+					<td>&nbsp;</td>
+			{%- endif -%}
+					<td>
+                        <a class="inline" href="{{'#inline_content' + '_' + prefix + '_' + loop.index|string }}" title="{{ product.Title.decode('utf-8') }}">
+							<img src="{{ url.images ~ product.CoverSmall|escape }}" width="98" alt="{{ product.Title.decode('utf-8')}}">
+						</a>
+					</td>
+	        {%- if loop.index is divisibleby cols -%}
+				    </tr>
+			    </table>
+			    </li>
+			{%- endif %}
+	{%- endfor %}
+	{%- if loop.index is divisibleby cols -%}
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>	
+			</tr>
+		</table>
+		</li>
+	{%- endif %}
+	<li><table><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr></table></li>
+	</ul>
+</div>
+{%- endmacro -%}

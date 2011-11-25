@@ -1,12 +1,13 @@
-{% macro renderToolTip(slider_data, prefix) %}
-	{% for article in slider_data.articulos %} 
-		{% set id ="inline_content" + "_" + prefix + "_" + loop.index|string %}
+{%- macro renderToolTip(product_list, prefix, url) -%}
+	{%- for product in product_list -%} 
+		{%- set id ="inline_content" + "_" + prefix + "_" + loop.index|string -%}
 	<div id="{{ id }}"
 		style="padding: 10px; background: #fff;">
 		<table>
 			<tr>
 				<td valign="top">
-					<a id="linkDetalleImagen" href=""><img id="urlImagen" class="globoArticuloTapa" src="{{ article.img_src|escape }}" alt="" /></a>	
+					<a id="linkDetalleImagen" href=""><img id="urlImagen"
+                    class="globoArticuloTapa" src="{{ url.images ~ product.SmallCover|escape }}" alt="" /></a>	
 				</td>
 				<td>
 					<table>
@@ -97,5 +98,5 @@
 			</tr>
 		</table>
 	</div>
-	{% endfor %}
-{% endmacro %}
+	{%- endfor %}
+{%- endmacro -%}

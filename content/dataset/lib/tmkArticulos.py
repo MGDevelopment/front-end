@@ -1,10 +1,10 @@
 """This file has functions for post processing on Articulos
 
-
 by Jose Luis Campanello
 """
 
 import os.path
+import urllib
 
 import ecommerce.config
 
@@ -19,6 +19,8 @@ def fixTitle(row):
     # capitalize the title
     if "Title" in row:
         row["Title"] = tmkSupport.capitalize(row["Title"])
+    else:
+        row["Title"] = None
 
     return row
 
@@ -65,27 +67,27 @@ def calcImages(row):
     }
 
     # try to find the small image
-    row["SmallCover"] = None
-    row["SmallCoverGeneric"] = True
+    row["CoverSmall"] = None
+    row["CoverSmallGeneric"] = True
     for i in range(len(small)):
         path = checkImageFile(basePath, small[i], variables)
         if path is not None:
-            row["SmallCover"] = path
-            row["SmallCoverGeneric"] = False
+            row["CoverSmall"] = path
+            row["CoverSmallGeneric"] = False
             break
     # still no image? => check for a default
-    if row["SmallCover"] is None and smallDef is not None:
+    if row["CoverSmall"] is None and smallDef is not None:
         path = checkImageFile(basePath, smallDef, variables)
         if path is not None:
-            row["SmallCover"] = path
-            row["SmallCoverGeneric"] = True
+            row["CoverSmall"] = path
+            row["CoverSmallGeneric"] = True
 
     # try to find the large image
-    row["LargeCover"] = None
+    row["CoverLarge"] = None
     for i in range(len(large)):
         path = checkImageFile(basePath, large[i], variables)
         if path is not None:
-            row["LargeCover"] = path
+            row["CoverLarge"] = path
             break
 
     return row
@@ -153,9 +155,130 @@ def calcURL(row):
 
     return row
 
-#####URL ========================
-#####5) titulo segun:
-#####
-#####    soloLetrasYNumeros(sinTildesNiEnie(corregir({{description}}, true)).lowecase())
-#####
-#####6) "-- {{id_articulo}}.htm"
+########################################################
+
+def embedRatings(row):
+    """Makes Rating group as direct attributes"""
+
+    # sanity check
+    if "Ratings" not in row or row["Ratings"] is None:
+        row["Ratings"] = { }
+
+    # get the data item
+    ratings = row["Ratings"]
+
+    row["Rating"] = ratings.get("Rating")
+    row["CommentCount"] = ratings.get("CommentCount")
+
+    # pass the attributes up (do None for missing attrs)
+    for attr in [ "CommentCount", "Rating" ]:
+        row[attr] = ratings.get(attr)
+
+    # remove the ratings from the row
+    del row["Ratings"]
+
+    return row
+
+########################################################
+
+def imprintTitle(row):
+    """Reformats the Imprint title"""
+
+    # sanity check
+    if "ImprintName" not in row:
+        return row
+
+    # get the title
+    title = row["ImprintName"]
+
+    # if title is prefixed with "[MUS] ", remove
+    if title.startswith("[MUS] "):
+        title = title[6:]
+
+    # capitalize
+    title = tmkSupport.capitalize(title)
+
+    # reset the title
+    row["ImprintName"] = title
+
+    return row
+
+########################################################
+
+def imprintCalcURL(row):
+    """Creates the URL for the Imprint page"""
+
+    # get some data
+    seccionId   = str(row.get("Categoria_Seccion", 1))
+    imprintId   = str(row.get("ImprintId", 0))
+    imprintName = row.get("ImprintName", "")
+
+    # encode the url params
+    params = urllib.urlencode( {
+        "seccion"           : seccionId,
+        "idSeccion"         : seccionId,
+        "criterioDeOrden"   : 2,
+        "claveDeBusqueda"   : "porIDdeEditorial",
+        "texto"             : imprintName,
+        "idEditor"          : imprintId
+    } )
+
+    # build the url
+    linkBase = "/buscador/productos.jsp?" + params
+
+    # set the URL
+    row["ImprintLinkBase"] = linkBase
+
+    return row
+
+########################################################
+
+def contributorTitle(row):
+    """Reformats the Contributor title"""
+
+    # sanity check
+    if "ContributorName" not in row:
+        return row
+
+    # get the title
+    title = row["ContributorName"]
+
+    # if title is prefixed with "[MUS] ", remove
+    if title.startswith("[MUS] "):
+        title = title[6:]
+
+    # capitalize
+    title = tmkSupport.capitalize(title)
+
+    # reset the title
+    row["ContributorName"] = title
+
+    return row
+
+########################################################
+
+def contributorCalcURL(row):
+    """Creates the URL for the Contributor page"""
+
+    # get some data
+    seccionId       = str(row.get("Categoria_Seccion", 1))
+    contributorId   = str(row.get("ContributorId", 0))
+    contributorName = row.get("ContributorName", "")
+
+    # encode the url params
+    params = urllib.urlencode( {
+        "seccion"           : seccionId,
+        "idSeccion"         : seccionId,
+        "criterioDeOrden"   : 2,
+        "claveDeBusqueda"   : "porIDdeAutor",
+        "texto"             : contributorName,
+        "idEditor"          : contributorId
+    } )
+
+    # build the url
+    linkBase = "/buscador/productos.jsp?" + params
+
+    # set the URL
+    row["ContributorLinkBase"] = linkBase
+
+    return row
