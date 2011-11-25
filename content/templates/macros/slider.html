@@ -11,7 +11,7 @@
 			{%- endif -%}
 					<td>
                         <a class="inline" href="{{'#inline_content' + '_' + prefix + '_' + loop.index|string }}" title="{{ product.Title.decode('utf-8') }}">
-							<img src="{{ url.images ~ product.SmallCover|escape }}" width="98" alt="{{ product.Title.decode('utf-8')}}">
+							<img src="{{ url.images ~ product.CoverSmall|escape }}" width="98" alt="{{ product.Title.decode('utf-8')}}">
 						</a>
 					</td>
 			{%- if not ((loop.index + 1) % cols) == 0 -%} {# not odd #}
