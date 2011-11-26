@@ -313,7 +313,7 @@ if __name__ == '__main__':
         t = env.get_template(d['template'])
         t_params = { 'd': d['_data'], 'url': d['_url'] }
 
-        page_html = t.render(t_params)
+        page_html = t.render(t_params).encode('utf-8')
         target_path = d['target.path']
         headers = d['headers'].copy()
         content_type = headers['Content-Type']
