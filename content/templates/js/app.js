@@ -140,7 +140,7 @@ APP = (function() {
             $('#msgCarritoERROR').get(0).style.display='none';
             $('#divCarrito').get(0).className = 'efectoCarritoMod';
 
-            $('#divCarrito').get(0).style.top =getScrollXY()[1]+ window.screen.height/2 -174 + "px";
+            $('#divCarrito').get(0).style.top = window.screen.height/2 -174 + "px";
         }
         $('#divCarrito').get(0).style.display = '';
     }
@@ -213,6 +213,7 @@ APP = (function() {
     _app.addData = addData;
     _app.getData = getData;
     _app.cartAdd = cartAdd;
+    _app.cartClose = cartClose;
     _app.init    = init;
 
     return _app;

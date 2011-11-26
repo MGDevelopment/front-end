@@ -5,6 +5,7 @@
 		{%- set title  = p.Title.decode('utf-8') -%}
 		{%- set author = None -%} {#- default no author -#}
 		{%- set section  = p.Categoria_Seccion|string -%}
+		{%- set product_id  = p.ProductId|string -%}
 		{%- set product_url  = p.LinkBase -%}
 		{%- if p.Authors[0] -%}
 		    {%- set author = p.Authors[0].ContributorName.decode('utf-8') -%}
@@ -29,9 +30,10 @@
                             {#- AUTHOR -#}
                             <p><a href="/buscador/productos.jsp?seccion={{ section }}&amp;idSeccion={{ section }}&amp;criterioDeOrden=2&amp;claveDeBusqueda=porIDdeAutor&amp;texto={{ author|e }}&amp;idAutor={{ author_id }}">{{ author }}</a></p>
                             {#- BUY -#}
-                            <div class="buy">
+                            <p><a href="javascript:APP.cartAdd({{ product_id }})"
+                                    title="agregar al carrito">
                                 <img src="{{ url.images }}/imagenes/rediseno/imagenes/seccionTematika/b-comprar.png" alt="agregar al carrito">
-                            </div>
+                            </a></p>
 	                    </div> <!-- p-popup -->
 					</td>
 	        {%- if loop.index is divisibleby cols -%}
