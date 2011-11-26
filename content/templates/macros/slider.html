@@ -1,23 +1,43 @@
 {%- macro renderSlider(product_list, prefix, cols, url) -%}
 <div class="viewport">
 	<ul class="overview">
-	{%- for product in product_list -%}
+	{%- for p in product_list -%}
+		{%- set title  = p.Title.decode('utf-8') -%}
+		{%- set author = None -%} {#- default no author -#}
+		{%- set section  = p.Categoria_Seccion|string -%}
+		{%- set product_url  = p.LinkBase -%}
+		{%- if p.Authors[0] -%}
+		    {%- set author = p.Authors[0].ContributorName.decode('utf-8') -%}
+		    {%- set author_id = p.Authors[0].ContributorId|string -%}
+		{%- endif -%}
 			{%- if (loop.index % cols) == 1 -%}
-			    <li>
+			    <li> {#- start row -#}
 			    <table>	
 				    <tr>
 			{%- else -%}
 					<td>&nbsp;</td>
 			{%- endif -%}
-					<td>
-                        <a class="inline" href="{{'#inline_content' + '_' + prefix + '_' + loop.index|string }}" title="{{ product.Title.decode('utf-8') }}">
-							<img src="{{ url.images ~ product.CoverSmall|escape }}" width="98" alt="{{ product.Title.decode('utf-8')}}">
-						</a>
+					<td class="product-entry">
+                        <a href="{{ product_url }}" title="{{ title }}">
+							<img src="{{ url.images ~ p.CoverSmall|e }}" width="98" alt="{{ title }}">
+                        </a>
+
+                        {#- POP UP -#}
+	                    <div class="product-popup" style="display: none;">
+                            {#- TITLE -#}
+                            <p><a href="{{ product_url }}">{{ title }}</a></p>
+                            {#- AUTHOR -#}
+                            <p><a href="/buscador/productos.jsp?seccion={{ section }}&amp;idSeccion={{ section }}&amp;criterioDeOrden=2&amp;claveDeBusqueda=porIDdeAutor&amp;texto={{ author|e }}&amp;idAutor={{ author_id }}">{{ author }}</a></p>
+                            {#- BUY -#}
+                            <div class="buy">
+                                <img src="{{ url.images }}/imagenes/rediseno/imagenes/seccionTematika/b-comprar.png" alt="agregar al carrito">
+                            </div>
+	                    </div> <!-- p-popup -->
 					</td>
 	        {%- if loop.index is divisibleby cols -%}
 				    </tr>
 			    </table>
-			    </li>
+			    </li> {#- end row -#}
 			{%- endif %}
 	{%- endfor %}
 	{%- if loop.index is divisibleby cols -%}

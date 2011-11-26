@@ -103,3 +103,21 @@ function fillShowCase(order, filter, callback) {
     }
     return;
 }
+
+$('ul.overview td.product-entry').qtip({
+    content: function () {
+        return this.find('div.product-popup').html();
+        },
+    position: {
+        my: 'left center',
+        at: 'right center',
+        viewport: $(this)
+        },
+    style: {
+        classes: 'ui-tooltip-rounded ui-tooltip-light'
+        },
+    hide: {
+        delay: 300,
+        fixed: true
+        }
+});
