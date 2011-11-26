@@ -9,7 +9,7 @@ var dataComments = {};
 
 {%- if data -%}
 dataComments['section'] = '{{ render.renderComments(data["Comments"], true)|replace("\n", "") }}';
-{% endif %}
+{%- endif %}
 
 function loadComments() {
 	APP.addData('comments', dataComments);
