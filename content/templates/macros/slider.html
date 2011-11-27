@@ -39,10 +39,13 @@
                                 </p>
                             {%- endif -%}
                             {#- BUY -#}
-                            <p><a href="javascript:APP.cartAdd({{ product_id }})"
-                                    title="agregar al carrito">
-                                <img src="{{ url.images }}/imagenes/rediseno/imagenes/seccionTematika/b-comprar.png" alt="agregar al carrito">
-                            </a></p>
+                            <p>
+		                    {%- if p.ProductAvailability == '21' -%}
+                                <a href="javascript:APP.cartAdd({{ product_id }})" title="agregar al carrito"><img src="{{ url.images }}/imagenes/rediseno/imagenes/seccionTematika/b-comprar.png" alt="agregar al carrito"></a>
+		                    {%- else -%} {#- ProductAvailability == '22' -#}
+                                <a href="javascript:if (confirm('Este producto no esta disponible actualmente. Desea hacer un pedido?'))document.location = '/PedidoEspecial?ID_ARTICULO={{ product_id }}';"><img src="{{ url.images}}/imagenes/rediseno/imagenes/seccionTematika/b-pedir.png" alt="Pedir"></a>
+                            {%- endif -%}
+                            </p>
 	                    </div> <!-- p-popup -->
 					</td>
 	        {%- if loop.index is divisibleby cols -%}
