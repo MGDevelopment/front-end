@@ -27,10 +27,12 @@
                         {#- POP UP -#}
 	                    <div class="product-popup" style="display: none;">
                             {#- TITLE -#}
-                            <p><a href="{{ product_url }}">{{ title }}</a></p>
+                            <p class="product-popup-title">
+                                <a href="{{ product_url }}">{{ title }}</a>
+                            </p>
                             {#- AUTHOR -#}
                             <p>de <a href="/buscador/productos.jsp?seccion={{ section }}&amp;idSeccion={{ section }}&amp;criterioDeOrden=2&amp;claveDeBusqueda=porIDdeAutor&amp;texto={{ author|e }}&amp;idAutor={{ author_id }}">{{ author }}</a></p>
-                            <p class="product-price">$ {{ price }}</p>
+                            <p class="product-popup-price">$ {{ price }}</p>
 		                    {%- if p.ProductForm_desc != None -%}
                                 <p class="product-format">
                                     {{- p.ProductForm_desc.decode('utf-8') -}}
