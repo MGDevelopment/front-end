@@ -12,6 +12,18 @@
 		    {%- set author = p.Authors[0].ContributorName.decode('utf-8') -%}
 		    {%- set author_id = p.Authors[0].ContributorId|string -%}
 		{%- endif -%}
+		{%- if p.ImprintName != None -%}
+            {%- set imprint = p.ImprintName.decode('utf-8') -%}
+		{%- endif -%}
+		{%- if p.ProductForm[0] == 'B' -%}
+            {%- set book = True -%}
+		{%- elif p.ProductForm[0] == 'A' -%}
+            {%- set music = True -%}
+		{%- elif p.ProductForm[0] == 'V' -%}
+            {%- set movie = True -%}
+		{%- elif p.ProductForm[0] == 'Z' -%}
+            {%- set generic = True -%}
+		{%- endif -%}
 			{%- if (loop.index % cols) == 1 -%}
 			    <li> {#- start row -#}
 			    <table>	
@@ -39,9 +51,14 @@
                                 </p>
                             {%- endif -%}
 		                    {%- if p.ImprintName != None -%}
-                                <p class="product-imprint">Editorial:
-                                    {{- p.ImprintName.decode('utf-8') -}}
-                                </p>
+                                <span class="product-imprint">
+		                            {%- if   book  -%}Editorial:
+		                            {%- elif music -%}Discogr&aacute;fica:
+		                            {%- elif movie -%}Productora:
+		                            {%- else       -%}Editorial:
+		                            {%- endif -%}
+                                    <a href="/buscador/productos.jsp?seccion={{ section }}&amp;idSeccion={{ section }}&amp;criterioDeOrden=2&amp;claveDeBusqueda=porIDdeEditorial&amp;texto={{ imprint }}&amp;idEditor=99" id="artEditor">{{ imprint}}</a>
+                                </span></br>
                             {%- endif -%}
                             {#- BUY -#}
                             <p>
