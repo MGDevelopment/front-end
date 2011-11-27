@@ -1,0 +1,150 @@
+---
+
+#
+# the unified query
+#
+# Returns a list of recent comments in a set of sections
+#
+query_unified:  &query_unified
+    query.sql:  >
+        SELECT      *
+            FROM    (
+                SELECT          S.SubjectId                     AS SubjectId,
+                                'PROD'                          AS EntityType,
+                                A.Id_Articulo                   AS EntityId,
+                                -------------- comment
+                                C.Id_Comentario                 AS RatingId,
+                                C.Estado                        AS CommentStatus,
+                                C.Comentario                    AS CommentText,
+                                C.Evaluacion                    AS Rating,
+                                C.Fecha                         AS CommentDate,
+                                -------------- links
+                                --
+                                -- calculated by post-processing
+                                NULL                            AS LinkBase,
+                                NULL                            AS CoverSmall,
+                                NULL                            AS CoverSmallGeneric,
+                                NULL                            AS CoverLarge,
+                                -------------- title
+                                --
+                                -- capitalized by post-processing
+                                -- TODO ---- com.tmk.kernel.Convert.corregir
+                                A.Titulo                        AS Title,
+                                -------------- product Form
+                                CASE A.Categoria_Seccion
+                                    WHEN 1 THEN         'BA'
+                                    WHEN 4 THEN         'AA'
+                                    WHEN 5 THEN         'VA'
+                                    WHEN 3 THEN         'ZA'
+                                    ELSE                'ZA'
+                                END                             AS ProductForm,
+                                -------------- user
+                                COALESCE(C.NickName, S.Nombres, STMK.Nombres)
+                                                                AS NickName,
+                                -------------- support attributes
+                                A.Categoria_Seccion             AS Categoria_Seccion,
+                                A.Categoria_Grupo               AS Categoria_Grupo,
+                                A.Categoria_Familia             AS Categoria_Familia,
+                                A.Categoria_Subfamilia          AS Categoria_Subfamilia,
+                                A.Archivo_Imagen                AS Archivo_Imagen,
+                                -------------- USED TO LIMIT THE COUNT OF RETRIEVED ITEMS
+                                row_number() OVER (PARTITION BY S.SubjectId
+                                                   ORDER BY S.SubjectId, C.Id_Comentario DESC)
+                                                                AS Row_Number
+                    FROM        Comentario_Articulos C
+                    INNER JOIN  Articulos A
+                        ON      C.Id_Articulo = A.Id_Articulo AND
+                                A.Archivo_Imagen != 'N' AND
+                                A.Activo = 'SI' AND
+                                A.Habilitado_Tematika = 'S'
+                    INNER JOIN  Disponibilidades D
+                        ON      A.Id_Disponibilidad = D.Id_Disponibilidad AND
+                                --------------- condition
+                                D.Id_Esquema = 'PROD' AND
+                                D.Pedido_especial = 'N'
+                    INNER JOIN  Stage0_Subjects S
+                        ON      A.Categoria_Seccion = S.Categoria_Seccion AND
+                                {{ID:SubjectId}}
+                    ----------- One of these two must have an entry
+                    LEFT JOIN   Socios2 S
+                        ON      C.Id_Sucursal_Socio = S.Id_Sucursal AND
+                                C.Id_Socio = S.Id_Socio
+                    LEFT JOIN   Socios2 STMK
+                        ON      C.Id_Sucursal_Socio = STMK.Id_Sucursal AND
+                                C.Id_Socio = STMK.Id_Socio
+                    --------------- main condition
+                    WHERE       C.Estado = 'A'
+                    ORDER BY    S.SubjectId, C.Id_Comentario DESC
+            ) Q
+            WHERE   Q.Row_Number <= {{VAR:limit}}
+    query.prefix:       S
+    query.id:           [ "SubjectId" ]
+    query.group:        [ "SubjectId" ]
+    query.key:          [ "SubjectId" ]
+    query.columns:      [ "SubjectId", "EntityType", "EntityId", "RatingId",
+                          "CommentStatus", "CommentText", "Rating", "CommentDate",
+                          "LinkBase", "CoverSmall", "CoverSmallGeneric", "CoverLarge",
+                          "Title", "ProductForm", "NickName",
+                          "Categoria_Seccion", "Categoria_Grupo",
+                          "Categoria_Familia", "Categoria_Subfamilia",
+                          "Archivo_Imagen" ]
+    query.post:         [ "dataset.lib.tmkArticulos.fixTitle",
+                          "dataset.lib.tmkArticulos.calcImages",
+                          "dataset.lib.tmkArticulos.calcURL" ]
+
+
+
+####################################################################
+####################################################################
+####################################################################
+#
+# main query def
+#
+
+#
+# expand
+#
+# Get showcase and recents for subject page
+#
+query.sql:          >
+    SELECT          'SUBJ'                  AS EntityType,
+                    S.SubjectId             AS EntityId,
+                    S.SubjectId             AS SubjectId,
+                    -------------- title
+                    --
+                    -- capitalized by postprocessing
+                    CASE C.Categoria_Seccion
+                        WHEN 1 THEN                 'LIBROS'
+                        WHEN 3 THEN                 'PASATIEMPOS'
+                        WHEN 4 THEN                 'MUSICA'
+                        WHEN 5 THEN                 'PELICULAS'
+                    END                     AS Title,
+                    -------------- links
+                    --
+                    -- calculated by post-processing
+                    NULL                    AS LinkBase,
+                    -------------- support attributes
+                    S.Categoria_Seccion     AS Categoria_Seccion,
+                    S.Categoria_Grupo       AS Categoria_Grupo,
+                    S.Categoria_Familia     AS Categoria_Familia,
+                    S.Categoria_Subfamilia  AS Categoria_Subfamilia,
+                    S.Subtype               AS Subtype
+        FROM        Stage0_Subjects S
+        INNER JOIN  Categ_Secciones C
+            ON      S.Categoria_Seccion     = C.Categoria_Seccion
+        WHERE       {{ID:SubjectId}}
+        ORDER BY    S.SubjectId
+query.prefix:       S
+query.id:           [ "SubjectId" ]
+query.key:          [ "SubjectId" ]
+query.columns:      [ "EntityType", "EntityId", "SubjectId", "Title", "LinkBase",
+                      "Categoria_Seccion", "Categoria_Grupo", "Categoria_Familia",
+                      "Categoria_Subfamilia", "Subtype" ]
+query.post:         [ "dataset.lib.tmkSubjects.fixTitle",
+                      "dataset.lib.tmkSubjects.calcURL"
+                    ]
+query.augment:
+    Comments:
+        <<:             *query_unified
+        query.var:
+            limit:      6

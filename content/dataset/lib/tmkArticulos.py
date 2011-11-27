@@ -148,7 +148,7 @@ def calcURL(row):
                 tmkSupport.noDiacritics(
                     tmkSupport.capitalize(
                         row.get("Title")))).lower() + \
-           "--" + str(row["EntityId"]) + ".htm"
+           "--" + str(row["EntityId"]) ##### + ".htm"
 
     # set the url
     row["LinkBase"] = url
@@ -227,7 +227,7 @@ def imprintCalcURL(row):
     linkBase = "/buscador/productos.jsp?" + params
 
     # set the URL
-    row["ImprintLinkBase"] = linkBase
+    row["ImprintURL"] = linkBase
 
     return row
 
@@ -279,6 +279,6 @@ def contributorCalcURL(row):
     linkBase = "/buscador/productos.jsp?" + params
 
     # set the URL
-    row["ContributorLinkBase"] = linkBase
+    row["ContributorURL"] = linkBase
 
     return row
