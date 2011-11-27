@@ -106,7 +106,7 @@ function fillShowCase(order, filter, callback) {
 
 $('ul.overview td.product-entry').qtip({
     content: function () {
-        return this.find('div.product-popup').html();
+        return this.find('div.product-popup-content').html();
         },
     position: {
         my: 'left center',

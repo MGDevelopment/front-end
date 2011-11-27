@@ -1,4 +1,7 @@
 /* gallery.css */
+div.product-popup-content {
+    display:   none;
+}
 p.product-popup-price {
     font-size:   1.4em;
     font-weight: bold;
