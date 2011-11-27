@@ -37,11 +37,6 @@
                             {#- AUTHOR -#}
                             <p><a href="/buscador/productos.jsp?seccion={{ section }}&amp;idSeccion={{ section }}&amp;criterioDeOrden=2&amp;claveDeBusqueda=porIDdeAutor&amp;texto={{ author|e }}&amp;idAutor={{ author_id }}">{{ author }}</a></p>
                             <p class="product-price">$ {{ price }}</p>
-                            <p><a href="javascript:APP.cartAdd({{ product_id }})"
-                                    title="agregar al carrito">
-                                <img src="{{ url.images }}/imagenes/rediseno/imagenes/seccionTematika/b-comprar.png" alt="agregar al carrito">
-                            </a></p>
-                            <p class="product-format">
                             {%- if format == 'BC' -%}
                                 <p class="product-format">Libro tapa blanda</p>
                             {%- elif format == 'BB' -%}
@@ -59,6 +54,10 @@
                             {#- {%- elif format == 'DD' -%} -#}
                             {%- endif -%}
                             {#- BUY -#}
+                            <p><a href="javascript:APP.cartAdd({{ product_id }})"
+                                    title="agregar al carrito">
+                                <img src="{{ url.images }}/imagenes/rediseno/imagenes/seccionTematika/b-comprar.png" alt="agregar al carrito">
+                            </a></p>
 	                    </div> <!-- p-popup -->
 					</td>
 	        {%- if loop.index is divisibleby cols -%}
