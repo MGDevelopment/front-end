@@ -7,3 +7,21 @@ p.product-popup-title a {
     font-size:   1.5em;
     font-weight: bold;
 }
+
+.gallery-next, .gallery-prev {
+    width:            218px;
+    height:           22px;
+    cursor:           pointer;
+    border:           none;
+}
+.gallery-prev {
+    background-image:
+        url(/imagenes/rediseno/imagenes/seccionTematika/mesaAnterior.png);
+    margin-bottom:    1px;
+    margin-top:       10px;
+}
+.gallery-next {
+    background-image:
+        url(/imagenes/rediseno/imagenes/seccionTematika/mesaSiguiente.png);
+    margin-top:       1px;
+}

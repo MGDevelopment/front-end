@@ -86,13 +86,13 @@
 								<div id="sliderHome{{ section }}">
 									<a class="buttons prev" id="anterior{{ loop.index }}" onfocus="this.blur()" href="#">
                                         <object>
-											<div id="anterior{{ loop.index }}DIV" class="mesaAnterior"></div>
+											<div id="anterior{{ loop.index }}DIV" class="gallery-prev"></div>
 										</object>
 								    </a>
                                 <div id="slider{{ section }}">{{ renderS.renderSlider(d[section], section|lower, cols, url) }}</div>
 									 <a class="buttons next" id="siguiente{{ loop.index }}" onfocus="this.blur()" href="#">
                                         <object>
-											<div id="siguiente{{ loop.index }}DIV" class="mesaSiguiente"></div>
+											<div id="siguiente{{ loop.index }}DIV" class="gallery-next"></div>
 										</object>
 								    </a>
                                 </div></td>
