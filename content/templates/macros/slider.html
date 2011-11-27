@@ -38,6 +38,11 @@
                                     {{- p.ProductForm_desc.decode('utf-8') -}}
                                 </p>
                             {%- endif -%}
+		                    {%- if p.ImprintName != None -%}
+                                <p class="product-imprint">Editorial:
+                                    {{- p.ImprintName.decode('utf-8') -}}
+                                </p>
+                            {%- endif -%}
                             {#- BUY -#}
                             <p>
 		                    {%- if p.ProductAvailability == '21' -%}
