@@ -1,7 +1,16 @@
 from   ecommerce.storage  import FilesystemStorage, S3Storage
 import jinja2
-import sample_data
 from   json               import dumps as js_dump
+
+import sample_data
+import sample_data_books_1
+import sample_data_books_1_1
+import sample_data_books_1_1_1
+import sample_data_books_1_1_1_1
+import sample_data_games_3
+import sample_data_music_4
+import sample_data_movies_5
+
 
 USE_SCRIPT_TAG = True
 JS_WRAP = '''with(window.open("","_blank","width="+screen.width*.6+",left="+screen.width*.2+",height="+screen.height*.9+",resizable,scrollbars=yes")){document.write( %s );document.close();}void 0'''
@@ -150,7 +159,7 @@ documentos = [
     {
         "EntityType"    : "SUBJ",
         "EntityId"      : 1,
-        "dataset"       : "subjectMain",        "_data" : sample_data.librosMainData,
+        "dataset"       : "subjectMain",        "_data" : sample_data_books_1.books_1_main,
                                                 "_url"  : librosURL,
         "template"      : "subject/index.html",
         "headers"       : {
@@ -165,7 +174,7 @@ documentos = [
     {
         "EntityType"    : "SUBJ",
         "EntityId"      : 1,
-        "dataset"       : "subjectMain",        "_data" : sample_data.librosMainData,
+        "dataset"       : "subjectMain",        "_data" : sample_data_books_1.books_1_main,
                                                 "_url"  : librosURL,
         "template"      : "subject/index.html",
         "headers"       : {
@@ -180,7 +189,7 @@ documentos = [
     {
         "EntityType"    : "SUBJ",
         "EntityId"      : 1,
-        "dataset"       : "subjectMain",        "_data" : sample_data.librosMainData,
+        "dataset"       : "subjectMain",        "_data" : sample_data_books_1.books_1_main,
                                                 "_url"  : librosURL,
         "template"      : "subject/index.html",
         "headers"       : {
@@ -198,7 +207,7 @@ documentos = [
     {
         "EntityType"    : "SUBJ",
         "EntityId"      : 1,
-        "dataset"       : "subjectShowcase",    "_data" : sample_data.librosShowcaseData,
+        "dataset"       : "subjectShowcase",    "_data" : sample_data_books_1.books_1_data,
                                                 "_url"  : librosURL,
         "template"      : "subject/showcase.js",
         "headers"       : {
@@ -215,7 +224,7 @@ documentos = [
     {
         "EntityType"    : "SUBJ",
         "EntityId"      : 1,
-        "dataset"       : "subjectComments",    "_data" : sample_data.librosCommentsData,
+        "dataset"       : "subjectComments",    "_data" : sample_data_books_1.books_1_comments,
                                                 "_url"  : librosURL,
         "template"      : "subject/comments.js",
         "headers"       : {
@@ -313,7 +322,7 @@ if __name__ == '__main__':
         t = env.get_template(d['template'])
         t_params = { 'd': d['_data'], 'url': d['_url'] }
 
-        page_html = t.render(t_params)
+        page_html = t.render(t_params).encode('utf-8')
         target_path = d['target.path']
         headers = d['headers'].copy()
         content_type = headers['Content-Type']
@@ -328,5 +337,5 @@ if __name__ == '__main__':
 
         s.send(target_path, page_html, headers)
 
-        #break # XXX
+        break # XXX
 

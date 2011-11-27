@@ -1,23 +1,79 @@
 {%- macro renderSlider(product_list, prefix, cols, url) -%}
 <div class="viewport">
 	<ul class="overview">
-	{%- for product in product_list -%}
+	{%- for p in product_list -%}
+		{%- set title  = p.Title.decode('utf-8') -%}
+		{%- set author = None -%} {#- default no author -#}
+		{%- set section  = p.Categoria_Seccion|string -%}
+		{%- set price  = p.PriceAmount|string -%}
+		{%- set product_id  = p.ProductId|string -%}
+		{%- set product_url  = p.LinkBase -%}
+		{%- if p.Authors[0] -%}
+		    {%- set author = p.Authors[0].ContributorName.decode('utf-8') -%}
+		    {%- set author_id = p.Authors[0].ContributorId|string -%}
+		{%- endif -%}
+		{%- if p.ImprintName != None -%}
+            {%- set imprint = p.ImprintName.decode('utf-8') -%}
+		{%- endif -%}
+		{%- if p.ProductForm[0] == 'B' -%}
+            {%- set book = True -%}
+		{%- elif p.ProductForm[0] == 'A' -%}
+            {%- set music = True -%}
+		{%- elif p.ProductForm[0] == 'V' -%}
+            {%- set movie = True -%}
+		{%- elif p.ProductForm[0] == 'Z' -%}
+            {%- set generic = True -%}
+		{%- endif -%}
 			{%- if (loop.index % cols) == 1 -%}
-			    <li>
+			    <li> {#- start row -#}
 			    <table>	
 				    <tr>
 			{%- else -%}
 					<td>&nbsp;</td>
 			{%- endif -%}
-					<td>
-                        <a class="inline" href="{{'#inline_content' + '_' + prefix + '_' + loop.index|string }}" title="{{ product.Title.decode('utf-8') }}">
-							<img src="{{ url.images ~ product.CoverSmall|escape }}" width="98" alt="{{ product.Title.decode('utf-8')}}">
-						</a>
+					<td class="product-entry">
+                        <a href="{{ product_url }}" title="{{ title }}">
+							<img src="{{ url.images ~ p.CoverSmall|e }}" width="98" alt="{{ title }}">
+                        </a>
+
+                        {#- POP UP CONTENT HOLDER -#}
+	                    <div class="product-popup-content">
+                            {#- TITLE -#}
+                            <p class="product-popup-title">
+                                <a href="{{ product_url }}">{{ title }}</a>
+                            </p>
+                            {#- AUTHOR -#}
+                            <p>de <a href="/buscador/productos.jsp?seccion={{ section }}&amp;idSeccion={{ section }}&amp;criterioDeOrden=2&amp;claveDeBusqueda=porIDdeAutor&amp;texto={{ author|e }}&amp;idAutor={{ author_id }}">{{ author }}</a></p>
+                            <p class="product-popup-price">$ {{ price }}</p>
+		                    {%- if p.ProductForm_desc != None -%}
+                                <p class="product-format">
+                                    {{- p.ProductForm_desc.decode('utf-8') -}}
+                                </p>
+                            {%- endif -%}
+		                    {%- if p.ImprintName != None -%}
+                                <span class="product-imprint">
+		                            {%- if   book  -%}Editorial:
+		                            {%- elif music -%}Discogr&aacute;fica:
+		                            {%- elif movie -%}Productora:
+		                            {%- else       -%}Editorial:
+		                            {%- endif -%}
+                                    <a href="/buscador/productos.jsp?seccion={{ section }}&amp;idSeccion={{ section }}&amp;criterioDeOrden=2&amp;claveDeBusqueda=porIDdeEditorial&amp;texto={{ imprint }}&amp;idEditor={{ p.ImprintId|string }}" id="artEditor">{{ imprint}}</a>
+                                </span></br>
+                            {%- endif -%}
+                            {#- BUY -#}
+                            <p>
+		                    {%- if p.ProductAvailability == '21' -%}
+                                <a href="javascript:APP.cartAdd({{ product_id }})" title="agregar al carrito"><img src="{{ url.images }}/imagenes/rediseno/imagenes/seccionTematika/b-comprar.png" alt="agregar al carrito"></a>
+		                    {%- else -%} {#- ProductAvailability == '22' -#}
+                                <a href="javascript:if (confirm('Este producto no esta disponible actualmente. Desea hacer un pedido?'))document.location = '/PedidoEspecial?ID_ARTICULO={{ product_id }}';"><img src="{{ url.images}}/imagenes/rediseno/imagenes/seccionTematika/b-pedir.png" alt="Pedir"></a>
+                            {%- endif -%}
+                            </p>
+	                    </div> <!-- p-popup -->
 					</td>
 	        {%- if loop.index is divisibleby cols -%}
 				    </tr>
 			    </table>
-			    </li>
+			    </li> {#- end row -#}
 			{%- endif %}
 	{%- endfor %}
 	{%- if loop.index is divisibleby cols -%}

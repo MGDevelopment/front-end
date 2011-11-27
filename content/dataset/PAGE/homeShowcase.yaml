@@ -46,7 +46,7 @@ query_recommended_main:     &query_recommended_main
                 -- name capitalized by post processing
                 A.Id_Editor                     AS ImprintId,
                 E.Nombre                        AS ImprintName,
-                NULL                            AS ImprintLinkBase,
+                NULL                            AS ImprintURL,
                 -------------- Ranking
                 MVS.Orden                       AS Ranking,
                 -------------- Publishing Date
@@ -200,7 +200,7 @@ query_recommended_main:     &query_recommended_main
     query.columns:      [ "EntityType", "EntityId", "ProductId", "LinkBase", 
                           "CoverSmall", "CoverSmallGeneric", "CoverLarge", "Title", 
                           "Rating", "CommentCount", "ImprintId", "ImprintName",
-                          "ImprintLinkBase", "Ranking", "PublishingDateFormat", 
+                          "ImprintURL", "Ranking", "PublishingDateFormat", 
                           "PublishingDateFormat_list", "PublishingDateFormat_desc", 
                           "PublishingDateValue", "LanguageCode", "LanguageCode_list", 
                           "LanguageCode_desc", "ExtentType", "ExtentType_list", 
@@ -273,7 +273,7 @@ augment_query_recommended_authors:  &augment_query_recommended_authors
                         CGRF_Role.RV_Meaning        AS ContributorRole_desc,
                         AU.Id_Autor                 AS ContributorId,
                         AU.Descripcion              AS ContributorName,
-                        NULL                        AS ContributorLinkBase,
+                        NULL                        AS ContributorURL,
                         -------------- support attributes
                         A.Categoria_Seccion         AS Categoria_Seccion
             FROM        Articulos_Mesa_Recomendados AMR
@@ -307,7 +307,7 @@ augment_query_recommended_authors:  &augment_query_recommended_authors
     query.group:        [ "ProductId" ]
     query.columns:      [ "ProductId", "EntryOrder",
                           "ContributorRole", "ContributorRole_list", "ContributorRole_desc",
-                          "ContributorId", "ContributorName", "ContributorLinkBase",
+                          "ContributorId", "ContributorName", "ContributorURL",
                           "Categoria_Seccion" ]
     query.post:         [ "dataset.lib.tmkArticulos.contributorTitle",
                           "dataset.lib.tmkArticulos.contributorCalcURL"
@@ -355,7 +355,7 @@ query_showcase_main:     &query_showcase_main
                         -- name capitalized by post processing
                         A.Id_Editor                     AS ImprintId,
                         E.Nombre                        AS ImprintName,
-                        NULL                            AS ImprintLinkBase,
+                        NULL                            AS ImprintURL,
                         -------------- Ranking
                         MVS.Orden                       AS Ranking,
                         -------------- Publishing Date
@@ -505,7 +505,7 @@ query_showcase_main:     &query_showcase_main
     query.columns:      [ "EntityType", "EntityId", "ProductId", "LinkBase", 
                           "CoverSmall", "CoverSmallGeneric", "CoverLarge", "Title", 
                           "Rating", "CommentCount", "ImprintId", "ImprintName",
-                          "ImprintLinkBase", "Ranking", "PublishingDateFormat", 
+                          "ImprintURL", "Ranking", "PublishingDateFormat", 
                           "PublishingDateFormat_list", "PublishingDateFormat_desc", 
                           "PublishingDateValue", "LanguageCode", "LanguageCode_list", 
                           "LanguageCode_desc", "ExtentType", "ExtentType_list", 
@@ -597,7 +597,7 @@ augment_query_showcase_authors:  &augment_query_showcase_authors
                             CGRF_Role.RV_Meaning        AS ContributorRole_desc,
                             AU.Id_Autor                 AS ContributorId,
                             AU.Descripcion              AS ContributorName,
-                            NULL                        AS ContributorLinkBase,
+                            NULL                        AS ContributorURL,
                             -------------- support attributes
                             A.Categoria_Seccion         AS Categoria_Seccion
                 FROM        Articulos A
@@ -650,7 +650,7 @@ augment_query_showcase_authors:  &augment_query_showcase_authors
     query.group:        [ "ProductId" ]
     query.columns:      [ "ProductId", "EntryOrder",
                           "ContributorRole", "ContributorRole_list", "ContributorRole_desc",
-                          "ContributorId", "ContributorName", "ContributorLinkBase",
+                          "ContributorId", "ContributorName", "ContributorURL",
                           "Categoria_Seccion" ]
     query.post:         [ "dataset.lib.tmkArticulos.contributorTitle",
                           "dataset.lib.tmkArticulos.contributorCalcURL"
