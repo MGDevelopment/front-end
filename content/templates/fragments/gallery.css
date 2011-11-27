@@ -11,6 +11,10 @@ p.product-popup-title a {
     font-weight: bold;
 }
 
+span.product-imprint a, span.product-author a {
+    margin-left: 0.5em;
+}
+
 .gallery-next, .gallery-prev {
     width:            218px;
     height:           22px;
