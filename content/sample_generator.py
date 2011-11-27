@@ -337,5 +337,5 @@ if __name__ == '__main__':
 
         s.send(target_path, page_html, headers)
 
-        #break # XXX
+        break # XXX
 
