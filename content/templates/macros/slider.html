@@ -8,12 +8,6 @@
 		{%- set price  = p.PriceAmount|string -%}
 		{%- set product_id  = p.ProductId|string -%}
 		{%- set product_url  = p.LinkBase -%}
-		{%- set format  = p.ProductForm -%}
-		{%- if p.ProductForm_desc == None -%}
-		    {%- set format_desc  = '' -%}
-		{%- else -%}
-		    {%- set format_desc  = p.ProductForm_desc.decode('utf-8') -%}
-        {%- endif -%}
 		{%- if p.Authors[0] -%}
 		    {%- set author = p.Authors[0].ContributorName.decode('utf-8') -%}
 		    {%- set author_id = p.Authors[0].ContributorId|string -%}
@@ -37,21 +31,10 @@
                             {#- AUTHOR -#}
                             <p><a href="/buscador/productos.jsp?seccion={{ section }}&amp;idSeccion={{ section }}&amp;criterioDeOrden=2&amp;claveDeBusqueda=porIDdeAutor&amp;texto={{ author|e }}&amp;idAutor={{ author_id }}">{{ author }}</a></p>
                             <p class="product-price">$ {{ price }}</p>
-                            {%- if format == 'BC' -%}
-                                <p class="product-format">Libro tapa blanda</p>
-                            {%- elif format == 'BB' -%}
-                                <p class="product-format">Libro tapa dura</p>
-                            {%- elif format[0] == 'B' -%}
-                                <p class="product-format">Libro</p>
-                            {%- elif format == 'AC' -%}
-                                <p class="product-format">CD Audio</p>
-                            {%- elif format[0] == 'A' -%}
-                                <p class="product-format">M&uacute;sica</p>
-                            {%- elif format_desc == 'Cd audio' -%}
-                                <p class="product-format">CD Audio</p>
-                            {%- elif format == 'DD' -%}
-                                <p class="product-format">DVD Video</p>
-                            {#- {%- elif format == 'DD' -%} -#}
+		                    {%- if p.ProductForm_desc != None -%}
+                                <p class="product-format">
+                                    {{- p.ProductForm_desc.decode('utf-8') -}}
+                                </p>
                             {%- endif -%}
                             {#- BUY -#}
                             <p><a href="javascript:APP.cartAdd({{ product_id }})"
