@@ -4,7 +4,6 @@
     <ul class="overview">
     {%- for p in product_list -%}
         {%- set title  = p.Title.decode('utf-8') -%}
-        {%- set author = None -%} {#- default no author -#}
         {%- set section  = p.Categoria_Seccion|string -%}
         {%- set price  = p.PriceAmount|string -%}
         {%- set product_id  = p.ProductId|string -%}
@@ -13,6 +12,9 @@
         {%- if p.Authors[0] -%}
             {%- set author = p.Authors[0].ContributorName.decode('utf-8') -%}
             {%- set author_id = p.Authors[0].ContributorId|string -%}
+        {%- else -%}
+            {%- set author = None -%}
+            {%- set author_id = 0 -%}
         {%- endif -%}
         {%- if p.ImprintName != None -%}
             {%- set imprint = p.ImprintName.decode('utf-8') -%}
@@ -46,7 +48,9 @@
                             <a href="{{ product_url }}">{{ title }}</a>
                         </p>
                         {#- AUTHOR -#}
-                        <p class="product-author">de <a href="/buscador/productos.jsp?seccion={{ section }}&amp;idSeccion={{ section }}&amp;criterioDeOrden=2&amp;claveDeBusqueda=porIDdeAutor&amp;texto={{ author|e }}&amp;idAutor={{ author_id }}">{{ author }}</a></p>
+                        {%- if author -%}
+                            <p class="product-author">de <a href="/buscador/productos.jsp?seccion={{ section }}&amp;idSeccion={{ section }}&amp;criterioDeOrden=2&amp;claveDeBusqueda=porIDdeAutor&amp;texto={{ author|e }}&amp;idAutor={{ author_id }}">{{ author }}</a></p>
+                        {%- endif -%}
                         </td><td>
                         <p class="product-popup-price">$ {{ price -}}</p>
                         </td></tr></tbody></table>
