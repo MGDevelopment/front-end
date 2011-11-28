@@ -6,6 +6,7 @@ div.product-popup-content {
 
 div.ui-tooltip-content {
     width: 24em;
+    line-height: normal;
 }
 
 div.ui-tooltip-content p {
