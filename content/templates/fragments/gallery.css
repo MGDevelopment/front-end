@@ -49,6 +49,10 @@ div.ui-tooltip-content p.product-cart-add {
     text-align:  center;
 }
 
+div.ui-tooltip-content span.product-rating img {
+    vertical-align:  bottom;
+}
+
 div.ui-tooltip-content table.product-infocomment {
     margin:       0.5em;
     border-width: 2px;
