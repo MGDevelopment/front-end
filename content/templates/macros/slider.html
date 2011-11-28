@@ -1,44 +1,44 @@
 {%- macro renderSlider(product_list, prefix, cols, url) -%}
 {%- set languages = { 'ES': 'Espa&ntilde;ol', 'EN': 'Ingl&eacute;s' } -%}
 <div class="viewport">
-	<ul class="overview">
-	{%- for p in product_list -%}
-		{%- set title  = p.Title.decode('utf-8') -%}
-		{%- set author = None -%} {#- default no author -#}
-		{%- set section  = p.Categoria_Seccion|string -%}
-		{%- set price  = p.PriceAmount|string -%}
-		{%- set product_id  = p.ProductId|string -%}
-		{%- set product_url  = p.LinkBase ~ '.htm' -%}
-		{%- if p.Authors[0] -%}
-		    {%- set author = p.Authors[0].ContributorName.decode('utf-8') -%}
-		    {%- set author_id = p.Authors[0].ContributorId|string -%}
-		{%- endif -%}
-		{%- if p.ImprintName != None -%}
+    <ul class="overview">
+    {%- for p in product_list -%}
+        {%- set title  = p.Title.decode('utf-8') -%}
+        {%- set author = None -%} {#- default no author -#}
+        {%- set section  = p.Categoria_Seccion|string -%}
+        {%- set price  = p.PriceAmount|string -%}
+        {%- set product_id  = p.ProductId|string -%}
+        {%- set product_url  = p.LinkBase ~ '.htm' -%}
+        {%- if p.Authors[0] -%}
+            {%- set author = p.Authors[0].ContributorName.decode('utf-8') -%}
+            {%- set author_id = p.Authors[0].ContributorId|string -%}
+        {%- endif -%}
+        {%- if p.ImprintName != None -%}
             {%- set imprint = p.ImprintName.decode('utf-8') -%}
-		{%- endif -%}
-		{%- if p.ProductForm[0] == 'B' -%}
+        {%- endif -%}
+        {%- if p.ProductForm[0] == 'B' -%}
             {%- set book = True -%}
-		{%- elif p.ProductForm[0] == 'A' -%}
+        {%- elif p.ProductForm[0] == 'A' -%}
             {%- set music = True -%}
-		{%- elif p.ProductForm[0] == 'V' -%}
+        {%- elif p.ProductForm[0] == 'V' -%}
             {%- set movie = True -%}
-		{%- elif p.ProductForm[0] == 'Z' -%}
+        {%- elif p.ProductForm[0] == 'Z' -%}
             {%- set generic = True -%}
-		{%- endif -%}
-			{%- if (loop.index % cols) == 1 -%}
-			    <li> {#- start row -#}
-			    <table>	
-				    <tr>
-			{%- else -%}
-					<td>&nbsp;</td>
-			{%- endif -%}
-					<td class="product-entry">
+        {%- endif -%}
+            {%- if (loop.index % cols) == 1 -%}
+                <li> {#- start row -#}
+                <table>    
+                    <tr>
+            {%- else -%}
+                    <td>&nbsp;</td>
+            {%- endif -%}
+                    <td class="product-entry">
                         <a href="{{ product_url }}" title="{{ title }}">
-							<img src="{{ url.images ~ p.CoverSmall|e }}" width="98" alt="{{ title }}">
+                            <img src="{{ url.images ~ p.CoverSmall|e }}" width="98" alt="{{ title }}">
                         </a>
 
                         {#- POP UP CONTENT HOLDER -#}
-	                    <div class="product-popup-content">
+                        <div class="product-popup-content">
                             {#- TITLE -#}
                             <span class="product-popup-title">
                                 <a href="{{ product_url }}">{{ title }}</a>
@@ -46,7 +46,7 @@
                             {#- AUTHOR -#}
                             <span class="product-author">de <a href="/buscador/productos.jsp?seccion={{ section }}&amp;idSeccion={{ section }}&amp;criterioDeOrden=2&amp;claveDeBusqueda=porIDdeAutor&amp;texto={{ author|e }}&amp;idAutor={{ author_id }}">{{ author }}</a></span></br>
                             <span class="product-popup-price">$ {{ price }}</span><br>
-		                    {%- if p.ProductForm_desc != None -%}
+                            {%- if p.ProductForm_desc != None -%}
                                 {%- if book -%}
                                     Edici&oacute;n:
                                 {%- else -%}
@@ -56,35 +56,35 @@
                                     {{- p.ProductForm_desc.decode('utf-8') -}}
                                 </span><br>
                             {%- endif -%}
-		                    {%- if p.ImprintName != None -%}
-		                        {%- if   book  -%}Editorial:
-		                        {%- elif music -%}Discogr&aacute;fica:
-		                        {%- elif movie -%}Productora:
-		                        {%- else       -%}Editorial:
-		                        {%- endif -%}
+                            {%- if p.ImprintName != None -%}
+                                {%- if   book  -%}Editorial:
+                                {%- elif music -%}Discogr&aacute;fica:
+                                {%- elif movie -%}Productora:
+                                {%- else       -%}Editorial:
+                                {%- endif -%}
                                 <span class="product-imprint">
                                     <a href="/buscador/productos.jsp?seccion={{ section }}&amp;idSeccion={{ section }}&amp;criterioDeOrden=2&amp;claveDeBusqueda=porIDdeEditorial&amp;texto={{ imprint }}&amp;idEditor={{ p.ImprintId|string }}" id="artEditor">{{ imprint}}</a>
                                 </span><br>
                             {%- endif -%}
-		                    {%- if p.Ranking -%}
+                            {%- if p.Ranking -%}
                                 Ranking: <span class="product-ranking">
                                     {{- '%d'|format(p.Ranking) -}}
                                 </span><br>
                             {%- endif -%}
-		                    {%- if p.PublishingDateValue -%}
-		                        {%- set pd = p.PublishingDateValue -%}
+                            {%- if p.PublishingDateValue -%}
+                                {%- set pd = p.PublishingDateValue -%}
                                 Fecha de publicaci&oacute;n:
                                 <span class="product-date">
                                     {{- (pd[6:8], pd[4:6], pd[0:4])|join('/') -}}
                                 </span><br>
                             {%- endif -%}
-		                    {%- if p.LanguageCode -%}
+                            {%- if p.LanguageCode -%}
                                 Idioma:
                                 <span class="product-language">
                                     {{- languages[p.LanguageCode] -}}
                                 </span><br>
                             {%- endif -%}
-		                    {%- if p.ExtentValue -%}
+                            {%- if p.ExtentValue -%}
                                 P&aacute;ginas:
                                 <span class="product-pages">
                                     {{- p.ExtentValue -}}
@@ -92,31 +92,31 @@
                             {%- endif -%}
                             {#- BUY -#}
                             <span class="cart-add">
-		                    {%- if p.ProductAvailability == '21' -%}
+                            {%- if p.ProductAvailability == '21' -%}
                                 <a href="javascript:APP.cartAdd({{ product_id }})" title="agregar al carrito"><img src="{{ url.images }}/imagenes/rediseno/imagenes/seccionTematika/b-comprar.png" alt="agregar al carrito"></a>
-		                    {%- else -%} {#- ProductAvailability == '22' -#}
+                            {%- else -%} {#- ProductAvailability == '22' -#}
                                 <a href="javascript:if (confirm('Este producto no esta disponible actualmente. Desea hacer un pedido?'))document.location = '/PedidoEspecial?ID_ARTICULO={{ product_id }}';"><img src="{{ url.images}}/imagenes/rediseno/imagenes/seccionTematika/b-pedir.png" alt="Pedir"></a>
                             {%- endif -%}
                             </span><br>
-	                    </div> <!-- p-popup -->
-					</td>
-	        {%- if loop.index is divisibleby cols -%}
-				    </tr>
-			    </table>
-			    </li> {#- end row -#}
-			{%- endif %}
-	{%- endfor %}
-	{%- if loop.index is divisibleby cols -%}
+                        </div> <!-- p-popup -->
+                    </td>
+            {%- if loop.index is divisibleby cols -%}
+                    </tr>
+                </table>
+                </li> {#- end row -#}
+            {%- endif %}
+    {%- endfor %}
+    {%- if loop.index is divisibleby cols -%}
         {#- fill remaining cols -#}
         {%- for c in range(cols - (loop.index % cols)) -%}
-				<td>&nbsp;</td>
-				<td>&nbsp;</td>	
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>    
         {%- endfor -%}
-			</tr>
-		</table>
-		</li>
-	{%- endif %}
-	<li><table><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr></table></li>
-	</ul>
+            </tr>
+        </table>
+        </li>
+    {%- endif %}
+    <li><table><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr></table></li>
+    </ul>
 </div>
 {%- endmacro -%}
