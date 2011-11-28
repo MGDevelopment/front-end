@@ -7,7 +7,7 @@
 		{%- set section  = p.Categoria_Seccion|string -%}
 		{%- set price  = p.PriceAmount|string -%}
 		{%- set product_id  = p.ProductId|string -%}
-		{%- set product_url  = p.LinkBase -%}
+		{%- set product_url  = p.LinkBase ~ '.htm' -%}
 		{%- if p.Authors[0] -%}
 		    {%- set author = p.Authors[0].ContributorName.decode('utf-8') -%}
 		    {%- set author_id = p.Authors[0].ContributorId|string -%}
