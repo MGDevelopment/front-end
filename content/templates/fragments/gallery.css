@@ -2,16 +2,18 @@
 div.product-popup-content {
     display:   none;
 }
-p.product-popup-price {
+
+span.product-popup-price {
     font-size:   1.4em;
     font-weight: bold;
 }
-p.product-popup-title a {
-    font-size:   1.5em;
+
+span.product-popup-title a {
+    font-size:   1.8em;
     font-weight: bold;
 }
 
-span.product-imprint a, span.product-author a {
+span.product-imprint a, span.product-author, span.product-format a {
     margin-left: 0.5em;
 }
 
@@ -21,12 +23,14 @@ span.product-imprint a, span.product-author a {
     cursor:           pointer;
     border:           none;
 }
+
 .gallery-prev {
     background-image:
         url(/imagenes/rediseno/imagenes/seccionTematika/mesaAnterior.png);
     margin-bottom:    1px;
     margin-top:       10px;
 }
+
 .gallery-next {
     background-image:
         url(/imagenes/rediseno/imagenes/seccionTematika/mesaSiguiente.png);
