@@ -46,7 +46,15 @@
                             </span><br>
                             {#- AUTHOR -#}
                             <span class="product-author">de <a href="/buscador/productos.jsp?seccion={{ section }}&amp;idSeccion={{ section }}&amp;criterioDeOrden=2&amp;claveDeBusqueda=porIDdeAutor&amp;texto={{ author|e }}&amp;idAutor={{ author_id }}">{{ author }}</a></span></br>
-                            <span class="product-popup-price">$ {{ price }}</span><br>
+                            <span class="product-popup-price">$ {{ price }}</span>
+                            {#- BUY -#}
+                            <span class="cart-add">
+                            {%- if p.ProductAvailability == '21' -%}
+                                <a href="javascript:APP.cartAdd({{ product_id }})" title="agregar al carrito"><img src="{{ url.images }}/imagenes/rediseno/imagenes/seccionTematika/b-comprar.png" alt="agregar al carrito"></a>
+                            {%- else -%} {#- ProductAvailability == '22' -#}
+                                <a href="javascript:if (confirm('Este producto no esta disponible actualmente. Desea hacer un pedido?'))document.location = '/PedidoEspecial?ID_ARTICULO={{ product_id }}';"><img src="{{ url.images}}/imagenes/rediseno/imagenes/seccionTematika/b-pedir.png" alt="Pedir"></a>
+                            {%- endif -%}
+                            </span><br>
                             {%- if p.ImprintName != None -%}
                                 {%- if   book  -%}Editorial:
                                 {%- elif music -%}Discogr&aacute;fica:
@@ -112,14 +120,6 @@
                                 El horario de entrega para los pedidos dentro
                                 de Argentina es de Lunes a Viernes de 9 a 18hs.
                                 </span></a>
-                            </span><br>
-                            {#- BUY -#}
-                            <span class="cart-add">
-                            {%- if p.ProductAvailability == '21' -%}
-                                <a href="javascript:APP.cartAdd({{ product_id }})" title="agregar al carrito"><img src="{{ url.images }}/imagenes/rediseno/imagenes/seccionTematika/b-comprar.png" alt="agregar al carrito"></a>
-                            {%- else -%} {#- ProductAvailability == '22' -#}
-                                <a href="javascript:if (confirm('Este producto no esta disponible actualmente. Desea hacer un pedido?'))document.location = '/PedidoEspecial?ID_ARTICULO={{ product_id }}';"><img src="{{ url.images}}/imagenes/rediseno/imagenes/seccionTematika/b-pedir.png" alt="Pedir"></a>
-                            {%- endif -%}
                             </span><br>
                         </div> <!-- p-popup -->
                     </td>
