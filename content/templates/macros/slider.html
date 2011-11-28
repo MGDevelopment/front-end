@@ -63,7 +63,12 @@
 		                            {%- else       -%}Editorial:
 		                            {%- endif -%}
                                     <a href="/buscador/productos.jsp?seccion={{ section }}&amp;idSeccion={{ section }}&amp;criterioDeOrden=2&amp;claveDeBusqueda=porIDdeEditorial&amp;texto={{ imprint }}&amp;idEditor={{ p.ImprintId|string }}" id="artEditor">{{ imprint}}</a>
-                                </span></br>
+                                </span><br>
+                            {%- endif -%}
+		                    {%- if p.Ranking -%}
+                                Ranking: <span class="product-ranking">
+                                    {{- '%d'|format(p.Ranking) -}}
+                                </span><br>
                             {%- endif -%}
                             {#- BUY -#}
                             <span class="cart-add">
