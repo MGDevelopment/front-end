@@ -90,6 +90,11 @@
                                     {{- p.ProductForm_desc.decode('utf-8') -}}
                                 </span><br>
                             {%- endif -%}
+                            Entrega:
+                                <span class="product-fulfillment">
+                                    Salida del dep&oacute;sito en
+                                    {{ p.FulfillmentValue }} horas
+                                </span><br>
                             {#- BUY -#}
                             <span class="cart-add">
                             {%- if p.ProductAvailability == '21' -%}
