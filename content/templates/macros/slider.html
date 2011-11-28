@@ -46,16 +46,6 @@
                             {#- AUTHOR -#}
                             <span class="product-author">de <a href="/buscador/productos.jsp?seccion={{ section }}&amp;idSeccion={{ section }}&amp;criterioDeOrden=2&amp;claveDeBusqueda=porIDdeAutor&amp;texto={{ author|e }}&amp;idAutor={{ author_id }}">{{ author }}</a></span></br>
                             <span class="product-popup-price">$ {{ price }}</span><br>
-                            {%- if p.ProductForm_desc != None -%}
-                                {%- if book -%}
-                                    Edici&oacute;n:
-                                {%- else -%}
-                                    Formato:
-                                {%- endif -%}
-                                <span class="product-format">
-                                    {{- p.ProductForm_desc.decode('utf-8') -}}
-                                </span><br>
-                            {%- endif -%}
                             {%- if p.ImprintName != None -%}
                                 {%- if   book  -%}Editorial:
                                 {%- elif music -%}Discogr&aacute;fica:
@@ -88,6 +78,16 @@
                                 P&aacute;ginas:
                                 <span class="product-pages">
                                     {{- p.ExtentValue -}}
+                                </span><br>
+                            {%- endif -%}
+                            {%- if p.ProductForm_desc != None -%}
+                                {%- if book -%}
+                                    Edici&oacute;n:
+                                {%- else -%}
+                                    Formato:
+                                {%- endif -%}
+                                <span class="product-format">
+                                    {{- p.ProductForm_desc.decode('utf-8') -}}
                                 </span><br>
                             {%- endif -%}
                             {#- BUY -#}
