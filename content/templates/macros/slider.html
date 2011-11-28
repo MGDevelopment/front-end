@@ -69,13 +69,15 @@
                             </span><br>
                         {%- endif -%}
                         {%- if p.Rating -%}
-                            Calificaci&oacute;n: <span class="product-ranking">
                             {%- set s = p.Rating|round|int -%}
+                            Calificaci&oacute;n:
+                            <span class="product-ranking"
+                                    title="{{ "%.2f"|format(p.Rating) }}">
                             {%- for i in range(s) -%}
-                                <img src="{{ url.images }}/imagenes/rediseno/imagenes/comun/calificacionStar-back.png">
+                                <img src="{{ url.images }}/imagenes/rediseno/imagenes/comun/calificacionStar-back.png" alt="estrella">
                             {%- endfor -%}
                             {%- for i in range(5 - s) -%}
-                                <img src="{{ url.images }}/imagenes/rediseno/imagenes/comun/calificacionStarDes-back.png">
+                                <img src="{{ url.images }}/imagenes/rediseno/imagenes/comun/calificacionStarDes-back.png" alt="estrella off">
                             {%- endfor -%}
                             </span><br>
                         {%- endif -%}
