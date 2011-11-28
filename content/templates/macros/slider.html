@@ -102,6 +102,13 @@
                                 {{- p.ProductForm_desc.decode('utf-8') -}}
                             </span><br>
                         {%- endif -%}
+                        <table class="product-infocomment"><tbody><tr>
+                            <td class="product-moreinfo">
+                            <a href="{{ product_url }}">+ info</a></td>
+                            <td class="product-comment">
+                            <a href="/Comentario?ID_ARTICULO={{ product_id }}">
+                                agregar comentario</a></td>
+                        </tr></tbody></table>
                         Entrega:
                         <span class="product-fulfillment">
                             Salida del dep&oacute;sito en
