@@ -2,14 +2,14 @@ from   ecommerce.storage  import FilesystemStorage, S3Storage
 import jinja2
 from   json               import dumps as js_dump
 
-import sample_data
-import sample_data_books_1
-import sample_data_books_1_1
-import sample_data_books_1_1_1
-import sample_data_books_1_1_1_1
-import sample_data_games_3
-import sample_data_music_4
-import sample_data_movies_5
+import sample.sample_data
+import sample.sample_data_books_1
+import sample.sample_data_books_1_1
+import sample.sample_data_books_1_1_1
+import sample.sample_data_books_1_1_1_1
+import sample.sample_data_games_3
+import sample.sample_data_music_4
+import sample.sample_data_movies_5
 
 
 USE_SCRIPT_TAG = True
@@ -74,7 +74,7 @@ documentos = [
     {
         "EntityType"    : "PAGE",
         "EntityId"      : 1,
-        "dataset"       : "homeMain",          "_data" : sample_data.homeMainData,
+        "dataset"       : "homeMain",          "_data" : sample.sample_data.homeMainData,
                                                "_url"  : homeURL,
         "template"      : "home/index.html",
         "headers"       : {
@@ -89,7 +89,7 @@ documentos = [
     {
         "EntityType"    : "PAGE",
         "EntityId"      : 1,
-        "dataset"       : "homeMain",          "_data" : sample_data.homeMainData,
+        "dataset"       : "homeMain",          "_data" : sample.sample_data.homeMainData,
                                                "_url"  : homeURL,
         "template"      : "home/index.html",
         "headers"       : {
@@ -106,7 +106,7 @@ documentos = [
     {
         "EntityType"    : "PAGE",
         "EntityId"      : 1,
-        "dataset"       : "homeShowcase",       "_data" : sample_data.homeShowcaseData,
+        "dataset"       : "homeShowcase",       "_data" : sample.sample_data.homeShowcaseData,
                                                 "_url"  : homeURL,
         "template"      : "home/showcase.js",
         "headers"       : {
@@ -123,7 +123,7 @@ documentos = [
     {
         "EntityType"    : "PAGE",
         "EntityId"      : 1,
-        "dataset"       : "homeComments",       "_data" : sample_data.homeCommentsData,
+        "dataset"       : "homeComments",       "_data" : sample.sample_data.homeCommentsData,
                                                 "_url"  : homeURL,
         "template"      : "home/comments.js",
         "headers"       : {
@@ -159,7 +159,7 @@ documentos = [
     {
         "EntityType"    : "SUBJ",
         "EntityId"      : 1,
-        "dataset"       : "subjectMain",        "_data" : sample_data_books_1.books_1_main,
+        "dataset"       : "subjectMain",        "_data" : sample.sample_data_books_1.books_1_main,
                                                 "_url"  : librosURL,
         "template"      : "subject/index.html",
         "headers"       : {
@@ -174,7 +174,7 @@ documentos = [
     {
         "EntityType"    : "SUBJ",
         "EntityId"      : 1,
-        "dataset"       : "subjectMain",        "_data" : sample_data_books_1.books_1_main,
+        "dataset"       : "subjectMain",        "_data" : sample.sample_data_books_1.books_1_main,
                                                 "_url"  : librosURL,
         "template"      : "subject/index.html",
         "headers"       : {
@@ -189,7 +189,7 @@ documentos = [
     {
         "EntityType"    : "SUBJ",
         "EntityId"      : 1,
-        "dataset"       : "subjectMain",        "_data" : sample_data_books_1.books_1_main,
+        "dataset"       : "subjectMain",        "_data" : sample.sample_data_books_1.books_1_main,
                                                 "_url"  : librosURL,
         "template"      : "subject/index.html",
         "headers"       : {
@@ -207,7 +207,7 @@ documentos = [
     {
         "EntityType"    : "SUBJ",
         "EntityId"      : 1,
-        "dataset"       : "subjectShowcase",    "_data" : sample_data_books_1.books_1_data,
+        "dataset"       : "subjectShowcase",    "_data" : sample.sample_data_books_1.books_1_data,
                                                 "_url"  : librosURL,
         "template"      : "subject/showcase.js",
         "headers"       : {
@@ -224,7 +224,7 @@ documentos = [
     {
         "EntityType"    : "SUBJ",
         "EntityId"      : 1,
-        "dataset"       : "subjectComments",    "_data" : sample_data_books_1.books_1_comments,
+        "dataset"       : "subjectComments",    "_data" : sample.sample_data_books_1.books_1_comments,
                                                 "_url"  : librosURL,
         "template"      : "subject/comments.js",
         "headers"       : {
