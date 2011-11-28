@@ -84,6 +84,12 @@
                                     {{- languages[p.LanguageCode] -}}
                                 </span><br>
                             {%- endif -%}
+		                    {%- if p.ExtentValue -%}
+                                P&aacute;ginas:
+                                <span class="product-pages">
+                                    {{- p.ExtentValue -}}
+                                </span><br>
+                            {%- endif -%}
                             {#- BUY -#}
                             <span class="cart-add">
 		                    {%- if p.ProductAvailability == '21' -%}
