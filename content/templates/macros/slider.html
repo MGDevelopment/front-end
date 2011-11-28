@@ -71,7 +71,7 @@
                         {%- if p.Rating -%}
                             {%- set s = p.Rating|round|int -%}
                             Calificaci&oacute;n:
-                            <span class="product-ranking"
+                            <span class="product-rating"
                                     title="{{ "%.2f"|format(p.Rating) }}">
                             {%- for i in range(s) -%}
                                 <img src="{{ url.images }}/imagenes/rediseno/imagenes/comun/calificacionStar-back.png" alt="estrella">
