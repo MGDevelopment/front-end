@@ -1,11 +1,11 @@
 /* gallery.css */
 div.product-popup-content {
-    display:   none;
+    display:     none;
     line-height: normal;
 }
 
 div.ui-tooltip-content {
-    width: 24em;
+    width:       24em;
     line-height: normal;
 }
 
@@ -78,9 +78,9 @@ div.ui-tooltip-content span.product-delivery-note a span {
 }
 
 div.ui-tooltip-content span.product-delivery-note a:hover span {
-    display: inline;
+    display:         inline;
     text-decoration: none;
-    margin-left: 0;
+    margin-left:     0;
 }
 
 .gallery-next, .gallery-prev {
