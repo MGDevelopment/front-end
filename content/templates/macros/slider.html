@@ -56,12 +56,12 @@
                                 </span><br>
                             {%- endif -%}
 		                    {%- if p.ImprintName != None -%}
+		                        {%- if   book  -%}Editorial:
+		                        {%- elif music -%}Discogr&aacute;fica:
+		                        {%- elif movie -%}Productora:
+		                        {%- else       -%}Editorial:
+		                        {%- endif -%}
                                 <span class="product-imprint">
-		                            {%- if   book  -%}Editorial:
-		                            {%- elif music -%}Discogr&aacute;fica:
-		                            {%- elif movie -%}Productora:
-		                            {%- else       -%}Editorial:
-		                            {%- endif -%}
                                     <a href="/buscador/productos.jsp?seccion={{ section }}&amp;idSeccion={{ section }}&amp;criterioDeOrden=2&amp;claveDeBusqueda=porIDdeEditorial&amp;texto={{ imprint }}&amp;idEditor={{ p.ImprintId|string }}" id="artEditor">{{ imprint}}</a>
                                 </span><br>
                             {%- endif -%}
