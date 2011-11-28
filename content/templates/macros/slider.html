@@ -9,6 +9,7 @@
         {%- set price  = p.PriceAmount|string -%}
         {%- set product_id  = p.ProductId|string -%}
         {%- set product_url  = p.LinkBase ~ '.htm' -%}
+        {%- set hs = p.FulfillmentValue|int -%}
         {%- if p.Authors[0] -%}
             {%- set author = p.Authors[0].ContributorName.decode('utf-8') -%}
             {%- set author_id = p.Authors[0].ContributorId|string -%}
@@ -91,10 +92,27 @@
                                 </span><br>
                             {%- endif -%}
                             Entrega:
-                                <span class="product-fulfillment">
-                                    Salida del dep&oacute;sito en
-                                    {{ p.FulfillmentValue }} horas
-                                </span><br>
+                            <span class="product-fulfillment">
+                                Salida del dep&oacute;sito en
+                                {{ hs }} horas h&aacute;biles
+                            </span><br>
+                            <span class="product-delivery-note">
+                                + <a href="javascript:false;">
+                                Tiempo de Env&iacute;o
+                                <br><span>
+                                Capital Federal: {{ hs }} horas
+                                h&aacute;biles.<br>
+                                GBA: {{ hs + 24 }} horas hábiles.<br>
+                                Interior del pa&iacute;s: {{ hs + 48 }} horas
+                                hábiles.<br>
+                                Resto del Mundo: var&iacute;a entre
+                                {{ hs + 24 }} a {{ hs + 48 }} horas
+                                h&aacute;biles dependiendo si se trata de una
+                                ciudad capital.<br>
+                                El horario de entrega para los pedidos dentro
+                                de Argentina es de Lunes a Viernes de 9 a 18hs.
+                                </span></a>
+                            </span><br>
                             {#- BUY -#}
                             <span class="cart-add">
                             {%- if p.ProductAvailability == '21' -%}

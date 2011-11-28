@@ -17,6 +17,21 @@ div.ui-tooltip-content span {
     margin-left: 0.5em;
 }
 
+div.ui-tooltip-content span.product-delivery-note a {
+    cursor:  default;
+}
+
+div.ui-tooltip-content span.product-delivery-note a span {
+    display: none;
+    color:   black;
+}
+
+div.ui-tooltip-content span.product-delivery-note a:hover span {
+    display: inline;
+    text-decoration: none;
+    margin-left: 0;
+}
+
 .gallery-next, .gallery-prev {
     width:            218px;
     height:           22px;
