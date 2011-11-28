@@ -79,8 +79,14 @@
                             {%- for i in range(5 - s) -%}
                                 <img src="{{ url.images }}/imagenes/rediseno/imagenes/comun/calificacionStarDes-back.png" alt="estrella off">
                             {%- endfor -%}
-                            </span><br>
+                            </span>
                         {%- endif -%}
+                        {%- if p.CommentCount > 0 -%}
+                            <a href="{{ product_url }}.htm#coment">
+                                {{ p.CommentCount|int }} comentario
+                                {%- if p.CommentCount > 1 -%}s{%- endif -%}</a>
+                        {%- endif -%}
+                        <br>
                         {%- if p.Ranking -%}
                             Ranking: <span class="product-ranking">
                                 {{- '%d'|format(p.Ranking) -}}
