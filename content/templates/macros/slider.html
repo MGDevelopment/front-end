@@ -26,117 +26,117 @@
         {%- elif p.ProductForm[0] == 'Z' -%}
             {%- set generic = True -%}
         {%- endif -%}
-            {%- if (loop.index % cols) == 1 -%}
-                <li> {#- start row -#}
-                <table>    
-                    <tr>
-            {%- else -%}
-                    <td>&nbsp;</td>
-            {%- endif -%}
-                    <td class="product-entry">
-                        <a href="{{ product_url }}" title="{{ title }}">
-                            <img src="{{ url.images ~ p.CoverSmall|e }}" width="98" alt="{{ title }}">
-                        </a>
+        {%- if (loop.index % cols) == 1 -%}
+            <li> {#- start row -#}
+            <table>
+                <tr>
+        {%- else -%}
+                <td>&nbsp;</td>
+        {%- endif -%}
+                <td class="product-entry">
+                    <a href="{{ product_url }}" title="{{ title }}">
+                        <img src="{{ url.images ~ p.CoverSmall|e }}" width="98" alt="{{ title }}">
+                    </a>
 
-                        {#- POP UP CONTENT HOLDER -#}
-                        <div class="product-popup-content">
-                            {#- TITLE -#}
-                            <table><tbody><tr><td class="product-popup-titleauthor">
-                            <p class="product-popup-title">
-                                <a href="{{ product_url }}">{{ title }}</a>
-                            </p>
-                            {#- AUTHOR -#}
-                            <p class="product-author">de <a href="/buscador/productos.jsp?seccion={{ section }}&amp;idSeccion={{ section }}&amp;criterioDeOrden=2&amp;claveDeBusqueda=porIDdeAutor&amp;texto={{ author|e }}&amp;idAutor={{ author_id }}">{{ author }}</a></p>
-                            </td><td>
-                            <p class="product-popup-price">$ {{ price -}}</p>
-                            </td></tr></tbody></table>
-                            {#- BUY -#}
-                            <p class="product-cart-add">
-                            {%- if p.ProductAvailability == '21' -%}
-                                <a href="javascript:APP.cartAdd({{ product_id }})" title="agregar al carrito"><img src="{{ url.images }}/imagenes/rediseno/imagenes/seccionTematika/b-comprar.png" alt="agregar al carrito"></a>
-                            {%- else -%} {#- ProductAvailability == '22' -#}
-                                <a href="javascript:if (confirm('Este producto no esta disponible actualmente. Desea hacer un pedido?'))document.location = '/PedidoEspecial?ID_ARTICULO={{ product_id }}';"><img src="{{ url.images}}/imagenes/rediseno/imagenes/seccionTematika/b-pedir.png" alt="Pedir"></a>
+                    {#- POP UP CONTENT HOLDER -#}
+                    <div class="product-popup-content">
+                        {#- TITLE -#}
+                        <table><tbody><tr><td class="product-popup-titleauthor">
+                        <p class="product-popup-title">
+                            <a href="{{ product_url }}">{{ title }}</a>
+                        </p>
+                        {#- AUTHOR -#}
+                        <p class="product-author">de <a href="/buscador/productos.jsp?seccion={{ section }}&amp;idSeccion={{ section }}&amp;criterioDeOrden=2&amp;claveDeBusqueda=porIDdeAutor&amp;texto={{ author|e }}&amp;idAutor={{ author_id }}">{{ author }}</a></p>
+                        </td><td>
+                        <p class="product-popup-price">$ {{ price -}}</p>
+                        </td></tr></tbody></table>
+                        {#- BUY -#}
+                        <p class="product-cart-add">
+                        {%- if p.ProductAvailability == '21' -%}
+                            <a href="javascript:APP.cartAdd({{ product_id }})" title="agregar al carrito"><img src="{{ url.images }}/imagenes/rediseno/imagenes/seccionTematika/b-comprar.png" alt="agregar al carrito"></a>
+                        {%- else -%} {#- ProductAvailability == '22' -#}
+                            <a href="javascript:if (confirm('Este producto no esta disponible actualmente. Desea hacer un pedido?'))document.location = '/PedidoEspecial?ID_ARTICULO={{ product_id }}';"><img src="{{ url.images}}/imagenes/rediseno/imagenes/seccionTematika/b-pedir.png" alt="Pedir"></a>
+                        {%- endif -%}
+                        </p>
+                        {%- if p.ImprintName != None -%}
+                            {%- if   book  -%}Editorial:
+                            {%- elif music -%}Discogr&aacute;fica:
+                            {%- elif movie -%}Productora:
+                            {%- else       -%}Editorial:
                             {%- endif -%}
-                            </p>
-                            {%- if p.ImprintName != None -%}
-                                {%- if   book  -%}Editorial:
-                                {%- elif music -%}Discogr&aacute;fica:
-                                {%- elif movie -%}Productora:
-                                {%- else       -%}Editorial:
-                                {%- endif -%}
-                                <span class="product-imprint">
-                                    <a href="/buscador/productos.jsp?seccion={{ section }}&amp;idSeccion={{ section }}&amp;criterioDeOrden=2&amp;claveDeBusqueda=porIDdeEditorial&amp;texto={{ imprint }}&amp;idEditor={{ p.ImprintId|string }}" id="artEditor">{{ imprint}}</a>
-                                </span><br>
-                            {%- endif -%}
-                            {%- if p.Ranking -%}
-                                Ranking: <span class="product-ranking">
-                                    {{- '%d'|format(p.Ranking) -}}
-                                </span><br>
-                            {%- endif -%}
-                            {%- if p.PublishingDateValue -%}
-                                {%- set pd = p.PublishingDateValue -%}
-                                Fecha de publicaci&oacute;n:
-                                <span class="product-date">
-                                    {{- (pd[6:8], pd[4:6], pd[0:4])|join('/') -}}
-                                </span><br>
-                            {%- endif -%}
-                            {%- if p.LanguageCode -%}
-                                Idioma:
-                                <span class="product-language">
-                                    {{- languages[p.LanguageCode] -}}
-                                </span><br>
-                            {%- endif -%}
-                            {%- if p.ExtentValue -%}
-                                P&aacute;ginas:
-                                <span class="product-pages">
-                                    {{- p.ExtentValue -}}
-                                </span><br>
-                            {%- endif -%}
-                            {%- if p.ProductForm_desc != None -%}
-                                {%- if book -%}
-                                    Edici&oacute;n:
-                                {%- else -%}
-                                    Formato:
-                                {%- endif -%}
-                                <span class="product-format">
-                                    {{- p.ProductForm_desc.decode('utf-8') -}}
-                                </span><br>
-                            {%- endif -%}
-                            Entrega:
-                            <span class="product-fulfillment">
-                                Salida del dep&oacute;sito en
-                                {{ hs }} horas h&aacute;biles
+                            <span class="product-imprint">
+                                <a href="/buscador/productos.jsp?seccion={{ section }}&amp;idSeccion={{ section }}&amp;criterioDeOrden=2&amp;claveDeBusqueda=porIDdeEditorial&amp;texto={{ imprint }}&amp;idEditor={{ p.ImprintId|string }}" id="artEditor">{{ imprint}}</a>
                             </span><br>
-                            <span class="product-delivery-note">
+                        {%- endif -%}
+                        {%- if p.Ranking -%}
+                            Ranking: <span class="product-ranking">
+                                {{- '%d'|format(p.Ranking) -}}
+                            </span><br>
+                        {%- endif -%}
+                        {%- if p.PublishingDateValue -%}
+                            {%- set pd = p.PublishingDateValue -%}
+                            Fecha de publicaci&oacute;n:
+                            <span class="product-date">
+                                {{- (pd[6:8], pd[4:6], pd[0:4])|join('/') -}}
+                            </span><br>
+                        {%- endif -%}
+                        {%- if p.LanguageCode -%}
+                            Idioma:
+                            <span class="product-language">
+                                {{- languages[p.LanguageCode] -}}
+                            </span><br>
+                        {%- endif -%}
+                        {%- if p.ExtentValue -%}
+                            P&aacute;ginas:
+                            <span class="product-pages">
+                                {{- p.ExtentValue -}}
+                            </span><br>
+                        {%- endif -%}
+                        {%- if p.ProductForm_desc != None -%}
+                            {%- if book -%}
+                                Edici&oacute;n:
+                            {%- else -%}
+                                Formato:
+                            {%- endif -%}
+                            <span class="product-format">
+                                {{- p.ProductForm_desc.decode('utf-8') -}}
+                            </span><br>
+                        {%- endif -%}
+                        Entrega:
+                        <span class="product-fulfillment">
+                            Salida del dep&oacute;sito en
+                            {{ hs }} horas h&aacute;biles
+                        </span><br>
+                        <span class="product-delivery-note">
                                 + <a href="javascript:false;">
-                                Tiempo de Env&iacute;o
-                                <br><span>
-                                Capital Federal: {{ hs }} horas
-                                h&aacute;biles.<br>
-                                GBA: {{ hs + 24 }} horas hábiles.<br>
-                                Interior del pa&iacute;s: {{ hs + 48 }} horas
-                                hábiles.<br>
-                                Resto del Mundo: var&iacute;a entre
-                                {{ hs + 24 }} a {{ hs + 48 }} horas
-                                h&aacute;biles dependiendo si se trata de una
-                                ciudad capital.<br>
-                                El horario de entrega para los pedidos dentro
-                                de Argentina es de Lunes a Viernes de 9 a 18hs.
-                                </span></a>
-                            </span><br>
-                        </div> <!-- p-popup -->
-                    </td>
-            {%- if loop.index is divisibleby cols -%}
-                    </tr>
-                </table>
-                </li> {#- end row -#}
-            {%- endif %}
+                            Tiempo de Env&iacute;o
+                            <br><span>
+                            Capital Federal: {{ hs }} horas
+                            h&aacute;biles.<br>
+                            GBA: {{ hs + 24 }} horas hábiles.<br>
+                            Interior del pa&iacute;s: {{ hs + 48 }} horas
+                            hábiles.<br>
+                            Resto del Mundo: var&iacute;a entre
+                            {{ hs + 24 }} a {{ hs + 48 }} horas
+                            h&aacute;biles dependiendo si se trata de una
+                            ciudad capital.<br>
+                            El horario de entrega para los pedidos dentro
+                            de Argentina es de Lunes a Viernes de 9 a 18hs.
+                            </span></a>
+                        </span><br>
+                    </div> <!-- p-popup -->
+                </td>
+        {%- if loop.index is divisibleby cols -%}
+                </tr>
+            </table>
+            </li> {#- end row -#}
+        {%- endif %}
     {%- endfor %}
     {%- if loop.index is divisibleby cols -%}
         {#- fill remaining cols -#}
         {%- for c in range(cols - (loop.index % cols)) -%}
                 <td>&nbsp;</td>
-                <td>&nbsp;</td>    
+                <td>&nbsp;</td>
         {%- endfor -%}
             </tr>
         </table>
