@@ -13,8 +13,7 @@ span.product-popup-title a {
     font-weight: bold;
 }
 
-span.product-imprint a, span.product-author, span.product-format a,
-        span.product-ranking, span.product-rating {
+div.ui-tooltip-content span {
     margin-left: 0.5em;
 }
 
