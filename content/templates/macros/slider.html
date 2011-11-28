@@ -70,6 +70,13 @@
                                     {{- '%d'|format(p.Ranking) -}}
                                 </span><br>
                             {%- endif -%}
+		                    {%- if p.PublishingDateValue -%}
+		                        {%- set pd = p.PublishingDateValue -%}
+                                Fecha de publicaci&oacute;n:
+                                <span class="product-date">
+                                    {{- (pd[6:8], pd[4:6], pd[0:4])|join('/') -}}
+                                </span><br>
+                            {%- endif -%}
                             {#- BUY -#}
                             <span class="cart-add">
 		                    {%- if p.ProductAvailability == '21' -%}
