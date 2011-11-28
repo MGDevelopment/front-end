@@ -1,0 +1,21 @@
+{%- macro iterateTree(items, prefix='') -%}
+	{%- for item in items -%}
+		{%- set prefix = prefix + "_" + loop.index -%}
+		{%- if item.childs -%}
+			<li id="{{ item.SectionId }}{{ prefix }}"><a href="{{ item.LinkBase }}">{{ item.name }}</a></li>
+			<ul>
+				{%- for subitem in item.childs -%}
+					{{ renderTree(subitem, prefix) }}
+				{%- endfor %}
+			</ul>
+		{%- else -%}
+			<li id="{{ item.SectionId }}"><a href="{{ item.LinkBase }}">{{ item.name }}</a></li>
+		{%- endif -%}
+	{%- endfor -%}
+{%- endmacro %}
+
+{%- macro renderTree(tree_data) -%}
+	<ul id="tree">
+		{{ iterateTree(tree_data.items) }}
+	</ul>
+{%- endmacro -%}
