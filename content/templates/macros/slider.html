@@ -68,6 +68,17 @@
                                 <a href="/buscador/productos.jsp?seccion={{ section }}&amp;idSeccion={{ section }}&amp;criterioDeOrden=2&amp;claveDeBusqueda=porIDdeEditorial&amp;texto={{ imprint }}&amp;idEditor={{ p.ImprintId|string }}" id="artEditor">{{ imprint}}</a>
                             </span><br>
                         {%- endif -%}
+                        {%- if p.Rating -%}
+                            Calificaci&oacute;n: <span class="product-ranking">
+                            {%- set s = p.Rating|round|int -%}
+                            {%- for i in range(s) -%}
+                                <img src="{{ url.images }}/imagenes/rediseno/imagenes/comun/calificacionStar-back.png">
+                            {%- endfor -%}
+                            {%- for i in range(5 - s) -%}
+                                <img src="{{ url.images }}/imagenes/rediseno/imagenes/comun/calificacionStarDes-back.png">
+                            {%- endfor -%}
+                            </span><br>
+                        {%- endif -%}
                         {%- if p.Ranking -%}
                             Ranking: <span class="product-ranking">
                                 {{- '%d'|format(p.Ranking) -}}
