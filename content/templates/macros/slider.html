@@ -86,7 +86,9 @@
                                 {{ p.CommentCount|int }} comentario
                                 {%- if p.CommentCount > 1 -%}s{%- endif -%}</a>
                         {%- endif -%}
-                        <br>
+                        {%- if p.Rating or p.CommentCount -%}
+                            <br>
+                        {%- endif -%}
                         {%- if p.Ranking -%}
                             Ranking: <span class="product-ranking">
                                 {{- '%d'|format(p.Ranking) -}}
