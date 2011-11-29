@@ -1,8 +1,7 @@
-<!-- Scripts -->
+<!-- Common Scripts -->
 <script type="text/javascript" src="/js/jquery-1.4.2.min.js"></script>
-<script type="text/javascript" src="{{ url.data }}js/jquery.qtip.min.js"></script>
+
 <!-- Site scripts -->
-<script type="text/javascript" src="{{ url.data }}js/app.js"></script>
 <script type="text/javascript" src="{{ url.data }}js/app.js"></script>
 
 <script type="text/javascript">
@@ -20,7 +19,7 @@
 	var idsCat = new Array();
 	var catLibro = 1,catPasatiempo = 3,catMusica = 4,catPelicula = 5;
 	var tamView = new Array();
-	idsCat[0]=catLibro; 
+	idsCat[0]=catLibro;
 	idsCat[1]=catPasatiempo;
 	idsCat[2]=catMusica;
 	idsCat[3]=catPelicula;
@@ -29,38 +28,11 @@
 	tamView[catMusica]=6;
 	tamView[catPelicula]=4;
 
-    {% include "fragments/comments.js" %}
-    {% include "fragments/messages.js" %}
-    {% include "fragments/showcase.js" %}
-    {% include "fragments/dropDownMenu.js" %}
-
 </script>
-
-<!-- Data Scripts -->
-<script type="text/javascript" src="{{ url.data }}home-comments.js"></script>
-<script type="text/javascript" src="{{ url.data }}home-messages.js"></script>
-<script type="text/javascript" src="{{ url.data }}home-showcase.js"></script>
-<script type="text/javascript" src="{{ url.data }}home-tooltip.js"></script>
-<!-- JQuery Carousel -->
-<script type="text/javascript" src="{{ url.data }}js/jquery.tinycarousel.js"></script>
-<script type="text/javascript" src="{{ url.data }}js/jquery.qtip.min.js"></script>
 
 <script type="text/javascript">
-
-jQuery(document).ready(function() {
-	$('#sliderHomeBooks').tinycarousel({ axis: 'y', display: 1} );
-	$('#sliderHomeMusic').tinycarousel({ axis: 'y', display: 1} );
-	$('#sliderHomeMovies').tinycarousel({ axis: 'y', display: 1} );
-	$('#sliderHomeGames').tinycarousel({ axis: 'y', display: 1} );
-	/* $(".inline").colorbox({opacity: 0, inline:true, width:"400px"}); */
-	/* .bind("mouseover", function(){$(this).trigger("click");  */
-});
-
-{% include "fragments/analytics.js" %}
-
-    /* Update data */
-    fillMessages(null);
-    fillComments(null);
-
+	{% include "fragments/analytics.js" %}
 </script>
 
+{% block scripts_extra -%}
+{%- endblock %}

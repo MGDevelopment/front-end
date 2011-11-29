@@ -1,46 +1,43 @@
 /* showcase.js */
-APP.addData('showcaseFilter_order', 'TMK_RDA');
-APP.addData('showcaseFilter_filter', 'T');
+APP.addData('showcaseFilter', 'Recommended');
 
-function fillShowCase(order, filter, callback) {
+function fillShowCase(filter, callback) {
     var commentsHTML = '';
-    var defaultOrder = APP.getData('showcaseFilter_order');
-    var defaultFilter = APP.getData('showcaseFilter_filter');
-    
-    if (order == null) {
-        order = defaultOrder;
-    } else {
-        APP.addData('showcaseFilter_order', order);
-    }
-    
+    var defaultFilter = APP.getData('showcaseFilter');
+
     if (filter == null) {
         filter = defaultFilter;
     } else {
-        APP.addData('showcaseFilter_filter', filter);
+        APP.addData('showcaseFilter', filter);
     }
-    
-    section = order + filter;
-    
+
+    section = filter;
+
     try {
-        if (APP.getData('showcase')[section + 'Books']) {
-            sliderBooksHTML = APP.getData('showcase')[section + 'Books'];
-            tooltipBooksHTML = APP.getData('tooltip')[section + 'Books'];
+    	section = filter + '-Books';
+        if (APP.getData('showcase')[section]) {
+            sliderBooksHTML = APP.getData('showcase')[section];
+            tooltipBooksHTML = APP.getData('tooltip')[section];
         }
-        if (APP.getData('showcase')[section + 'Music']) {
-            sliderMusicHTML = APP.getData('showcase')[section + 'Music'];
-            tooltipMusicHTML = APP.getData('tooltip')[section + 'Music'];
+        section = filter + '-Music';
+        if (APP.getData('showcase')[section]) {
+            sliderMusicHTML = APP.getData('showcase')[section];
+            tooltipMusicHTML = APP.getData('tooltip')[section];
         }
-        if (APP.getData('showcase')[section + 'Movies']) {
-            sliderMoviesHTML = APP.getData('showcase')[section + 'Movies'];
-            tooltipMoviesHTML = APP.getData('tooltip')[section + 'Movies'];
+        section = filter + '-Movies';
+        if (APP.getData('showcase')[section]) {
+            sliderMoviesHTML = APP.getData('showcase')[section];
+            tooltipMoviesHTML = APP.getData('tooltip')[section];
         }
-        if (APP.getData('showcase')[section + 'Games']) {
-            sliderGamesHTML = APP.getData('showcase')[section + 'Games'];
-            tooltipGamesHTML = APP.getData('tooltip')[section + 'Games'];
+        section = filter + '-Games';
+        if (APP.getData('showcase')[section]) {
+            sliderGamesHTML = APP.getData('showcase')[section];
+            tooltipGamesHTML = APP.getData('tooltip')[section];
         }
-        if (APP.getData('showcase')[section + 'Section']) {
-            sliderSectionHTML = APP.getData('showcase')[section + 'Section'];
-            tooltipSectionHTML = APP.getData('tooltip')[section + 'Section'];
+        section = filter + '-Section';
+        if (APP.getData('showcase')[section]) {
+            sliderSectionHTML = APP.getData('showcase')[section];
+            tooltipSectionHTML = APP.getData('tooltip')[section];
         }
     } catch (e) {
         sliderBooksHTML = 'Sin comentarios';
@@ -70,7 +67,7 @@ function fillShowCase(order, filter, callback) {
     if (document.getElementById('tooltip_content_section')) {
         document.getElementById('tooltip_content_section').innerHTML = tooltipSectionHTML;
     }
-    
+
     if (document.getElementById('sliderBooks')) {
         document.getElementById('sliderBooks').innerHTML = sliderBooksHTML;
         $('#sliderHomeBooks').tinycarousel({ axis: 'y', display: 1} );
@@ -92,7 +89,7 @@ function fillShowCase(order, filter, callback) {
         $('#sliderSection').tinycarousel({ axis: 'y', display: 1} );
     }
     $(".inline").colorbox({opacity: 0, inline:true, width:"400px"});
-    
+
     try {
         if (callback && typeof (callback) === "function") {
             // execute the callback, passing parameters as necessary

@@ -11,8 +11,8 @@
 */
 var dataComments = {};
 
-{%- for key in data -%}
-	dataComments['{{ key|lower }}'] = '{{ render.renderComments(data[key])|replace("\n", "") }}';
+{%- for key in d -%}
+	dataComments['{{ key|lower }}'] = '{{ render.renderComments(d[key])|replace("\n", "") }}';
 {%- endfor -%}
 
 function loadComments() {

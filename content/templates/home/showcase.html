@@ -32,10 +32,10 @@
 					id="mostrarRanking">Te Recomendamos</span>
 					<ul id="orden" onmouseover="clearTimeout(tempo);"
 						onmouseout="ocultarOpcionesT('orden');">
-						<li><a href="javascript:mostrarBuscarPor('TMK_RDA','mostrarRanking','orden');fillShowCase('TMK_RDA', null ,null);" id="TMK_RDA">Te Recomendamos</a></li>
-						<li><a href="javascript:mostrarBuscarPor('MV','mostrarRanking','orden');fillShowCase('MV', null ,null);" id="MV">M&aacute;s Vendidos</a></li>
-						<li><a href="javascript:mostrarBuscarPor('MP','mostrarRanking','orden');fillShowCase('MP', null ,null);" id="MP">M&aacute;s Populares</a></li>
-						<li><a href="javascript:mostrarBuscarPor('MVA','mostrarRanking','orden');fillShowCase('MVA', null ,null);" id="MVA">M&aacute;s Valorados</a></li>
+						<li><a href="javascript:mostrarBuscarPor('TMK_RDA','mostrarRanking','orden');fillShowCase('Recommended', null);" id="TMK_RDA">Te Recomendamos</a></li>
+						<li><a href="javascript:mostrarBuscarPor('MV','mostrarRanking','orden');fillShowCase('Recommended', null);" id="MV">M&aacute;s Vendidos</a></li>
+						<li><a href="javascript:mostrarBuscarPor('MP','mostrarRanking','orden');fillShowCase('Recommended', null);" id="MP">M&aacute;s Populares</a></li>
+						<li><a href="javascript:mostrarBuscarPor('MVA','mostrarRanking','orden');fillShowCase('Recommended', null);" id="MVA">M&aacute;s Valorados</a></li>
 					</ul></li>
 			</ul>
 			<ul class="dropdown">
@@ -44,9 +44,9 @@
 					id="mostrarTiempo">Todos</span>
 					<ul id="filtro" onmouseover="clearTimeout(tempo);"
 						onmouseout="ocultarOpcionesT('filtro')">
-						<li><a href="javascript:mostrarBuscarPor('M','mostrarTiempo','filtro');fillShowCase(null, 'M' ,null);" id="M">&Uacute;ltimos tres meses</a></li>
-						<li><a href="javascript:mostrarBuscarPor('Y','mostrarTiempo','filtro');fillShowCase(null, 'Y' ,null);" id="Y">&Uacute;ltimo a&ntilde;o</a></li>
-						<li><a href="javascript:mostrarBuscarPor('T','mostrarTiempo','filtro');fillShowCase(null, 'T' ,null);" id="T">Todos</a></li>
+						<li><a href="javascript:mostrarBuscarPor('M','mostrarTiempo','filtro');fillShowCase('Showcase', null);" id="M">&Uacute;ltimos tres meses</a></li>
+						<li><a href="javascript:mostrarBuscarPor('Y','mostrarTiempo','filtro');fillShowCase('Showcase', null);" id="Y">&Uacute;ltimo a&ntilde;o</a></li>
+						<li><a href="javascript:mostrarBuscarPor('T','mostrarTiempo','filtro');fillShowCase('Showcase', null);" id="T">Todos</a></li>
 					</ul></li>
 			</ul>
 		</div>
@@ -63,7 +63,7 @@
 							</tr>
 							<tr style="display: none;">
 								<td colspan="4" align="center">
-									<!-- 
+									<!--
 <select id="orden" name="orden" onChange="cargarFiltro()">
 </select>
 <select id="filtro" name="filtro" onChange="cambioDeFiltroOrden()">
