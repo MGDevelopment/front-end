@@ -161,20 +161,20 @@ documentos = [
     # libros - html
     #
     ########## /libros
-    {
-        "EntityType"    : "SUBJ",
-        "EntityId"      : 1,
-        "dataset"       : "subjectMain",        "_data" : sample.sample_data_books_1.books_1_main,
-                                                "_url"  : librosURL,
-        "template"      : "subject/index.html",
-        "headers"       : {
-            "Content-Type"      : "text/html",
-            "Content-Encoding"  : "gzip",
-            "Cache-Control"     : "max-age=3600, must-revalidate"
-        },
-        "target.path"   : "/libros",
-        "target.repo"   : "dynamic"
-    },
+#    {
+#        "EntityType"    : "SUBJ",
+#        "EntityId"      : 1,
+#        "dataset"       : "subjectMain",        "_data" : sample.sample_data_books_1.books_1_main,
+#                                                "_url"  : librosURL,
+#        "template"      : "subject/index.html",
+#        "headers"       : {
+#            "Content-Type"      : "text/html",
+#            "Content-Encoding"  : "gzip",
+#            "Cache-Control"     : "max-age=3600, must-revalidate"
+#        },
+#        "target.path"   : "/libros",
+#        "target.repo"   : "dynamic"
+#    },
     ########## /libros/index.html
     {
         "EntityType"    : "SUBJ",
