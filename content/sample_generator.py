@@ -1,3 +1,4 @@
+import sys, getopt
 from   ecommerce.storage  import FilesystemStorage, S3Storage
 import jinja2
 from   json               import dumps as js_dump
@@ -12,18 +13,21 @@ import sample.sample_data_music_4
 import sample.sample_data_movies_5
 
 
-USE_SCRIPT_TAG = True
 JS_WRAP = '''with(window.open("","_blank","width="+screen.width*.6+",left="+screen.width*.2+",height="+screen.height*.9+",resizable,scrollbars=yes")){document.write( %s );document.close();}void 0'''
 
 #
 # Config
 #
 # What S3 bucket is target for what host.domain
-bucket_domain = {
-    "www.tematika.com":       "beta1.testmatika.com",
-    "estatico.tematika.com":  "beta1.testmatika.com",
-    #"www.tematika.com":       "./out",
-    #"estatico.tematika.com":  "./out"
+storage = {
+    's3': {
+        "www.tematika.com":       "beta1.testmatika.com",
+        "estatico.tematika.com":  "beta1.testmatika.com",
+    },
+    'folder': {
+        "www.tematika.com":       "./out",
+        "estatico.tematika.com":  "./out"
+    }
 }
 
 
@@ -296,28 +300,56 @@ def save(document, headers, targetRepo, targetPath):
 
 class Storage_Cache(object):
     '''Cache of bucket objects'''
-    def __init__(self):
-        self._buckets = {}
+    def __init__(self, type='folder'):
+        self._save = {}
+        if type == 'folder':
+            self._st = FilesystemStorage
+        elif type == 's3':
+            self._st = S3Storage
+        else:
+            sys.exit(2)
+
     def __call__(self, name):
         '''Get a bucket object from cache or create a new one'''
-        if not self._buckets.has_key(name):
-            self._buckets[name] = S3Storage(name)
-
-        return self._buckets[name]
+        if not self._save.has_key(name):
+            self._save[name] = self._st(name)
+        return self._save[name]
 
 
 if __name__ == '__main__':
 
     env = jinja2.Environment(loader=jinja2.FileSystemLoader('templates'))
-    storage_cache = Storage_Cache()
+
+    script_tag   = False     # No script tag by default
+    storage_type = 'folder'  # Default to folder output
+
+    try:
+        opts, args = getopt.getopt(sys.argv[1:], 's:j', ['storage=', 'jshack'])
+    except getopt.GetoptError, e:
+        print e
+        sys.exit(2)
+
+    for opt, arg in opts:
+        if opt in ('-j', '--jshack'):
+            script_tag = True
+        elif opt in ('-s', '--storage'):
+            if arg not in ('s3', 'folder'):
+                print 'invalid storage ', arg
+                sys.exit(2)
+            storage_type = arg
+        else:
+            print 'usage:\n', sys.argv[0], ' -s <s3, folder>'
+            sys.exit(2)
+
+    storage_cache = Storage_Cache(storage_type)
 
     for d in documentos:
 
-        print "Generating: ", d['target.path'], " for ", d['target.repo'], \
-            bucket_domain[d['_url'][d['target.repo']]]
+        print "Generating: ", storage_type, d['target.path'], " for ", \
+            d['target.repo'], storage[storage_type][d['_url'][d['target.repo']]]
 
         # Get corresponding bucket from storage connection cache
-        s = storage_cache(bucket_domain[d['_url'][d['target.repo']]])
+        s = storage_cache(storage[storage_type][d['_url'][d['target.repo']]])
 
         t = env.get_template(d['template'])
         t_params = { 'd': d['_data'], 'url': d['_url'] }
@@ -327,7 +359,7 @@ if __name__ == '__main__':
         headers = d['headers'].copy()
         content_type = headers['Content-Type']
 
-        if USE_SCRIPT_TAG:
+        if script_tag:
             headers['Cache-Control'] = "no-cache, must-revalidate"
             if content_type == 'text/html':
                 # Convert to script tag replacing document.body
@@ -337,5 +369,5 @@ if __name__ == '__main__':
 
         s.send(target_path, page_html, headers)
 
-        break # XXX
+        #break # XXX
 
