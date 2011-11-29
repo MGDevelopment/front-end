@@ -1,4 +1,4 @@
-/* gallery.js */
+/* showcase.js */
 APP.addData('showcaseFilter_order', 'TMK_RDA');
 APP.addData('showcaseFilter_filter', 'T');
 

@@ -1,4 +1,4 @@
-/* gallery.css */
+/* showcase.css */
 div.product-popup-content {
     display:     none;
     line-height: normal;
@@ -87,21 +87,21 @@ div.ui-tooltip-content span.product-delivery-note a:hover span {
     margin-left:     0;
 }
 
-.gallery-next, .gallery-prev {
+.showcase-next, .showcase-prev {
     width:            218px;
     height:           22px;
     cursor:           pointer;
     border:           none;
 }
 
-.gallery-prev {
+.showcase-prev {
     background-image:
         url(/imagenes/rediseno/imagenes/seccionTematika/mesaAnterior.png);
     margin-bottom:    1px;
     margin-top:       10px;
 }
 
-.gallery-next {
+.showcase-next {
     background-image:
         url(/imagenes/rediseno/imagenes/seccionTematika/mesaSiguiente.png);
     margin-top:       1px;

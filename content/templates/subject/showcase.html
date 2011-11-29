@@ -7,22 +7,7 @@
 		onmouseout="javascript:mostrarDiv('tmtkMesaSeccionesTitLibros');"><object>
 			<div id="tmtkMesaSeccionesTitLibros" style="display: none;"></div>
 		</object>
-	</a> <a href="/musica" class="tmtkMesaSeccionesTit" title="Msica"
-		onmouseover="javascript:mostrarDiv('tmtkMesaSeccionesTitMusica');"
-		onmouseout="javascript:mostrarDiv('tmtkMesaSeccionesTitMusica');"><object>
-			<div id="tmtkMesaSeccionesTitMusica" style="display: none;"></div>
-		</object>
-	</a> <a href="/peliculas" class="tmtkMesaSeccionesTit" title="Pelculas"
-		onmouseover="javascript:mostrarDiv('tmtkMesaSeccionesTitPeliculas');"
-		onmouseout="javascript:mostrarDiv('tmtkMesaSeccionesTitPeliculas');"><object>
-			<div id="tmtkMesaSeccionesTitPeliculas" style="display: none;"></div>
-		</object>
-	</a> <a href="/juguetes" class="tmtkMesaSeccionesTit" title="Pasatiempos"
-		onmouseover="javascript:mostrarDiv('tmtkMesaSeccionesTitPasatiempos');"
-		onmouseout="javascript:mostrarDiv('tmtkMesaSeccionesTitPasatiempos');"><object>
-			<div id="tmtkMesaSeccionesTitPasatiempos" style="display: none;"></div>
-		</object>
-	</a>
+	</a> 
 	<div class="tmtkMesa-back">
 		<div class="tmtkMesaMenuMod">
 			<div class="tmtkMesaMenuTit"></div>
@@ -62,41 +47,25 @@
 									</div></td>
 							</tr>
 							<tr style="display: none;">
-								<td colspan="4" align="center">
-									<!-- 
-<select id="orden" name="orden" onChange="cargarFiltro()">
-</select>
-<select id="filtro" name="filtro" onChange="cambioDeFiltroOrden()">
-</select>
- --></td>
+								<td align="center">
+									</td>
 							</tr>
 							<tr>
 								<td>
 									<div class="" id="cat1Disabled"></div></td>
-								<td>
-									<div class="" id="cat4Disabled"></div></td>
-								<td>
-									<div class="" id="cat5Disabled"></div></td>
-								<td>
-									<div class="" id="cat3Disabled"></div></td>
 							</tr>
 							<tr>
-							{%- for section, cols in (("Books", 2), ("Music", 2), ("Movies", 2), ("Games", 2)) -%}
 								<td align="center">
-								<div id="sliderHome{{ section }}">
-									<a class="buttons prev" id="anterior{{ loop.index }}" onfocus="this.blur()" href="#">
-                                        <object>
-											<div id="anterior{{ loop.index }}DIV" class="gallery-prev"></div>
+								<div id="sliderSection{{ key }}">
+									<a class="buttons prev" id="anterior1" onfocus="this.blur()"
+										href="#"><object>
+											<div id="anterior1DIV" class="mesaAnterior"></div>
 										</object>
-								    </a>
-                                <div id="slider{{ section }}">{{ renderS.renderSlider(d[section], section|lower, cols, url) }}</div>
-									 <a class="buttons next" id="siguiente{{ loop.index }}" onfocus="this.blur()" href="#">
-                                        <object>
-											<div id="siguiente{{ loop.index }}DIV" class="gallery-next"></div>
+								</a><div id="slider{{ key }}">{{ renderS.renderSlider(slider_home_books, key)|replace("\n", "") }}</div>
+									 <a class="buttons next" id="siguiente1" onfocus="this.blur()" href="#"><object>
+											<div id="siguiente1DIV" class="mesaSiguiente"></div>
 										</object>
-								    </a>
-                                </div></td>
-                            {%- endfor -%}
+								</a></div></td>
 							</tr>
 						</table></td>
 				</tr>
@@ -104,10 +73,5 @@
 		</div>
 	</div>
 </div>
-{#
 <!-- FIN mesa y t&iacute;tulos de secciones -->
-<div id="tooltip_content_books" style="display: none;">{{ renderT.renderToolTip(tooltip['books'][tooltip['books'].keys()[0]], 'books')|replace("\n", "") }}</div>
-<div id="tooltip_content_music" style="display: none;">{{ renderT.renderToolTip(tooltip['music'][tooltip['music'].keys()[0]], 'music')|replace("\n", "") }}</div>
-<div id="tooltip_content_movies" style="display: none;">{{ renderT.renderToolTip(tooltip['movies'][tooltip['movies'].keys()[0]], 'movies')|replace("\n", "") }}</div>
-<div id="tooltip_content_games" style="display: none;">{{ renderT.renderToolTip(tooltip['games'][tooltip['games'].keys()[0]], 'games')|replace("\n", "") }}</div>
-#}
+<div id="tooltip_content_section_{{ key }}" style="display: none;">{{ renderT.renderToolTip(tooltip_home_books, key)|replace("\n", "") }}</div>
