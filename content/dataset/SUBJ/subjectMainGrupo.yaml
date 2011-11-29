@@ -218,12 +218,12 @@ query_products_main:     &query_products_main
                           "CurrencyCode_desc", "PriceAmount",
                           "Categoria_Seccion", "Categoria_Grupo", "Categoria_Familia",
                           "Categoria_Subfamilia", "Archivo_Imagen", "Row_Number" ]
-    query.post:         [ "dataset.lib.tmkArticulos.fixTitle",
-                          "dataset.lib.tmkArticulos.calcImages",
-                          "dataset.lib.tmkArticulos.calcURL",
-                          "dataset.lib.tmkArticulos.embedRatings",
-                          "dataset.lib.tmkArticulos.imprintTitle",
-                          "dataset.lib.tmkArticulos.imprintCalcURL"
+    query.post:         [ "tmklib.fixes.PROD.title",
+                          "tmklib.fixes.PROD.calcImages",
+                          "tmklib.url.PROD",
+                          "tmklib.fixes.PROD.embedRatings",
+                          "tmklib.fixes.IMPR.title",
+                          "tmklib.url.IMPR"
                         ]
 
 
@@ -338,8 +338,8 @@ augment_query_products_authors:  &augment_query_products_authors
                           "ContributorRole", "ContributorRole_list", "ContributorRole_desc",
                           "ContributorId", "ContributorName", "ContributorURL",
                           "Categoria_Seccion" ]
-    query.post:         [ "dataset.lib.tmkArticulos.contributorTitle",
-                          "dataset.lib.tmkArticulos.contributorCalcURL"
+    query.post:         [ "tmklib.fixes.CONT.title",
+                          "tmklib.url.CONT"
                         ]
 
 
@@ -562,12 +562,12 @@ query_showcase_main:     &query_showcase_main
                           "CurrencyCode_desc", "PriceAmount",
                           "Categoria_Seccion", "Categoria_Grupo", "Categoria_Familia",
                           "Categoria_Subfamilia", "Archivo_Imagen", "Row_Number" ]
-    query.post:         [ "dataset.lib.tmkArticulos.fixTitle",
-                          "dataset.lib.tmkArticulos.calcImages",
-                          "dataset.lib.tmkArticulos.calcURL",
-                          "dataset.lib.tmkArticulos.embedRatings",
-                          "dataset.lib.tmkArticulos.imprintTitle",
-                          "dataset.lib.tmkArticulos.imprintCalcURL"
+    query.post:         [ "tmklib.fixes.PROD.title",
+                          "tmklib.fixes.PROD.calcImages",
+                          "tmklib.url.PROD",
+                          "tmklib.fixes.PROD.embedRatings",
+                          "tmklib.fixes.IMPR.title",
+                          "tmklib.url.IMPR"
                         ]
 
 #
@@ -687,8 +687,8 @@ augment_query_showcase_authors:  &augment_query_showcase_authors
                           "ContributorRole", "ContributorRole_list", "ContributorRole_desc",
                           "ContributorId", "ContributorName", "ContributorURL",
                           "Categoria_Seccion" ]
-    query.post:         [ "dataset.lib.tmkArticulos.contributorTitle",
-                          "dataset.lib.tmkArticulos.contributorCalcURL"
+    query.post:         [ "tmklib.fixes.CONT.title",
+                          "tmklib.url.CONT"
                         ]
 
 
@@ -739,8 +739,8 @@ query.key:          [ "SubjectId" ]
 query.columns:      [ "EntityType", "EntityId", "SubjectId", "Title", "LinkBase",
                       "Categoria_Seccion", "Categoria_Grupo", "Categoria_Familia",
                       "Categoria_Subfamilia", "Subtype" ]
-query.post:         [ "dataset.lib.tmkSubjects.fixTitle",
-                      "dataset.lib.tmkSubjects.calcURL"
+query.post:         [ "tmklib.fixes.SUBJ.title",
+                      "tmklib.url.SUBJ"
                     ]
 query.augment:
     Products:

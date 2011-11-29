@@ -87,9 +87,9 @@ query_unified:  &query_unified
                           "Categoria_Seccion", "Categoria_Grupo",
                           "Categoria_Familia", "Categoria_Subfamilia",
                           "Archivo_Imagen" ]
-    query.post:         [ "dataset.lib.tmkArticulos.fixTitle",
-                          "dataset.lib.tmkArticulos.calcImages",
-                          "dataset.lib.tmkArticulos.calcURL" ]
+    query.post:         [ "tmklib.fixes.PROD.title",
+                          "tmklib.fixes.PROD.calcImages",
+                          "tmklib.url.PROD" ]
 
 
 
