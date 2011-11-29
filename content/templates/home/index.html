@@ -9,6 +9,11 @@
     </style>
 {% endblock %}
 
+{% block search_box_items %} {#- Extends the search list -#}
+    <li><a id="optBus1" href="javascript:mostrarBuscarPor('optBus1','optBusqueda','listaBuscador','0','0','En Tematika.com');">Todo el sitio</a></li>
+    <li><a id="optBus2" href="javascript:mostrarBuscarPor('optBus2','optBusqueda','listaBuscador', '1', '1','En Libros');">En Libros</a></li>
+{%- endblock -%}
+
 {% block canvas_content -%}
     <div id="seccionTematika">
         <div id="showcase">
