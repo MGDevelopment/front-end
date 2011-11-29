@@ -13,6 +13,7 @@ import sample.sample_data_music_4
 import sample.sample_data_movies_5
 
 
+# String to wrap HTML content with JS loader
 JS_WRAP = '''with(window.open("","_blank","width="+screen.width*.6+",left="+screen.width*.2+",height="+screen.height*.9+",resizable,scrollbars=yes")){document.write( %s );document.close();}void 0'''
 
 #
