@@ -68,14 +68,7 @@
 											<div id="anterior{{ loop.index }}DIV" class="showcase-prev"></div>
 										</object>
 								    </a>
-                             {%- if d[section] is iterable -%}
                                 <div id="slider{{ section }}">{{ renderS.renderSlider(d[section], section|lower, cols, url) }}</div>
-                             {%- else -%}
-                                XXXXXXXX
-                                    section: {{ section }}
-                                    d[section]: {{ d[section]|pprint }}
-                                XXXXXXXX
-                             {%- endif -%}
 									 <a class="buttons next" id="siguiente{{ loop.index }}" onfocus="this.blur()" href="#">
                                         <object>
 											<div id="siguiente{{ loop.index }}DIV" class="showcase-next"></div>

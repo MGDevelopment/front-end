@@ -2,6 +2,7 @@
 {%- set languages = { 'ES': 'Espa&ntilde;ol', 'EN': 'Ingl&eacute;s' } -%}
 <div class="viewport">
     <ul class="overview">
+{%- if product_list is iterable -%}
     {%- for p in product_list -%}
         {%- set title  = p.Title.decode('utf-8') -%}
         {%- set section  = p.Categoria_Seccion|string -%}
@@ -174,6 +175,10 @@
         </table>
         </li>
     {%- endif %}
+{%- else -%} {#- product_list iterable -#}
+    XXXXXXXXX section: {{ prefix }}
+    XXXXXXXXX product_list: {{ product_list|pprint }}
+{%- endif -%}
     <li><table><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr></table></li>
     </ul>
 </div>
