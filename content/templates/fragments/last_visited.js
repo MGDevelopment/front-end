@@ -56,13 +56,13 @@ function getNoItems() {
 	  '<tr>' +
 	  	'<td class="titulosceldas"><table width="387" border="0" cellpadding="0" cellspacing="0" class="titulosceldas2">' +
 	  		'<tr>' +
-	      '<td><img src="/imagenes/libros/t-ultimosvisitados.gif" alt="&Uacute;ltimos visitados" width="127" height="10" /></td>' +
+	      '<td><img src="{{ url.images }}/imagenes/libros/t-ultimosvisitados.gif" alt="&Uacute;ltimos visitados" width="127" height="10" /></td>' +
 	      	'</tr>' +
 	      	'</table></td>' +
 	   '</tr>' +
 	'<tr>' +
 	'<td><div class="GultvisitadosB" align="center">' +
-	    '<div><img src="/imagenes/ultvisitados.gif" height="30" style="margin-top:10px;" alt="" /></div>' +
+	    '<div><img src="{{ url.images }}/imagenes/ultvisitados.gif" height="30" style="margin-top:10px;" alt="" /></div>' +
 	  '<div class="Ftexto03" style="margin-top:10px">EN ESTE SECTOR SE CARGARAN AUTOM&Aacute;TICAMENTE TODOS LOS PRODUCTOS QUE VISITES EN NUESTRO SITIO. </div>' +
 	'</div></td>' +
 	'</tr>' +
@@ -77,7 +77,7 @@ function getItems(articleList) {
 				'<table width="390" border="0" cellpadding="0" cellspacing="0" class="titulosceldas2">' +
 					'<tr>' +
 						'<td>' +
-							'<img src="/imagenes/libros/t-ultimosvisitados.gif" alt="&Uacute;ltimos visitados" width="127" height="10" />' +
+							'<img src="{{ url.images }}/imagenes/libros/t-ultimosvisitados.gif" alt="&Uacute;ltimos visitados" width="127" height="10" />' +
 						'</td>' +
 					'</tr>' +
 				'</table>' +
@@ -112,17 +112,17 @@ function getItems(articleList) {
 		             					'<tr>' +
 		               						'<td height="19" class="divInfo">' +
 			               						'<a class="FProductos" href="' + article.getURL() + '" alt="' + article.getTitle() +'">' +
-				               						'<img src="/imagenes/inicio/b-info.gif" alt="" title="" border="0" />' +
+				               						'<img src="{{ url.images }}/imagenes/inicio/b-info.gif" alt="" title="" border="0" />' +
 			               						'</a>' +
 		               						'</td>' +
 		               						'<td class="divComprarPedir">';
 
 		    if (article.getAvailable()) {
 		    	HTML = HTML + '<a href="javascript:carrito_AgregarArticulo(\"' + article.getArticleId() + '\");window.scrollTo(0,0);" rel="nofollow">' +
-		               			'<img src="/imagenes/inicio/b-comprar.gif" alt="Comprar"  border="0" /></a>';
+		               			'<img src="{{ url.images }}/imagenes/inicio/b-comprar.gif" alt="Comprar"  border="0" /></a>';
 		    } else {
 		    	HTML = HTML + '<a href="javascript:if (confirm(\"Este producto no esta disponible actualmente. Desea hacer un pedido?\"))document.location = "/PedidoEspecial?ID_ARTICULO=' + article.getArticleId() + ';" rel="nofollow">' +
-		    					'<img src="/imagenes/inicio/b-pedir.gif" alt="Comprar"  border="0"/>' +
+		    					'<img src="{{ url.images }}/imagenes/inicio/b-pedir.gif" alt="Comprar"  border="0"/>' +
 		    				'</a>';
 		    }
 		    HTML = HTML + '</td>' +

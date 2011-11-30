@@ -30,7 +30,7 @@
 																				cellspacing="0" class="titulosceldas2">
 																				<tr>
 																					<td><img
-																						src="/imagenes/libros/t-otrostitulos.gif"
+																						src="{{ url.images }}/imagenes/libros/t-otrostitulos.gif"
 																						alt="Otros t&iacute;tulos" />
 																					</td>
 																				</tr>
@@ -223,7 +223,7 @@
 
 																		<td width="82" rowspan="5" class="celdafoto"><a
 																			href="{{ article.LinkBase }}">
-																				<img src="{{ article.CoverSmall }}"
+																				<img src="{{ url.images ~ article.CoverSmall }}"
 																				width="45" height="68" border="0"
 																				class="Gimagesproductos"
 																				alt="{{ article.Title }}">
@@ -250,7 +250,7 @@
 																							<a
 																							href="{{ article.LinkBase }}"
 																							class="FProductos"><img
-																								src="/imagenes/libros/b-info.gif"
+																								src="{{ url.images }}/imagenes/libros/b-info.gif"
 																								alt="{{ article.Title }}"
 																								title="{{Êarticle.Title }}"
 																								border="0" /> </a>
@@ -259,7 +259,7 @@
 																						<td class="divComprarPedir"><a
 																							href="javascript:carrito_AgregarArticulo({{ article.ProductIdÊ}});window.scrollTo(0,0);"
 																							rel="nofollow"><img
-																								src="/imagenes/libros/b-comprar.gif"
+																								src="{{ url.images }}/imagenes/libros/b-comprar.gif"
 																								alt="Comprar" border="0" /> </a>
 																						</td>
 

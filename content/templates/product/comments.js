@@ -11,7 +11,7 @@
 var dataComments = {};
 
 {%- if data -%}
-dataComments['detail'] = '{{ render.renderComments(data["ArticleId"], data["SubjectId"], data["Comments"])|replace("\n", "") }}';
+dataComments['detail'] = '{{ render.renderComments(data["ArticleId"], url, data["SubjectId"], data["Comments"])|replace("\n", "") }}';
 {% endif %}
 
 function loadComments() {

@@ -20,13 +20,13 @@
 		libros
 	{%- endif -%}
 {%- endmacro %}
-{%- macro renderComments(comments_data, extraComments=None) -%}
+{%- macro renderComments(comments_data, urls, extraComments=None) -%}
 	<div class="solapaModulos">
 		{%- for article in comments_data -%}
 	        <div class="solapaCalle" id="calleLibrosComents" style="height: 250px;">
 				<div class="tapaContenedor">
 				    <a href="{{ article.LinkBase }}">
-				    	<img src="{{ article.CoverSmall }}" alt="{{ article.Title }}" class="{{ getClass(article.ProductForm)|trim }}">
+				    	<img src="{{ urls.images ~ article.CoverSmall }}" alt="{{ article.Title }}" class="{{ getClass(article.ProductForm)|trim }}">
 				    </a>
 				    <div class="tapaInfo" style="visibility: hidden;"></div>
 				</div>
