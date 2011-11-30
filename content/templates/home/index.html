@@ -31,6 +31,9 @@
 {%- endblock %}
 
 {% block scripts_extra -%}
+	<!-- JFather -->
+	<script type="text/javascript" src="{{ url.data }}js/jfather.js"></script>
+
 	<script type="text/javascript">
     {% include "fragments/comments.js" %}
     {% include "fragments/messages.js" %}
@@ -46,10 +49,6 @@
 	<!-- JQuery Carousel -->
 	<script type="text/javascript" src="{{ url.data }}js/jquery.tinycarousel.js"></script>
 	<script type="text/javascript" src="{{ url.data }}js/jquery.qtip.min.js"></script>
-	<!-- JFather -->
-	<script type="text/javascript" src="{{ url.data }}js/jfather.js"></script>
-	<!-- Last visited -->
-	<script type="text/javascript" src="/js/lastVisited.js"></script>
 
 	<script type="text/javascript">
 
