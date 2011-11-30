@@ -58,9 +58,9 @@
 			$('#sliderHomeGames').tinycarousel({ axis: 'y', display: 1} );
 			renderLastVisited('lastvisited');
 		});
-
-	    /* Update data */
-	    fillMessages(null);
+		/* parse messages */
+		{% include "fragments/messages_parse.js" %}
+		/* Update data */
 	    fillComments(null);
 
 	</script>
