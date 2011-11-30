@@ -166,7 +166,7 @@
     {%- endfor %}
     {%- if product_list|length is divisibleby cols -%}
         {#- fill remaining cols -#}
-        {%- for c in range(cols - (loop.index % cols)) -%}
+        {%- for c in range(cols - (product_list|length % cols)) -%}
                 <td>&nbsp;</td>
                 <td>&nbsp;</td>
         {%- endfor -%}
