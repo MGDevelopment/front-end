@@ -1,12 +1,12 @@
 /* comments.js */
 function fillComments(section, callback) {
     var commentsHTML = '';
-    var defaultSection = 'last';
-    
+    var defaultSection = 'all';
+
     if (section == null) {
         section = defaultSection;
     }
-    
+
     try {
         if (section != null && APP.getData('comments')[section]) {
             commentsHTML = APP.getData('comments')[section];
@@ -15,7 +15,7 @@ function fillComments(section, callback) {
         commentsHTML = 'Sin comentarios';
     }
     document.getElementById('comments_detail').innerHTML = commentsHTML;
-    
+
     try {
         if (callback && typeof (callback) === "function") {
             // execute the callback, passing parameters as necessary

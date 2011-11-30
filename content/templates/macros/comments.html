@@ -21,23 +21,23 @@
 	{%- endif -%}
 {%- endmacro %}
 {%- macro renderComments(comments_data, extraComments=None) -%}
-	<div class=\"solapaModulos\">
+	<div class="solapaModulos">
 		{%- for article in comments_data -%}
-	        <div class=\"solapaCalle\" id=\"calleLibrosComents\" style=\"height: 250px;\">
-				<div class=\"tapaContenedor\">
-				    <a href=\"{{ article.LinkBase }}\">
-				    	<img src=\"{{ article.CoverSmall }}\" alt=\"{{ article.Title }}\" class=\"{{ getClass(article.ProductForm)|trim }}\">
+	        <div class="solapaCalle" id="calleLibrosComents" style="height: 250px;">
+				<div class="tapaContenedor">
+				    <a href="{{ article.LinkBase }}">
+				    	<img src="{{ article.CoverSmall }}" alt="{{ article.Title }}" class="{{ getClass(article.ProductForm)|trim }}">
 				    </a>
-				    <div class=\"tapaInfo\" style=\"visibility: hidden;\"></div>
+				    <div class="tapaInfo" style="visibility: hidden;"></div>
 				</div>
-	            <div class=\"hComentarios\" id=\"comentarios01\">
-	            	<a>{{ article.NickName }}</a>  dijo sobre
-	                <a href=\"{{ article.LinkBase }}\" class=\"fTitulos\">{{ article.Title }}</a>
+	            <div class="hComentarios" id="comentarios01">
+	            	<a>{{ article.NickName|escape }}</a>  dijo sobre
+	                <a href="{{ article.LinkBase }}" class="fTitulos">{{ article.Title }}</a>
 	                <span>
-	                 	{{ article.CommentText|escape }}
+	                 	{{ article.CommentText|truncate(100)|replace("\r","")|escape }}
 	                </span>
 	            </div>
-	            <div class=\"calificacionMod\">
+	            <div class="calificacionMod">
 	                <span>Calificaci&oacute;n del producto:</span>
 	                {%- for number in range(0, 4) -%}
 	                	{%- if number+1 <= article.Rating|int -%}
@@ -47,16 +47,16 @@
 	                	{%- endif %}
 	                {%- endfor %}
 	            {%- if extraComments == None -%}
-	            	<a href=\"/{{ getSection(article.ProductForm)|trim }}#coment\" class=\"vermas\">+ comentarios de {{ getSection(article.ProductForm)|trim }}</a>
+	            	<a href="/{{ getSection(article.ProductForm)|trim }}#coment" class="vermas">+ comentarios de {{ getSection(article.ProductForm)|trim }}</a>
 	            {%- endif %}
 	          </div>
 	          {%- if extraComments == None -%}
 		          {%- if not loop.last -%}
-		          	<div class=\"solapaCalleSeparador\" id=\"calleSeparadorComents\" style=\"height: 250px;\"></div>
+		          	<div class="solapaCalleSeparador" id="calleSeparadorComents" style="height: 250px;"></div>
 		          {%- endif %}
 		      {%- else -%}
 		  		  {%- if not loop.index in [3, 6] -%}
-		          	<div class=\"solapaCalleSeparador\" id=\"calleSeparadorComents\" style=\"height: 250px;\"></div>
+		          	<div class="solapaCalleSeparador" id="calleSeparadorComents" style="height: 250px;"></div>
 		  		  {%- endif -%}
 	          {%- endif %}
 		{%- endfor %}
