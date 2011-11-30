@@ -39,7 +39,7 @@ function addLastVisited(article) {
 function renderLastVisited(divTarget) {
 	var articleList = null;
 	if (APP.readCookie(_cookieLastVisitedName) != null) {
-		articleList = JFather.unserialize($.cookie(_cookieLastVisitedName));
+		articleList = JFather.unserialize(APP.readCookie(_cookieLastVisitedName));
 	}
 	var lastVisitedHTML = getNoItems();
 	if (articleList != null) {
