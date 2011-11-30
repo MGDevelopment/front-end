@@ -153,7 +153,7 @@ documentos = [
             "Content-Encoding"  : "gzip",
             "Cache-Control"     : "max-age=3600, must-revalidate"
         },
-        "target.path"   : "/js/app.js",
+        "target.path"   : "/app.js",
         "target.repo"   : "static"
     },
     #######################################################
@@ -353,7 +353,13 @@ if __name__ == '__main__':
         s = storage_cache(storage[storage_type][d['target.repo']])
 
         t = env.get_template(d['template'])
-        t_params = { 'd': d['_data'], 'url': d['_url'] }
+        t_params = { 'd': d['_data'], 'url': d['_url'].copy() }
+
+        if not script_tag:
+            t_params['url']['gen_script'] = '' # use the same source
+        else:
+            # trick HTML to load from same source as remote script
+            t_params['url']['gen_script'] = t_params['url']['data']
 
         page_html = t.render(t_params).encode('utf-8')
         target_path = d['target.path']
@@ -361,7 +367,10 @@ if __name__ == '__main__':
         content_type = headers['Content-Type']
 
         if script_tag:
+
+            # No cache this trick (helps with development, no refresh)
             headers['Cache-Control'] = "no-cache, must-revalidate"
+
             if content_type == 'text/html':
                 # Convert to script tag replacing document.body
                 target_path = target_path.replace('.html', '_html.js')
