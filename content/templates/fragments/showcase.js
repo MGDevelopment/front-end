@@ -88,7 +88,6 @@ function fillShowCase(filter, callback) {
         document.getElementById('slider').innerHTML = sliderSectionHTML;
         $('#sliderSection').tinycarousel({ axis: 'y', display: 1} );
     }
-    $(".inline").colorbox({opacity: 0, inline:true, width:"400px"});
 
     try {
         if (callback && typeof (callback) === "function") {
