@@ -34,7 +34,7 @@
 	            	<a>{{ article.NickName|escape }}</a>  dijo sobre
 	                <a href="{{ article.LinkBase }}" class="fTitulos">{{ article.Title }}</a>
 	                <span>
-	                 	{{ article.CommentText|truncate(100)|replace("\r","")|escape }}
+	                 	{{ article.CommentText.decode('utf-8')|truncate(100)|replace("\r","")|escape }}
 	                </span>
 	            </div>
 	            <div class="calificacionMod">
