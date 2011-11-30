@@ -22,12 +22,12 @@ JS_WRAP = '''with(window.open("","_blank","width="+screen.width*.6+",left="+scre
 # What S3 bucket is target for what host.domain
 storage = {
     's3': {
-        "www.tematika.com":       "beta1.testmatika.com",
-        "estatico.tematika.com":  "beta1.testmatika.com",
+        "dynamic": "beta1.testmatika.com",
+        "static":  "beta1.testmatika.com",
     },
     'folder': {
-        "www.tematika.com":       "./out",
-        "estatico.tematika.com":  "./out"
+        "dynamic": "./out",
+        "static":  "./out"
     }
 }
 
@@ -347,10 +347,10 @@ if __name__ == '__main__':
     for d in documentos:
 
         print "Generating: ", storage_type, d['target.path'], " for ", \
-            d['target.repo'], storage[storage_type][d['_url'][d['target.repo']]]
+            d['target.repo'], storage[storage_type][d['target.repo']]
 
         # Get corresponding bucket from storage connection cache
-        s = storage_cache(storage[storage_type][d['_url'][d['target.repo']]])
+        s = storage_cache(storage[storage_type][d['target.repo']])
 
         t = env.get_template(d['template'])
         t_params = { 'd': d['_data'], 'url': d['_url'] }
