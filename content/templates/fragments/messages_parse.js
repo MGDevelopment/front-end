@@ -8,7 +8,7 @@ function parseMSJ(){
 	    		success: function(xml) {
 	    			count = 0;
 	    			$(xml).find('mensaje').each(function(){
-	    				var id = $(this).find('id').text;
+	    				var id = $(this).find('id').text();
 	    				var texto = escape($(this).find('texto').text());
 	    				messageList[count++] = new Msg(id, texto);
 	    			});
