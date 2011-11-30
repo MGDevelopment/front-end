@@ -163,8 +163,9 @@
             </table>
             </li> {#- end row -#}
         {%- endif %}
+        {%- set last_loop = loop.index -%}
     {%- endfor %}
-    {%- if loop.index is divisibleby cols -%}
+    {%- if product_list|length is divisibleby cols -%}
         {#- fill remaining cols -#}
         {%- for c in range(cols - (loop.index % cols)) -%}
                 <td>&nbsp;</td>
