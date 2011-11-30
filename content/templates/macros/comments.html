@@ -34,7 +34,7 @@
 	            	<a>{{ article.NickName }}</a>  dijo sobre
 	                <a href=\"{{ article.LinkBase }}\" class=\"fTitulos\">{{ article.Title }}</a>
 	                <span>
-	                 	{{ article.CommentText|escape }}
+	                 	{{ article.CommentText.decode('utf-8')|escape }}
 	                </span>
 	            </div>
 	            <div class=\"calificacionMod\">
