@@ -2,33 +2,33 @@
 #seccionTematika {
 width:906px;
 z-index:100;
-background-image:url(/imagenes/rediseno/imagenes/seccionTematika/tmtkMesaNovedades-back.jpg);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionTematika/tmtkMesaNovedades-back.jpg);
 background-repeat:no-repeat;
 }
 
 #panelSeccSucursales,#panelSeccQuid,#panelSeccExtra {
 width:17px;
-background-image:url(/imagenes/rediseno/imagenes/comun/panelSecc-back.jpg);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/comun/panelSecc-back.jpg);
 background-position:bottom;
 }
 
 #panelSeccSucursales {
-background-image:url(/imagenes/rediseno/imagenes/seccionTematika/panelSeccSucursales-back.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionTematika/panelSeccSucursales-back.gif);
 }
 
 #panelSeccQuid {
-background-image:url(/imagenes/rediseno/imagenes/seccionTematika/panelSeccQuid-back.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionTematika/panelSeccQuid-back.gif);
 }
 
 #panelSeccExtra {
-background-image:url(/imagenes/rediseno/imagenes/seccionTematika/panelSeccExtra-back.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionTematika/panelSeccExtra-back.gif);
 }
 
 .panelSeccSucursalesTop {
 width:17px;
 height:90px;
 cursor:pointer;
-background-image:url(/imagenes/rediseno/imagenes/seccionTematika/panelSeccSucTop-back.gif);
+background-image:url({{ url.images }}{{ url.images }}/imagenes/rediseno/imagenes/seccionTematika/panelSeccSucTop-back.gif);
 display:block;
 }
 
@@ -40,13 +40,13 @@ float:left;
 }
 
 #panelSeccSucursales span {
-background-image:url(/imagenes/rediseno/imagenes/seccionTematika/panelSeccSucTop-back.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionTematika/panelSeccSucTop-back.gif);
 }
 
 #panelSeccQuid span {
-background-image:url(/imagenes/rediseno/imagenes/seccionTematika/panelSeccQuidTop-back.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionTematika/panelSeccQuidTop-back.gif);
 }
 
 #panelSeccExtra span {
-background-image:url(/imagenes/rediseno/imagenes/seccionTematika/panelSeccExtraTop-back.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionTematika/panelSeccExtraTop-back.gif);
 }
