@@ -7,7 +7,7 @@ var _expiration = 1000;
 
 function fillMessages(callback) {
 	// check if cookie exists
-	if ($.cookie(_cookieMessagesName) == null) {
+	if (APP.readCookie(_cookieMessagesName) == null) {
 		setMessagesReaded('');
 	}
 	getVisualizaMensaje();
@@ -16,17 +16,17 @@ function fillMessages(callback) {
 
 function setMessagesReaded(messages) {
 	// create cookie
-	$.cookie(_cookieMessagesName, JFather.serialize(messages), { expires: _expiration, path: '/'});
+	APP.createCookie(_cookieMessagesName, JFather.serialize(messages), _expiration);
 }
 function getMessagesReaded() {
 	var messagesReaded = '';
-	if ($.cookie(_cookieMessagesName) != null) {
-		messagesReaded = JFather.unserialize($.cookie(_cookieMessagesName));
+	if (APP.readCookie(_cookieMessagesName) != null) {
+		messagesReaded = JFather.unserialize(APP.readCookie(_cookieMessagesName));
 	}
 	return messagesReaded;
 }
 function getMessages() {
-	var messages = TMK.getData('messages');
+	var messages = APP.getData('messages');
 	var messagesReaded = getMessagesReaded();
 	if (messages != null) {
 		for (var i = messages.mensajes.lista.length-1; i >= 0; i--) {
@@ -51,14 +51,14 @@ function getToken(id) {
 
 function getViewMessages() {
 	var view = true;
-	if ($.cookie(_cookieViewMessagesName) != null) {
-		view = JFather.unserialize($.cookie(_cookieViewMessagesName));
+	if (APP.readCookie(_cookieViewMessagesName) != null) {
+		view = JFather.unserialize(APP.readCookie(_cookieViewMessagesName));
 	}
 	return view;
 }
 
 function setViewMessages(view) {
-	$.cookie(_cookieViewMessagesName, JFather.serialize(view), { expires: null, path: '/'});
+	APP.createCookie(_cookieViewMessagesName, JFather.serialize(view), null);
 }
 
 

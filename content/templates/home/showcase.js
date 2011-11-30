@@ -11,7 +11,7 @@ var dataShowCase = {};
 {%- endfor -%}
 
 function loadShowCase() {
-	TMK.addData('showcase', dataShowCase);
+	APP.addData('showcase', dataShowCase);
 	return;
 }
 

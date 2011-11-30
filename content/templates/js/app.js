@@ -41,7 +41,7 @@ APP = (function() {
 
         createCookie(name, "", -1); // Cookie overwritten with expired
     }
-    
+
     function getStatus() {
 
         return readCookie('status'); // Return status cookie (to be parsed)
@@ -66,7 +66,7 @@ APP = (function() {
 
         return statusMap;
     }
-    
+
     function checkSession() {
         _session = document.cookie.indexOf('JSESSIONID') != -1;
     }
@@ -194,7 +194,7 @@ APP = (function() {
         //var cents = Math.round(n * 100) % 100;
         //return (Math.floor(n / 100) + ',' + (cents < 10 ? "0" : "") + cents);
     }
-    
+
     function addData(name, value) {
         _data[name] = value;
     }
@@ -215,6 +215,8 @@ APP = (function() {
     _app.cartAdd = cartAdd;
     _app.cartClose = cartClose;
     _app.init    = init;
+    _app.readCookie = readCookie;
+    _app.createCookie = createCookie;
 
     return _app;
 

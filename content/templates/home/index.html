@@ -31,25 +31,23 @@
 {%- endblock %}
 
 {% block scripts_extra -%}
+	<!-- JFather -->
+	<script type="text/javascript" src="{{ url.data }}js/jfather.js"></script>
+
 	<script type="text/javascript">
-    {% include "fragments/comments.js" %}
-    {% include "fragments/messages.js" %}
-    {% include "fragments/showcase.js" %}
-    {% include "fragments/dropDownMenu.js" %}
-    {% include "fragments/last_visited.js" %}
+	    {% include "fragments/comments.js" %}
+	    {% include "fragments/messages.js" %}
+	    {% include "fragments/showcase.js" %}
+	    {% include "fragments/dropDownMenu.js" %}
+	    {% include "fragments/last_visited.js" %}
 	</script>
 
 	<!-- Data Scripts -->
 	<script type="text/javascript" src="{{ url.data }}home-comments.js"></script>
-	<script type="text/javascript" src="{{ url.data }}home-messages.js"></script>
 	<script type="text/javascript" src="{{ url.data }}home-showcase.js"></script>
 	<!-- JQuery Carousel -->
 	<script type="text/javascript" src="{{ url.data }}js/jquery.tinycarousel.js"></script>
 	<script type="text/javascript" src="{{ url.data }}js/jquery.qtip.min.js"></script>
-	<!-- JFather -->
-	<script type="text/javascript" src="{{ url.data }}js/jfather.js"></script>
-	<!-- Last visited -->
-	<script type="text/javascript" src="/js/lastVisited.js"></script>
 
 	<script type="text/javascript">
 
