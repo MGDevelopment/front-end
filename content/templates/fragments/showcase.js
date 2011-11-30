@@ -17,27 +17,22 @@ function fillShowCase(filter, callback) {
     	section = filter + '-Books';
         if (APP.getData('showcase')[section]) {
             sliderBooksHTML = APP.getData('showcase')[section];
-            tooltipBooksHTML = APP.getData('tooltip')[section];
         }
         section = filter + '-Music';
         if (APP.getData('showcase')[section]) {
             sliderMusicHTML = APP.getData('showcase')[section];
-            tooltipMusicHTML = APP.getData('tooltip')[section];
         }
         section = filter + '-Movies';
         if (APP.getData('showcase')[section]) {
             sliderMoviesHTML = APP.getData('showcase')[section];
-            tooltipMoviesHTML = APP.getData('tooltip')[section];
         }
         section = filter + '-Games';
         if (APP.getData('showcase')[section]) {
             sliderGamesHTML = APP.getData('showcase')[section];
-            tooltipGamesHTML = APP.getData('tooltip')[section];
         }
         section = filter + '-Section';
         if (APP.getData('showcase')[section]) {
             sliderSectionHTML = APP.getData('showcase')[section];
-            tooltipSectionHTML = APP.getData('tooltip')[section];
         }
     } catch (e) {
         sliderBooksHTML = 'Sin comentarios';
@@ -45,29 +40,8 @@ function fillShowCase(filter, callback) {
         sliderMoviesHTML = 'Sin comentarios';
         sliderGamesHTML = 'Sin comentarios';
         sliderSectionHTML = 'Sin comentarios';
-        tooltipBooksHTML = 'Sin comentarios';
-        tooltipMusicHTML = 'Sin comentarios';
-        tooltipMoviesHTML = 'Sin comentarios';
-        tooltipGamesHTML = 'Sin comentarios';
-        tooltipSectionHTML = 'Sin comentarios';
     }
     // render
-    if (document.getElementById('tooltip_content_books')) {
-        document.getElementById('tooltip_content_books').innerHTML = tooltipBooksHTML;
-    }
-    if (document.getElementById('tooltip_content_music')) {
-        document.getElementById('tooltip_content_music').innerHTML = tooltipMusicHTML;
-    }
-    if (document.getElementById('tooltip_content_movies')) {
-        document.getElementById('tooltip_content_movies').innerHTML = tooltipMoviesHTML;
-    }
-    if (document.getElementById('tooltip_content_games')) {
-        document.getElementById('tooltip_content_games').innerHTML = tooltipGamesHTML;
-    }
-    if (document.getElementById('tooltip_content_section')) {
-        document.getElementById('tooltip_content_section').innerHTML = tooltipSectionHTML;
-    }
-
     if (document.getElementById('sliderBooks')) {
         document.getElementById('sliderBooks').innerHTML = sliderBooksHTML;
         $('#sliderHomeBooks').tinycarousel({ axis: 'y', display: 1} );

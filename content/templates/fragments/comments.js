@@ -15,7 +15,7 @@ function fillComments(section, callback) {
         commentsHTML = 'Sin comentarios';
     }
     document.getElementById('comments_detail').innerHTML = commentsHTML;
-
+    
     try {
         if (callback && typeof (callback) === "function") {
             // execute the callback, passing parameters as necessary
