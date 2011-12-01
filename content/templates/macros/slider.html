@@ -165,7 +165,7 @@
             </li> {#- end row -#}
         {%- endif %}
     {%- endfor %}
-    {%- if product_list|length is divisibleby cols -%}
+    {%- if not product_list|length is divisibleby cols -%}
         {#- fill remaining cols -#}
         {%- for c in range(cols - (product_list|length % cols)) -%}
                 <td>&nbsp;</td>
