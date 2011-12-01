@@ -1,21 +1,25 @@
-{%- macro getClass(productForm) -%}
-	{%- if productForm == 'BA' -%}
+{%- macro getClass(id) -%}
+	{%- if id == 1 -%}
 		tapaLibros
-	{%- elif productForm == 'AC'-%}
+	{%- elif id == 4-%}
 		tapaMusica
-	{%- elif productForm == 'VI' -%}
+	{%- elif id == 5 -%}
 		tapaPeliculas
+	{%- elif id == 3 -%}
+		tapaPasatiempos
 	{%- else -%}
 		tapaLibros
 	{%- endif -%}
 {%- endmacro %}
-{%- macro getSection(productForm) -%}
-	{%- if productForm == 'BA' -%}
+{%- macro getSection(id) -%}
+	{%- if id == 1 -%}
 		libros
-	{%- elif productForm == 'AC'-%}
+	{%- elif id == 4-%}
 		musica
-	{%- elif productForm == 'VI' -%}
+	{%- elif id == 5 -%}
 		peliculas
+	{%- elif id == 3 -%}
+		pasatiempos
 	{%- else -%}
 		libros
 	{%- endif -%}
@@ -26,7 +30,7 @@
 	        <div class="solapaCalle" id="calleLibrosComents" style="height: 250px;">
 				<div class="tapaContenedor">
 				    <a href="{{ article.LinkBase }}">
-				    	<img src="{{ urls.images ~ article.CoverSmall }}" alt="{{ article.Title }}" class="{{ getClass(article.ProductForm)|trim }}">
+				    	<img src="{{ urls.images ~ article.CoverSmall }}" alt="{{ article.Title }}" class="{{ getClass(article.Categoria_Seccion)|trim }}">
 				    </a>
 				    <div class="tapaInfo" style="visibility: hidden;"></div>
 				</div>
@@ -47,7 +51,7 @@
 	                	{%- endif %}
 	                {%- endfor %}
 	            {%- if extraComments == None -%}
-	            	<a href="/{{ getSection(article.ProductForm)|trim }}#coment" class="vermas">+ comentarios de {{ getSection(article.ProductForm)|trim }}</a>
+	            	<a href="/{{ getSection(article.Categoria_Seccion)|trim }}#coment" class="vermas">+ comentarios de {{ getSection(article.Categoria_Seccion)|trim }}</a>
 	            {%- endif %}
 	          </div>
 	          {%- if extraComments == None -%}
