@@ -84,7 +84,11 @@ $('ul.overview td.product-entry').qtip({
         viewport: $(this)
         },
     style: {
-        classes: 'ui-tooltip-rounded ui-tooltip-light'
+        classes: 'ui-tooltip-rounded ui-tooltip-light',
+        tip: {
+            width:  15,
+            height: 20
+            }
         },
     hide: {
         delay: 300,
