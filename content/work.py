@@ -43,8 +43,8 @@ class GeneratorJob(workerpool.Job):
             if not isinstance(targets, types.ListType):
                 targets = [ targets ]
 
-            print "cannonical [%s]" % self._cannonical
-            print "targets:\n%s" % targets
+            #print "cannonical [%s]" % self._cannonical
+            #print "targets:\n%s" % targets
 
             targets = self.macros(targets, { "cannonical" : self._cannonical } )
 
@@ -71,7 +71,7 @@ class GeneratorJob(workerpool.Job):
                 self._errqueue( {
                     "EntityType" : self._entityType,
                     "EntityId"   : self._entityId,
-                    "Document"   : self._doc } )
+                    "Document"   : self._doc.get("name", "uknown") } )
         except:
             raise
             # send an error to the queue
