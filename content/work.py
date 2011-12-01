@@ -5,6 +5,7 @@ by Jose Luis Campanello
 
 import types
 import Queue
+import traceback
 
 import workerpool
 import jinja2
@@ -72,8 +73,9 @@ class GeneratorJob(workerpool.Job):
                     "EntityType" : self._entityType,
                     "EntityId"   : self._entityId,
                     "Document"   : self._doc.get("name", "uknown") } )
-        except:
-            raise
+        except Exception as ex:
+            err = traceback.format_exc()
+            print err
             # send an error to the queue
             self._errqueue.put( {
                 "EntityType" : self._entityType,
