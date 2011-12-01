@@ -1,0 +1,3006 @@
+/*comun.css*/﻿
+@charset "utf-8";
+
+.linkDisabled {
+	color: #ccc
+}
+
+.linkDisabled:hover {
+	color: #ccc
+}
+
+.linkDisabled:visited {
+	color: #ccc
+}
+
+.panelMensajes {
+	float: left;
+	display: inline;
+	width: 940px;
+	border: dotted 1px #CCC;
+	border-left: none;
+	border-right: none;
+	background-color: #FBF6E5;
+	padding: 10px;
+	margin: 10px 0 5px 6px;
+	font-size: 12px;
+	line-height: 17px
+}
+
+.panelMsjCerrar,.panelMsjAbrir {
+	position: absolute;
+	background-position: center right;
+	background-repeat: no-repeat;
+	font-size: 11px
+}
+
+.panelMsjCerrar {
+	margin: -9px 0 0 718px;
+	padding: 0 12px 2px 0
+}
+
+.panelMsjAbrir {
+	margin: -9px 0 0 790px;
+	padding: 0 14px 0 0
+}
+
+.panelMsjTit {
+	float: left;
+	font-weight: bold
+}
+
+.panelMsjTxt {
+	float: left;
+	width: 750px;
+	border-left: dotted 1px #CCC;
+	display: inline;
+	margin-left: 5px;
+	padding-left: 5px
+}
+
+.panelMsjTxt div,.panelMsjTxt span {
+	font-size: 11px;
+	display: block;
+	color: #666;
+	margin-top: 1px
+}
+
+.panelMsjTxt div {
+	margin-top: 5px
+}
+
+.panelMsjTxt div a {
+	font-size: 11px
+}
+
+.ventModal-wrapper {
+	position: absolute;
+	z-index: 9999;
+	width: 550px;
+	background-color: #FFF;
+	top: 30px;
+	left: 50%;
+	margin-left: -299px
+}
+
+.vModTop {
+	display: block;
+	margin: 0 5px;
+	height: 20px;
+	background-color: #004B85;
+	background-image:
+		url(/imagenes/rediseno/imagenes/comun/vModTop-back.gif);
+	background-repeat: no-repeat;
+	background-position: 99% center
+}
+
+.vModTop .hModUsrNombre {
+	margin-left: 5px
+}
+
+.vModTop .hModUsrCerrar {
+	right: 4px;
+	padding-right: 10px
+}
+
+.vModContent {
+	float: left;
+	width: 500px;
+	margin: 20px 25px
+}
+
+.vModTxto div {
+	display: block;
+	font-size: 13px;
+	font-weight: bold;
+	text-align: left;
+	text-transform: uppercase
+}
+
+.vModTxto span {
+	border-bottom: dashed 1px #CCC;
+	padding-bottom: 10px;
+	margin-bottom: 15px;
+	line-height: 15px;
+	display: block
+}
+
+.vModTxto span img {
+	display: block;
+	margin: 5px auto
+}
+
+.vModContent .cProcFor-wrapper {
+	margin: 0;
+	width: 500px
+}
+
+.vModContent .cProcFor-wrapper div {
+	width: 280px
+}
+
+.vModContent .cProcFor-wrapper b {
+	width: 150px;
+	margin-left: 50px;
+	display: inline
+}
+
+.vModContent .cProcFor-wrapper p {
+	color: #F00;
+	position: relative;
+	margin-left: -12px;
+	display: inline
+}
+
+.vModButton {
+	float: left;
+	width: 163px;
+	height: 22px;
+	background-image:
+		url(/imagenes/rediseno/imagenes/comun/detalleBoton-back.png);
+	margin: 15px 0 0 168px;
+	padding-top: 7px;
+	text-align: center;
+	font-weight: bold
+}
+
+ul li {
+	list-style: none;
+	margin: 0;
+	padding: 0
+}
+
+h1,h2,h3 {
+	font-size: 11px;
+	margin: 0;
+	padding: 0;
+	font-weight: normal
+}
+
+h4,h5,h6 {
+	margin: 0;
+	padding: 0;
+	display: inline;
+	font-size: inherit;
+	font-weight: inherit
+}
+
+body {
+	margin: 0px;
+	text-align: left;
+	background-image: url(/imagenes/rediseno/imagenes/comun/boddy-back.jpg);
+	background-position: center;
+	background-repeat: repeat-y;
+	font-family: Tahoma, Geneva, sans-serif, Helvetica;
+	font-size: 11px;
+	padding-left: 1px;
+	height: 100%
+}
+
+a {
+	outline: none
+}
+
+.lienzo {
+	position: relative;
+	width: 970px;
+	top: 0px;
+	text-align: left
+}
+
+.barraCentral {
+	float: left;
+	width: 960px;
+	margin: 5px 0px 0px 6px;
+	display: inline
+}
+
+.header {
+	float: left;
+	width: 960px;
+	margin-left: 6px;
+	display: inline;
+	background-image: url(/imagenes/rediseno/imagenes/comun/lienzo-back.gif);
+	background-repeat: repeat-x
+}
+
+.hLogo {
+	float: left;
+	width: 185px;
+	height: 40px;
+	margin: 17px 0px 0px 10px;
+	display: inline;
+	cursor: pointer
+}
+
+.hBuscador {
+	float: left;
+	width: 382px;
+	height: 53px;
+	background-repeat: no-repeat;
+	margin: 11px 0px 0px 5px;
+	display: inline
+}
+
+.hBuscMenu {
+	float: left;
+	width: 107px;
+	height: 21px;
+	cursor: pointer;
+	margin: 14px 0px 0px 13px;
+	padding: 7px 0px 0px 8px;
+	color: #333;
+	font-size: 11px
+}
+
+.hBuscMenu:hover {
+	color: #F8A03A
+}
+
+.hBuscMenuDespl {
+	position: absolute;
+	width: 108px;
+	left: 50%;
+	margin: 40px 0px 0px -264px;
+	background-color: #EDEDEF;
+	border: solid 1px #666;
+	z-index: 999
+}
+
+.hBuscMenuDesplItem {
+	float: left;
+	width: 100px;
+	font-size: 11px;
+	padding: 4px 3px 4px 5px;
+	border-bottom: dotted 1px #666;
+	color: #666
+}
+
+.hBuscTxtF {
+	float: left;
+	width: 151px;
+	background-color: #FFF;
+	border: none;
+	font-size: 18px;
+	margin: 15px 0px 0px 5px;
+	padding: 2px 3px 2px 3px;
+	display: inline
+}
+
+.hBuscButton {
+	float: left;
+	width: 77px;
+	height: 30px;
+	background-image: url(/imagenes/rediseno/imagenes/comun/b-buscar.png);
+	cursor: pointer;
+	margin: 12px 0px 0px 6px;
+	z-index: 99
+}
+
+.hServClientes {
+	float: left;
+	width: 76px;
+	height: 59px;
+	margin: 9px 0px 0px 6px;
+	display: inline;
+	cursor: pointer
+}
+
+.hModUsuario,.hModUsuarioBack {
+	position: absolute;
+	width: 302px;
+	height: 70px;
+	top: 0px;
+	left: 50%;
+	margin-left: 190px;
+	z-index: 999
+}
+
+.hModUsuario {
+	z-index: 999
+}
+
+.hModUsuarioBack {
+	z-index: 990
+}
+
+.hModUsrNombre {
+	position: absolute;
+	color: #FFF;
+	font-weight: bold;
+	margin: 3px 0px 0px 17px
+}
+
+.hModUsrCerrar {
+	position: absolute;
+	width: 37px;
+	text-align: left;
+	color: #FFF;
+	font-size: 10px;
+	padding: 4px 0px 0px 4px;
+	margin: 0px 0px 0px 253px;
+	z-index: 999
+}
+
+.hModUsrCerrar:hover {
+	color: #FFF
+}
+
+.hModUsrCerrar:visited {
+	color: #FFF
+}
+
+.hModUsrExtra {
+	position: absolute;
+	font-size: 12px;
+	margin: 27px 0px 0px 16px
+}
+
+.hModUsrCarritoLnk {
+	position: absolute;
+	width: 30px;
+	height: 35px;
+	font-size: 12px;
+	color: #000;
+	line-height: 13px;
+	margin: 24px 0px 0px 138px;
+	padding: 3px 0px 0px 5px;
+	vertical-align: middle
+}
+
+.hModUsrCarrito {
+	position: absolute;
+	width: 80px;
+	height: 35px;
+	font-size: 12px;
+	color: #000;
+	line-height: 13px;
+	margin: 24px 0px 0px 138px;
+	padding: 3px 0px 0px 40px;
+	vertical-align: middle
+}
+
+.hModUsrCarrito:hover {
+	color: #000
+}
+
+.hModUsrButton {
+	position: absolute;
+	width: 35px;
+	height: 35px;
+	margin: 23px 0px 0px 260px
+}
+
+.panelMensajes {
+	float: left;
+	display: inline;
+	width: 940px;
+	border: dotted 1px #CCC;
+	border-left: none;
+	border-right: none;
+	background-color: #FBF6E5;
+	padding: 10px;
+	margin: 10px 0 5px 6px;
+	font-size: 12px;
+	line-height: 17px
+}
+
+.panelMsjCerrar,.panelMsjAbrir {
+	position: absolute;
+	background-position: center right;
+	background-repeat: no-repeat;
+	font-size: 11px
+}
+
+.panelMsjCerrar {
+	margin: -9px 0 0 718px;
+	padding: 0 12px 2px 0
+}
+
+.panelMsjAbrir {
+	margin: -9px 0 0 790px;
+	padding: 0 14px 0 0
+}
+
+.panelMsjTit {
+	float: left;
+	font-weight: bold
+}
+
+.panelMsjTxt {
+	float: left;
+	width: 750px;
+	border-left: dotted 1px #CCC;
+	display: inline;
+	margin-left: 5px;
+	padding-left: 5px
+}
+
+.panelMsjTxt div,.panelMsjTxt span {
+	font-size: 11px;
+	display: block;
+	color: #666;
+	margin-top: 1px
+}
+
+.panelMsjTxt div {
+	margin-top: 5px
+}
+
+.panelMsjTxt div a {
+	font-size: 11px
+}
+
+.panelSecciones,.panelSeccionesLeft {
+	background-color: #CCC;
+	margin-top: 9px;
+	border-bottom: solid 3px #000;
+	border-top: solid 3px #000
+}
+
+.panelSecciones {
+	float: right
+}
+
+.panelSeccionesLeft {
+	float: left;
+	margin-left: -1px
+}
+
+#panelSeccSucursales,#panelSeccQuid,#panelSeccExtra {
+	float: left
+}
+
+#panelSeccLibros,#panelSeccMusica,#panelSeccPeliculas,#panelSeccPasatiempos
+	{
+	float: left;
+	width: 17px;
+	background-position: bottom;
+	cursor: pointer
+}
+
+#panelSeccLibros {
+	background-image:
+		url(/imagenes/rediseno/imagenes/comun/panelSeccLibros-back.gif)
+}
+
+.panelSeccionesLeft #panelSeccLibros {
+	background-image:
+		url(/imagenes/rediseno/imagenes/comun/panelSeccLibrosLeft-back.gif)
+}
+
+#panelSeccLibros span {
+	background-image:
+		url(/imagenes/rediseno/imagenes/comun/panelSeccLibrosTop-back.gif)
+}
+
+.panelSeccionesLeft #panelSeccLibros span {
+	background-image:
+		url(/imagenes/rediseno/imagenes/comun/panelSeccLibrosLeftTop-back.gif)
+}
+
+#panelSeccMusica {
+	background-image:
+		url(/imagenes/rediseno/imagenes/comun/panelSeccMusica-back.gif)
+}
+
+.panelSeccionesLeft #panelSeccMusica {
+	background-image:
+		url(/imagenes/rediseno/imagenes/comun/panelSeccMusicaLeft-back.gif)
+}
+
+#panelSeccMusica span {
+	background-image:
+		url(/imagenes/rediseno/imagenes/comun/panelSeccMusicaTop-back.gif)
+}
+
+.panelSeccionesLeft #panelSeccMusica span {
+	background-image:
+		url(/imagenes/rediseno/imagenes/comun/panelSeccMusicaLeftTop-back.gif)
+}
+
+#panelSeccPasatiempos {
+	background-image:
+		url(/imagenes/rediseno/imagenes/comun/panelSeccPasatiempos-back.gif)
+}
+
+.panelSeccionesLeft #panelSeccPasatiempos {
+	background-image:
+		url(/imagenes/rediseno/imagenes/comun/panelSeccPasatiemposLeft-back.gif)
+}
+
+#panelSeccPasatiempos span {
+	background-image:
+		url(/imagenes/rediseno/imagenes/comun/panelSeccPasatiemposTop-back.gif)
+}
+
+.panelSeccionesLeft #panelSeccPasatiempos span {
+	background-image:
+		url(/imagenes/rediseno/imagenes/comun/panelSeccPasatiemposLeftTop-back.gif)
+}
+
+#panelSeccPeliculas {
+	background-image:
+		url(/imagenes/rediseno/imagenes/comun/panelSeccPeliculas-back.gif)
+}
+
+.panelSeccionesLeft #panelSeccPeliculas {
+	background-image:
+		url(/imagenes/rediseno/imagenes/comun/panelSeccPeliculasLeft-back.gif)
+}
+
+#panelSeccPeliculas span {
+	background-image:
+		url(/imagenes/rediseno/imagenes/comun/panelSeccPeliculasTop-back.gif)
+}
+
+.panelSeccionesLeft #panelSeccPeliculas span {
+	background-image:
+		url(/imagenes/rediseno/imagenes/comun/panelSeccPeliculasLeftTop-back.gif)
+}
+
+#panelSeccLibros span,#panelSeccMusica span,#panelSeccPeliculas span,#panelSeccPasatiempos span
+	{
+	float: left;
+	width: 17px;
+	height: 350px;
+	background-position: 0px -2px;
+	cursor: pointer
+}
+
+.panelSeccionesLeft #panelSeccSucursales {
+	background-image:
+		url(/imagenes/rediseno/imagenes/comun/panelSeccSucursalesLeft-back.gif)
+}
+
+.panelSeccionesLeft #panelSeccSucursales span {
+	background-image:
+		url(/imagenes/rediseno/imagenes/comun/panelSeccSucursalesLeftTop-back.gif)
+}
+
+.panelSeccionesLeft #panelSeccQuid {
+	background-image:
+		url(/imagenes/rediseno/imagenes/comun/panelSeccQuidLeft-back.gif)
+}
+
+.panelSeccionesLeft #panelSeccQuid span {
+	background-image:
+		url(/imagenes/rediseno/imagenes/comun/panelSeccQuidLeftTop-back.gif)
+}
+
+.panelSeccionesLeft #panelSeccExtra {
+	background-image:
+		url(/imagenes/rediseno/imagenes/comun/panelSeccExtraLeft-back.gif)
+}
+
+.panelSeccionesLeft #panelSeccExtra span {
+	background-image:
+		url(/imagenes/rediseno/imagenes/comun/panelSeccExtraLeftTop-back.gif)
+}
+
+#seccionTematika {
+	float: left;
+	padding-left: 1px;
+	background-position: 1px 0px
+}
+
+.seccionTmkLink {
+	position: absolute;
+	height: 60px;
+	width: 250px;
+	margin: 5px 0 0 -190px
+}
+
+.tmtkMesaNovedades {
+
+}
+
+.tmtkMesaSeccionesTit {
+	float: left;
+	width: 210px;
+	height: 30px;
+	margin: 12px 8px 0px 8px;
+	cursor: pointer
+}
+
+#tmtkMesaSeccionesTitLibros,#tmtkMesaSeccionesTitMusica,#tmtkMesaSeccionesTitPeliculas,#tmtkMesaSeccionesTitPasatiempos
+	{
+	height: 20px;
+	position: absolute;
+	margin-top: 10px;
+	filter: alpha(opacity = 90);
+	opacity: 0.9
+}
+
+#tmtkMesaSeccionesTitLibros {
+	width: 74px;
+	border-bottom: solid 4px #70965B;
+	margin-left: 67px
+}
+
+#tmtkMesaSeccionesTitMusica {
+	width: 77px;
+	border-bottom: solid 4px #F43266;
+	margin-left: 68px
+}
+
+#tmtkMesaSeccionesTitPeliculas {
+	width: 112px;
+	border-bottom: solid 4px #FCD74A;
+	margin-left: 51px
+}
+
+#tmtkMesaSeccionesTitPasatiempos {
+	width: 143px;
+	border-bottom: solid 4px #4FB8CD;
+	margin-left: 36px
+}
+
+.tmtkMesa-back {
+	background-repeat: no-repeat;
+	z-index: 0
+}
+
+.tmtkMesaMenuMod {
+	float: left;
+	width: 345px;
+	height: 30px;
+	display: inline
+}
+
+.tmtkMesaMenuTit {
+	float: left;
+	width: 79px;
+	height: 16px;
+	background-image: url(/imagenes/rediseno/imagenes/comun/t-vidriera.gif);
+	margin: 10px 5px 0px 6px;
+	display: inline
+}
+
+.tmtkMesa {
+	margin-top: 8px
+}
+
+.arbolCat {
+	float: left;
+	margin-left: -4px;
+	display: inline
+}
+
+.arbol {
+	float: left;
+	display: inline
+}
+
+.arbolShadow,.detalleImagen {
+	background-color: #E7E7E7;
+	float: left
+}
+
+#arbolMusica,#arbolLibros,#arbolPeliculas,#arbolPasatiempos {
+	background-color: #FFF;
+	display: block;
+	position: relative;
+	margin: -2px 2px 2px -2px;
+	padding-bottom: 3px
+}
+
+.arbolItem {
+	margin-top: 5px
+}
+
+.arbolItemMas,.arbolItemMin,.arbolItemF {
+	width: 15px;
+	height: 15px;
+	display: block;
+	margin-left: 2px;
+	cursor: pointer
+}
+
+.arbolItemLink {
+	margin: -14px 0px 0px 18px;
+	display: block;
+	font-size: 11px
+}
+
+.arbolItemA {
+	margin: 5px 0px 15px 0px;
+	padding: 0px 0px 5px 16px;
+	display: block;
+	background-color: #F5F5F5;
+	border-top: solid 1px #EBEBEB
+}
+
+.arbolItemB {
+	margin: 0px 0px 0px 14px;
+	padding-bottom: 5px
+}
+
+.arbolItemA .arbolItemMas,.arbolItemA .arbolItemMin {
+	margin-left: -2px
+}
+
+.arbolItemA .arbolItemLink {
+	margin-left: 14px
+}
+
+.arbolItemB .arbolItem .arbolItemF {
+	margin-left: 15px
+}
+
+.arbolItemA .arbolItem .arbolItemF {
+	margin-left: 0
+}
+
+.arbolItem .arbolItemF {
+	margin-left: 5px
+}
+
+.arbolItemMax {
+	position: absolute;
+	width: 22px;
+	height: 22px;
+	display: block;
+	bottom: 2px;
+	right: 1px;
+	cursor: pointer
+}
+
+.arbolItemMini {
+	position: absolute;
+	width: 22px;
+	height: 22px;
+	display: block;
+	bottom: 2px;
+	right: 1px;
+	cursor: pointer
+}
+
+.solapas {
+	background-repeat: no-repeat;
+	margin-top: 20px;
+	padding: 0px 0px 0px 9px;
+	overflow: hidden
+}
+
+.solapasMenu {
+	float: left;
+	width: 116px;
+	height: 17px;
+	cursor: pointer;
+	padding: 8px 0px 0px 9px;
+	margin-top: 3px
+}
+
+.solapasTitComent,.solapasTitListas,.solapasTitUsuarios,.solapasTitTags,.solapasTitDatosPrinc,.solapasTitObjetos,.solapasTitBio,.solapasTitIndCont,.solapasTitprimerCap,.solapasTitEntrev
+	{
+	float: left;
+	display: inline;
+	height: 16px
+}
+
+.solapasTitComent {
+	width: 123px;
+	background-image:
+		url(/imagenes/rediseno/imagenes/comun/t-comentarios.gif);
+	margin: 10px 5px 0px 45px
+}
+
+.solapasTitListas {
+	width: 57px;
+	background-image: url(/imagenes/rediseno/imagenes/comun/t-listas.gif);
+	margin: 10px 5px 0px 75px
+}
+
+#calles2 .solapasTitListas {
+	margin: 10px 5px 0px 136px
+}
+
+.solapasTitUsuarios {
+	width: 85px;
+	background-image: url(/imagenes/rediseno/imagenes/comun/t-usuarios.gif);
+	margin: 10px 5px 0px 57px
+}
+
+#calles2 .solapasTitUsuarios {
+	margin: 10px 5px 0px 122px
+}
+
+.solapasTitTags {
+	width: 91px;
+	height: 18px;
+	background-image: url(/imagenes/rediseno/imagenes/comun/t-etiquetas.gif);
+	margin: 10px 5px 0px 55px
+}
+
+.solapasTitBio {
+	width: 90px;
+	background-image: url(/imagenes/rediseno/imagenes/comun/t-biografia.gif);
+	margin: 10px 5px 0px 112px
+}
+
+.solapasTitObjetos {
+	width: 55px;
+	background-image: url(/imagenes/rediseno/imagenes/comun/t-obras.gif);
+	margin: 10px 0 0 130px
+}
+
+.solapasTitIndCont {
+	width: 203px;
+	background-image:
+		url(/imagenes/rediseno/imagenes/comun/T-indContenidos.gif);
+	margin: 10px 0 0 55px;
+	font-family: tahoma
+}
+
+.solapasTitprimerCap {
+	width: 157px;
+	background-image: url(/imagenes/rediseno/imagenes/comun/t-primCap.gif);
+	margin: 10px 0 0 79px
+}
+
+.solapasTitEntrev {
+	width: 114px;
+	background-image:
+		url(/imagenes/rediseno/imagenes/comun/t-entrevistas.gif);
+	margin: 10px 0 0 101px
+}
+
+.solapaModulos {
+	float: left;
+	width: 901px;
+	margin-top: 20px;
+	text-align: center
+}
+
+.solapaModTit {
+	float: left;
+	width: 321px;
+	height: 13px;
+	text-align: center;
+	margin: -5px 0 20px 0;
+	color: #333
+}
+
+#calles3 .solapaModulos,#calles2 .solapaModulos {
+	width: 642px
+}
+
+.solapaCalle {
+	float: left;
+	width: 209px;
+	text-align: center
+}
+
+#calles3 .solapaCalle {
+	width: 200px
+}
+
+#calles2 .solapaCalle {
+	width: 311px
+}
+
+.solapaCalleSeparador {
+	float: left;
+	width: 20px;
+	background-image:
+		url(/imagenes/rediseno/imagenes/comun/solapaCalleSeparador-back.gif);
+	background-repeat: repeat-y;
+	background-position: center
+}
+
+#calles3 .solapaCalleSeparador {
+	width: 21px
+}
+
+.hComentarios {
+	text-align: left;
+	margin-top: 10px;
+	font-size: 12px
+}
+
+.hComentarios span {
+	text-align: left;
+	margin-top: 7px;
+	display: block;
+	line-height: 14px;
+	font-size: 11px
+}
+
+.hListaP,.hlistas,.hUsuarioP {
+	border-bottom: solid 1px #CCC;
+	padding-bottom: 8px;
+	text-align: left
+}
+
+.hListaP .calificacionMod {
+	position: relative;
+	float: none;
+	display: block;
+	margin: -5px 0px 2px 0px;
+	margin-top: -6px
+}
+
+.hListaP span a {
+	font-weight: bold;
+	font-size: 12px
+}
+
+.hListaP a {
+	font-size: 11px
+}
+
+.hlistas {
+	height: 30px;
+	position: relative;
+	display: block
+}
+
+.hlistas span {
+	top: 12px;
+	font-size: 12px;
+	position: relative
+}
+
+.hUsuarioP {
+	float: left;
+	width: 100%
+}
+
+.hUsuarioP img {
+	float: left;
+	width: 50px;
+	height: 50px;
+	border: solid 1px #CCC;
+	margin-right: 5px
+}
+
+.hUsuarioP p {
+	margin: 0px;
+	padding: 0px;
+	font-weight: bold
+}
+
+.hUsuarioP span {
+	font-size: 11px;
+	position: relative;
+	top: -10px
+}
+
+.hUsuarioP span a {
+	font-size: 11px
+}
+
+.hUsuarios {
+	float: left;
+	width: 100%;
+	padding: 7px 0px 0px 0px;
+	height: 42px;
+	border-bottom: solid 1px #CCC
+}
+
+.hUsuarios img {
+	width: 35px;
+	height: 35px;
+	border: solid 1px #CCC;
+	float: left;
+	margin-left: 7px
+}
+
+.hUsuarios span {
+	float: left;
+	cursor: pointer;
+	margin: 10px 0px 0px 5px
+}
+
+.hUsrUltAcc {
+	float: left;
+	border-top: solid 1px #CCC;
+	border-bottom: solid 1px #CCC;
+	color: #333;
+	padding: 5px 0px
+}
+
+.hUsrUltAccTit {
+	float: left;
+	margin: 20px 0px 5px 0px;
+	color: #333
+}
+
+.hUsrUltAcc1,.hUsrUltAcc1 a {
+	font-size: 9px
+}
+
+.hUsrUltAcc2,.hUsrUltAcc2 a {
+	font-size: 10px
+}
+
+.hUsrUltAcc3,.hUsrUltAcc3 a {
+	font-size: 11px
+}
+
+.hUsrUltAcc4,.hUsrUltAcc4 a {
+	font-size: 12px
+}
+
+.hUsrUltAcc5,.hUsrUltAcc5 a {
+	font-size: 13px
+}
+
+.hTags {
+	float: left;
+	border: solid 1px #CCC;
+	background-color: #EDEDED;
+	margin-top: 5px;
+	height: 180px;
+	overflow: hidden;
+	font-size: 13px;
+	text-align: center
+}
+
+.hTags a {
+	color: #A3A3A3
+}
+
+.hTagsContainer {
+	margin: -7px -20px -7px -15px;
+	overflow: hidden
+}
+
+a.tag1 {
+	padding: 5px 1px;
+	font-size: 12px
+}
+
+a.tag2 {
+	padding: 4px 2px;
+	font-size: 14px;
+	font-weight: bold;
+	color: #A3A3A3
+}
+
+a.tag3 {
+	font-size: 18px;
+	font-weight: bold;
+	color: #8C8C8C
+}
+
+.footer {
+	float: left;
+	width: 970px;
+	background-image: url(/imagenes/rediseno/imagenes/comun/footer-back.gif)
+}
+
+.footer div {
+	width: 970px;
+	color: #666
+}
+
+.footer a {
+	color: #666;
+	text-decoration: underline;
+	font-size: 11px
+}
+
+.footer a:hover {
+	color: #333
+}
+
+.footerShadow {
+	float: left;
+	height: 48px;
+	background-image:
+		url(/imagenes/rediseno/imagenes/comun/footerShadow-back.gif)
+}
+
+.footer div.footerLogos {
+	float: left;
+	height: 31px;
+	width: 281px;
+	background-image:
+		url(/imagenes/rediseno/imagenes/comun/footerLogos-back.png);
+	margin: -5px 0 0 344px;
+	display: inline
+}
+
+.footerText {
+	float: left;
+	padding: 20px 0px 20px 0px;
+	text-align: center
+}
+
+.footerText2 {
+	float: left;
+	text-align: center
+}
+
+.footerText2 a {
+	text-decoration: none
+}
+
+.footerText2 img {
+	border: 0px
+}
+
+.footerText2 a span {
+	color: #000;
+	font-size: 10px;
+	padding-left: 5px;
+	position: relative;
+	font-weight: bold;
+	bottom: 5px;
+	text-decoration: underline
+}
+
+.calificacionMod {
+	display: block;
+	position: relative;
+	padding-top: 10px
+}
+
+.calificacionMod span {
+	float: left;
+	margin-right: 5px
+}
+
+.calificacionStar,.calificacionStarAct,.calificacionStarDes,.calificacionStarMed
+	{
+	float: left;
+	width: 15px;
+	height: 15px;
+	cursor: pointer;
+	margin: -1px 0px 0px -2px
+}
+
+.calificacionStar {
+	background-image:
+		url(/imagenes/rediseno/imagenes/comun/calificacionStar-back.png)
+}
+
+.calificacionStarAct {
+	background-image:
+		url(/imagenes/rediseno/imagenes/comun/calificacionStarAct-back.png)
+}
+
+.calificacionStarDes {
+	background-image:
+		url(/imagenes/rediseno/imagenes/comun/calificacionStarDes-back.png)
+}
+
+.calificacionStarMed {
+	background-image:
+		url(/imagenes/rediseno/imagenes/comun/calificacionStarMed.png)
+}
+
+.calificacionStar:hover,.calificacionStarDes:hover,.calificacionStarMed:hover
+	{
+	background-image:
+		url(/imagenes/rediseno/imagenes/comun/calificacionStarAct-back.png)
+}
+
+.tapaContenedor {
+	position: relative;
+	display: block;
+	text-align: center
+}
+
+.tapaInfo {
+	width: 22px;
+	height: 20px;
+	position: relative;
+	margin: auto;
+	bottom: 5px;
+	left: 35px;
+	cursor: pointer
+}
+
+.tapaLibros,.tapaPeliculas,.tapaPasatiempos {
+	height: 100px;
+	margin-bottom: -20px;
+	border: solid 1px #666
+}
+
+.imgAutor {
+	height: 80px;
+	margin-bottom: 0px;
+	border: solid 1px #666
+}
+
+.tapaMusica {
+	height: 80px;
+	border: solid 1px #666;
+	margin: 10px 0px -10px 0px
+}
+
+.imgAvatar {
+	width: 50px;
+	border: solid 1px #CCC
+}
+
+.fTitulos {
+	font-weight: bold;
+	text-transform: uppercase
+}
+
+.fUsuarios {
+	font-weight: bold
+}
+
+a.vermas {
+	float: left;
+	font-size: 11px;
+	width: 100%;
+	text-align: left;
+	margin-top: 10px
+}
+
+ul.dropdown,ul.dropdown li,ul.dropdown ul {
+	list-style: none;
+	margin: 0;
+	padding: 0
+}
+
+ul.dropdown {
+	position: relative;
+	z-index: 1001;
+	float: left;
+	cursor: pointer
+}
+
+ul.dropdown li {
+	float: left;
+	line-height: 1.3em;
+	vertical-align: middle;
+	zoom: 1
+}
+
+ul.dropdown li.hover,ul.dropdown li:hover {
+	z-index: 85;
+	cursor: pointer
+}
+
+ul.dropdown ul {
+	display: none;
+	position: absolute;
+	top: 100%;
+	left: 0;
+	z-index: 85;
+	width: 100%
+}
+
+ul.dropdown ul {
+	width: 108px;
+	margin-top: 0px;
+	margin-left: 15px;
+	background-color: #EDEDEF;
+	border: solid 1px #666;
+	z-index: 90
+}
+
+.tmtkMesaMenuMod ul.dropdown ul,.busqFiltMenu ul.dropdown ul {
+	width: 115px;
+	margin-left: 4px;
+	background-color: #EDEDEF;
+	border: solid 1px #666;
+	z-index: 50
+}
+
+ul.dropdown ul a {
+	display: block;
+	position: relative;
+	width: 100px;
+	font-size: 11px;
+	padding: 4px 3px 4px 5px;
+	border-bottom: dotted 1px #666;
+	color: #666;
+	z-index: 90
+}
+
+.tmtkMesaMenuMod ul.dropdown ul a,.busqFiltMenu ul.dropdown ul a {
+	width: 107px;
+	border-bottom: dotted 1px #666;
+	color: #666
+}
+
+ul.dropdown ul a:hover {
+
+}
+
+ul.dropdown *.dir {
+	float: left;
+	width: 115px;
+	height: 28px;
+	cursor: pointer;
+	margin: 14px 0px 0px 13px;
+	color: #333;
+	font-size: 11px;
+	border: none;
+	cursor: pointer;
+	font-weight: normal;
+	display: inline;
+	z-index: 90
+}
+
+.dropdown span {
+	width: 107px;
+	height: 21px;
+	padding: 7px 0px 0px 8px;
+	float: left
+}
+
+.tmtkMesaMenuMod ul.dropdown *.dir,.busqFiltMenu ul.dropdown *.dir {
+	float: left;
+	width: 125px;
+	height: 25px;
+	cursor: pointer;
+	margin: 0px;
+	margin-top: 3px;
+	position: relative
+}
+
+.tmtkMesaMenuMod .dropdown span,.busqFiltMenu .dropdown span {
+	width: 116px;
+	height: 17px;
+	padding: 8px 0px 0px 9px;
+	float: left
+}
+
+.panelSeccAct {
+	display: block;
+	height: 60px;
+	margin-top: 5px
+}
+
+#dTopLeft {
+	float: left;
+	padding-bottom: 10px
+}
+
+#dTopRight {
+	float: left;
+	padding-bottom: 10px;
+	margin-top: 10px;
+	width: 225px;
+	margin-left: 10px;
+	display: inline
+}
+
+.detalleInfoPrinc {
+	float: left;
+	width: 611px;
+	margin: 10px 0 0 0
+}
+
+.dCompra {
+	float: right;
+	width: 223px;
+	background-position: bottom;
+	background-repeat: repeat-x;
+	background-color: #FFF;
+	padding: 10px 0
+}
+
+.dCompra span {
+	display: block;
+	font-size: 12px;
+	color: #666;
+	margin: 0 10px
+}
+
+.dCompra p {
+	display: inline;
+	font-size: 11px;
+	color: #000;
+	margin-left: 2px
+}
+
+.dCompra a {
+	font-size: 11px;
+	margin-left: 2px;
+	font-weight: normal
+}
+
+.dCompra ul {
+	display: block;
+	padding: 3px 0 7px 0;
+	margin: 7px 10px 0 10px
+}
+
+.dCompra ul span {
+	font-size: 17px;
+	color: #000;
+	font-weight: bold;
+	margin: 0
+}
+
+.dCompra ul p {
+	margin-left: 0px;
+	font-weight: normal
+}
+
+.dCompra ul img {
+	margin: 3px 4px 0 4px
+}
+
+.dComprarButton,.dFavButton {
+	width: 223px;
+	height: 52px;
+	background-position: center;
+	background-repeat: no-repeat;
+	cursor: pointer;
+	margin: 3px 0
+}
+
+a.dComprarEnvio {
+	display: block;
+	padding: 4px 0 4px 0;
+	margin: 7px 10px 0 10px
+}
+
+.dComprarSeparador {
+	margin: 7px 10px 0 10px;
+	height: 1px;
+	font-size: 1px
+}
+
+.detalleAcciones {
+	margin-top: 10px
+}
+
+.detalleBotonMenu,.detalleBoton,.dSolapasPie div {
+	float: left;
+	width: 163px;
+	height: 29px;
+	cursor: pointer;
+	z-index: 5;
+	position: relative
+}
+
+.detalleBotonMenu span,.detalleBoton span {
+	font-size: 10px;
+	font-weight: bold;
+	margin: 8px 0 0 6px;
+	text-align: center;
+	cursor: pointer;
+	display: block
+}
+
+.detalleBotonMenu span {
+	width: 130px
+}
+
+.detalleBoton span {
+	width: 153px
+}
+
+.dCompra .detalleBotonMenu,.dCompra .detalleBoton {
+	margin: 0px 0 0 30px
+}
+
+.detalleBoton,.dSolapasPie div {
+	background-image:
+		url(/imagenes/rediseno/imagenes/comun/detalleBoton-back.png)
+}
+
+.detalleModMenu {
+	position: relative;
+	float: left
+}
+
+.detalleListaMenu {
+	position: relative;
+	margin: -14px 0 0 -5px;
+	padding-top: 11px;
+	width: 200px;
+	float: left;
+	display: inline;
+	z-index: 4;
+	border: solid 2px #CCC;
+	background-color: #FFFEEF;
+	background-position: bottom;
+	background-repeat: repeat-x
+}
+
+.detalleListaMenu p {
+	float: left;
+	width: 100%;
+	font-size: 12px;
+	border-bottom: dashed 1px #E7E7E7;
+	margin: 0;
+	padding: 5px 0
+}
+
+.detalleListaMenu input {
+	float: left;
+	margin: 1px 5px 0 5px;
+	padding: 0;
+	display: inline
+}
+
+.detalleListaMenu span {
+	float: left;
+	width: 155px
+}
+
+p.dListaMenuDes {
+	border-bottom: dotted 1px #666;
+	border-top: dotted 1px #666
+}
+
+input.dListaMenuDesBut {
+	font-size: 11px;
+	margin: 8px 51px 8px 0;
+	float: right;
+	width: 80px;
+	display: inline
+}
+
+.dImagenes {
+	float: left;
+	width: 180px;
+	margin-left: 15px;
+	display: inline
+}
+
+.dImagenes span {
+	float: left;
+	width: 145px;
+	height: 18px;
+	background-color: #E4E4E4;
+	text-align: center;
+	font-size: 13px;
+	padding-top: 2px
+}
+
+.detalleImagen {
+	margin: 3px 0 7px 3px
+}
+
+.detalleImagen img {
+	display: block;
+	position: relative;
+	margin: -4px 4px 4px -4px;
+	width: 175px;
+	border: solid 1px #666;
+	height: auto
+}
+
+.detalleImagenAnt,.detalleImagenSig {
+	float: left;
+	width: 16px;
+	height: 20px
+}
+
+.dInfoPrincipal {
+	float: left;
+	width: 406px;
+	margin-left: 10px;
+	display: inline
+}
+
+.dInfoTit {
+	display: block;
+	font-size: 20px;
+	font-weight: bold
+}
+
+.dInfoAutor {
+	display: block;
+	font-size: 13px;
+	padding-bottom: 5px;
+	margin-bottom: 10px
+}
+
+.dInfoAutor a {
+	font-size: 13px
+}
+
+.dInfoPrincipal span,.listadoModInfo span {
+	display: block;
+	margin-bottom: 2px
+}
+
+.dInfoPrincipal span a,.listadoModInfo span a {
+	font-size: 11px
+}
+
+.dInfoCalif {
+	display: block;
+	background-color: #FBF6E5;
+	padding: 3px 0;
+	margin: 10px 0 5px 0;
+	height: 45px
+}
+
+.dInfoCalifStarMod {
+	float: left;
+	height: 45px;
+	padding: 0 16px 0 16px
+}
+
+.dInfoCalifStarMod span {
+	margin: 4px 0 3px -6px
+}
+
+.dInfoCalifStar,.dInfoCalifStarDes,.dInfoCalifStarMed,.dInfoCalifStarAct
+	{
+	float: left;
+	width: 20px;
+	height: 20px;
+	cursor: pointer;
+	margin-left: -1px
+}
+
+.dInfoCalifStar {
+	background-image:
+		url(/imagenes/rediseno/imagenes/comun/dInfoCalifStar-back.png)
+}
+
+.dInfoCalifStarDes {
+	background-image:
+		url(/imagenes/rediseno/imagenes/comun/dInfoCalifStarDes-back.png)
+}
+
+.dInfoCalifStarMed {
+	background-image:
+		url(/imagenes/rediseno/imagenes/comun/dInfoCalifStarMed.png)
+}
+
+.dInfoCalifStarAct,.dInfoCalifStar:hover,.dInfoCalifStarMed:hover,.dInfoCalifStarDes:hover
+	{
+	background-image:
+		url(/imagenes/rediseno/imagenes/comun/dInfoCalifStarAct-back.png)
+}
+
+.dInfoCalifBoton {
+	float: left;
+	margin: 2px 0 0 11px;
+	display: inline
+}
+
+.dInfoCalifBoton div {
+	width: 147px;
+	height: 23px;
+	background-image:
+		url(/imagenes/rediseno/imagenes/comun/detalleBoton2-back.png);
+	cursor: pointer;
+	text-align: center;
+	font-size: 10px;
+	font-weight: bold;
+	padding: 9px 0 0 0;
+	margin-top: -2px
+}
+
+.dInfoCalifBoton span {
+	width: 147px;
+	text-align: center
+}
+
+.dInfoLinks {
+	display: block;
+	padding: 5px 0px
+}
+
+.dInfoLinks a {
+	font-size: 11px
+}
+
+.dInfoM {
+	display: block;
+	padding: 7px 0 0 0;
+	margin: 5px 0;
+	font-size: 12px
+}
+
+#dRecomendaciones {
+	float: right;
+	width: 224px;
+	margin: 20px 15px 20px 0;
+	display: inline;
+	background-image:
+		url(/imagenes/rediseno/imagenes/comun/solapaCalleSeparador-back.gif);
+	background-repeat: repeat-y;
+	background-position: -4px 0px
+}
+
+.dRecomendTit {
+	text-align: center;
+	font-size: 14px;
+	padding: 20px 0 15px 0;
+	float: left;
+	width: 100%
+}
+
+.dRecomendMod {
+	float: left;
+	margin-bottom: 20px;
+	width: 100%
+}
+
+.dRecomendMod a {
+	text-align: center;
+	padding: 0 10px;
+	margin-top: 5px;
+	display: block
+}
+
+.dRecomendMod span {
+	display: block;
+	text-align: center;
+	font-size: 12px;
+	margin-top: 2px
+}
+
+#dRecomendaciones .calificacionMod {
+	margin: -7px 0 0 50px
+}
+
+#dRecomendaciones .calificacionMod span {
+	font-size: 11px
+}
+
+#dInfoCompl {
+	float: left;
+	width: 614px
+}
+
+.dSolapas {
+	float: left;
+	width: 608px;
+	background-image:
+		url(/imagenes/rediseno/imagenes/comun/dSolapas-back.jpg);
+	background-position: top;
+	background-repeat: no-repeat;
+	margin: 10px 0 15px 6px;
+	display: inline
+}
+
+.dResena {
+	float: left;
+	margin: 5px 20px 0 20px;
+	display: inline;
+	font-size: 12px;
+	line-height: 17px
+}
+
+.dResena span {
+	display: block;
+	font-weight: normal;
+	margin: 15px 0 5px 0
+}
+
+.dComentarios {
+	float: left;
+	margin: 25px 20px 5px 20px;
+	display: inline;
+	padding-bottom: 10px
+}
+
+.dComentsInfo {
+	width: 568px;
+	float: left
+}
+
+.dComentsInfo span {
+	float: left;
+	font-size: 12px;
+	font-weight: bold
+}
+
+.dComentarios .calificacionMod {
+	float: right;
+	padding-top: 1px;
+	color: #666
+}
+
+.dComentarios .calificacionMod span {
+	font-size: 11px;
+	font-weight: normal
+}
+
+.dComentarios .calificacionStar:hover,.dRecomendMod .calificacionStar:hover
+	{
+	background-image:
+		url(/imagenes/rediseno/imagenes/comun/calificacionStar-back.png)
+}
+
+.dComentarios .calificacionStarDes:hover,.dRecomendMod .calificacionStarDes:hover
+	{
+	background-image:
+		url(/imagenes/rediseno/imagenes/comun/calificacionStarDes-back.png)
+}
+
+.dComentarios .calificacionStarDes,.dComentarios .calificacionStar,.dRecomendMod .calificacionStarDes,.dRecomendMod .calificacionStar
+	{
+	cursor: default
+}
+
+.dComentsMod {
+	float: left;
+	width: 568px
+}
+
+.dComentarios img {
+	float: left;
+	border: solid 1px #CCC;
+	margin: 10px 0 0 0;
+	background-color: #C00;
+	height: 35px
+}
+
+.dComentsTxt {
+	float: left;
+	margin: 8px 0 0 10px;
+	display: inline;
+	font-size: 12px;
+	line-height: 17px;
+	width: 521px
+}
+
+.dComentsCalif {
+	height: 20px;
+	float: left;
+	width: 568px;
+	margin-top: 15px
+}
+
+.dComentsCalif span {
+	float: left;
+	margin: 6px 5px 0 0
+}
+
+.dComentsCalifP,.dComentsCalifN {
+	float: left;
+	width: 27px;
+	height: 25px
+}
+
+.dComentsCalifResp {
+	float: left;
+	height: 21px;
+	border-left: solid 1px #CCC;
+	margin: 2px 0 0 5px;
+	padding-left: 7px;
+	display: inline
+}
+
+.dComentsCalifResp a,.cModCantidad a,.cProcForButton {
+	float: left;
+	height: 16px;
+	width: 75px;
+	text-align: center;
+	font-weight: bold;
+	font-size: 9px;
+	background-image:
+		url(/imagenes/rediseno/imagenes/comun/detalleBoton3-back.png);
+	padding-top: 5px
+}
+
+.dComentsCalifReportar {
+	float: right;
+	font-size: 11px;
+	margin-top: 7px
+}
+
+.dSolapasPie {
+	float: left;
+	width: 568px;
+	margin: 5px 0 0 20px;
+	display: inline
+}
+
+.dSolapasPieLink {
+	float: left;
+	margin-top: 7px
+}
+
+.dSolapasPie div {
+	float: right;
+	cursor: pointer;
+	text-align: center;
+	font-size: 10px;
+	font-weight: bold;
+	padding-top: 7px;
+	height: 22px
+}
+
+.dSolapas .solapaCalle {
+	width: 274px
+}
+
+.dSolapas .solapaModulos {
+	margin-left: 20px;
+	display: inline;
+	width: 568px
+}
+
+.dSolapas .hListaP {
+	margin-bottom: 5px
+}
+
+.listadoMod {
+	float: left;
+	display: inline;
+	background-position: left bottom;
+	background-repeat: repeat-x;
+	padding-bottom: 20px;
+	margin: 20px 0 10px 0
+}
+
+.dSolapas .listadoMod {
+	width: 568px;
+	margin-left: 20px
+}
+
+.listadoMod .detalleImagen {
+	margin-left: 0px
+}
+
+.listadoMod .detalleImagen img,.cModProd .detalleImagen img {
+	height: auto;
+	width: 75px;
+	margin: -3px 3px 3px -3px
+}
+
+.listadoModAcciones {
+	float: right;
+	display: inline;
+	width: 175px;
+	height: 150px
+}
+
+.listadoModAcciones div {
+	float: right;
+	width: 173px;
+	background-position: bottom;
+	background-repeat: repeat-x;
+	padding: 10px 0 5px 0
+}
+
+.listadoModAcciones div span {
+	display: block;
+	text-align: center;
+	margin: 5px 0
+}
+
+.listadoModAcciones div a {
+	height: 46px;
+	margin: 5px 0
+}
+
+.listadoModAcciones div span p {
+	display: inline;
+	font-size: 14px;
+	font-weight: bold
+}
+
+.listadoModAcciones .detalleBotonMenu {
+	display: inline;
+	margin: 10px 0 0 5px
+}
+
+.listadoModInfo {
+	float: left;
+	display: inline;
+	margin-left: 10px
+}
+
+.dSolapas .listadoModInfo {
+	width: 300px
+}
+
+.listadoModInfo .dInfoTit {
+	font-size: 14px;
+	text-transform: uppercase
+}
+
+.listadoModInfo .calificacionMod {
+	width: 100%;
+	padding: 0px 0 2px 0px;
+	height: 15px
+}
+
+.listadoModInfo p {
+	margin-top: 10px
+}
+
+#modalBack {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	left: 00;
+	top: 0;
+	background-color: #CCC;
+	filter: alpha(opacity =   60);
+	opacity: 0.6;
+	z-index: 99
+}
+
+.atrPplBus {
+	font-size: 12px;
+	color: #777;
+	text-decoration: none;
+	font-weight: 800
+}
+
+.atrPplBus:hover {
+	color: #000
+}
+
+.atrPplBus:visited {
+	color: #777
+}
+
+.moduloBus {
+	margin-bottom: 30px;
+	padding-bottom: 10px
+}
+
+.listPaginado {
+	margin: 20px 0;
+	text-align: center
+}
+
+.listPaginado .busqOrden {
+	padding: 20px 0
+}
+
+.listPaginado a,.listPaginado span,.listPaginado h5,.listPaginado h4 {
+	font-size: 13px;
+	padding: 5px 6px
+}
+
+.listPaginado a:hover {
+	background-color: #FFF;
+	border: solid 1px #CCC;
+	padding: 5px
+}
+
+.listPaginado span {
+	padding: 5px 0 5px 5px
+}
+
+.listPaginado h4 {
+	color: #000;
+	border: solid 1px #000;
+	font-weight: bold;
+	padding: 5px
+}
+
+.listPaginado h5 {
+	color: #CCC
+}
+
+.busqTit {
+	display: block;
+	margin: 10px 10px 20px 10px;
+	background-color: #FEFFE2;
+	border-top: dashed 1px #CCC;
+	border-bottom: dashed 1px #CCC;
+	padding: 10px;
+	text-align: center;
+	font-size: 13px
+}
+
+.busqTit span {
+	font-weight: bold;
+	text-transform: uppercase
+}
+
+.busqMarco {
+	margin-left: 10px
+}
+
+.busqMarco #arbolLibros {
+
+}
+
+.busqFiltMod,.busqFiltModBottom {
+	display: block;
+	border-bottom: solid 1px;
+	padding: 5px 10px;
+	margin-bottom: 5px
+}
+
+.busqFiltMod a,.busqFiltModBottom a {
+	display: block;
+	font-size: 11px;
+	margin: 7px 0
+}
+
+.busqFiltModBottom {
+	border-bottom: none;
+	margin-bottom: 0
+}
+
+.busqFiltMenu {
+	display: block;
+	height: 35px
+}
+
+.busqFiltMod .busqFiltMenu .dropdown {
+	margin: 0 0 0 -5px;
+	display: inline
+}
+
+.busqFiltMenu a {
+	margin: 0
+}
+
+a.busqFiltApl {
+	width: 165px;
+	height: 14px;
+	cursor: pointer;
+	position: relative;
+	margin: 5px 0 5px -4px;
+	padding: 6px
+}
+
+.busqContenido {
+	float: left;
+	margin: 0 0 0 10px;
+	display: inline
+}
+
+.busqOrden {
+	background-color: #FFF;
+	display: block;
+	position: relative;
+	margin: -2px 2px 2px -2px;
+	padding-bottom: 20px;
+	background-position: top;
+	background-repeat: repeat-x
+}
+
+.busqOrden h2 {
+	float: left;
+	text-align: right;
+	width: 366px;
+	margin: 20px 0 0 0;
+	font-size: 12px
+}
+
+.busqOrden .busqFiltMenu .dropdown {
+	margin: 9px 0 0 5px;
+	display: inline
+}
+
+.busqOrden .busqFiltMenu .dropdown .dir ul {
+	width: 130px
+}
+
+.busqOrden .busqFiltMenu .dropdown .dir ul a {
+	width: 122px
+}
+
+.busqContenido .listadoMod {
+	margin-left: 15px
+}
+
+.busqResDest {
+	background-color: #FF0;
+	color: #000
+}
+
+.busqNoResult {
+	display: block;
+	text-align: center;
+	font-size: 13px;
+	height: 500px;
+	margin: 0 10px 0 0
+}
+
+.busqNoResult a {
+	font-size: 13px
+}
+
+.carritoTop {
+	width: 813px;
+	float: left;
+	padding: 5px 0;
+	border: 1px solid #F5CFAA;
+	margin: 0 0 0 45px;
+	display: inline;
+	font-size: 12px;
+	font-weight: bold
+}
+
+.cTopProd,.cModProd {
+	float: left;
+	width: 538px;
+	height: 10px
+}
+
+.cTopPrecio,.cModPrecio {
+	float: left;
+	width: 74px;
+	text-align: center;
+	border-left: dashed 1px #FFF
+}
+
+.cTopCantidad,.cModCantidad {
+	float: left;
+	width: 85px;
+	text-align: center;
+	border-left: dashed 1px #FFF
+}
+
+.cTopSubTot,.cModSubTot {
+	float: left;
+	width: 113px;
+	text-align: center;
+	border-left: dashed 1px #FFF
+}
+
+.carritoMod {
+	float: left;
+	width: 815px;
+	padding-bottom: 10px;
+	background-image:
+		url(/imagenes/rediseno/imagenes/seccionTematika/listadoMod.gif);
+	background-position: 5px bottom;
+	background-repeat: repeat-x;
+	margin: 20px 0 0 45px;
+	display: inline;
+	font-size: 12px
+}
+
+.cModProd {
+	height: auto
+}
+
+.cModProdInf {
+	float: left;
+	width: 443px;
+	margin-left: 5px;
+	padding-right: 5px;
+	display: inline
+}
+
+.cModProdInf .dInfoAutor {
+	border-bottom: none
+}
+
+.cModProdInf .detalleAcciones {
+	position: relative;
+	width: 163px;
+	margin: -10px 0 0 -4px
+}
+
+.cModPrecio,.cModCantidad,.cModSubTot {
+	border-color: #EAEAEA;
+	height: 120px
+}
+
+.cModCantidad input {
+	position: relative;
+	margin-top: -3px;
+	width: 30px;
+	text-align: center;
+	border: solid 1px #CCC;
+	padding: 3px 0;
+	font-size: 12px
+}
+
+.cModCantidad a {
+	margin: 4px 0 0 5px
+}
+
+.cModSubTot {
+	font-size: 13px;
+	font-weight: bold
+}
+
+.carritoTotal {
+	width: 813px;
+	float: left;
+	border: 1px solid #F5CFAA;
+	margin: 20px 0 0 45px;
+	display: inline;
+	font-size: 12px
+}
+
+.carritoTotal h2 {
+	float: right;
+	width: 215px;
+	border-left: solid 1px #F5CFAA;
+	padding: 0px 0;
+	text-align: center;
+	font-size: 16px;
+	font-weight: bold;
+	background-color: #FEFFE2
+}
+
+.carritoTotal div {
+	float: left;
+	margin: 15px 0 0 10px;
+	line-height: 15px
+}
+
+.carritoAgregar {
+	float: right;
+	margin: 31px 15px 0 0
+}
+
+.b-next,.b-prev,.b-nextConf {
+	width: 159px;
+	height: 36px;
+	font-weight: bold;
+	display: inline
+}
+
+.b-next:visited,.b-prev:visited,.b-nextConf:visited {
+	color: #ED7C24
+}
+
+.b-next:hover,.b-prev:hover,.b-nextConf:hover {
+	color: #004B85
+}
+
+.b-next,.b-nextConf {
+	float: right;
+	background-image:
+		url(/imagenes/rediseno/imagenes/seccionTematika/b-next.png);
+	text-align: right;
+	padding: 22px 42px 0 0;
+	margin: 15px 50px 40px 0
+}
+
+.b-nextConf {
+	background-image:
+		url(/imagenes/rediseno/imagenes/seccionTematika/b-nextConf.png)
+}
+
+.b-prev {
+	float: left;
+	background-image:
+		url(/imagenes/rediseno/imagenes/seccionTematika/b-prev.png);
+	text-align: LEFT;
+	padding: 22px 0 0 42px;
+	margin: 15px 0 40px 50px
+}
+
+.compraProc-wrapper {
+	margin: 52px 0 0 12px
+}
+
+.compraProc {
+	position: relative;
+	float: left;
+	width: 883px;
+	height: 61px;
+	margin: -2px 2px 2px -2px;
+	border: 1px solid #F5CFAA;
+	background-color: #FFF;
+	background-image:
+		url(/imagenes/rediseno/imagenes/seccionTematika/compraProc-back.png)
+}
+
+.compraProcL-act,.compraProcL-ok,.compraProcR-des,.compraProcR-act {
+	float: left;
+	width: 165px;
+	height: 61px;
+	text-align: center;
+	padding-right: 12px
+}
+
+.compraProcL-act {
+	background-image:
+		url(/imagenes/rediseno/imagenes/seccionTematika/compraProcL-act.png)
+}
+
+.compraProcL-ok {
+	background-image:
+		url(/imagenes/rediseno/imagenes/seccionTematika/compraProcL-ok.png)
+}
+
+.compraProcR-des {
+	background-image:
+		url(/imagenes/rediseno/imagenes/seccionTematika/compraProcR1-des.png)
+}
+
+.compraProcR-act {
+	background-image:
+		url(/imagenes/rediseno/imagenes/seccionTematika/compraProcR-act.png)
+}
+
+.compraProc-act,.compraProc-des,.compraProc-ok {
+	float: left;
+	width: 176px;
+	height: 61px;
+	text-align: center
+}
+
+.compraProc-act {
+	background-image:
+		url(/imagenes/rediseno/imagenes/seccionTematika/compraProc-act.png)
+}
+
+.compraProc-des {
+	background-image:
+		url(/imagenes/rediseno/imagenes/seccionTematika/compraProc-des.png)
+}
+
+.compraProc-ok {
+	background-image:
+		url(/imagenes/rediseno/imagenes/seccionTematika/compraProc-ok.png)
+}
+
+.cProcTxt-act {
+	font-size: 18px;
+	color: #004B85;
+	font-weight: bold;
+	margin-top: 6px;
+	display: block
+}
+
+.cProcTxt-des {
+	font-size: 12px;
+	color: #CCC;
+	font-weight: bold;
+	margin-top: 15px;
+	display: block
+}
+
+a.cProcTxt-ok {
+	font-size: 13px;
+	color: #004B85;
+	padding: 3px;
+	border: solid 1px transparent;
+	font-weight: bold;
+	top: 10px;
+	position: relative
+}
+
+a.cProcTxt-ok:hover {
+	border: solid 1px #666;
+	border-left-color: #CCC;
+	border-bottom-color: #CCC;
+	background-color: #ED7C24;
+	color: #FFF
+}
+
+.compraWrapper {
+	float: left;
+	width: 791px;
+	border: solid 1px #F5CFAA;
+	margin: 20px 0 0 45px;
+	padding: 12px;
+	display: inline;
+	position: relative
+}
+
+.cProcTit {
+	margin: 20px 0 20px 0;
+	text-align: left;
+	float: left;
+	width: 100%
+}
+
+.cProcTit span,.vistaPrevTit1 span,.vistaPrevTit2 span,.vistaPrevTit3 span,.vistaPrevTit4 span
+	{
+	background-color: #FF0;
+	font-weight: bold;
+	font-size: 13px
+}
+
+.cProcTit div {
+	display: block;
+	margin: 10px 47px;
+	font-size: 12px
+}
+
+.cProcFor-wrapper {
+	float: left;
+	width: 691px;
+	border-bottom: dashed 1px #CCC;
+	padding-bottom: 10px;
+	margin: 0 0 5px 47px;
+	display: inline;
+	font-size: 12px;
+	position: relative
+}
+
+.cProcForButton {
+	position: absolute;
+	bottom: 20px;
+	right: 0
+}
+
+.cProcForms b {
+	float: left;
+	width: 190px;
+	margin-bottom: 20px
+}
+
+.cProcForms div {
+	float: left;
+	width: 500px;
+	margin-bottom: 20px
+}
+
+.cProcForms div input,.cProcForms div textarea,.cProcForms div select {
+	float: left;
+	border: solid 1px #CCC;
+	font-size: 12px;
+	padding: 3px;
+	margin: -4px 15px 0 0;
+	display: inline;
+	position: relative
+}
+
+.cProcForms div span {
+	float: left;
+	margin: 0 3px 0 0;
+	display: inline
+}
+
+.cProcForDom input {
+	margin: 0;
+	padding: 0;
+	float: left
+}
+
+.cProcForDom p {
+	float: left;
+	position: relative;
+	margin: -1px 0 0 10px
+}
+
+.cProcForDom .detalleBoton {
+	margin: -6px 0 0 6px
+}
+
+.cProcPago select {
+	float: left;
+	width: 250px
+}
+
+.cProcPago a {
+	float: left;
+	padding: 1px 5px;
+	font-size: 13px;
+	font-weight: bold;
+	border: solid 1px #ED7C24;
+	margin: 1px 0 0 10px
+}
+
+.cProcPago a:hover {
+	border-color: #004B85
+}
+
+.cProcForms .cProcForButton {
+	position: relative;
+	float: left;
+	left: -6px;
+	bottom: 3px
+}
+
+.cProcPapel-wrapper {
+	float: left;
+	width: 791px;
+	background-image:
+		url(/imagenes/rediseno/imagenes/seccionTematika/listadoMod.gif);
+	background-position: left bottom;
+	background-repeat: repeat-x;
+	padding-bottom: 25px;
+	margin-bottom: 20px
+}
+
+.cProcPapInfo {
+	float: left;
+	width: 295px
+}
+
+.cProcPapel-wrapper .dInfoAutor {
+	float: left;
+	border-bottom: none
+}
+
+.cProcPap {
+	float: right;
+	width: 475px;
+	border-left: dashed 1px #EAEAEA;
+	padding-left: 15px;
+	font-size: 12px
+}
+
+.cProcPap b {
+	display: block;
+	margin-bottom: 10px
+}
+
+.cProcPap textarea {
+	width: 460px;
+	height: 85px;
+	border: solid 1px #CCC
+}
+
+.cProcPapSel {
+	float: left;
+	width: 118px;
+	text-align: center;
+	margin: 5px 0 30px 0
+}
+
+.cProcPapSel input {
+	display: block;
+	margin: 5px auto
+}
+
+.vistaPrev {
+	padding-top: 0;
+	padding-bottom: 0
+}
+
+.vistaPrevTit1,.vistaPrevTit2,.vistaPrevTit3,.vistaPrevTit4 {
+	float: left;
+	height: 25px;
+	padding-top: 10px;
+	border-right: dashed 1px #EAEAEA;
+	position: relative
+}
+
+.vistaPrevTit1,.vPrevTD1,.vPrevSep1 {
+	width: 249px;
+	padding-left: 5px;
+	border-left: solid 1px #FFF
+}
+
+.vistaPrevTit2,.vPrevTD2,.vPrevSep2 {
+	width: 114px;
+	padding-left: 5px
+}
+
+.vistaPrevTit3,.vPrevTD3,.vPrevSep3 {
+	width: 79px;
+	padding-left: 5px
+}
+
+.vistaPrevTit4,.vPrevTD4,.vPrevSep4 {
+	width: 127px;
+	padding-left: 5px;
+	border-color: #FFF
+}
+
+.vistaPrev table {
+	float: left;
+	border: solid 1px #999;
+	width: 594px
+}
+
+.vistaPrev td {
+	vertical-align: top
+}
+
+.vPrevTD1,.vPrevTD2,.vPrevTD3,.vPrevTD4 {
+	border-right: dashed 1px #EAEAEA;
+	border-left: none
+}
+
+.vPrevTD4 {
+	border-right: none;
+	border-left: none
+}
+
+.vistaPrev table td a,.vistaPrev table td span,.vistaPrev table td p {
+	margin: 5px;
+	display: block;
+	font-size: 13px
+}
+
+.vistaPrev table td span {
+	line-height: 13px
+}
+
+.vistaPrev table td p {
+	color: #6C0
+}
+
+.vistaPrev table td a.dInfoTit {
+	font-size: 13px
+}
+
+.vPrevSep1,.vPrevSep2,.vPrevSep3,.vPrevSep4 {
+	font-size: 1px;
+	height: 10px;
+	border-right: dashed 1px #EAEAEA;
+	float: left
+}
+
+.vistaPrev .cProcForButton {
+	left: 5px;
+	bottom: 6px
+}
+
+.vPrevModif {
+	float: left;
+	width: 600px
+}
+
+.vPreviResumen {
+	float: right;
+	position: relative;
+	border: dashed 1px #CCC;
+	background-color: #F2F2F2;
+	padding: 15px;
+	width: 160px;
+	margin: 35px -13px 0 0;
+	font-size: 12px;
+	line-height: 18px
+}
+
+.vPreviResumen b {
+	width: 80px;
+	float: left
+}
+
+.vPreviResumen p {
+	color: #6C0;
+	margin: 0;
+	padding: 0
+}
+
+.vPreviResumen div {
+	font-size: 16px;
+	font-weight: bold
+}
+
+.vPrevButt {
+	position: relative;
+	float: right;
+	margin: 0;
+	bottom: 0
+}
+
+.vPrevMsj {
+	float: left;
+	width: 690px;
+	border-bottom: dashed 1px #CCC;
+	padding: 5px;
+	margin: 25px 0 0 101px;
+	font-size: 12px;
+	background-color: #FEFFE2
+}
+
+.cProcConf .cProcTit {
+	font-size: 17px;
+	font-weight: bold
+}
+
+.cProcForms h1 {
+	font-size: 15px;
+	font-weight: bold;
+	color: #6C0;
+	display: inline
+}
+
+.cProcForms h2 {
+	font-size: 12px;
+	font-weight: bold;
+	display: inline
+}
+
+.cProcConfFoot {
+	float: left;
+	width: 800px;
+	margin-left: 47px;
+	font-size: 12px
+}
+
+.compProcConfBot {
+	width: 890px;
+	height: 60px;
+	position: relative;
+	z-index: 50;
+	margin: 95px 0 0 10px
+}
+
+.desactivado {
+	display: none;
+}
+
+#modalBack,.modalBack {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	left: 00;
+	top: 0;
+	background-color: #777;
+	filter: alpha(opacity = 70);
+	opacity: 0.7;
+	z-index: 9998;
+}
+/*comun.css old*/
+﻿.Gtablaprincipal{background-color:#FFF; padding:20px; text-align:center;} .Gtablacontenido{margin-top:15px;} .Gbarraizquierda{border-right: solid 1px #CCC; vertical-align:top; width:145px} .Gbarraderecha{border-left: solid 1px #CCC; padding-left:15px; vertical-align:top; width:155px;} .Gcentro{vertical-align:top; text-align:center;} a.Flogin{font-size:1; color:#FFF; text-decoration:none;} .FTtit01{font-size:11px; text-align:left; font-weight:bold; color:#666; text-decoration:none;} .FTtit01ch{font-size:10px; text-align:left; font-weight:bold; color:#666; text-decoration:none;} .Ftexto02{font-size:11px; color:#333; text-decoration:none; text-align:left;} .Ftextorojo{font-size:11px; color:#FF0000; text-decoration:none; text-align:left;} #registroExtraFin { float:left; width:290px; margin-left:32px; margin-top:30px; padding:4px; font-weight:normal; text-align:center; border:dashed 1px #F9A13B; background-color:#F0F2F4; display:inline;} .tipoDoc{background-color:#FFF; border:solid 1px #666; padding:2px 0px 2px 3px; font-size:11px; text-align:left; color:#333; margin-left:3px; margin-top:5px; width:150px;} .nacionalidad{background-color:#FFF; border:solid 1px #666; padding:2px 0px 2px 3px; font-size:11px; text-align:left; color:#333; margin-left:3px; margin-top:5px;} .profesion{background-color:#FFF; border:solid 1px #666; padding:2px 0px 2px 3px; font-size:11px; text-align:left; color:#333; margin-left:3px; margin-top:5px;} .nroDoc{background-color:#FFF; border:solid 1px #666; padding:2px 0px 2px 3px; font-size:11px; text-align:left; color:#333; margin-left:3px; margin-top:5px;} .fecNac{background-color:#FFF; border:solid 1px #666; padding:2px 0px 2px 3px; font-size:11px; text-align:left; color:#333; margin-left:3px; margin-top:5px;} .formextra{font-family: Verdana, Arial, Sans-Serif; font-size: 10px; text-align:left} .linksextra{ font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 10px; font-weight: normal; color: #05204d; text-decoration: none} .Ftexto03{font-size:10px; color:#333; text-decoration:none;} .cuadroExitoExterno { border:solid 1px #eeeeee; float:left; margin-left:0px; background-color:#ebedf1;} .cuadroExito { float:left; border:solid 1px #c4c8ca; margin:5px; font-size:11px; padding:4px; color:#666666; background-color:#ffffff; text-align:center;}  .cuadroExitoTitulo { font-weight:bold; font-size:11px; margin-bottom:5px;} .cuadroLoad { float:left; border:dashed 1px #F0F2F4; font-weight:bold; font-size:11px; padding:4px; color:#ffffff; background-color:#559955; text-align:center;}  .cuadroError { border:dashed 1px #FF070F; margin-left:3px; margin-bottom:3px; font-size:11px; padding:4px; padding-left: 25px; color:#FF070F; background-color:#FFFFFF; background-image:url(/imagenes/error-icon.gif); background-repeat: no-repeat; background-position:left top; text-align:left;} .ayudatext{background-color:#FFF; border:solid 1px #666; padding:2px 0px 2px 3px; font-size:11px; text-align:left; color:#333; margin-left:8px; width:150px; margin-top:5px;}  .empleomenu2{background-color:#FFF; border:solid 1px #666; padding:2px 0px 2px 3px; font-size:11px; text-align:left; color:#333; margin-left:8px; margin-top:5px;} .formbavanzada{background-color:#FFF; border:solid 1px #666; padding:2px 0px 2px 3px; font-size:11px; text-align:left; color:#333;  margin-left:8px; margin-top:5px; width:156px;}  .tipoDoc{background-color:#FFF; border:solid 1px #666; padding:2px 0px 2px 3px; font-size:11px; text-align:left; color:#333; margin-left:3px; margin-top:5px; width:150px;} .nacionalidad{background-color:#FFF; border:solid 1px #666; padding:2px 0px 2px 3px; font-size:11px; text-align:left; color:#333; margin-left:3px; margin-top:5px;} .profesion{background-color:#FFF; border:solid 1px #666; padding:2px 0px 2px 3px; font-size:11px; text-align:left; color:#333; margin-left:3px; margin-top:5px;} .nroDoc{background-color:#FFF; border:solid 1px #666; padding:2px 0px 2px 3px; font-size:11px; text-align:left; color:#333; margin-left:3px; margin-top:5px;} .fecNac{background-color:#FFF; border:solid 1px #666; padding:2px 0px 2px 3px; font-size:11px; text-align:left; color:#333; margin-left:3px; margin-top:5px;}  .formextra{font-family: Verdana, Arial, Sans-Serif; font-size: 10px; text-align:left} .linksextra{ font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 10px; font-weight: normal; color: #05204d; text-decoration: none}  .FProductos{font-size:11px; color:#000; text-decoration:underline; text-transform:uppercase;} .Fautores{font-size:10px; text-align:center; color:#777; text-decoration:underline;} a.Fautores:hover{color:#000;}  .FProductosDetalle{font-size:13px; font-weight:bold; color:#333; text-decoration:none;} .FProductosDetalle2{font-size:11px; color:#666; text-decoration:none;} .FProductosDetalle2link{font-size:11px; color:#666; text-decoration:underline;} a.FProductosDetalle2link:hover{color:#000;} .Flink01{font-size:10px; color:#777; text-decoration:underline;} a.Flink01:hover{color:#000;} .Flink02{font-size:11px; color:#000; text-decoration:underline;} a.Flink02:hover{color:#777; text-decoration:none;} .areaAcciones{border-top: solid 1px #000; border-bottom: solid 1px #000; margin-top: 10px; margin-bottom:40px; text-align:right;}  .areaAccionesComp{float:left; width:370px; border-bottom:dashed 1px #CCC; padding:2px 5px 2px 0px;} .areaAccionesListaDes{float:left; width:370px; padding:9px 5px 9px 0px;}  .Gcomentariostabla{border-bottom:solid 2px #333; margin-bottom:15px;} .Gcomentarioscelda{padding-bottom:2px; padding-top:2px;} .GcomentariosceldaUsr{border-bottom:dashed 1px #CCC; padding-bottom:2px; padding-top:5px; font-size:11px; font-weight:bold;} .GcomentariosCalif1{float:right; margin:3px 0px 3px 0px;} .GcomentariosCalif2{float:left; margin-top:5px; font-size:11px; color:#666;} .Gmodulovermascategorias{text-align:left; padding:7px 0px 7px 0px; border-top: solid 1px #CCC; border-bottom: solid 1px #CCC;}  .tituloCompartir{font-size:11px; text-align:left; font-weight:bold; color:#000; text-decoration:none;}  .Ftextopie { font-size:10px; color:#777; text-decoration:none;} .Ftextopie2 { font-size:11px; color:#777; text-decoration:none;}  .fontautoresDetalle{font-size:10px; text-align:left; color:#777; text-decoration:underline;} a.fontautoresDetalle:hover{color:#000;}  .FAyuda{font-size:11px; text-align:left; color:#666; text-decoration:underline;} a.FAyuda:hover{color:#000;} .Ftexto06{font-size:11px; color:#000; text-decoration:none; text-align:left;}  .rssLeyenda { color:#0055AA; font-style:italic; font-size:11px; text-align:left; font-family:verdana; text-decoration:none;}  .rssTexto { color:#0055AA; font-size:12px; text-align:left; text-decoration:underline;}  .rssTitulo { color:#0055AA; font-size:12px; text-align:left; font-weight: bold; text-decoration:underline;} .FTtit01{font-size:11px; text-align:left; font-weight:bold; color:#666; text-decoration:none;} .FTtit01ch{font-size:10px; text-align:left; font-weight:bold; color:#666; text-decoration:none;} .Fautores{font-size:10px; text-align:center; color:#777; text-decoration:underline;} a.Fautores:hover{color:#000;}  .Fautores0{font-size:10px; text-align:left; color:#777; text-decoration:underline; text-transform:uppercase;} a.Fautores0:hover{color:#000;} .FCategorias{font-size:11px; text-align:left; color:#666; text-decoration:underline; line-height: 16px;} a.FCategorias:hover{color:#000;} .Gultimosvitadosprod{border-bottom:solid 1px #CCC; margin-top:10px;} .Gultimosvitadosprodprecio{padding-bottom:7px; padding-top:7px;}  .GultvisitadosB{background-color:#F4F5F6; padding:10px; height:85px;}/*11/12*/  .Glosqcomprarontabla{margin-top:15px;} .Glosqcompraronceldaop{text-align:left; border-bottom: solid 1px #000;} .Glosqcomprarontablaprod{margin-top:10px; padding-bottom:7px; border-bottom: solid 1px #D8D8D8; text-align:left;} .moduloorden{border-top:solid 1px #666; border-bottom:solid 1px #666; padding:10px 7px 12px 7px ; background-color:#EFF0F2; text-align:left;} .moduloordencelda{padding-top:7px;} .Ftexto06SinAlign{font-size:11px; color:#000; text-decoration:none;}   .tablaaccesos{border-top: solid 2px #CCC; border-bottom: solid 2px #CCC; margin: 15px 0px 15px 0px; padding: 10px 0px 10px 0px} .accesos02{padding-top: 5px;} .accesostop{padding-top: 10px;} .accesosbottom{padding-top: 5px; padding-bottom:10px;}  #detalleCompartir { position:absolute; width:280px; padding:10px; padding-left:20px; margin-left:35px; display:inline; background-color:#F4F5F6; border:solid 1px #666; margin-top:-67px; margin-bottom:20px;} #cruzCompartir { position:absolute; margin-left:325px; margin-top:-56px; z-index:5; padding:1px; border:solid 1px #666;}  .tituloCompartir{font-size:11px; text-align:left; font-weight:bold; color:#000; text-decoration:none;} .FSubCategorias2{font-size:11px; text-align:left; color:#333; text-decoration:underline;} a.FSubCategorias2:hover{color:#000; text-decoration:none;} .FSubCategorias3{font-size:11px; text-align:left; color:#000; text-decoration:underline; line-height: 11px;} a.FSubCategorias3:hover{color:#000;} .FSubCategoriasActiva{font-size:11px; text-align:left; color:#333; font-weight:bold;} .Fprecio{font-size:10px; text-align:left; color:#777; text-decoration:none;} .FprecioRojo{font-size:10px; text-align:left; color:#FF0000; text-decoration:none;}
+/*mesaSeccion.css*/
+﻿//.disabledEfect {position:absolute;width:645px;height:337px;margin:20px 0 0 6px;position:expression('absolute');z-index:1;background-image:url(/imagenes/rediseno/imagenes/divMesaSecciones-back.jpg);background-position:center;background-repeat:no-repeat;}
+.disabledEfect {position:absolute;width:645px;height:337px;margin:20px 0 0 6px;position:expression('absolute');z-index:1;background: gray;background-position:center;background-repeat:no-repeat;}
+.disabledEfectCtrl { margin:10px 0 0 6px;position:absolute;background-color:#AAA;filter:alpha(opacity=70);opacity: 0.7;position:expression('absolute');z-index:1000;width:646px;height:355px;}
+.disabledEfectCtrl object{width:95px;height:100px;display:block;position:relative;margin:118px 0 0 275px;}  .globoArticulo {position:absolute;position:expression('absolute');z-index:9999;width:387px;margin-top:-65px;margin-left:-30px;}   .globoArticuloTop {float:left;width:342px;background-image:url(/imagenes/rediseno/imagenes/globoArticuloTop-back.png);padding:15px 15px 0px 30px;}  .globoArticuloRightTop {float:left;width:342px;background-image:url(/imagenes/rediseno/imagenes/globoArticuloRightTop-back.png);padding:15px 30px 0px 15px;}  .globoArticuloTapa {float:left;width:105px;border:solid 1px #666;}  .globoArticuloInfo {float:left;width:227px;margin-left:8px;}  .globoArticuloInfo #artTitulo {display:block;font-size:17px;font-weight:bold;line-height:16px;margin-bottom:5px;}  .globoArticuloInfo #trAutor {display:block;border-bottom:dotted 1px #666;padding-bottom:4px;font-size:13px;margin-bottom:10px;}  .globoArticuloInfo #trAutor a{font-size:13px;}  .globoArticuloInfo .calificacionMod {padding-top:0px;margin:-5px 0px 10px 0px;float:left;width:220px;}  .globoArticuloInfo .calificacionMod span {margin-top:2px;}  .globoArticuloInfo #tiempoEntrega{font-size:9px;padding-left:10px;background-color:#f5f5f5;position:absolute;position:expression('absolute');width:220px;z-index:10000;border:solid 1px #ccc;}  .globoArticuloInfo div {display:block;font-size:11px;margin-bottom:4px;line-height:11px;}  .globoArticuloInfo a {font-size:11px;}   a.globoArticuloMasInfo {/*display:block;border-top:dotted 1px #666;border-bottom:dotted 1px #666;*/ padding:3px 0px;font-size:14px;margin:10px 0px 5px 0px;}  div.globoArticuloMasInfo {display:block;border-top:dotted 1px #666;border-bottom:dotted 1px #666;padding:6px 0px;font-size:14px;margin:10px 0px 5px 0px;}  .globoArticuloBottom {float:left;width:244px;background-image:url(/imagenes/rediseno/imagenes/globoArticuloBottom-back.png);height:90px;background-repeat:no-repeat;padding-left:143px;}  .globoArticuloRightBottom {float:left;width:244px;background-image:url(/imagenes/rediseno/imagenes/globoArticuloRightBottom-back.png);height:90px;background-repeat:no-repeat;padding-left:130px;}  .globoArticuloPrecio {display:block;font-weight:bold;font-size:15px;}  .globoArticuloComprar, .globoArticuloPedir {width:177px;height:46px;display:block;cursor:pointer;position:relative;left:-8px;}   .globoArticuloLoad {overflow:hidden;position:fixed;background-color:#AAA;position:expression('absolute');z-index:1;}
+//.divMesa{position:relative;width:645px;height:308px;padding:1px 0;overflow:hidden;background-image:url(/imagenes/rediseno/imagenes/divMesaSecciones-back.jpg);background-repeat:no-repeat;margin:0 0 0 7px;}
+.divMesa{position:relative;width:645px;height:308px;padding:1px 0;overflow:hidden;background: gray;background-repeat:no-repeat;margin:0 0 0 7px;}
+.divMesa table {}  .imgTapa {border:0px;}
+.divMesa .arbolShadow {float:left;margin:5px 0px 3px 0px;display:inline;background-image:url(/imagenes/rediseno/imagenes/comun/arbolShadow-back.png);background-color:transparent;}  .arbolShadow img {border:none;display:block;margin:-3px 3px 3px -3px;width:98px;height:auto;cursor:pointer;position:relative;}
+.divMesaCont {float:left;margin-left:7px;display:inline;}
+.mesaSiguiente, .mesaAnterior, .mesaSiguienteDeshabilitada, .mesaAnteriorDeshabilitada {width:645px;height:22px;border:none;margin-left:7px;}  .mesaSiguiente {margin-top:1px;cursor:pointer;}  .mesaSiguiente:hover {background-image:url(/imagenes/rediseno/imagenes/comun/mesaSiguiente-hover.gif);}  .mesaAnterior {margin-bottom:1px;margin-top:10px;cursor:pointer;}  .mesaAnterior:hover {background-image:url(/imagenes/rediseno/imagenes/comun/mesaAnterior-hover.gif);}  .mesaSiguienteDeshabilitada {background-image:url(/imagenes/rediseno/imagenes/comun/mesaSiguienteGris.gif);margin-top:1px;cursor:default;}  .mesaAnteriorDeshabilitada {background-image:url(/imagenes/rediseno/imagenes/comun/mesaAnteriorGris.gif);margin-bottom:1px;margin-top:10px;cursor:default;}
+/*seccion_libros.css old*/
+﻿.modulosmedio{border-bottom:solid 3px #000; margin-top:15px;} .Gultimosvitadosprod{border-bottom:solid 1px #CCC; margin-top:10px;} .Gultimosvitadosprodprecio{padding-bottom:7px; padding-top:7px;} .Fprecio{font-size:10px; text-align:left; color:#777; text-decoration:none;} .FProductos{font-size:11px; color:#000; text-decoration:underline; text-transform:uppercase;} a.FProductos:hover{color:#333;} .divComprar{margin-top:5px; margin-bottom:8px;} .divInfo{border-right: solid 1px #4A634E; padding-right:4px; height:10px; text-align:left;} .divComprarPedir{padding-left:4px; height:10px; text-align:left;} .titulosceldas{background-color:#FFF; padding-bottom:2px; text-align:left; border-bottom: solid 1px #666;} .titulosceldastabla{margin-top:20px; margin-bottom:5px;} .titulosceldas2{text-align:left; border-bottom: solid 1px #666;}   .Fautores0{font-size:10px; text-align:left; color:#777; text-decoration:underline; text-transform:uppercase;} a.Fautores0:hover{color:#000;} .FCategorias{font-size:11px; text-align:left; color:#666; text-decoration:underline; line-height: 16px;} a.FCategorias:hover{color:#000;}  .imagenPrincipal{border:solid 1px #CCC; margin-right:10px; text-align:left;} .bAmpliarImagen{margin-top: 10px;} .celdaDetalle{padding-top:5px; vertical-align:top;} .celdaDetalle2{padding-top:10px; vertical-align:bottom;} .areaCompra{background-color:#EFF0F2; border-top: solid 3px #000; border-bottom: solid 3px #000; padding:7px 5px 7px 5px; margin-top: 10px; margin-bottom:10px;} .areaExtra{border: solid 1px #999; background-color:#EFF0F2; padding:7px; height:231px; margin-bottom:15px;} .areaExtra2{padding: 8px 0px 8px 0px; border-bottom:solid 1px #999; text-align:left;} .areaExtra3{padding-top: 8px; text-align:left;}   .FCategorias{font-size:11px; text-align:left; color:#666; text-decoration:underline; line-height: 16px;} a.FCategorias:hover{color:#000;} .areaExtra{border: solid 1px #999; background-color:#EFF0F2; padding:7px; margin-bottom:15px;} .areaExtra2{padding: 8px 0px 8px 0px; border-bottom:solid 1px #999; text-align:left;} .areaExtra3{padding-top: 8px; text-align:left;} .imagenPrincipal{border:solid 1px #CCC; margin-right:10px; text-align:left;} .bAmpliarImagen{margin-top: 10px;} .celdaDetalle{padding-top:5px; vertical-align:top;} .celdaDetalle2{padding-top:10px; vertical-align:bottom;} .areaCompra{background-color:#EFF0F2; border-top: solid 3px #000; border-bottom: solid 3px #000; padding:7px 5px 7px 5px; margin-top: 10px; margin-bottom:10px;}  .modulosmedioDetalle{border-bottom:solid 3px #000; margin-bottom:15px;} .modulosmedioDetalle2{margin-bottom:10px; margin-top:10px;} .modulosmedioDetalle3{margin-bottom:7px; margin-top:5px;} .modulosmediolista{border-right:solid 1px #CCC; text-align:left; padding-top:2px;} .modulosmediolista2{text-align:left; padding-left:10px; padding-top:2px;} .titulosceldasDetalle{background-color:#FFF; padding:7px 0px 7px 0px; text-align:left; border-bottom:solid 1px #000; border-top:solid 1px #666;} .modulovermascategorias{text-align:left; padding:7px 0px 7px 0px; border-top: solid 3px #CCC; border-bottom: solid 3px #CCC;} .tituloceldasComentario{background-color:#FFF; padding:7px 0px 7px 0px; text-align:left; border-bottom:solid 1px #000; border-top:solid 1px #666;}  .moduloacerca{border: solid 3px #C27E2A; padding:10px;} .moduloacerca2{padding-top:13px;} .moduloacerca2Des{border-left: solid 2px #CCC; border-bottom:solid 1px #CCC; padding:5px;} .modulosinopsis {padding: 7px 0px 7px 0px; text-align:left;}  .resultadonum{text-align:center; border-top: solid 3px #CCC; border-bottom: solid 3px #CCC; margin: 0px 0px 15px 0px; padding: 5px 0px 5px 0px} .modulobuscador{border-bottom:solid 3px #CCC;} .moduleproductob{margin-bottom:10px; border-bottom:solid 1px #666; padding-bottom: 10px;} .celdafoto{border-right:solid 1px #CCC; vertical-align:top; text-align:center;} .celdacontenido{padding-left: 10px; text-align:left;} .celdapreciocomprar{padding-left: 10px; text-align:left; height:35px; vertical-align:bottom;} .celdapaginas{padding-top:8px; padding-bottom: 18px; text-align:center;} .moduloorden{border-top:solid 1px #666; border-bottom:solid 1px #666; padding:10px 7px 12px 7px ; background-color:#EFF0F2; text-align:left;} .moduloordencelda{padding-top:7px;}  .tablabavanzada{background-color:#F7F8F9; border:solid 1px #CCC; padding:10px; margin-top:5px; margin-bottom:20px;} .tablaaccesoavanzadas{border-top: solid 1px #000; border-bottom: solid 1px #000; margin: 0px 0px 15px 0px; padding: 10px 0px 10px 0px}  .rAtrPri{ color:#000088; text-decoration:underline;} .rTxt {color:#000088;}  .moduloacerca{border: solid 3px #C27E2A; padding:10px;} .moduloacerca2{padding-top:13px;} .modulosinopsis {padding: 7px 0px 7px 0px; text-align:left;} .fontautoresDetalle{font-size:10px; color:#000; text-decoration:underline; letter-spacing:2px; line-height:11px;} a.fontautoresDetalle:hover{color:#AD6816;}  .modulorecomendadosd{border-bottom:solid 3px #000; margin-top:15px; padding-bottom:7px;} .toptabla{border-bottom: solid 1px #CCC; margin: 6px 0px 0px 0px;} .topnumeros{padding-right:5px; vertical-align:top; text-align:left;} .topcompracelda{padding:5px 0px 5px 0px; vertical-align:top; text-align:left; font-size:1px} .topvermas{padding:10px 0px 10px 0px; border-bottom: solid 3px #000;}   .rankingTitulo1{width:390px; border-top:solid 1px #999; border-bottom:solid 1px #999; padding:2px 0px 2px 0px; margin-bottom:20px; float:left;} .rankingTitulo2{width:390px; border-top:solid 1px #999; padding:6px 0px 6px 0px; float:left; border-bottom:solid 1px #999; text-align:left;} .rankingFicha{width:390px; margin-bottom:15px; float:left;} .rankingFichaTit{width:390px; float:left; background-color:#F4F5F7;} .rankingFichaNum{float:left; border: solid 1px #C17C2A; width:35px; height:22px; text-align:center; padding-top:8px;} .rankingFichaTitInt {float:left; margin-top:3px; margin-left:7px; text-align:left;} .rankingFichaContent{float:left; margin-left:44px; width:346px; border-bottom:solid 1px #CCC; padding-bottom:9px; margin-top:7px; float:expression('none');} .rankingFichaTapa{float:left; border-right:solid 1px #CCC; width:65px; text-align:center; margin-right:7px;} .rankingFichaTexto{float:right; text-align:left; width:270px;} .rankingPrecioMod{float:right; width:270px; margin-top:15px; text-align:left;} #rankingPrecio{float:left; text-align:left;} #rankingInfoComprar{float:right;}
+/*seccion_libros.css*/
+﻿a {color:#70965B; text-decoration:none; font-size:12px;}a:hover {color:#F8A03A;}a:visited {color:#F8A03A;} .hBuscador {background-image:url(/imagenes/rediseno/imagenes/seccionLibros/hBuscador-back.png);}.hBuscMenu {background-image:url(/imagenes/rediseno/imagenes/seccionLibros/hBuscMenu-back.png);}a.hBuscMenuDesplItem:hover {background-color:#F8A03A; color:#FFF;}.hServClientes {background-image:url(/imagenes/rediseno/imagenes/seccionLibros/hServClientes-back.png);} .hModUsuarioBack {background-image:url(/imagenes/rediseno/imagenes/seccionLibros/hModUsuario-back.png);}.panelMensajes a:visited {color:#70965B;	}.panelMensajes a:hover {color:#F8A03A;	}.panelMsjCerrar {background-image:url(/imagenes/rediseno/imagenes/seccionLibros/b-panelMsjCerrar.gif);}.panelMsjCerrar:hover {background-image:url(/imagenes/rediseno/imagenes/seccionLibros/b-panelMsjCerrar-hover.gif);}.panelMsjAbrir {background-image:url(/imagenes/rediseno/imagenes/seccionLibros/b-panelMsjAbrir.gif);}.panelMsjAbrir:hover {background-image:url(/imagenes/rediseno/imagenes/seccionLibros/b-panelMsjAbrir-hover.gif);} #panelSeccSucursales, #panelSeccQuid, #panelSeccExtra {width:15px; background-image:url(/imagenes/rediseno/imagenes/comun/panelSecc-back.jpg); background-position:bottom;}#panelSeccSucursales {background-image:url(/imagenes/rediseno/imagenes/seccionLibros/panelSeccSucursales-back.gif);}#panelSeccQuid {background-image:url(/imagenes/rediseno/imagenes/seccionLibros/panelSeccQuid-back.gif);}#panelSeccExtra {background-image:url(/imagenes/rediseno/imagenes/seccionLibros/panelSeccExtra-back.gif);} #panelSeccSucursales span, #panelSeccQuid span, #panelSeccExtra span {width:15px; height:90px; cursor:pointer; float:left;}#panelSeccSucursales span {background-image:url(/imagenes/rediseno/imagenes/seccionLibros/panelSeccSucTop-back.gif);}#panelSeccQuid span {background-image:url(/imagenes/rediseno/imagenes/seccionLibros/panelSeccQuidTop-back.gif);}#panelSeccExtra span {background-image:url(/imagenes/rediseno/imagenes/seccionLibros/panelSeccExtraTop-back.gif);} #seccionTematika {width:861px; background-image:url(/imagenes/rediseno/imagenes/seccionLibros/tmtkMesaNovedades-back.jpg); background-repeat:no-repeat;} .tmtkMesaSeccionesTit {display:none;}.tmtkMesaNovedades {float:right; width:660px;}.tmtkMesaMenuMod {margin:15px 0px 0px 155px;}.tmtkMesa-back {float:left; width:660px; background-image:url(/imagenes/rediseno/imagenes/seccionLibros/solapas-back.png); margin-top:32px;}.tmtkMesa-back img {}.tmtkMesa {float:left; width:660px; margin-top:-5px;}.mesaSiguiente {background-image:url(/imagenes/rediseno/imagenes/seccionLibros/mesaSiguiente.gif);}.mesaAnterior {background-image:url(/imagenes/rediseno/imagenes/seccionLibros/mesaAnterior.gif);} .solapas {float:right; width:651px; background-image:url(/imagenes/rediseno/imagenes/seccionLibros/solapas-back.png);}.solapaModTit {background-color:#E1EADD;}.arbol {margin:75px 0px 0px 13px;}#arbolLibros {border:solid 1px #ADC4A1; width:190px; background-image:url(/imagenes/rediseno/imagenes/seccionLibros/arbolMod-back.gif); background-position:bottom; background-repeat:repeat-x;}.arbolItemMas {background-image:url(/imagenes/rediseno/imagenes/seccionLibros/arbolItemMas-b.gif);}.arbolItemMin {background-image:url(/imagenes/rediseno/imagenes/seccionLibros/arbolItemMin-b.gif);}.arbolItemF {background-image:url(/imagenes/rediseno/imagenes/seccionLibros/arbolItemF.gif);}.arbolItemLink {width:160px;}.arbolItemA {border-bottom:solid 1px #ADC4A1; width:174px;}.arbolItemB {width:160px; border-bottom:dotted 1px #ADC4A1;}.arbolItemA .arbolItemLink {width:159px;}.arbolItemB .arbolItemLink {width:140px;}.arbolItemMax {display:none;}.hlistas:hover {background-color:#F0F4ED;}.hUsuarios:hover {background-color:#F0F4ED;}.hUsrUltAcc {width:642px;}.hTags {width:640px;}.hTags a:hover {color:#70965B;} .tapaInfo {background-image:url(/imagenes/rediseno/imagenes/seccionLibros/tapaInfo-back.png);} .footer a:hover {color:#ED7C24;}.footerText2 a:hover span {color:#ED7C24;} ul.dropdown ul a:hover {background-color:#70965B; color:#FFF;}ul.dropdown *.dir {background-image:url(/imagenes/rediseno/imagenes/seccionLibros/hBuscMenu-back.png);}.tmtkMesaMenuMod ul.dropdown *.dir, .busqFiltMenu ul.dropdown *.dir {background-image:url(/imagenes/rediseno/imagenes/seccionLibros/solapasMenu-back.png);}.dropdown span:hover {color:#70965B;}ul.dropdown *.diri {background-image:url(/imagenes/rediseno/imagenes/seccionLibros/solapasMenu-back.png);	} .tmtkMesaMenuMod ul.dropdown *.diri {background-image:url(/imagenes/rediseno/imagenes/seccionLibros/solapasMenu-back.png);} .dSolapas .solapasTitComent{margin-left:31px;}.dSolapas .solapasTitListas{margin-left:66px;}.dSolapas .solapasTitTags{margin-left:49px;}.solapasTitDatosPrinc {width:175px; background-image:url(/imagenes/rediseno/imagenes/comun/t-datosPrinc.gif); margin:10px 5px 0px 70px;}  .dCompra {border:solid 1px #ADC4A1; background-image:url(/imagenes/rediseno/imagenes/seccionLibros/arbolMod-back.gif);}.dCompra ul, .dComprarEnvio {border-top:dotted 1px #ADC4A1; border-bottom:dotted 1px #ADC4A1;}.dComprarSeparador {border-top:dotted 1px #ADC4A1;}.dComprarButton {background-image:url(/imagenes/rediseno/imagenes/seccionLibros/b-comprarD.png);}.detalleBotonMenu {background-image:url(/imagenes/rediseno/imagenes/seccionLibros/detalleBotonMenu-back.png);}.detalleBotonMenu span, .detalleBoton span {color:#70965B;}.detalleBotonMenu:hover > span, .detalleBoton:hover > span {color:#F8A03A;}.detalleListaMenu {background-image:url(/imagenes/rediseno/imagenes/seccionLibros/listadoModAcciones-back.gif);}p.dListaMenuCheck {background-color:#FCEDD7; color:#F7C887;}  .dInfoAutor, .dInfoLinks {border-bottom:dotted 1px #ADC4A1;}.dInfoCalif {border-bottom:dotted 1px #ADC4A1; border-top:dotted 1px #ADC4A1;}.dInfoCalifStarMod {border-right:solid 1px #ADC4A1;}.detalleImagenAnt {background-image:url(/imagenes/rediseno/imagenes/seccionLibros/detalleImagenAnt-back.gif);}.detalleImagenSig {background-image:url(/imagenes/rediseno/imagenes/seccionLibros/detalleImagenSig-back.gif);}.dSolapas .hTags {width:577px; margin:9px 0 0 13px; display:inline;}.dComentarios {border-bottom:dotted 1px #ADC4A1;}.dComentsCalifP {background-image:url(/imagenes/rediseno/imagenes/seccionLibros/dComentsCalifP-back.gif);}.dComentsCalifN {background-image:url(/imagenes/rediseno/imagenes/seccionLibros/dComentsCalifN-back.gif);}   .dFavButton {background-image:url(/imagenes/rediseno/imagenes/seccionLibros/b-favoritoD.png);}.solapasTitObjetos {width:55px; background-image:url(/imagenes/rediseno/imagenes/comun/t-obras.gif); margin:10px 0 0 130px;}   .listadoMod {background-image:url(/imagenes/rediseno/imagenes/seccionLibros/listadoMod.gif);}.listadoMod .dInfoLinks {border-bottom:none; border-top:dotted 1px #ADC4A1;}.listadoModAcciones div {background-image:url(/imagenes/rediseno/imagenes/seccionLibros/listadoModAcciones-back.gif); border:solid 1px #ADC4A1;}.listadoModAcciones div a {width:100%; height:46px; display:block; background-position:center; margin:5px 0; background-image:url(/imagenes/rediseno/imagenes/seccionLibros/b-comprar.png);}  .globoArticuloComprar {background-image:url(/imagenes/rediseno/imagenes/seccionLibros/b-comprar.png);}.globoArticuloPedir {background-image:url(/imagenes/rediseno/imagenes/seccionLibros/b-pedir.png);}      .panelMensajes a:visited {color:#70965B;}.pnlMsgCmd:hover{color:#F8A03A;}.panelMsjCerrar {background-image:url(/imagenes/rediseno/imagenes/seccionLibros/b-panelMsjCerrar.gif);}.panelMsjCerrar:hover {background-image:url(/imagenes/rediseno/imagenes/seccionLibros/b-panelMsjCerrar-hover.gif);}.panelMsjAbrir {background-image:url(/imagenes/rediseno/imagenes/seccionLibros/b-panelMsjAbrir.gif);}.panelMsjAbrir:hover {background-image:url(/imagenes/rediseno/imagenes/seccionLibros/b-panelMsjAbrir-hover.gif);} .tituloBus {color:#70965B;text-decoration:none;font-size:12px;font-weight:800;} .tituloBus:visited{color:#70965B;}   .busqTit span {color:#70965B;}.busqFiltMod {border-color:#ADC4A1;}a.busqFiltApl {background-image:url(/imagenes/rediseno/imagenes/seccionLibros/busqFiltApl.gif);}.busqContenido {width:640px;}.busqOrden {border:solid 1px #ADC4A1; width:635px; background-image:url(/imagenes/rediseno/imagenes/seccionLibros/listadoModAcciones-back.gif);	}.busqContenido .listadoMod {width:604px;}.busqContenido .listadoModInfo {width:335px;}
+.dSolapas1{margin-left: 49px;}.dSolapas1{width: 577px;margin: 9px 0 0 13px;display: block; float:left;}
+/*style.css*/
+﻿#sc_drag_area_protector div{
+  border-radius: 0px 0px;
+  margin:0;
+  /*max-width:100%;*/
+  min-width: 1px;
+
+}
+
+#sc_drag_area {
+  height:100px;
+  left:150px;
+  position: absolute;
+  top:100px;
+  width:250px;
+  z-index: 9999;
+}
+#sc_drag_container {
+  border: 1px solid #0000FF;
+  cursor: move ;
+  height: 100% ;
+  margin: 0;
+  overflow: hidden;
+  padding: 0;
+  position: relative ;
+  width: 100%;
+  z-index:9997;
+}
+#sc_drag_area_protector {
+  border-radius: 0px 0px;
+  display: block;
+  height:100%;
+  left:0;
+  top:0;
+  position: absolute;
+  width:100%;
+  z-index:8500;
+  margin: 0;
+
+  min-width: 1px;
+  overflow: hidden;
+}
+#sc_drag_size {
+  background-color: rgba(44, 44, 44, 0.5);
+  color:#ffffff;
+  font-family: arial,san-serif;
+  font-weight:bold;
+  font-size:12px;
+  height:18px;
+  min-width:65px !important;
+  left:12px;
+  line-height:18px;
+  position:absolute;
+  padding-left:4px;
+  padding-right:4px;
+  text-align:center;
+  top: -18px;
+  z-index:9998;
+}
+#sc_drag_cancel, #sc_drag_crop {
+  background-color: rgba(0, 0, 0, 0.5);
+  cursor:pointer;
+  color:#ffffff;
+  font-size:12px;
+  font-family: arial,san-serif;
+  font-weight:bold;
+  height:22px;
+  line-height:22px;
+  position:absolute ;
+  z-index:9998
+}
+#sc_drag_crop {
+  bottom:-25px;
+  text-align: center;
+  right:10px;
+  min-width: 30px !important;
+  padding: 0 10px;
+}
+#sc_drag_cancel {
+  bottom:-25px;
+  text-align: center;
+  right:70px;
+  min-width: 30px !important;
+  padding: 0 10px;
+}
+#sc_drag_shadow_top, #sc_drag_shadow_bottom, #sc_drag_shadow_left, #sc_drag_shadow_right {
+  background-color: #000000;
+  opacity: 0.5;
+  position: absolute;
+  z-index:7000;
+  border: 0;
+}
+#sc_drag_shadow_top {
+  left: 0;
+  top: 0;
+}
+#sc_drag_shadow_bottom {
+  bottom: 0;
+  right: 0;
+}
+#sc_drag_shadow_left {
+  bottom: 0;
+  left: 0;
+}
+#sc_drag_shadow_right {
+  right: 0;
+  top: 0;
+}
+#sc_drag_north_east, #sc_drag_north_west, #sc_drag_south_east, #sc_drag_south_west  {
+  border:1px solid #FFFFFF;
+  background-color: #0000FF;
+  height: 5px;
+  position: absolute;
+  width: 5px;
+  z-index:9998;
+}
+#sc_drag_north_east {
+  cursor: ne-resize ;
+  right: -4px ;
+  top: -3px;
+}
+#sc_drag_north_west {
+  cursor: nw-resize ;
+  left: -3px ;
+  top: -3px;
+}
+#sc_drag_south_east {
+  bottom: -4px;
+  cursor: se-resize ;
+  right: -4px ;
+}
+#sc_drag_south_west {
+  bottom: -4px;
+  cursor: sw-resize ;
+  left: -3px ;
+}
+
+.sc_tip_save_status {
+  position :fixed;
+  border-radius: 4px 4px;
+  height: 30px;
+  line-height: 30px;
+  text-indent: 1em;
+  width: 200px;
+  background: #fff1a8;
+  color: #000000;
+  top:5px;
+  left:45%;
+  font-size: 12px;
+}
+
+.sc_tip_save_status a{
+  text-decoration: underline;
+  color: #2A5DB0;
+}

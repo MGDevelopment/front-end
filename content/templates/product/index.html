@@ -1,0 +1,54 @@
+{% extends "page.html" %}
+
+{% block head_extra %}
+    <style type="text/css">
+        {% include "product/styles.css" %}
+        {% include "fragments/cart.css" %}
+        {% include "fragments/common.css" %}
+        {% include "fragments/last_visited.css" %}
+    </style>
+{% endblock %}
+
+{% block search_box_items %} {#- Extends the search list -#}
+    <li><a id="optBus1" href="javascript:mostrarBuscarPor('optBus1','optBusqueda','listaBuscador','0','0','En Tematika.com');">Todo el sitio</a></li>
+    <li><a id="optBus2" href="javascript:mostrarBuscarPor('optBus2','optBusqueda','listaBuscador', '0', '1','En Libros');">En Libros</a></li>
+    <li><a id="optBus2" href="javascript:mostrarBuscarPor('optBus2','optBusqueda','listaBuscador', '0', '4','En Musica');">En Musica</a></li>
+    <li><a id="optBus2" href="javascript:mostrarBuscarPor('optBus2','optBusqueda','listaBuscador', '0', '5','En Peliculas');">En Peliculas</a></li>
+    <li><a id="optBus2" href="javascript:mostrarBuscarPor('optBus2','optBusqueda','listaBuscador', '0', '3','En Pasatiempos');">En Pasatiempos</a></li>
+{%- endblock -%}
+
+{% block canvas_content -%}
+    <div id="seccionTematika">
+         {% include "product/product.html" %}
+    </div>
+{%- endblock %}
+
+{% block scripts_extra -%}
+	<!-- JFather -->
+	<script type="text/javascript" src="{{ url.data }}js/jfather.js"></script>
+
+	<script type="text/javascript">
+	    {% include "fragments/comments.js" %}
+	    {% include "fragments/messages.js" %}
+	    {% include "fragments/relatedProduct.js" %}
+	    {% include "fragments/dropDownMenu.js" %}
+	    {% include "fragments/last_visited.js" %}
+	</script>
+
+	<!-- Data Scripts -->
+	<script type="text/javascript" src="{{ url.data }}product-comments.js"></script>
+	<script type="text/javascript" src="{{ url.data }}product-related.js"></script>
+
+	<script type="text/javascript">
+
+		jQuery(document).ready(function() {
+
+		});
+
+		/* parse messages */
+		{% include "fragments/messages_parse.js" %}
+		/* Update data */
+	    fillComments(null);
+
+	</script>
+{%- endblock %}

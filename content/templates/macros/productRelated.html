@@ -10,7 +10,7 @@
 		    </div>
 		    </div>
 		    <a href="{{ article.LinkBase }}" class="fTitulos">{{ article.Title }}</a>
-		    <span>Precio:$ {{ article.PriceAmount }}</span>
+		    <span>Precio:{{ article.CurrencyCode_desc }}{{ article.PriceAmount }}</span>
 		    <div class="calificacionMod">
 		      <span>Calificaci&oacute;n:</span>
 		      {%- for number in range(0, 4) -%}
