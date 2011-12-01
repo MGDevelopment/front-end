@@ -46,32 +46,7 @@
         <div id="top">
             <div class="header">
                 <a href="/" class="hLogo" title="Tematika.com"></a>
-                <div class="hBuscador">
-                    <ul class="dropdown">
-                        <li class="dir"
-                            onclick="javascript:desplegarOpciones('listaBuscador');"><span
-                            id="optBusqueda">
-                            <!-- ??? <tmpl_var optSeleccionada> -->
-                        </span>
-                            <ul style="display: none;" id="listaBuscador"
-                                onmouseover="clearTimeout(tempo);"
-                                onmouseout="ocultarOpcionesT('listaBuscador');">
-            
-                                {% block search_box_items %} {#- Each page fills li -#}
-                                {% endblock %}
-            
-                            </ul>
-                        </li>
-                    </ul>
-                    <input id="txtBuscar" name="buscadorTxtField" type="text" value=""
-                        class="hBuscTxtF"
-                        onkeypress="javascript: if(pressEnter(event)) buscador_setBusqueda(document.getElementById('optBusqueda').innerHTML, document.getElementById('txtBuscar').value, '','',document.getElementById('seccionBusqueda').value);">
-                    <input type="hidden" id="seccionBusqueda" value=""> <input
-                        type="hidden" id="idSeccionPropia" value=""> <input type="hidden"
-                        id="idSeccion" value=""> <a id="btnBuscar" class="hBuscButton"
-                        title="Buscar"
-                        href="javascript:buscador_setBusqueda(document.getElementById('optBusqueda').innerHTML,document.getElementById('txtBuscar').value,'',document.getElementById('idSeccionPropia').value,document.getElementById('seccionBusqueda').value);">&nbsp;</a>
-                </div>
+                {% block search_box %}{% endblock %}
                 <a href="/institucional/servicios.jsp#servicios" class="hServClientes"
                     title="Servicio al cliente"></a>
                 <div class="hModUsuarioBack"></div>

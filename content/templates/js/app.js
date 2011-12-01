@@ -5,6 +5,8 @@ APP = (function() {
     var _data    = {};    // Stored data
     var _session = false; // Is there a site session cookie?
 
+    var _search_in_progress = false; // XXX horrible search JS
+
     // Cookie methods inspired by quirksmode.org
     function createCookie(name, value, days) {
 
@@ -195,6 +197,66 @@ APP = (function() {
         //return (Math.floor(n / 100) + ',' + (cents < 10 ? "0" : "") + cents);
     }
 
+    function pressedEnter(event) {
+        if (event.keyCode == 13) {
+            return true;
+        }
+    }
+    function setSearch(busSeleccionada, texto, idSeccion, idSeccionPropia,
+            seccionDeBusqueda) {
+
+        if (texto == '' || texto.length <=2) {
+            alert('Por favor ingrese una palabra de 2 o mas caracteres.');
+            return false;
+        }
+
+        if(!_search_in_progress) {
+
+            _search_in_progress = true;
+
+            window.location.href ="/SetearBusqueda2?idSeccion=" + idSeccion + "&tipoBusqueda=" + busSeleccionada + "&texto=" + texto + "&idSeccionPropia=" + idSeccionPropia +"&seccionDeBusqueda=" + seccionDeBusqueda + "";
+
+        }
+    }
+    function setSearch2(busSeleccionada, texto, idSeccion, idSeccionPropia,
+            seccionDeBusqueda) {
+
+        if(!_search_in_progress) {
+
+            _search_in_progress = true;
+            window.location.href ="/SetearBusqueda2?idSeccion=" + idSeccion + "&tipoBusqueda=" + busSeleccionada + "&texto=" + texto + "&idSeccionPropia=" + idSeccionPropia +"&seccionDeBusqueda=" + seccionDeBusqueda +"&mantenerIds=true";
+        }
+    }
+
+    function searchShowBy(filtro, idBuscador, idDropdown, idSeccion,
+            idSeccionProia, seccionBusqueda) {
+
+        var elementoBusqueda = document.getElementById(idBuscador);
+        if (elementoBusqueda != null) {
+            elementoBusqueda.innerHTML = document.getElementById(filtro).innerHTML;
+
+        }
+        var opciones = document.getElementById(idDropdown);
+        if (opciones != null) {
+            opciones.style.display = 'none';
+        }
+        $('#idSeccion').value = idSeccion;
+        $('#idSeccionPropia').value = idSeccionPropia;
+        $('#seccionBusqueda').value = seccionBusqueda;
+    }
+
+    function getSeccion(id) {
+
+        if (id === 1) {
+            return('En Libros');
+        } else if (id === 3) {
+            return('En Pasatiempos');
+        } else if (id === 4) {
+            return('En Musica');
+        } else
+            return('En Peliculas');
+    }
+
     function addData(name, value) {
         _data[name] = value;
     }
@@ -217,6 +279,12 @@ APP = (function() {
     _app.init    = init;
     _app.readCookie = readCookie;
     _app.createCookie = createCookie;
+
+    // Horrible search box JS logic XXX
+    _app.pressedEnter = pressedEnter;
+    _app.setSearch    = setSearch;
+    _app.setSearch2   = setSearch2;
+    _app.searchShowBy = searchShowBy;
 
     return _app;
 
