@@ -1,5 +1,5 @@
 {# XXX this needs to have template variables for colors #}
-{%- set section = d.Categoria_Seccion -%}
+{% set section = d.Categoria_Seccion %}
 /* mesa_seccion.css */
 
 .disabledEfect {
@@ -271,7 +271,7 @@ margin-top:10px;
 cursor:default;
 }
 
-{%- if section == 1 -%}
+{% if section == 1 %}
 /* seccion_libros.css */
 
 a {
@@ -1233,7 +1233,7 @@ text-align:left;
 float:right;
 }
 
-{%- elif section == 4 -%}
+{% elif section == 4 %}
 
 /* seccion_musica.css */
 a {
@@ -2749,7 +2749,7 @@ width:604px;
 width:335px;
 }
 
-{%- elif section == 5 -%}
+{% elif section == 5 %}
 
 /* seccion_peliculas.css */
 
@@ -3621,7 +3621,7 @@ text-align:left;
 float:right;
 }
 
-{%- elif section == 3 -%}
+{% elif section == 3 %}
 /* seccion_pasatiempo.css */
 
 a {
