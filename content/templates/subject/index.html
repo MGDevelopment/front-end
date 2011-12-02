@@ -1,12 +1,11 @@
 {% extends "page.html" %}
 
 {#- Pick useful data -#}
-{%- set section  = Categoria_Seccion|string -%}
 
 {% block head_extra %}
     <link type="text/css" rel="stylesheet" href="{{ url.data }}/css/jquery.qtip.min.css">
     <style type="text/css">
-        {% include "subject/styles.css" %} {#- multi-section -#}
+        {% include "subject/styles.css" %} {# multi-section #}
         {% include "fragments/tinycarousel.css" %}
         {% include "fragments/showcase.css" %}
     </style>

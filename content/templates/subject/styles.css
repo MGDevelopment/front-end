@@ -1,4 +1,5 @@
-{#- XXX this needs to have template variables for colors -#}
+{# XXX this needs to have template variables for colors #}
+{%- set section = d.Categoria_Seccion -%}
 /* mesa_seccion.css */
 
 .disabledEfect {
