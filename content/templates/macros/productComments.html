@@ -3,7 +3,7 @@
 		<div class="dComentarios" >
 	              <div class="dComentsInfo" >
 	                  <span>
-	                  	<a href="#">{{ comment.NickName }}</a> dijo el {{ comment.Date }}:
+	                  	<a href="#">{{ comment.NickName|escape }}</a> dijo el {{ comment.CommentDate }}:
 	                  </span>
 	                  <div class="calificacionMod">
 	                      <span>Calificaci&oacute;n del producto:</span>
@@ -18,7 +18,7 @@
 	              </div>
 	              <div class="dComentsMod">
 	                  <div class="dComentsTxt">
-	                       {{ comment.CommentText }}
+	                  		{{ comment.CommentText.decode('utf-8')|truncate(300)|replace("\r","")|escape }}
 	                  </div>
 	              </div>
 	     </div>
