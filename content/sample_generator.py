@@ -323,9 +323,11 @@ if __name__ == '__main__':
 
     script_tag   = False     # No script tag by default
     storage_type = 'folder'  # Default to folder output
+    target = None
 
     try:
-        opts, args = getopt.getopt(sys.argv[1:], 's:j', ['storage=', 'jshack'])
+        opts, args = getopt.getopt(sys.argv[1:], 's:jt:',
+                ['storage=', 'jshack', 'target='])
     except getopt.GetoptError, e:
         print e
         sys.exit(2)
@@ -338,6 +340,8 @@ if __name__ == '__main__':
                 print 'invalid storage ', arg
                 sys.exit(2)
             storage_type = arg
+        elif opt in ('-t', '--target'):
+            target = arg
         else:
             print 'usage:\n', sys.argv[0], ' -s <s3, folder>'
             sys.exit(2)
@@ -345,6 +349,9 @@ if __name__ == '__main__':
     storage_cache = Storage_Cache(storage_type)
 
     for d in documentos:
+
+        if target and d['target.path'] != target:
+            continue  # skip targets not solicited
 
         print "Generating: ", storage_type, d['target.path'], " for ", \
             d['target.repo'], storage[storage_type][d['target.repo']]
