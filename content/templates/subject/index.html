@@ -1,0 +1,66 @@
+{% extends "page.html" %}
+
+{#- Pick useful data -#}
+{%- set section  = Categoria_Seccion|string -%}
+
+{% block head_extra %}
+    <link type="text/css" rel="stylesheet" href="{{ url.data }}/css/jquery.qtip.min.css">
+    <style type="text/css">
+        {% include "subject/styles.css" %} {#- multi-section -#}
+        {% include "fragments/tinycarousel.css" %}
+        {% include "fragments/showcase.css" %}
+    </style>
+{% endblock %}
+
+{% block search_box %}
+    <div class="hBuscador">
+        <ul class="dropdown">
+            <li class="dir" onclick="javascript:desplegarOpciones('listaBuscador');">
+                <span id="optBusqueda">Título</span>
+                <ul style="display: none;" id="listaBuscador"
+                    onmouseover="clearTimeout(tempo);"
+                    onmouseout="ocultarOpcionesT('listaBuscador');">
+
+                    <li>
+                        <a id="optBus1" href="javascript:APP.searchShowBy('optBus1','optBusqueda','listaBuscador','1','1','En Libros');">Título</a>
+                    </li>
+                    <li>
+                        <a id="optBus2" href="javascript:APP.searchShowBy('optBus2','optBusqueda','listaBuscador', '1', '1','En Libros');">Autor</a>
+                    </li>
+                    <li>
+                        <a id="optBus3" href="javascript:APP.searchShowBy('optBus3','optBusqueda','listaBuscador', '1', '1','En Musica');">Editorial</a>
+                    </li>
+                    <li>
+                        <a id="optBus4" href="javascript:APP.searchShowBy('optBus4','optBusqueda','listaBuscador', '1', '1','En Peliculas');">ISBN</a>
+                    </li>
+
+                </ul>
+            </li>
+        </ul>
+        <input id="txtBuscar" name="buscadorTxtField" type="text" value=""
+            class="hBuscTxtF"
+            onkeypress="javascript: if(APP.pressedEnter(event)) APP.setSearch(document.getElementById('optBusqueda').innerHTML, document.getElementById('txtBuscar').value,document.getElementById('idSeccion').value,document.getElementById('idSeccionPropia').value,document.getElementById('seccionBusqueda').value);">
+        <input type="hidden" id="seccionBusqueda"
+                value="En Tematika.com">
+        <input type="hidden" id="idSeccionPropia" value="1">
+        <input type="hidden" id="idSeccion" value="1">
+        <a id="btnBuscar" class="hBuscButton" title="Buscar"
+            href="javascript:APP.setSearch(document.getElementById('optBusqueda').innerHTML,document.getElementById('txtBuscar').value,document.getElementById('idSeccion').value,document.getElementById('idSeccionPropia').value,document.getElementById('seccionBusqueda').value);">&nbsp;</a>
+    </div>
+{%- endblock -%} {#- search_box -#}
+
+{% block canvas_content -%}
+<div class="barraCentral" id="barraCentral">
+    <div id="seccionTematika">
+        <div id="tree"> {{ tree }} </div> {#- XXX MISSING -#}
+        <div id="showcase">
+            {# include "subject/showcase.html" #}
+        </div>
+        <div id="related"> {{ related }} </div>
+        <div id="comments"> {{ comments }} </div>
+        <div class="lastvisited"> {{ lastvisited }} </div>
+    </div>
+    <div id="rightmenu"> {{ rightmenu }} </div>
+</div>
+
+{%- endblock %}
