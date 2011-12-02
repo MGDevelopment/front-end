@@ -46,14 +46,14 @@ margin-left:-30px;
 .globoArticuloTop {
 float:left;
 width:342px;
-background-image:url(/imagenes/rediseno/imagenes/globoArticuloTop-back.png);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/globoArticuloTop-back.png);
 padding:15px 15px 0 30px;
 }
 
 .globoArticuloRightTop {
 float:left;
 width:342px;
-background-image:url(/imagenes/rediseno/imagenes/globoArticuloRightTop-back.png);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/globoArticuloRightTop-back.png);
 padding:15px 30px 0 15px;
 }
 
@@ -141,7 +141,7 @@ margin:10px 0 5px;
 .globoArticuloBottom {
 float:left;
 width:244px;
-background-image:url(/imagenes/rediseno/imagenes/globoArticuloBottom-back.png);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/globoArticuloBottom-back.png);
 height:90px;
 background-repeat:no-repeat;
 padding-left:143px;
@@ -150,7 +150,7 @@ padding-left:143px;
 .globoArticuloRightBottom {
 float:left;
 width:244px;
-background-image:url(/imagenes/rediseno/imagenes/globoArticuloRightBottom-back.png);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/globoArticuloRightBottom-back.png);
 height:90px;
 background-repeat:no-repeat;
 padding-left:130px;
@@ -185,7 +185,7 @@ width:645px;
 height:308px;
 padding:1px 0;
 overflow:hidden;
-background-image:url(/imagenes/rediseno/imagenes/divMesaSecciones-back.jpg);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/divMesaSecciones-back.jpg);
 background-repeat:no-repeat;
 margin:0 0 0 7px;
 }
@@ -212,7 +212,7 @@ border:0;
 float:left;
 margin:5px 0 3px;
 display:inline;
-background-image:url(/imagenes/rediseno/imagenes/comun/arbolShadow-back.png);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/comun/arbolShadow-back.png);
 background-color:transparent;
 }
 
@@ -245,7 +245,7 @@ cursor:pointer;
 }
 
 .mesaSiguiente:hover {
-background-image:url(/imagenes/rediseno/imagenes/comun/mesaSiguiente-hover.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/comun/mesaSiguiente-hover.gif);
 }
 
 .mesaAnterior {
@@ -255,17 +255,17 @@ cursor:pointer;
 }
 
 .mesaAnterior:hover {
-background-image:url(/imagenes/rediseno/imagenes/comun/mesaAnterior-hover.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/comun/mesaAnterior-hover.gif);
 }
 
 .mesaSiguienteDeshabilitada {
-background-image:url(/imagenes/rediseno/imagenes/comun/mesaSiguienteGris.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/comun/mesaSiguienteGris.gif);
 margin-top:1px;
 cursor:default;
 }
 
 .mesaAnteriorDeshabilitada {
-background-image:url(/imagenes/rediseno/imagenes/comun/mesaAnteriorGris.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/comun/mesaAnteriorGris.gif);
 margin-bottom:1px;
 margin-top:10px;
 cursor:default;
@@ -289,11 +289,11 @@ color:#F8A03A;
 }
 
 .hBuscador {
-background-image:url(/imagenes/rediseno/imagenes/seccionLibros/hBuscador-back.png);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionLibros/hBuscador-back.png);
 }
 
 .hBuscMenu {
-background-image:url(/imagenes/rediseno/imagenes/seccionLibros/hBuscMenu-back.png);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionLibros/hBuscMenu-back.png);
 }
 
 a.hBuscMenuDesplItem:hover {
@@ -302,11 +302,11 @@ color:#FFF;
 }
 
 .hServClientes {
-background-image:url(/imagenes/rediseno/imagenes/seccionLibros/hServClientes-back.png);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionLibros/hServClientes-back.png);
 }
 
 .hModUsuarioBack {
-background-image:url(/imagenes/rediseno/imagenes/seccionLibros/hModUsuario-back.png);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionLibros/hModUsuario-back.png);
 }
 
 .panelMensajes a:visited {
@@ -318,37 +318,37 @@ color:#F8A03A;
 }
 
 .panelMsjCerrar {
-background-image:url(/imagenes/rediseno/imagenes/seccionLibros/b-panelMsjCerrar.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionLibros/b-panelMsjCerrar.gif);
 }
 
 .panelMsjCerrar:hover {
-background-image:url(/imagenes/rediseno/imagenes/seccionLibros/b-panelMsjCerrar-hover.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionLibros/b-panelMsjCerrar-hover.gif);
 }
 
 .panelMsjAbrir {
-background-image:url(/imagenes/rediseno/imagenes/seccionLibros/b-panelMsjAbrir.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionLibros/b-panelMsjAbrir.gif);
 }
 
 .panelMsjAbrir:hover {
-background-image:url(/imagenes/rediseno/imagenes/seccionLibros/b-panelMsjAbrir-hover.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionLibros/b-panelMsjAbrir-hover.gif);
 }
 
 #panelSeccSucursales,#panelSeccQuid,#panelSeccExtra {
 width:15px;
-background-image:url(/imagenes/rediseno/imagenes/comun/panelSecc-back.jpg);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/comun/panelSecc-back.jpg);
 background-position:bottom;
 }
 
 #panelSeccSucursales {
-background-image:url(/imagenes/rediseno/imagenes/seccionLibros/panelSeccSucursales-back.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionLibros/panelSeccSucursales-back.gif);
 }
 
 #panelSeccQuid {
-background-image:url(/imagenes/rediseno/imagenes/seccionLibros/panelSeccQuid-back.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionLibros/panelSeccQuid-back.gif);
 }
 
 #panelSeccExtra {
-background-image:url(/imagenes/rediseno/imagenes/seccionLibros/panelSeccExtra-back.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionLibros/panelSeccExtra-back.gif);
 }
 
 #panelSeccSucursales span,#panelSeccQuid span,#panelSeccExtra span {
@@ -359,20 +359,20 @@ float:left;
 }
 
 #panelSeccSucursales span {
-background-image:url(/imagenes/rediseno/imagenes/seccionLibros/panelSeccSucTop-back.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionLibros/panelSeccSucTop-back.gif);
 }
 
 #panelSeccQuid span {
-background-image:url(/imagenes/rediseno/imagenes/seccionLibros/panelSeccQuidTop-back.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionLibros/panelSeccQuidTop-back.gif);
 }
 
 #panelSeccExtra span {
-background-image:url(/imagenes/rediseno/imagenes/seccionLibros/panelSeccExtraTop-back.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionLibros/panelSeccExtraTop-back.gif);
 }
 
 #seccionTematika {
 width:861px;
-background-image:url(/imagenes/rediseno/imagenes/seccionLibros/tmtkMesaNovedades-back.jpg);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionLibros/tmtkMesaNovedades-back.jpg);
 background-repeat:no-repeat;
 }
 
@@ -392,7 +392,7 @@ margin:15px 0 0 155px;
 .tmtkMesa-back {
 float:left;
 width:660px;
-background-image:url(/imagenes/rediseno/imagenes/seccionLibros/solapas-back.png);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionLibros/solapas-back.png);
 margin-top:32px;
 }
 
@@ -406,17 +406,17 @@ margin-top:-5px;
 }
 
 .mesaSiguiente {
-background-image:url(/imagenes/rediseno/imagenes/seccionLibros/mesaSiguiente.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionLibros/mesaSiguiente.gif);
 }
 
 .mesaAnterior {
-background-image:url(/imagenes/rediseno/imagenes/seccionLibros/mesaAnterior.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionLibros/mesaAnterior.gif);
 }
 
 .solapas {
 float:right;
 width:651px;
-background-image:url(/imagenes/rediseno/imagenes/seccionLibros/solapas-back.png);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionLibros/solapas-back.png);
 }
 
 .solapaModTit {
@@ -430,21 +430,21 @@ margin:75px 0 0 13px;
 #arbolLibros {
 border:solid 1px #ADC4A1;
 width:190px;
-background-image:url(/imagenes/rediseno/imagenes/seccionLibros/arbolMod-back.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionLibros/arbolMod-back.gif);
 background-position:bottom;
 background-repeat:repeat-x;
 }
 
 .arbolItemMas {
-background-image:url(/imagenes/rediseno/imagenes/seccionLibros/arbolItemMas-b.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionLibros/arbolItemMas-b.gif);
 }
 
 .arbolItemMin {
-background-image:url(/imagenes/rediseno/imagenes/seccionLibros/arbolItemMin-b.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionLibros/arbolItemMin-b.gif);
 }
 
 .arbolItemF {
-background-image:url(/imagenes/rediseno/imagenes/seccionLibros/arbolItemF.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionLibros/arbolItemF.gif);
 }
 
 .arbolItemLink {
@@ -494,7 +494,7 @@ color:#70965B;
 }
 
 .tapaInfo {
-background-image:url(/imagenes/rediseno/imagenes/seccionLibros/tapaInfo-back.png);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionLibros/tapaInfo-back.png);
 }
 
 .footer a:hover {
@@ -511,11 +511,11 @@ color:#FFF;
 }
 
 ul.dropdown *.dir {
-background-image:url(/imagenes/rediseno/imagenes/seccionLibros/hBuscMenu-back.png);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionLibros/hBuscMenu-back.png);
 }
 
 .tmtkMesaMenuMod ul.dropdown *.dir,.busqFiltMenu ul.dropdown *.dir {
-background-image:url(/imagenes/rediseno/imagenes/seccionLibros/solapasMenu-back.png);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionLibros/solapasMenu-back.png);
 }
 
 .dropdown span:hover {
@@ -523,11 +523,11 @@ color:#70965B;
 }
 
 ul.dropdown *.diri {
-background-image:url(/imagenes/rediseno/imagenes/seccionLibros/solapasMenu-back.png);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionLibros/solapasMenu-back.png);
 }
 
 .tmtkMesaMenuMod ul.dropdown *.diri {
-background-image:url(/imagenes/rediseno/imagenes/seccionLibros/solapasMenu-back.png);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionLibros/solapasMenu-back.png);
 }
 
 .dSolapas .solapasTitComent {
@@ -544,13 +544,13 @@ margin-left:49px;
 
 .solapasTitDatosPrinc {
 width:175px;
-background-image:url(/imagenes/rediseno/imagenes/comun/t-datosPrinc.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/comun/t-datosPrinc.gif);
 margin:10px 5px 0 70px;
 }
 
 .dCompra {
 border:solid 1px #ADC4A1;
-background-image:url(/imagenes/rediseno/imagenes/seccionLibros/arbolMod-back.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionLibros/arbolMod-back.gif);
 }
 
 .dCompra ul,.dComprarEnvio {
@@ -563,11 +563,11 @@ border-top:dotted 1px #ADC4A1;
 }
 
 .dComprarButton {
-background-image:url(/imagenes/rediseno/imagenes/seccionLibros/b-comprarD.png);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionLibros/b-comprarD.png);
 }
 
 .detalleBotonMenu {
-background-image:url(/imagenes/rediseno/imagenes/seccionLibros/detalleBotonMenu-back.png);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionLibros/detalleBotonMenu-back.png);
 }
 
 .detalleBotonMenu span,.detalleBoton span {
@@ -579,7 +579,7 @@ color:#F8A03A;
 }
 
 .detalleListaMenu {
-background-image:url(/imagenes/rediseno/imagenes/seccionLibros/listadoModAcciones-back.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionLibros/listadoModAcciones-back.gif);
 }
 
 p.dListaMenuCheck {
@@ -601,11 +601,11 @@ border-right:solid 1px #ADC4A1;
 }
 
 .detalleImagenAnt {
-background-image:url(/imagenes/rediseno/imagenes/seccionLibros/detalleImagenAnt-back.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionLibros/detalleImagenAnt-back.gif);
 }
 
 .detalleImagenSig {
-background-image:url(/imagenes/rediseno/imagenes/seccionLibros/detalleImagenSig-back.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionLibros/detalleImagenSig-back.gif);
 }
 
 .dSolapas .hTags {
@@ -619,25 +619,25 @@ border-bottom:dotted 1px #ADC4A1;
 }
 
 .dComentsCalifP {
-background-image:url(/imagenes/rediseno/imagenes/seccionLibros/dComentsCalifP-back.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionLibros/dComentsCalifP-back.gif);
 }
 
 .dComentsCalifN {
-background-image:url(/imagenes/rediseno/imagenes/seccionLibros/dComentsCalifN-back.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionLibros/dComentsCalifN-back.gif);
 }
 
 .dFavButton {
-background-image:url(/imagenes/rediseno/imagenes/seccionLibros/b-favoritoD.png);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionLibros/b-favoritoD.png);
 }
 
 .solapasTitObjetos {
 width:55px;
-background-image:url(/imagenes/rediseno/imagenes/comun/t-obras.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/comun/t-obras.gif);
 margin:10px 0 0 130px;
 }
 
 .listadoMod {
-background-image:url(/imagenes/rediseno/imagenes/seccionLibros/listadoMod.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionLibros/listadoMod.gif);
 }
 
 .listadoMod .dInfoLinks {
@@ -646,7 +646,7 @@ border-top:dotted 1px #ADC4A1;
 }
 
 .listadoModAcciones div {
-background-image:url(/imagenes/rediseno/imagenes/seccionLibros/listadoModAcciones-back.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionLibros/listadoModAcciones-back.gif);
 border:solid 1px #ADC4A1;
 }
 
@@ -656,15 +656,15 @@ height:46px;
 display:block;
 background-position:center;
 margin:5px 0;
-background-image:url(/imagenes/rediseno/imagenes/seccionLibros/b-comprar.png);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionLibros/b-comprar.png);
 }
 
 .globoArticuloComprar {
-background-image:url(/imagenes/rediseno/imagenes/seccionLibros/b-comprar.png);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionLibros/b-comprar.png);
 }
 
 .globoArticuloPedir {
-background-image:url(/imagenes/rediseno/imagenes/seccionLibros/b-pedir.png);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionLibros/b-pedir.png);
 }
 
 .panelMensajes a:visited {
@@ -676,19 +676,19 @@ color:#F8A03A;
 }
 
 .panelMsjCerrar {
-background-image:url(/imagenes/rediseno/imagenes/seccionLibros/b-panelMsjCerrar.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionLibros/b-panelMsjCerrar.gif);
 }
 
 .panelMsjCerrar:hover {
-background-image:url(/imagenes/rediseno/imagenes/seccionLibros/b-panelMsjCerrar-hover.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionLibros/b-panelMsjCerrar-hover.gif);
 }
 
 .panelMsjAbrir {
-background-image:url(/imagenes/rediseno/imagenes/seccionLibros/b-panelMsjAbrir.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionLibros/b-panelMsjAbrir.gif);
 }
 
 .panelMsjAbrir:hover {
-background-image:url(/imagenes/rediseno/imagenes/seccionLibros/b-panelMsjAbrir-hover.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionLibros/b-panelMsjAbrir-hover.gif);
 }
 
 .tituloBus {
@@ -711,7 +711,7 @@ border-color:#ADC4A1;
 }
 
 a.busqFiltApl {
-background-image:url(/imagenes/rediseno/imagenes/seccionLibros/busqFiltApl.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionLibros/busqFiltApl.gif);
 }
 
 .busqContenido {
@@ -721,7 +721,7 @@ width:640px;
 .busqOrden {
 border:solid 1px #ADC4A1;
 width:635px;
-background-image:url(/imagenes/rediseno/imagenes/seccionLibros/listadoModAcciones-back.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionLibros/listadoModAcciones-back.gif);
 }
 
 .busqContenido .listadoMod {
@@ -1251,11 +1251,11 @@ color:#31AF5A;
 }
 
 .hBuscador {
-background-image:url(/imagenes/rediseno/imagenes/seccionMusica/hBuscador-back.png);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionMusica/hBuscador-back.png);
 }
 
 .hBuscMenu {
-background-image:url(/imagenes/rediseno/imagenes/seccionMusica/hBuscMenu-back.png);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionMusica/hBuscMenu-back.png);
 }
 
 a.hBuscMenuDesplItem:hover {
@@ -1264,11 +1264,11 @@ color:#FFF;
 }
 
 .hServClientes {
-background-image:url(/imagenes/rediseno/imagenes/seccionMusica/hServClientes-back.png);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionMusica/hServClientes-back.png);
 }
 
 .hModUsuarioBack {
-background-image:url(/imagenes/rediseno/imagenes/seccionMusica/hModUsuario-back.png);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionMusica/hModUsuario-back.png);
 }
 
 .panelMensajes a:visited {
@@ -1280,37 +1280,37 @@ color:#31AF5A;
 }
 
 .panelMsjCerrar {
-background-image:url(/imagenes/rediseno/imagenes/seccionMusica/b-panelMsjCerrar.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionMusica/b-panelMsjCerrar.gif);
 }
 
 .panelMsjCerrar:hover {
-background-image:url(/imagenes/rediseno/imagenes/seccionMusica/b-panelMsjCerrar-hover.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionMusica/b-panelMsjCerrar-hover.gif);
 }
 
 .panelMsjAbrir {
-background-image:url(/imagenes/rediseno/imagenes/seccionMusica/b-panelMsjAbrir.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionMusica/b-panelMsjAbrir.gif);
 }
 
 .panelMsjAbrir:hover {
-background-image:url(/imagenes/rediseno/imagenes/seccionMusica/b-panelMsjAbrir-hover.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionMusica/b-panelMsjAbrir-hover.gif);
 }
 
 #panelSeccSucursales,#panelSeccQuid,#panelSeccExtra {
 width:15px;
-background-image:url(/imagenes/rediseno/imagenes/comun/panelSecc-back.jpg);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/comun/panelSecc-back.jpg);
 background-position:bottom;
 }
 
 #panelSeccSucursales {
-background-image:url(/imagenes/rediseno/imagenes/seccionMusica/panelSeccSucursales-back.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionMusica/panelSeccSucursales-back.gif);
 }
 
 #panelSeccQuid {
-background-image:url(/imagenes/rediseno/imagenes/seccionMusica/panelSeccQuid-back.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionMusica/panelSeccQuid-back.gif);
 }
 
 #panelSeccExtra {
-background-image:url(/imagenes/rediseno/imagenes/seccionMusica/panelSeccExtra-back.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionMusica/panelSeccExtra-back.gif);
 }
 
 #panelSeccSucursales span,#panelSeccQuid span,#panelSeccExtra span {
@@ -1321,20 +1321,20 @@ float:left;
 }
 
 #panelSeccSucursales span {
-background-image:url(/imagenes/rediseno/imagenes/seccionMusica/panelSeccSucTop-back.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionMusica/panelSeccSucTop-back.gif);
 }
 
 #panelSeccQuid span {
-background-image:url(/imagenes/rediseno/imagenes/seccionMusica/panelSeccQuidTop-back.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionMusica/panelSeccQuidTop-back.gif);
 }
 
 #panelSeccExtra span {
-background-image:url(/imagenes/rediseno/imagenes/seccionMusica/panelSeccExtraTop-back.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionMusica/panelSeccExtraTop-back.gif);
 }
 
 #seccionTematika {
 width:861px;
-background-image:url(/imagenes/rediseno/imagenes/seccionMusica/tmtkMesaNovedades-back.jpg);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionMusica/tmtkMesaNovedades-back.jpg);
 background-repeat:no-repeat;
 float:left;
 }
@@ -1355,7 +1355,7 @@ margin:15px 0 0 155px;
 .tmtkMesa-back {
 float:left;
 width:660px;
-background-image:url(/imagenes/rediseno/imagenes/seccionMusica/solapas-back.png);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionMusica/solapas-back.png);
 margin-top:32px;
 }
 
@@ -1369,21 +1369,21 @@ margin-top:-5px;
 }
 
 .mesaSiguiente {
-background-image:url(/imagenes/rediseno/imagenes/seccionMusica/mesaSiguiente.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionMusica/mesaSiguiente.gif);
 }
 
 .mesaAnterior {
-background-image:url(/imagenes/rediseno/imagenes/seccionMusica/mesaAnterior.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionMusica/mesaAnterior.gif);
 }
 
 .solapasMenu {
-background-image:url(/imagenes/rediseno/imagenes/seccionMusica/solapasMenu-back.png);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionMusica/solapasMenu-back.png);
 }
 
 .solapas {
 float:right;
 width:651px;
-background-image:url(/imagenes/rediseno/imagenes/seccionMusica/solapas-back.png);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionMusica/solapas-back.png);
 }
 
 .solapaModTit {
@@ -1397,21 +1397,21 @@ margin:75px 0 0 13px;
 #arbolMusica {
 border:solid 1px #FACCDC;
 width:190px;
-background-image:url(/imagenes/rediseno/imagenes/seccionMusica/arbolMod-back.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionMusica/arbolMod-back.gif);
 background-position:bottom;
 background-repeat:repeat-x;
 }
 
 .arbolItemMas {
-background-image:url(/imagenes/rediseno/imagenes/seccionMusica/arbolItemMas-b.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionMusica/arbolItemMas-b.gif);
 }
 
 .arbolItemMin {
-background-image:url(/imagenes/rediseno/imagenes/seccionMusica/arbolItemMin-b.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionMusica/arbolItemMin-b.gif);
 }
 
 .arbolItemF {
-background-image:url(/imagenes/rediseno/imagenes/seccionMusica/arbolItemF.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionMusica/arbolItemF.gif);
 }
 
 .arbolItemLink {
@@ -1465,7 +1465,7 @@ color:#F43266;
 }
 
 .tapaInfo {
-background-image:url(/imagenes/rediseno/imagenes/seccionMusica/tapaInfo-back.png);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionMusica/tapaInfo-back.png);
 }
 
 .footer a:hover {
@@ -1482,11 +1482,11 @@ color:#FFF;
 }
 
 ul.dropdown *.dir {
-background-image:url(/imagenes/rediseno/imagenes/seccionMusica/hBuscMenu-back.png);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionMusica/hBuscMenu-back.png);
 }
 
 .tmtkMesaMenuMod ul.dropdown *.dir,.busqFiltMenu ul.dropdown *.dir {
-background-image:url(/imagenes/rediseno/imagenes/seccionMusica/solapasMenu-back.png);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionMusica/solapasMenu-back.png);
 }
 
 .dropdown span:hover {
@@ -1494,11 +1494,11 @@ color:#F43266;
 }
 
 ul.dropdown *.diri {
-background-image:url(/imagenes/rediseno/imagenes/seccionMusica/solapasMenu-back.png);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionMusica/solapasMenu-back.png);
 }
 
 .tmtkMesaMenuMod ul.dropdown *.diri {
-background-image:url(/imagenes/rediseno/imagenes/seccionMusica/solapasMenu-back.png);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionMusica/solapasMenu-back.png);
 }
 
 .dSolapas .solapasTitComent {
@@ -1515,13 +1515,13 @@ margin-left:49px;
 
 .solapasTitDatosPrinc {
 width:175px;
-background-image:url(/imagenes/rediseno/imagenes/comun/t-datosPrinc.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/comun/t-datosPrinc.gif);
 margin:10px 5px 0 70px;
 }
 
 .dCompra {
 border:solid 1px #FACCDC;
-background-image:url(/imagenes/rediseno/imagenes/seccionMusica/arbolMod-back.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionMusica/arbolMod-back.gif);
 }
 
 .dCompra ul,.dComprarEnvio {
@@ -1530,11 +1530,11 @@ border-bottom:dotted 1px #FACCDC;
 }
 
 .dComprarButton {
-background-image:url(/imagenes/rediseno/imagenes/seccionMusica/b-comprarD.png);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionMusica/b-comprarD.png);
 }
 
 .detalleBotonMenu {
-background-image:url(/imagenes/rediseno/imagenes/seccionMusica/detalleBotonMenu-back.png);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionMusica/detalleBotonMenu-back.png);
 }
 
 .detalleBotonMenu span,.detalleBoton span {
@@ -1546,7 +1546,7 @@ color:#31AF5A;
 }
 
 .detalleListaMenu {
-background-image:url(/imagenes/rediseno/imagenes/seccionMusica/listadoModAcciones-back.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionMusica/listadoModAcciones-back.gif);
 }
 
 p.dListaMenuCheck {
@@ -1568,11 +1568,11 @@ border-right:solid 1px #FACCDC;
 }
 
 .detalleImagenAnt {
-background-image:url(/imagenes/rediseno/imagenes/seccionMusica/detalleImagenAnt-back.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionMusica/detalleImagenAnt-back.gif);
 }
 
 .detalleImagenSig {
-background-image:url(/imagenes/rediseno/imagenes/seccionMusica/detalleImagenSig-back.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionMusica/detalleImagenSig-back.gif);
 }
 
 .dSolapas .hTags {
@@ -1586,19 +1586,19 @@ border-bottom:dotted 1px #FACCDC;
 }
 
 .dComentsCalifP {
-background-image:url(/imagenes/rediseno/imagenes/seccionMusica/dComentsCalifP-back.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionMusica/dComentsCalifP-back.gif);
 }
 
 .dComentsCalifN {
-background-image:url(/imagenes/rediseno/imagenes/seccionMusica/dComentsCalifN-back.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionMusica/dComentsCalifN-back.gif);
 }
 
 .dFavButton {
-background-image:url(/imagenes/rediseno/imagenes/seccionMusica/b-favoritoD.png);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionMusica/b-favoritoD.png);
 }
 
 .listadoMod {
-background-image:url(/imagenes/rediseno/imagenes/seccionMusica/listadoMod.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionMusica/listadoMod.gif);
 }
 
 .listadoMod .dInfoLinks {
@@ -1607,7 +1607,7 @@ border-top:dotted 1px #FACCDC;
 }
 
 .listadoModAcciones div {
-background-image:url(/imagenes/rediseno/imagenes/seccionMusica/listadoModAcciones-back.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionMusica/listadoModAcciones-back.gif);
 border:solid 1px #FACCDC;
 }
 
@@ -1617,7 +1617,7 @@ height:46px;
 display:block;
 background-position:center;
 margin:5px 0;
-background-image:url(/imagenes/rediseno/imagenes/seccionMusica/b-comprar.png);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionMusica/b-comprar.png);
 }
 
 .busqTit span {
@@ -1629,7 +1629,7 @@ border-color:#FACCDC;
 }
 
 a.busqFiltApl {
-background-image:url(/imagenes/rediseno/imagenes/seccionMusica/busqFiltApl.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionMusica/busqFiltApl.gif);
 }
 
 .busqContenido {
@@ -1639,7 +1639,7 @@ width:640px;
 .busqOrden {
 border:solid 1px #FACCDC;
 width:635px;
-background-image:url(/imagenes/rediseno/imagenes/seccionMusica/listadoModAcciones-back.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionMusica/listadoModAcciones-back.gif);
 }
 
 .busqContenido .listadoMod {
@@ -1651,11 +1651,11 @@ width:335px;
 }
 
 .globoArticuloComprar {
-background-image:url(/imagenes/rediseno/imagenes/seccionMusica/b-comprar.png);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionMusica/b-comprar.png);
 }
 
 .globoArticuloPedir {
-background-image:url(/imagenes/rediseno/imagenes/seccionMusica/b-pedir.png);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionMusica/b-pedir.png);
 }
 
 .panelMensajes a:visited {
@@ -1667,19 +1667,19 @@ color:#31AF5A;
 }
 
 .panelMsjCerrar {
-background-image:url(/imagenes/rediseno/imagenes/seccionMusica/b-panelMsjCerrar.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionMusica/b-panelMsjCerrar.gif);
 }
 
 .panelMsjCerrar:hover {
-background-image:url(/imagenes/rediseno/imagenes/seccionMusica/b-panelMsjCerrar-hover.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionMusica/b-panelMsjCerrar-hover.gif);
 }
 
 .panelMsjAbrir {
-background-image:url(/imagenes/rediseno/imagenes/seccionMusica/b-panelMsjAbrir.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionMusica/b-panelMsjAbrir.gif);
 }
 
 .panelMsjAbrir:hover {
-background-image:url(/imagenes/rediseno/imagenes/seccionMusica/b-panelMsjAbrir-hover.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionMusica/b-panelMsjAbrir-hover.gif);
 }
 
 .tituloBus {
@@ -1702,7 +1702,7 @@ border-color:#FACCDC;
 }
 
 a.busqFiltApl {
-background-image:url(/imagenes/rediseno/imagenes/seccionMusica/busqFiltApl.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionMusica/busqFiltApl.gif);
 }
 
 .busqContenido {
@@ -1712,7 +1712,7 @@ width:640px;
 .busqOrden {
 border:solid 1px #FACCDC;
 width:635px;
-background-image:url(/imagenes/rediseno/imagenes/seccionMusica/listadoModAcciones-back.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionMusica/listadoModAcciones-back.gif);
 }
 
 .busqContenido .listadoMod {
@@ -2277,11 +2277,11 @@ color:#31AF5A;
 }
 
 .hBuscador {
-background-image:url(/imagenes/rediseno/imagenes/seccionMusica/hBuscador-back.png);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionMusica/hBuscador-back.png);
 }
 
 .hBuscMenu {
-background-image:url(/imagenes/rediseno/imagenes/seccionMusica/hBuscMenu-back.png);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionMusica/hBuscMenu-back.png);
 }
 
 a.hBuscMenuDesplItem:hover {
@@ -2290,11 +2290,11 @@ color:#FFF;
 }
 
 .hServClientes {
-background-image:url(/imagenes/rediseno/imagenes/seccionMusica/hServClientes-back.png);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionMusica/hServClientes-back.png);
 }
 
 .hModUsuarioBack {
-background-image:url(/imagenes/rediseno/imagenes/seccionMusica/hModUsuario-back.png);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionMusica/hModUsuario-back.png);
 }
 
 .panelMensajes a:visited {
@@ -2306,37 +2306,37 @@ color:#31AF5A;
 }
 
 .panelMsjCerrar {
-background-image:url(/imagenes/rediseno/imagenes/seccionMusica/b-panelMsjCerrar.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionMusica/b-panelMsjCerrar.gif);
 }
 
 .panelMsjCerrar:hover {
-background-image:url(/imagenes/rediseno/imagenes/seccionMusica/b-panelMsjCerrar-hover.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionMusica/b-panelMsjCerrar-hover.gif);
 }
 
 .panelMsjAbrir {
-background-image:url(/imagenes/rediseno/imagenes/seccionMusica/b-panelMsjAbrir.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionMusica/b-panelMsjAbrir.gif);
 }
 
 .panelMsjAbrir:hover {
-background-image:url(/imagenes/rediseno/imagenes/seccionMusica/b-panelMsjAbrir-hover.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionMusica/b-panelMsjAbrir-hover.gif);
 }
 
 #panelSeccSucursales,#panelSeccQuid,#panelSeccExtra {
 width:15px;
-background-image:url(/imagenes/rediseno/imagenes/comun/panelSecc-back.jpg);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/comun/panelSecc-back.jpg);
 background-position:bottom;
 }
 
 #panelSeccSucursales {
-background-image:url(/imagenes/rediseno/imagenes/seccionMusica/panelSeccSucursales-back.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionMusica/panelSeccSucursales-back.gif);
 }
 
 #panelSeccQuid {
-background-image:url(/imagenes/rediseno/imagenes/seccionMusica/panelSeccQuid-back.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionMusica/panelSeccQuid-back.gif);
 }
 
 #panelSeccExtra {
-background-image:url(/imagenes/rediseno/imagenes/seccionMusica/panelSeccExtra-back.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionMusica/panelSeccExtra-back.gif);
 }
 
 #panelSeccSucursales span,#panelSeccQuid span,#panelSeccExtra span {
@@ -2347,20 +2347,20 @@ float:left;
 }
 
 #panelSeccSucursales span {
-background-image:url(/imagenes/rediseno/imagenes/seccionMusica/panelSeccSucTop-back.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionMusica/panelSeccSucTop-back.gif);
 }
 
 #panelSeccQuid span {
-background-image:url(/imagenes/rediseno/imagenes/seccionMusica/panelSeccQuidTop-back.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionMusica/panelSeccQuidTop-back.gif);
 }
 
 #panelSeccExtra span {
-background-image:url(/imagenes/rediseno/imagenes/seccionMusica/panelSeccExtraTop-back.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionMusica/panelSeccExtraTop-back.gif);
 }
 
 #seccionTematika {
 width:861px;
-background-image:url(/imagenes/rediseno/imagenes/seccionMusica/tmtkMesaNovedades-back.jpg);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionMusica/tmtkMesaNovedades-back.jpg);
 background-repeat:no-repeat;
 float:left;
 }
@@ -2381,7 +2381,7 @@ margin:15px 0 0 155px;
 .tmtkMesa-back {
 float:left;
 width:660px;
-background-image:url(/imagenes/rediseno/imagenes/seccionMusica/solapas-back.png);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionMusica/solapas-back.png);
 margin-top:32px;
 }
 
@@ -2395,21 +2395,21 @@ margin-top:-5px;
 }
 
 .mesaSiguiente {
-background-image:url(/imagenes/rediseno/imagenes/seccionMusica/mesaSiguiente.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionMusica/mesaSiguiente.gif);
 }
 
 .mesaAnterior {
-background-image:url(/imagenes/rediseno/imagenes/seccionMusica/mesaAnterior.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionMusica/mesaAnterior.gif);
 }
 
 .solapasMenu {
-background-image:url(/imagenes/rediseno/imagenes/seccionMusica/solapasMenu-back.png);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionMusica/solapasMenu-back.png);
 }
 
 .solapas {
 float:right;
 width:651px;
-background-image:url(/imagenes/rediseno/imagenes/seccionMusica/solapas-back.png);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionMusica/solapas-back.png);
 }
 
 .solapaModTit {
@@ -2423,21 +2423,21 @@ margin:75px 0 0 13px;
 #arbolMusica {
 border:solid 1px #FACCDC;
 width:190px;
-background-image:url(/imagenes/rediseno/imagenes/seccionMusica/arbolMod-back.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionMusica/arbolMod-back.gif);
 background-position:bottom;
 background-repeat:repeat-x;
 }
 
 .arbolItemMas {
-background-image:url(/imagenes/rediseno/imagenes/seccionMusica/arbolItemMas-b.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionMusica/arbolItemMas-b.gif);
 }
 
 .arbolItemMin {
-background-image:url(/imagenes/rediseno/imagenes/seccionMusica/arbolItemMin-b.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionMusica/arbolItemMin-b.gif);
 }
 
 .arbolItemF {
-background-image:url(/imagenes/rediseno/imagenes/seccionMusica/arbolItemF.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionMusica/arbolItemF.gif);
 }
 
 .arbolItemLink {
@@ -2491,7 +2491,7 @@ color:#F43266;
 }
 
 .tapaInfo {
-background-image:url(/imagenes/rediseno/imagenes/seccionMusica/tapaInfo-back.png);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionMusica/tapaInfo-back.png);
 }
 
 .footer a:hover {
@@ -2508,11 +2508,11 @@ color:#FFF;
 }
 
 ul.dropdown *.dir {
-background-image:url(/imagenes/rediseno/imagenes/seccionMusica/hBuscMenu-back.png);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionMusica/hBuscMenu-back.png);
 }
 
 .tmtkMesaMenuMod ul.dropdown *.dir,.busqFiltMenu ul.dropdown *.dir {
-background-image:url(/imagenes/rediseno/imagenes/seccionMusica/solapasMenu-back.png);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionMusica/solapasMenu-back.png);
 }
 
 .dropdown span:hover {
@@ -2520,11 +2520,11 @@ color:#F43266;
 }
 
 ul.dropdown *.diri {
-background-image:url(/imagenes/rediseno/imagenes/seccionMusica/solapasMenu-back.png);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionMusica/solapasMenu-back.png);
 }
 
 .tmtkMesaMenuMod ul.dropdown *.diri {
-background-image:url(/imagenes/rediseno/imagenes/seccionMusica/solapasMenu-back.png);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionMusica/solapasMenu-back.png);
 }
 
 .dSolapas .solapasTitComent {
@@ -2541,13 +2541,13 @@ margin-left:49px;
 
 .solapasTitDatosPrinc {
 width:175px;
-background-image:url(/imagenes/rediseno/imagenes/comun/t-datosPrinc.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/comun/t-datosPrinc.gif);
 margin:10px 5px 0 70px;
 }
 
 .dCompra {
 border:solid 1px #FACCDC;
-background-image:url(/imagenes/rediseno/imagenes/seccionMusica/arbolMod-back.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionMusica/arbolMod-back.gif);
 }
 
 .dCompra ul,.dComprarEnvio {
@@ -2556,11 +2556,11 @@ border-bottom:dotted 1px #FACCDC;
 }
 
 .dComprarButton {
-background-image:url(/imagenes/rediseno/imagenes/seccionMusica/b-comprarD.png);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionMusica/b-comprarD.png);
 }
 
 .detalleBotonMenu {
-background-image:url(/imagenes/rediseno/imagenes/seccionMusica/detalleBotonMenu-back.png);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionMusica/detalleBotonMenu-back.png);
 }
 
 .detalleBotonMenu span,.detalleBoton span {
@@ -2572,7 +2572,7 @@ color:#31AF5A;
 }
 
 .detalleListaMenu {
-background-image:url(/imagenes/rediseno/imagenes/seccionMusica/listadoModAcciones-back.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionMusica/listadoModAcciones-back.gif);
 }
 
 p.dListaMenuCheck {
@@ -2594,11 +2594,11 @@ border-right:solid 1px #FACCDC;
 }
 
 .detalleImagenAnt {
-background-image:url(/imagenes/rediseno/imagenes/seccionMusica/detalleImagenAnt-back.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionMusica/detalleImagenAnt-back.gif);
 }
 
 .detalleImagenSig {
-background-image:url(/imagenes/rediseno/imagenes/seccionMusica/detalleImagenSig-back.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionMusica/detalleImagenSig-back.gif);
 }
 
 .dSolapas .hTags {
@@ -2612,19 +2612,19 @@ border-bottom:dotted 1px #FACCDC;
 }
 
 .dComentsCalifP {
-background-image:url(/imagenes/rediseno/imagenes/seccionMusica/dComentsCalifP-back.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionMusica/dComentsCalifP-back.gif);
 }
 
 .dComentsCalifN {
-background-image:url(/imagenes/rediseno/imagenes/seccionMusica/dComentsCalifN-back.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionMusica/dComentsCalifN-back.gif);
 }
 
 .dFavButton {
-background-image:url(/imagenes/rediseno/imagenes/seccionMusica/b-favoritoD.png);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionMusica/b-favoritoD.png);
 }
 
 .listadoMod {
-background-image:url(/imagenes/rediseno/imagenes/seccionMusica/listadoMod.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionMusica/listadoMod.gif);
 }
 
 .listadoMod .dInfoLinks {
@@ -2633,7 +2633,7 @@ border-top:dotted 1px #FACCDC;
 }
 
 .listadoModAcciones div {
-background-image:url(/imagenes/rediseno/imagenes/seccionMusica/listadoModAcciones-back.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionMusica/listadoModAcciones-back.gif);
 border:solid 1px #FACCDC;
 }
 
@@ -2643,7 +2643,7 @@ height:46px;
 display:block;
 background-position:center;
 margin:5px 0;
-background-image:url(/imagenes/rediseno/imagenes/seccionMusica/b-comprar.png);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionMusica/b-comprar.png);
 }
 
 .busqTit span {
@@ -2655,7 +2655,7 @@ border-color:#FACCDC;
 }
 
 a.busqFiltApl {
-background-image:url(/imagenes/rediseno/imagenes/seccionMusica/busqFiltApl.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionMusica/busqFiltApl.gif);
 }
 
 .busqContenido {
@@ -2665,7 +2665,7 @@ width:640px;
 .busqOrden {
 border:solid 1px #FACCDC;
 width:635px;
-background-image:url(/imagenes/rediseno/imagenes/seccionMusica/listadoModAcciones-back.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionMusica/listadoModAcciones-back.gif);
 }
 
 .busqContenido .listadoMod {
@@ -2677,11 +2677,11 @@ width:335px;
 }
 
 .globoArticuloComprar {
-background-image:url(/imagenes/rediseno/imagenes/seccionMusica/b-comprar.png);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionMusica/b-comprar.png);
 }
 
 .globoArticuloPedir {
-background-image:url(/imagenes/rediseno/imagenes/seccionMusica/b-pedir.png);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionMusica/b-pedir.png);
 }
 
 .panelMensajes a:visited {
@@ -2693,19 +2693,19 @@ color:#31AF5A;
 }
 
 .panelMsjCerrar {
-background-image:url(/imagenes/rediseno/imagenes/seccionMusica/b-panelMsjCerrar.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionMusica/b-panelMsjCerrar.gif);
 }
 
 .panelMsjCerrar:hover {
-background-image:url(/imagenes/rediseno/imagenes/seccionMusica/b-panelMsjCerrar-hover.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionMusica/b-panelMsjCerrar-hover.gif);
 }
 
 .panelMsjAbrir {
-background-image:url(/imagenes/rediseno/imagenes/seccionMusica/b-panelMsjAbrir.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionMusica/b-panelMsjAbrir.gif);
 }
 
 .panelMsjAbrir:hover {
-background-image:url(/imagenes/rediseno/imagenes/seccionMusica/b-panelMsjAbrir-hover.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionMusica/b-panelMsjAbrir-hover.gif);
 }
 
 .tituloBus {
@@ -2728,7 +2728,7 @@ border-color:#FACCDC;
 }
 
 a.busqFiltApl {
-background-image:url(/imagenes/rediseno/imagenes/seccionMusica/busqFiltApl.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionMusica/busqFiltApl.gif);
 }
 
 .busqContenido {
@@ -2738,7 +2738,7 @@ width:640px;
 .busqOrden {
 border:solid 1px #FACCDC;
 width:635px;
-background-image:url(/imagenes/rediseno/imagenes/seccionMusica/listadoModAcciones-back.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionMusica/listadoModAcciones-back.gif);
 }
 
 .busqContenido .listadoMod {
@@ -2768,11 +2768,11 @@ color:#5590C4;
 }
 
 .hBuscador {
-background-image:url(/imagenes/rediseno/imagenes/seccionPeliculas/hBuscador-back.png);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionPeliculas/hBuscador-back.png);
 }
 
 .hBuscMenu {
-background-image:url(/imagenes/rediseno/imagenes/seccionPeliculas/hBuscMenu-back.png);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionPeliculas/hBuscMenu-back.png);
 }
 
 a.hBuscMenuDesplItem:hover {
@@ -2781,11 +2781,11 @@ color:#FFF;
 }
 
 .hServClientes {
-background-image:url(/imagenes/rediseno/imagenes/seccionPeliculas/hServClientes-back.png);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionPeliculas/hServClientes-back.png);
 }
 
 .hModUsuarioBack {
-background-image:url(/imagenes/rediseno/imagenes/seccionPeliculas/hModUsuario-back.png);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionPeliculas/hModUsuario-back.png);
 }
 
 .panelMensajes a:visited {
@@ -2797,37 +2797,37 @@ color:#5590C4;
 }
 
 .panelMsjCerrar {
-background-image:url(/imagenes/rediseno/imagenes/seccionPeliculas/b-panelMsjCerrar.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionPeliculas/b-panelMsjCerrar.gif);
 }
 
 .panelMsjCerrar:hover {
-background-image:url(/imagenes/rediseno/imagenes/seccionPeliculas/b-panelMsjCerrar-hover.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionPeliculas/b-panelMsjCerrar-hover.gif);
 }
 
 .panelMsjAbrir {
-background-image:url(/imagenes/rediseno/imagenes/seccionPeliculas/b-panelMsjAbrir.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionPeliculas/b-panelMsjAbrir.gif);
 }
 
 .panelMsjAbrir:hover {
-background-image:url(/imagenes/rediseno/imagenes/seccionPeliculas/b-panelMsjAbrir-hover.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionPeliculas/b-panelMsjAbrir-hover.gif);
 }
 
 #panelSeccSucursales,#panelSeccQuid,#panelSeccExtra {
 width:15px;
-background-image:url(/imagenes/rediseno/imagenes/comun/panelSecc-back.jpg);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/comun/panelSecc-back.jpg);
 background-position:bottom;
 }
 
 #panelSeccSucursales {
-background-image:url(/imagenes/rediseno/imagenes/seccionPeliculas/panelSeccSucursales-back.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionPeliculas/panelSeccSucursales-back.gif);
 }
 
 #panelSeccQuid {
-background-image:url(/imagenes/rediseno/imagenes/seccionPeliculas/panelSeccQuid-back.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionPeliculas/panelSeccQuid-back.gif);
 }
 
 #panelSeccExtra {
-background-image:url(/imagenes/rediseno/imagenes/seccionPeliculas/panelSeccExtra-back.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionPeliculas/panelSeccExtra-back.gif);
 }
 
 #panelSeccSucursales span,#panelSeccQuid span,#panelSeccExtra span {
@@ -2838,20 +2838,20 @@ float:left;
 }
 
 #panelSeccSucursales span {
-background-image:url(/imagenes/rediseno/imagenes/seccionPeliculas/panelSeccSucTop-back.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionPeliculas/panelSeccSucTop-back.gif);
 }
 
 #panelSeccQuid span {
-background-image:url(/imagenes/rediseno/imagenes/seccionPeliculas/panelSeccQuidTop-back.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionPeliculas/panelSeccQuidTop-back.gif);
 }
 
 #panelSeccExtra span {
-background-image:url(/imagenes/rediseno/imagenes/seccionPeliculas/panelSeccExtraTop-back.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionPeliculas/panelSeccExtraTop-back.gif);
 }
 
 #seccionTematika {
 width:861px;
-background-image:url(/imagenes/rediseno/imagenes/seccionPeliculas/tmtkMesaNovedades-back.jpg);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionPeliculas/tmtkMesaNovedades-back.jpg);
 background-repeat:no-repeat;
 }
 
@@ -2871,7 +2871,7 @@ margin:15px 0 0 155px;
 .tmtkMesa-back {
 float:left;
 width:660px;
-background-image:url(/imagenes/rediseno/imagenes/seccionPeliculas/solapas-back.png);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionPeliculas/solapas-back.png);
 margin-top:32px;
 }
 
@@ -2885,21 +2885,21 @@ margin-top:-5px;
 }
 
 .mesaSiguiente {
-background-image:url(/imagenes/rediseno/imagenes/seccionPeliculas/mesaSiguiente.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionPeliculas/mesaSiguiente.gif);
 }
 
 .mesaAnterior {
-background-image:url(/imagenes/rediseno/imagenes/seccionPeliculas/mesaAnterior.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionPeliculas/mesaAnterior.gif);
 }
 
 .solapasMenu {
-background-image:url(/imagenes/rediseno/imagenes/seccionPeliculas/solapasMenu-back.png);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionPeliculas/solapasMenu-back.png);
 }
 
 .solapas {
 float:right;
 width:651px;
-background-image:url(/imagenes/rediseno/imagenes/seccionPeliculas/solapas-back.png);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionPeliculas/solapas-back.png);
 }
 
 .solapaModTit {
@@ -2913,21 +2913,21 @@ margin:75px 0 0 13px;
 #arbolPeliculas {
 border:solid 1px #FAE764;
 width:190px;
-background-image:url(/imagenes/rediseno/imagenes/seccionPeliculas/arbolMod-back.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionPeliculas/arbolMod-back.gif);
 background-position:bottom;
 background-repeat:repeat-x;
 }
 
 .arbolItemMas {
-background-image:url(/imagenes/rediseno/imagenes/seccionPeliculas/arbolItemMas-b.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionPeliculas/arbolItemMas-b.gif);
 }
 
 .arbolItemMin {
-background-image:url(/imagenes/rediseno/imagenes/seccionPeliculas/arbolItemMin-b.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionPeliculas/arbolItemMin-b.gif);
 }
 
 .arbolItemF {
-background-image:url(/imagenes/rediseno/imagenes/seccionPeliculas/arbolItemF.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionPeliculas/arbolItemF.gif);
 }
 
 .arbolItemLink {
@@ -2981,7 +2981,7 @@ color:#E99F00;
 }
 
 .tapaInfo {
-background-image:url(/imagenes/rediseno/imagenes/seccionPeliculas/tapaInfo-back.png);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionPeliculas/tapaInfo-back.png);
 }
 
 .footer a:hover {
@@ -2998,11 +2998,11 @@ color:#000;
 }
 
 ul.dropdown *.dir {
-background-image:url(/imagenes/rediseno/imagenes/seccionPeliculas/hBuscMenu-back.png);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionPeliculas/hBuscMenu-back.png);
 }
 
 .tmtkMesaMenuMod ul.dropdown *.dir,.busqFiltMenu ul.dropdown *.dir {
-background-image:url(/imagenes/rediseno/imagenes/seccionPeliculas/solapasMenu-back.png);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionPeliculas/solapasMenu-back.png);
 }
 
 .dropdown span:hover {
@@ -3010,11 +3010,11 @@ color:#E99F00;
 }
 
 ul.dropdown *.diri {
-background-image:url(/imagenes/rediseno/imagenes/seccionPeliculas/solapasMenu-back.png);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionPeliculas/solapasMenu-back.png);
 }
 
 .tmtkMesaMenuMod ul.dropdown *.diri {
-background-image:url(/imagenes/rediseno/imagenes/seccionPeliculas/solapasMenu-back.png);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionPeliculas/solapasMenu-back.png);
 }
 
 .dSolapas .solapasTitComent {
@@ -3031,13 +3031,13 @@ margin-left:49px;
 
 .solapasTitDatosPrinc {
 width:175px;
-background-image:url(/imagenes/rediseno/imagenes/comun/t-datosPrinc.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/comun/t-datosPrinc.gif);
 margin:10px 5px 0 70px;
 }
 
 .dCompra {
 border:solid 1px #FECE00;
-background-image:url(/imagenes/rediseno/imagenes/seccionPeliculas/arbolMod-back.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionPeliculas/arbolMod-back.gif);
 }
 
 .dCompra ul,.dComprarEnvio {
@@ -3046,11 +3046,11 @@ border-bottom:dotted 1px #FECE00;
 }
 
 .dComprarButton {
-background-image:url(/imagenes/rediseno/imagenes/seccionPeliculas/b-comprarD.png);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionPeliculas/b-comprarD.png);
 }
 
 .detalleBotonMenu {
-background-image:url(/imagenes/rediseno/imagenes/seccionPeliculas/detalleBotonMenu-back.png);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionPeliculas/detalleBotonMenu-back.png);
 }
 
 .detalleBotonMenu span,.detalleBoton span {
@@ -3062,7 +3062,7 @@ color:#5590C4;
 }
 
 .detalleListaMenu {
-background-image:url(/imagenes/rediseno/imagenes/seccionPeliculas/listadoModAcciones-back.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionPeliculas/listadoModAcciones-back.gif);
 }
 
 p.dListaMenuCheck {
@@ -3084,11 +3084,11 @@ border-right:solid 1px #FAE764;
 }
 
 .detalleImagenAnt {
-background-image:url(/imagenes/rediseno/imagenes/seccionPeliculas/detalleImagenAnt-back.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionPeliculas/detalleImagenAnt-back.gif);
 }
 
 .detalleImagenSig {
-background-image:url(/imagenes/rediseno/imagenes/seccionPeliculas/detalleImagenSig-back.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionPeliculas/detalleImagenSig-back.gif);
 }
 
 .dSolapas .hTags {
@@ -3102,19 +3102,19 @@ border-bottom:dotted 1px #FECE00;
 }
 
 .dComentsCalifP {
-background-image:url(/imagenes/rediseno/imagenes/seccionPeliculas/dComentsCalifP-back.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionPeliculas/dComentsCalifP-back.gif);
 }
 
 .dComentsCalifN {
-background-image:url(/imagenes/rediseno/imagenes/seccionPeliculas/dComentsCalifN-back.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionPeliculas/dComentsCalifN-back.gif);
 }
 
 .dFavButton {
-background-image:url(/imagenes/rediseno/imagenes/seccionPeliculas/b-favoritoD.png);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionPeliculas/b-favoritoD.png);
 }
 
 .listadoMod {
-background-image:url(/imagenes/rediseno/imagenes/seccionPeliculas/listadoMod.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionPeliculas/listadoMod.gif);
 }
 
 .listadoMod .dInfoLinks {
@@ -3123,7 +3123,7 @@ border-top:dotted 1px #FECE00;
 }
 
 .listadoModAcciones div {
-background-image:url(/imagenes/rediseno/imagenes/seccionPeliculas/listadoModAcciones-back.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionPeliculas/listadoModAcciones-back.gif);
 border:solid 1px #FAE764;
 }
 
@@ -3133,15 +3133,15 @@ height:46px;
 display:block;
 background-position:center;
 margin:5px 0;
-background-image:url(/imagenes/rediseno/imagenes/seccionPeliculas/b-comprar.png);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionPeliculas/b-comprar.png);
 }
 
 .globoArticuloComprar {
-background-image:url(/imagenes/rediseno/imagenes/seccionPeliculas/b-comprar.png);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionPeliculas/b-comprar.png);
 }
 
 .globoArticuloPedir {
-background-image:url(/imagenes/rediseno/imagenes/seccionPeliculas/b-pedir.png);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionPeliculas/b-pedir.png);
 }
 
 .panelMensajes a:visited {
@@ -3157,19 +3157,19 @@ color:#5590C4;
 }
 
 .panelMsjCerrar {
-background-image:url(/imagenes/rediseno/imagenes/seccionPeliculas/b-panelMsjCerrar.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionPeliculas/b-panelMsjCerrar.gif);
 }
 
 .panelMsjCerrar:hover {
-background-image:url(/imagenes/rediseno/imagenes/seccionPeliculas/b-panelMsjCerrar-hover.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionPeliculas/b-panelMsjCerrar-hover.gif);
 }
 
 .panelMsjAbrir {
-background-image:url(/imagenes/rediseno/imagenes/seccionPeliculas/b-panelMsjAbrir.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionPeliculas/b-panelMsjAbrir.gif);
 }
 
 .panelMsjAbrir:hover {
-background-image:url(/imagenes/rediseno/imagenes/seccionPeliculas/b-panelMsjAbrir-hover.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionPeliculas/b-panelMsjAbrir-hover.gif);
 }
 
 .tituloBus {
@@ -3192,7 +3192,7 @@ border-color:#FAE764;
 }
 
 a.busqFiltApl {
-background-image:url(/imagenes/rediseno/imagenes/seccionPeliculas/busqFiltApl.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionPeliculas/busqFiltApl.gif);
 }
 
 .busqContenido {
@@ -3202,7 +3202,7 @@ width:640px;
 .busqOrden {
 border:solid 1px #FAE764;
 width:635px;
-background-image:url(/imagenes/rediseno/imagenes/seccionPeliculas/listadoModAcciones-back.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionPeliculas/listadoModAcciones-back.gif);
 }
 
 .busqContenido .listadoMod {
@@ -3639,11 +3639,11 @@ color:#E17B5E;
 }
 
 .hBuscador {
-background-image:url(/imagenes/rediseno/imagenes/seccionPasatiempos/hBuscador-back.png);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionPasatiempos/hBuscador-back.png);
 }
 
 .hBuscMenu {
-background-image:url(/imagenes/rediseno/imagenes/seccionPasatiempos/hBuscMenu-back.png);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionPasatiempos/hBuscMenu-back.png);
 }
 
 a.hBuscMenuDesplItem:hover {
@@ -3652,11 +3652,11 @@ color:#FFF;
 }
 
 .hServClientes {
-background-image:url(/imagenes/rediseno/imagenes/seccionPasatiempos/hServClientes-back.png);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionPasatiempos/hServClientes-back.png);
 }
 
 .hModUsuarioBack {
-background-image:url(/imagenes/rediseno/imagenes/seccionPasatiempos/hModUsuario-back.png);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionPasatiempos/hModUsuario-back.png);
 }
 
 .panelMensajes a:visited {
@@ -3668,37 +3668,37 @@ color:#E17B5E;
 }
 
 .panelMsjCerrar {
-background-image:url(/imagenes/rediseno/imagenes/seccionPasatiempos/b-panelMsjCerrar.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionPasatiempos/b-panelMsjCerrar.gif);
 }
 
 .panelMsjCerrar:hover {
-background-image:url(/imagenes/rediseno/imagenes/seccionPasatiempos/b-panelMsjCerrar-hover.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionPasatiempos/b-panelMsjCerrar-hover.gif);
 }
 
 .panelMsjAbrir {
-background-image:url(/imagenes/rediseno/imagenes/seccionPasatiempos/b-panelMsjAbrir.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionPasatiempos/b-panelMsjAbrir.gif);
 }
 
 .panelMsjAbrir:hover {
-background-image:url(/imagenes/rediseno/imagenes/seccionPasatiempos/b-panelMsjAbrir-hover.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionPasatiempos/b-panelMsjAbrir-hover.gif);
 }
 
 #panelSeccSucursales,#panelSeccQuid,#panelSeccExtra {
 width:15px;
-background-image:url(/imagenes/rediseno/imagenes/comun/panelSecc-back.jpg);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/comun/panelSecc-back.jpg);
 background-position:bottom;
 }
 
 #panelSeccSucursales {
-background-image:url(/imagenes/rediseno/imagenes/seccionPasatiempos/panelSeccSucursales-back.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionPasatiempos/panelSeccSucursales-back.gif);
 }
 
 #panelSeccQuid {
-background-image:url(/imagenes/rediseno/imagenes/seccionPasatiempos/panelSeccQuid-back.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionPasatiempos/panelSeccQuid-back.gif);
 }
 
 #panelSeccExtra {
-background-image:url(/imagenes/rediseno/imagenes/seccionPasatiempos/panelSeccExtra-back.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionPasatiempos/panelSeccExtra-back.gif);
 }
 
 #panelSeccSucursales span,#panelSeccQuid span,#panelSeccExtra span {
@@ -3709,20 +3709,20 @@ float:left;
 }
 
 #panelSeccSucursales span {
-background-image:url(/imagenes/rediseno/imagenes/seccionPasatiempos/panelSeccSucTop-back.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionPasatiempos/panelSeccSucTop-back.gif);
 }
 
 #panelSeccQuid span {
-background-image:url(/imagenes/rediseno/imagenes/seccionPasatiempos/panelSeccQuidTop-back.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionPasatiempos/panelSeccQuidTop-back.gif);
 }
 
 #panelSeccExtra span {
-background-image:url(/imagenes/rediseno/imagenes/seccionPasatiempos/panelSeccExtraTop-back.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionPasatiempos/panelSeccExtraTop-back.gif);
 }
 
 #seccionTematika {
 width:861px;
-background-image:url(/imagenes/rediseno/imagenes/seccionPasatiempos/tmtkMesaNovedades-back.jpg);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionPasatiempos/tmtkMesaNovedades-back.jpg);
 background-repeat:no-repeat;
 }
 
@@ -3742,7 +3742,7 @@ margin:15px 0 0 155px;
 .tmtkMesa-back {
 float:left;
 width:660px;
-background-image:url(/imagenes/rediseno/imagenes/seccionPasatiempos/solapas-back.png);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionPasatiempos/solapas-back.png);
 margin-top:32px;
 }
 
@@ -3756,21 +3756,21 @@ margin-top:-5px;
 }
 
 .mesaSiguiente {
-background-image:url(/imagenes/rediseno/imagenes/seccionPasatiempos/mesaSiguiente.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionPasatiempos/mesaSiguiente.gif);
 }
 
 .mesaAnterior {
-background-image:url(/imagenes/rediseno/imagenes/seccionPasatiempos/mesaAnterior.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionPasatiempos/mesaAnterior.gif);
 }
 
 .solapasMenu {
-background-image:url(/imagenes/rediseno/imagenes/seccionPasatiempos/solapasMenu-back.png);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionPasatiempos/solapasMenu-back.png);
 }
 
 .solapas {
 float:right;
 width:651px;
-background-image:url(/imagenes/rediseno/imagenes/seccionPasatiempos/solapas-back.png);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionPasatiempos/solapas-back.png);
 }
 
 .solapaModTit {
@@ -3784,21 +3784,21 @@ margin:75px 0 0 13px;
 #arbolPasatiempos {
 border:solid 1px #A8CAD5;
 width:190px;
-background-image:url(/imagenes/rediseno/imagenes/seccionPasatiempos/arbolMod-back.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionPasatiempos/arbolMod-back.gif);
 background-position:bottom;
 background-repeat:repeat-x;
 }
 
 .arbolItemMas {
-background-image:url(/imagenes/rediseno/imagenes/seccionPasatiempos/arbolItemMas-b.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionPasatiempos/arbolItemMas-b.gif);
 }
 
 .arbolItemMin {
-background-image:url(/imagenes/rediseno/imagenes/seccionPasatiempos/arbolItemMin-b.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionPasatiempos/arbolItemMin-b.gif);
 }
 
 .arbolItemF {
-background-image:url(/imagenes/rediseno/imagenes/seccionPasatiempos/arbolItemF.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionPasatiempos/arbolItemF.gif);
 }
 
 .arbolItemLink {
@@ -3852,7 +3852,7 @@ color:#1985A2;
 }
 
 .tapaInfo {
-background-image:url(/imagenes/rediseno/imagenes/seccionPasatiempos/tapaInfo-back.png);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionPasatiempos/tapaInfo-back.png);
 }
 
 .footer a:hover {
@@ -3869,11 +3869,11 @@ color:#FFF;
 }
 
 ul.dropdown *.dir {
-background-image:url(/imagenes/rediseno/imagenes/seccionPasatiempos/hBuscMenu-back.png);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionPasatiempos/hBuscMenu-back.png);
 }
 
 .tmtkMesaMenuMod ul.dropdown *.dir,.busqFiltMenu ul.dropdown *.dir {
-background-image:url(/imagenes/rediseno/imagenes/seccionPasatiempos/solapasMenu-back.png);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionPasatiempos/solapasMenu-back.png);
 }
 
 .dropdown span:hover {
@@ -3881,11 +3881,11 @@ color:#1985A2;
 }
 
 ul.dropdown *.diri {
-background-image:url(/imagenes/rediseno/imagenes/seccionPasatiempos/solapasMenu-back.png);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionPasatiempos/solapasMenu-back.png);
 }
 
 .tmtkMesaMenuMod ul.dropdown *.diri {
-background-image:url(/imagenes/rediseno/imagenes/seccionPasatiempos/solapasMenu-back.png);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionPasatiempos/solapasMenu-back.png);
 }
 
 .dSolapas .solapasTitComent {
@@ -3902,13 +3902,13 @@ margin-left:49px;
 
 .solapasTitDatosPrinc {
 width:175px;
-background-image:url(/imagenes/rediseno/imagenes/comun/t-datosPrinc.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/comun/t-datosPrinc.gif);
 margin:10px 5px 0 70px;
 }
 
 .dCompra {
 border:solid 1px #A8CAD5;
-background-image:url(/imagenes/rediseno/imagenes/seccionPasatiempos/arbolMod-back.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionPasatiempos/arbolMod-back.gif);
 }
 
 .dCompra ul,.dComprarEnvio {
@@ -3917,11 +3917,11 @@ border-bottom:dotted 1px #A8CAD5;
 }
 
 .dComprarButton {
-background-image:url(/imagenes/rediseno/imagenes/seccionPasatiempos/b-comprarD.png);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionPasatiempos/b-comprarD.png);
 }
 
 .detalleBotonMenu {
-background-image:url(/imagenes/rediseno/imagenes/seccionPasatiempos/detalleBotonMenu-back.png);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionPasatiempos/detalleBotonMenu-back.png);
 }
 
 .detalleBotonMenu span,.detalleBoton span {
@@ -3933,7 +3933,7 @@ color:#E17B5E;
 }
 
 .detalleListaMenu {
-background-image:url(/imagenes/rediseno/imagenes/seccionPasatiempos/listadoModAcciones-back.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionPasatiempos/listadoModAcciones-back.gif);
 }
 
 p.dListaMenuCheck {
@@ -3955,11 +3955,11 @@ border-right:solid 1px #A8CAD5;
 }
 
 .detalleImagenAnt {
-background-image:url(/imagenes/rediseno/imagenes/seccionPasatiempos/detalleImagenAnt-back.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionPasatiempos/detalleImagenAnt-back.gif);
 }
 
 .detalleImagenSig {
-background-image:url(/imagenes/rediseno/imagenes/seccionPasatiempos/detalleImagenSig-back.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionPasatiempos/detalleImagenSig-back.gif);
 }
 
 .dSolapas .hTags {
@@ -3973,15 +3973,15 @@ border-bottom:dotted 1px #A8CAD5;
 }
 
 .dComentsCalifP {
-background-image:url(/imagenes/rediseno/imagenes/seccionPasatiempos/dComentsCalifP-back.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionPasatiempos/dComentsCalifP-back.gif);
 }
 
 .dComentsCalifN {
-background-image:url(/imagenes/rediseno/imagenes/seccionPasatiempos/dComentsCalifN-back.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionPasatiempos/dComentsCalifN-back.gif);
 }
 
 .listadoMod {
-background-image:url(/imagenes/rediseno/imagenes/seccionPasatiempos/listadoMod.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionPasatiempos/listadoMod.gif);
 }
 
 .listadoMod .dInfoLinks {
@@ -3990,7 +3990,7 @@ border-top:dotted 1px #ADC4A1;
 }
 
 .listadoModAcciones div {
-background-image:url(/imagenes/rediseno/imagenes/seccionPasatiempos/listadoModAcciones-back.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionPasatiempos/listadoModAcciones-back.gif);
 border:solid 1px #A8CAD5;
 }
 
@@ -4000,15 +4000,15 @@ height:46px;
 display:block;
 background-position:center;
 margin:5px 0;
-background-image:url(/imagenes/rediseno/imagenes/seccionPasatiempos/b-comprar.png);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionPasatiempos/b-comprar.png);
 }
 
 .globoArticuloComprar {
-background-image:url(/imagenes/rediseno/imagenes/seccionPasatiempos/b-comprar.png);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionPasatiempos/b-comprar.png);
 }
 
 .globoArticuloPedir {
-background-image:url(/imagenes/rediseno/imagenes/seccionPasatiempos/b-pedir.png);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionPasatiempos/b-pedir.png);
 }
 
 .panelMensajes a:visited {
@@ -4020,19 +4020,19 @@ color:#E17B5E;
 }
 
 .panelMsjCerrar {
-background-image:url(/imagenes/rediseno/imagenes/seccionPasatiempos/b-panelMsjCerrar.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionPasatiempos/b-panelMsjCerrar.gif);
 }
 
 .panelMsjCerrar:hover {
-background-image:url(/imagenes/rediseno/imagenes/seccionPasatiempos/b-panelMsjCerrar-hover.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionPasatiempos/b-panelMsjCerrar-hover.gif);
 }
 
 .panelMsjAbrir {
-background-image:url(/imagenes/rediseno/imagenes/seccionPasatiempos/b-panelMsjAbrir.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionPasatiempos/b-panelMsjAbrir.gif);
 }
 
 .panelMsjAbrir:hover {
-background-image:url(/imagenes/rediseno/imagenes/seccionPasatiempos/b-panelMsjAbrir-hover.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionPasatiempos/b-panelMsjAbrir-hover.gif);
 }
 
 .tituloBus {
@@ -4055,7 +4055,7 @@ border-color:#A8CAD5;
 }
 
 a.busqFiltApl {
-background-image:url(/imagenes/rediseno/imagenes/seccionPasatiempos/busqFiltApl.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionPasatiempos/busqFiltApl.gif);
 }
 
 .busqContenido {
@@ -4065,7 +4065,7 @@ width:640px;
 .busqOrden {
 border:solid 1px #A8CAD5;
 width:635px;
-background-image:url(/imagenes/rediseno/imagenes/seccionPasatiempos/listadoModAcciones-back.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionPasatiempos/listadoModAcciones-back.gif);
 }
 
 .busqContenido .listadoMod {
