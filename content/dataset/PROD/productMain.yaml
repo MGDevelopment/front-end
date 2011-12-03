@@ -408,22 +408,26 @@ query.post:         [ "tmklib.fixes.PROD.title",
                       "tmklib.fixes.PROD.calcImages",
                       "tmklib.url.PROD",
                       "tmklib.fixes.PROD.embedRatings",
+                      "tmklib.PROD.categories",
                       "tmklib.fixes.IMPR.title",
                       "tmklib.url.IMPR"
                     ]
 query.augment:
     Authors:
-        <<:     *augment_products_authors
+        <<:             *augment_products_authors
         join.key:       [ "ProductId" ]
     Ratings:
-        <<:     *augment_products_rating
+        <<:             *augment_products_rating
         join.key:       [ "ProductId" ]
     Identifiers:
-        <<:     *augment_products_identifiers
+        <<:             *augment_products_identifiers
         join.key:       [ "ProductId" ]
     Audiences:
-        <<:     *augment_products_audiences
+        <<:             *augment_products_audiences
         join.key:       [ "ProductId" ]
     Content:
-        <<:     *augment_products_content
+        <<:             *augment_products_content
+        join.key:       [ "ProductId" ]
+    Texts:
+        code.name:      tmklib.PROD.getTexts
         join.key:       [ "ProductId" ]
