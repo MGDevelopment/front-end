@@ -1,3 +1,14 @@
+{%- macro getOrigen(id) -%}
+	{%- if id == 1 -%}
+		Editorial
+	{%- elif id == 4-%}
+		Sello discogr&aacute;fico
+	{%- elif id == 5 -%}
+		Productora
+	{%- else -%}
+		Editorial
+	{%- endif -%}
+{%- endmacro %}
 <!-- **** SECCION TEMATIKA **** -->
 <div id="divCarrito" class="efectoCarritoMod" style="display:none">
 	<div class="efectoCarritoTxt"><span class="txtMsgCarritoOK" id="msgCarritoOK"></span><br /><div id="msgCarritoERROR" style="font-size:12;color:red"></div><span id="spnPrecioCarrito" class="txtPrecioCarrito">PRECIO: $ <span  class="txtPrecioCarrito" id="precioCarrito"></span>.-</span></div>
@@ -24,21 +35,31 @@
 <a href="/{{ linkSection }}" class="panelSeccAct"></a>
 <div class="detalleInfoPrinc">
    	<div id="dTopLeft">
-        <div class="dImagenes"><div class="detalleImagen"><img src="{{ detail_main_data.urlImg }}" alt="{{ detail_main_data.altImg }}" title="{{ detail_main_data.titleImg }}"></div></div>
+        <div class="dImagenes"><div class="detalleImagen"><img src="{{ d.CoverSmall}}" alt="{{ d.Title }}" title="{{ d.Title }}"></div></div>
 		<div class="dInfoPrincipal">
-			<div class="dInfoTit"><h1><b style="font-size:20px;">{{ detail_main_data.titulo }}</b></h1></div>
-            <div class="dInfoAutor"><h2>{%- for autor in detail_main_data.autores -%}<a href="{{ autor.urlAutor }}"><b>{{ autor.nombre }}</b></a>&nbsp;{%- endfor %}</h2></div>
-            <span>*Editorial: <a href="{{ detail_main_data.editorial.urlEditorial }}">{{ detail_main_data.editorial.nombre }}</a></span>
-            <span>I.S.B.N : {{ detail_main_data.ISBN }}</span>
-            <span>Clasificaci&oacute;n: {%- for clasificacion in detail_main_data.clasificaciones -%}<a href="{{ clasificacion.urlGenero }}">{{ clasificacion.genero }}</a>&nbsp;{%- endfor %}</span>
-            {%- if detail_main_data.formato -%}<span>Formato: {{ detail_main_data.formato }} {{detail_main_data.tipoArticulo }}</span>{%- endif %}
-            <span>Disponibilidad: {{ detail_main_data.disponibilidad }}</span>
+			<div class="dInfoTit"><h1><b style="font-size:20px;">{{ d.Title }}</b></h1></div>
+			{%- if d.Authors -%}
+            <div class="dInfoAutor"><h2>de&nbsp;{%- for contributor in d.Authors -%}<a href="{{ contributor.ContributorURL }}"><b>{{ contributor.ContributorName }}</b></a>&nbsp;{%- endfor %}</h2></div>
+            {%- endif %}
+            <span>{{ÊgetOrigen(d.Categoria_Seccion) }}: <a href="{{ d.ImprintURL }}">{{ d.ImprintName }}</a></span>
+            {%- if d.Identifiers -%}
+            <span>I.S.B.N : {{ d.Identifiers[0].IDValue }}</span>
+            {%- endif %}
+            <span>*Clasificaci&oacute;n: {%- for clasificacion in detail_main_data.clasificaciones -%}<a href="{{ clasificacion.urlGenero }}">{{ clasificacion.genero }}</a>&nbsp;{%- endfor %}</span>
+            {%- if d.ProductForm -%}<span>Formato: {{ d.ProductForm_desc }}</span>{%- endif %}
+            <span>Disponibilidad: {{ d.ProductAvailability_desc }}</span>
             {%- if detail_main_data.paginas -%}<span>*Paginas:{{ detail_main_data.paginas }} {{ detail_main_data.duracion }}</span>{%- endif %}
-            <span>Publicaci&oacute;n: {{ detail_main_data.publicacion }} | Idioma: {{ detail_main_data.idioma }}</span>
+            <span>Publicaci&oacute;n: {{ d.PublishingDateValue }} | Idioma: {{ d.LanguageCode }}</span>
             <div class="dInfoM">{%- if detail_main_data.primerCapitulo -%}<a href="#primerCap">[+] Primer capitulo</a>&nbsp;{%- endif %}{%- if detail_main_data.indice -%}<a href="#indCont">[+] Indice de contenidos</a>&nbsp;{%- endif %}{%- if detail_main_data.biografia -%}<a href="#biogra">[+] Biografia</a>&nbsp;{%- endif %}{%- if detail_main_data.entrevista -%}<a href="#entrevista">[+] Ver Entrevista</a>&nbsp;{%- endif %}</div>
-            {%- if detail_main_data.urlFullImg %}<a href="javascript:mostrarImagen('{{ detail_main_data.urlFullImg }}')">Ampliar imagen</a>{%- endif %}
-			<div id="divEvaluacion"><div id="divEvaluacion"><div class="dInfoCalif"><div class="dInfoCalifStarMod"><span>Calificaci&oacute;n de lectores:</span>{%- for number in range(0, detail_main_data.calificacion|int) -%}<div class="dInfoCalifStar"></div> {%- endfor %} </div>
-			<div class="dInfoCalifBoton"><span><a href="#"></a></span><a href="#"><div>AGREGAR COMENTARIO</div></a></div></div></div></div>
+            {%- if d.CoverLarge %}<a href="javascript:mostrarImagen('{{ d.CoverLarge }}')">Ampliar imagen</a>{%- endif %}
+			<div id="divEvaluacion"><div id="divEvaluacion"><div class="dInfoCalif"><div class="dInfoCalifStarMod"><span>Calificaci&oacute;n de lectores:</span>
+			{%- if d.Rating -%}
+				{%- for number in range(0, d.Rating|int) -%}<div class="dInfoCalifStar"></div> {%- endfor %}
+			{%- else -%}
+				<label><a href="/Comentario?ID_ARTICULO={{ d.EntityId }}&idSeccion=">SŽ el primero en comentarlo!</a></label>
+			{%- endif %}
+			</div>
+			<div class="dInfoCalifBoton"><span><a href="/Comentario?ID_ARTICULO={{ d.EntityId }}&idSeccion="></a></span><a href="#"><div>AGREGAR COMENTARIO</div></a></div></div></div></div>
 		</div>
 	</div>
     <div id="dInfoCompl">
@@ -74,7 +95,7 @@
 		{%- endif %}
 		<div id="googleBook" class="dSolapas1"><div id="viewerCanvas" style="height: 500px;">
 		</div></div>
-		<input type="hidden" value="{{Â idArticleÂ }}" id="articulo">
+		<input type="hidden" value="{{ d.EntityId }}" id="articulo">
 		<div class="dSolapas" id="listas" style="height: 200px;display: none;"></div>
 		<div class="dSolapas" id="tags"></div>
 	</div>
