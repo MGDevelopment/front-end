@@ -50,7 +50,7 @@ augment_products_authors:  &augment_products_authors
                 FROM        Articulos A
                 INNER JOIN  Articulos_Autores AA
                     ON      A.Id_Articulo = AA.Id_Articulo AND
-                            AA.Role IN ('A01', 'D02', 'E01')
+                            AA.Role IN ('A01', 'A09', 'B15', 'C01', 'D02', 'E01')
                 LEFT JOIN   CG_REF_CODES CGRF_Role
                     ON      CGRF_Role.RV_Domain = 'ONIX:ContributorRole' AND
                             AA.Role = CGRF_Role.RV_Low_Value
@@ -66,7 +66,8 @@ augment_products_authors:  &augment_products_authors
                           "ContributorId", "ContributorName", "ContributorURL",
                           "Categoria_Seccion" ]
     query.post:         [ "tmklib.fixes.CONT.title",
-                          "tmklib.url.CONT"
+                          "tmklib.url.CONT",
+                          "tmklib.PROD.author_texts",
                         ]
 
 
