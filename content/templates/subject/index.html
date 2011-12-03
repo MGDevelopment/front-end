@@ -1,6 +1,6 @@
 {% extends "page.html" %}
 
-{#- Pick useful data -#}
+{%- set section_name = d['Title']|lower -%}
 
 {% block head_extra %}
     <link type="text/css" rel="stylesheet" href="{{ url.data }}/css/jquery.qtip.min.css">
@@ -55,10 +55,12 @@
             {% include "fragments/tree.html" %}
         </div>
         <div id="showcase">
-            {# include "subject/showcase.html" #}
+            {% include "subject/showcase.html" %}
         </div>
         <div id="related"> {{ related }} </div>
-        <div id="comments"> {{ comments }} </div>
+        <div id="comments">
+            {% include "fragments/comments.html" %}
+        </div>
         <div class="lastvisited"> {{ lastvisited }} </div>
     </div>
     <div id="rightmenu"> {{ rightmenu }} </div>
@@ -81,16 +83,15 @@
 	</script>
 
 	<!-- Data Scripts -->
-	<script type="text/javascript" src="{{ url.data }}/home-comments.js"></script>
-	<script type="text/javascript" src="{{ url.data }}/home-showcase.js"></script>
+	<script type="text/javascript"
+            src="{{ url.data }}/{{ subject_name }}/comments.js"></script>
+	<script type="text/javascript"
+            src="{{ url.data }}/{{ subject_name }}/showcase.js"></script>
 
 	<script type="text/javascript">
 
 		jQuery(document).ready(function() {
-			$('#sliderHomeBooks').tinycarousel({ axis: 'y', display: 1} );
-			$('#sliderHomeMusic').tinycarousel({ axis: 'y', display: 1} );
-			$('#sliderHomeMovies').tinycarousel({ axis: 'y', display: 1} );
-			$('#sliderHomeGames').tinycarousel({ axis: 'y', display: 1} );
+			$('#sliderSection').tinycarousel({ axis: 'y', display: 1} );
 			renderLastVisited('lastvisited');
 		});
 		/* parse messages */

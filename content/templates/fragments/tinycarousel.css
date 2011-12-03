@@ -34,11 +34,11 @@ height: 156px;}
 #sliderHomeGames .overview li{ float: left; margin: 0 0px 0 0; padding: 1px;
 /* height: 121px; */ }
 
-#sliderSectionbooks { height: 1%; overflow:hidden; padding: 0 0 0px; margin: 0 0 0 0px;  }
-#sliderSectionbooks .viewport { width: 652px; height: 310px; overflow: hidden; position: relative; }
-#sliderSectionbooks .buttons {  no-repeat scroll 0 0 transparent; display: block; margin: 0 0 5px 0px; background-position: 0 -74px; text-indent: -999em; width: 652px; height: 37px; overflow: hidden; position: relative; }
-#sliderSectionbooks .next { background-position: 0 -112px; margin: 0 0 0 0px;  }
-#sliderSectionbooks .disable { visibility: hidden; }
-#sliderSectionbooks .overview { list-style: none; position: absolute; width: 650px; left: 0; top: 0; }
-#sliderSectionbooks .overview li { float: left; margin: 0 0px 0 0; padding:
+#sliderSection { height: 1%; overflow:hidden; padding: 0 0 0px; margin: 0 0 0 0px;  }
+#sliderSection .viewport { width: 652px; height: 310px; overflow: hidden; position: relative; }
+#sliderSection .buttons {  no-repeat scroll 0 0 transparent; display: block; margin: 0 0 5px 0px; background-position: 0 -74px; text-indent: -999em; width: 652px; height: 37px; overflow: hidden; position: relative; }
+#sliderSection .next { background-position: 0 -112px; margin: 0 0 0 0px;  }
+#sliderSection .disable { visibility: hidden; }
+#sliderSection .overview { list-style: none; position: absolute; width: 650px; left: 0; top: 0; }
+#sliderSection .overview li { float: left; margin: 0 0px 0 0; padding:
     1px; height: 156px;}
