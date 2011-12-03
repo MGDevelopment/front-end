@@ -22,6 +22,13 @@
 		libros
 	{%- endif -%}
 {%- endmacro %}
+{%- macro getOnixItem(texts, code) -%}
+	{%- for text in texts -%}
+		{%- if text.EntryCode == code -%}
+			{{ text.TextContent }}
+		{%- endif %}
+	{%- endfor %}
+{%- endmacro %}
 <!-- **** SECCION TEMATIKA **** -->
 <div id="divCarrito" class="efectoCarritoMod" style="display:none">
 	<div class="efectoCarritoTxt"><span class="txtMsgCarritoOK" id="msgCarritoOK"></span><br /><div id="msgCarritoERROR" style="font-size:12;color:red"></div><span id="spnPrecioCarrito" class="txtPrecioCarrito">PRECIO: $ <span  class="txtPrecioCarrito" id="precioCarrito"></span>.-</span></div>
@@ -63,7 +70,7 @@
             <span>Disponibilidad: {{ d.ProductAvailability_desc }}</span>
             {%- if d.ExtentUnit -%}<span>{{ d.ExtentUnit_desc }}:{{ d.ExtentValue }}</span>{%- endif %}
             <span>Publicaci&oacute;n: {{ d.PublishingDateValue }} | Idioma: {{ d.LanguageCode }}</span>
-            <div class="dInfoM">{%- if detail_main_data.primerCapitulo -%}<a href="#primerCap">[+] Primer capitulo</a>&nbsp;{%- endif %}{%- if detail_main_data.indice -%}<a href="#indCont">[+] Indice de contenidos</a>&nbsp;{%- endif %}{%- if detail_main_data.biografia -%}<a href="#biogra">[+] Biografia</a>&nbsp;{%- endif %}{%- if detail_main_data.entrevista -%}<a href="#entrevista">[+] Ver Entrevista</a>&nbsp;{%- endif %}</div>
+            <div class="dInfoM">{%- if getOnixItem(d.Texts, '24') -%}<a href="#primerCap">[+] Primer capitulo</a>&nbsp;{%- endif %}{%- if getOnixItem(d.Texts, '04') -%}<a href="#indCont">[+] Indice de contenidos</a>&nbsp;{%- endif %}{%- if getOnixItem(d.Texts, '13') -%}<a href="#biogra">[+] Biografia</a>&nbsp;{%- endif %}{%- if getOnixItem(d.Texts, '40') -%}<a href="#entrevista">[+] Ver Entrevista</a>&nbsp;{%- endif %}</div>
             {%- if d.CoverLarge %}<a href="javascript:mostrarImagen('{{ d.CoverLarge }}')">Ampliar imagen</a>{%- endif %}
 			<div id="divEvaluacion"><div id="divEvaluacion"><div class="dInfoCalif"><div class="dInfoCalifStarMod"><span>Calificaci&oacute;n de lectores:</span>
 			{%- if d.Rating -%}
@@ -84,32 +91,32 @@
     <div id="dInfoCompl">
     	<div class="dSolapas" id="datosCompl">
 			<div class="tmtkMesaMenuMod"><img class="solapasTitDatosPrinc" title="Datos principales"  alt="<tmpl_var altDatosPrincipales>" src="/imagenes/rediseno/imagenes/comun/t-datosPrinc.gif" /></div>
-			<div class="dResena">{%- if detail_main_data.solapa -%}<span>Solapa:</span>{{ detail_main_data.solapa }}{%- endif %}{%- if detail_main_data.contratapa -%}<span>Contratapa:</span>{{ detail_main_data.contratapa }}{%- endif %}{%- if detail_main_data.sinopsis -%}<span>Sinopsis:</span>{{ detail_main_data.sinopsis }}{%- endif %}</div>
+			<div class="dResena">{%- if getOnixItem(d.Texts, '17') -%}<span>Solapa:</span>{{ getOnixItem(d.Texts, '17') }}{%- endif %}{%- if getOnixItem(d.Texts, '18') -%}<span>Contratapa:</span>{{ getOnixItem(d.Texts, '18') }}{%- endif %}{%- if getOnixItem(d.Texts, '02') -%}<span>Sinopsis:</span>{{ getOnixItem(d.Texts, '02') }}{%- endif %}</div>
         </div>
-		{%- if detail_main_data.indice -%}
+		{%- if getOnixItem(d.Texts, '04') -%}
 			<div class="dSolapas" id="indCont">
 	            <div class="tmtkMesaMenuMod"><div class="solapasTitIndCont" title="&Iacute;ndice de contenidos"/></div></div>
-	            <div class="dResena" id="divIndContenido" style="border:thin solid;border-color: white;">{{ detail_main_data.indice }}</div>
+	            <div class="dResena" id="divIndContenido" style="border:thin solid;border-color: white;">{{ getOnixItem(d.Texts, '04') }}</div>
 			</div>
 		{%- endif %}
-		{%- if detail_main_data.primerCapitulo -%}
+		{%- if getOnixItem(d.Texts, '24') -%}
 		   	<div class="dSolapas" id="primerCap">
 				<div class="tmtkMesaMenuMod"><div class="solapasTitprimerCap" title="Primer cap&iacute;tulo"/></div></div>
-				<div class="dResena" id="divPrimerCapitulo" style="border:thin solid;border-color: white;">{{ detail_main_data.primerCapitulo }}</div>
+				<div class="dResena" id="divPrimerCapitulo" style="border:thin solid;border-color: white;">{{ getOnixItem(d.Texts, '24') }}</div>
 			</div>
 		{%- endif %}
-		{%- if detail_main_data.biografia -%}
+		{%- if getOnixItem(d.Texts, '13') -%}
 			<div class="dSolapas" id="biogra">
 				<div class="tmtkMesaMenuMod"><div class="solapasTitBio" title="&Iacute;ndice de contenidos" /></div></div>
-	        	<div class="dResena" id="divBiografia"><span></span>{{ detail_main_data.biografia }}</div>
+	        	<div class="dResena" id="divBiografia"><span></span>{{ getOnixItem(d.Texts, '13') }}</div>
 			</div>
 		{%- endif %}
 		<a name="coment"></a><div class="dSolapas" id="comentarios"><div class="tmtkMesaMenuMod"><img class="solapasTitComent" alt="<tmp_var altComentarios>" src="/imagenes/rediseno/imagenes/comun/t-comentarios.gif" /></div></div>
 		<div id="divComentarios"><div id="comments_detail"></div></div>
-		{%- if detail_main_data.entrevista -%}
+		{%- if getOnixItem(d.Texts, '40') -%}
 			<div class="dSolapas" id="entrevista">
 		    	<div class="tmtkMesaMenuMod"><div class="solapasTitEntrev" title="Entrevista"/></div></div>
-				<div class="dResena" id="divEnrevista"><span></span>{{ detail_main_data.entrevista }}</div>
+				<div class="dResena" id="divEnrevista"><span></span>{{ getOnixItem(d.Texts, '40') }}</div>
 			</div>
 		{%- endif %}
 		<div id="googleBook" class="dSolapas1"><div id="viewerCanvas" style="height: 500px;">
