@@ -65,3 +65,38 @@
 </div>
 
 {%- endblock %}
+
+{% block scripts_extra -%}
+	<!-- JQuery Carousel and qTip -->
+	<script type="text/javascript" src="{{ url.data }}/js/jquery.tinycarousel.js"></script>
+	<script type="text/javascript" src="{{ url.data }}/js/jquery.qtip.min.js"></script>
+	<!-- JFather -->
+	<script type="text/javascript" src="{{ url.data }}/js/jfather.js"></script>
+
+	<script type="text/javascript">
+	    {% include "fragments/comments.js" %}
+	    {% include "fragments/messages.js" %}
+	    {% include "fragments/showcase.js" %}
+	    {% include "fragments/last_visited.js" %}
+	</script>
+
+	<!-- Data Scripts -->
+	<script type="text/javascript" src="{{ url.data }}/home-comments.js"></script>
+	<script type="text/javascript" src="{{ url.data }}/home-showcase.js"></script>
+
+	<script type="text/javascript">
+
+		jQuery(document).ready(function() {
+			$('#sliderHomeBooks').tinycarousel({ axis: 'y', display: 1} );
+			$('#sliderHomeMusic').tinycarousel({ axis: 'y', display: 1} );
+			$('#sliderHomeMovies').tinycarousel({ axis: 'y', display: 1} );
+			$('#sliderHomeGames').tinycarousel({ axis: 'y', display: 1} );
+			renderLastVisited('lastvisited');
+		});
+		/* parse messages */
+		{% include "fragments/messages_parse.js" %}
+		/* Update data */
+	    fillComments(null);
+	    {% include "fragments/right_menu.js" %}
+	</script>
+{%- endblock %}
