@@ -1,7 +1,6 @@
 {% extends "page.html" %}
 
-{#- Pick useful data -#}
-{%- set section_name = { 'Libros': 'books', 'Musica': 'music', 'Peliculas': 'moves', 'Juegos': 'games' }[d['Title']] -%}
+{%- set section_name = d['Title']|lower -%}
 
 {% block head_extra %}
     <link type="text/css" rel="stylesheet" href="{{ url.data }}/css/jquery.qtip.min.css">
@@ -84,8 +83,10 @@
 	</script>
 
 	<!-- Data Scripts -->
-	<script type="text/javascript" src="{{ url.data }}/home-comments.js"></script>
-	<script type="text/javascript" src="{{ url.data }}/home-showcase.js"></script>
+	<script type="text/javascript"
+            src="{{ url.data }}/{{ subject_name }}/comments.js"></script>
+	<script type="text/javascript"
+            src="{{ url.data }}/{{ subject_name }}/showcase.js"></script>
 
 	<script type="text/javascript">
 
