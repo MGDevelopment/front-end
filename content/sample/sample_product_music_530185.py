@@ -201,3 +201,15 @@ products_530185_main = {   'Archivo_Imagen': 'T',
     'Texts': None,
     'Title': 'True (Sacd)'}
 
+##############################
+#
+#
+products_530185_comments = {   'Categoria_Familia': Decimal('1'),
+    'Categoria_Grupo': Decimal('1'),
+    'Categoria_Seccion': Decimal('4'),
+    'Categoria_Subfamilia': Decimal('0'),
+    'Comments': None,
+    'EntityId': Decimal('530185'),
+    'EntityType': 'PROD',
+    'ProductId': Decimal('530185')}
+

@@ -110,3 +110,15 @@ products_526900_main = {   'Archivo_Imagen': 'T',
                      'TextFormat_list': 'ONIX.34'}],
     'Title': 'La Felicidad como Eleccion'}
 
+##############################
+#
+#
+products_526900_comments = {   'Categoria_Familia': Decimal('5'),
+    'Categoria_Grupo': Decimal('5'),
+    'Categoria_Seccion': Decimal('1'),
+    'Categoria_Subfamilia': Decimal('0'),
+    'Comments': None,
+    'EntityId': Decimal('526900'),
+    'EntityType': 'PROD',
+    'ProductId': Decimal('526900')}
+

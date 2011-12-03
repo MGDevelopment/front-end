@@ -89,3 +89,15 @@ products_530061_main = {   'Archivo_Imagen': '530061.jpg',
     'Texts': None,
     'Title': 'No Logo'}
 
+##############################
+#
+#
+products_530061_comments = {   'Categoria_Familia': Decimal('3'),
+    'Categoria_Grupo': Decimal('10'),
+    'Categoria_Seccion': Decimal('1'),
+    'Categoria_Subfamilia': Decimal('6'),
+    'Comments': None,
+    'EntityId': Decimal('530061'),
+    'EntityType': 'PROD',
+    'ProductId': Decimal('530061')}
+

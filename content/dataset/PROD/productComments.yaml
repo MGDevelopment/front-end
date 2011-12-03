@@ -1,0 +1,89 @@
+---
+#
+# the unified query
+#
+# Returns a list of recent comments in a set of sections
+#
+query_unified:  &query_unified
+    query.sql:  >
+        SELECT          A.Id_Articulo                   AS ProductId,
+                        'PROD'                          AS EntityType,
+                        A.Id_Articulo                   AS EntityId,
+                        -------------- comment
+                        C.Id_Comentario                 AS RatingId,
+                        C.Estado                        AS CommentStatus,
+                        C.Comentario                    AS CommentText,
+                        C.Evaluacion                    AS Rating,
+                        C.Fecha                         AS CommentDate,
+                        -------------- product Form
+                        CASE A.Categoria_Seccion
+                            WHEN 1 THEN         'BA'
+                            WHEN 4 THEN         'AA'
+                            WHEN 5 THEN         'VA'
+                            WHEN 3 THEN         'ZA'
+                            ELSE                'ZA'
+                        END                             AS ProductForm,
+                        -------------- user
+                        COALESCE(C.NickName, S.Nombres, STMK.Nombres)
+                                                        AS NickName,
+                        -------------- support attributes
+                        A.Categoria_Seccion             AS Categoria_Seccion,
+                        A.Categoria_Grupo               AS Categoria_Grupo,
+                        A.Categoria_Familia             AS Categoria_Familia,
+                        A.Categoria_Subfamilia          AS Categoria_Subfamilia
+            FROM        Comentario_Articulos C
+            INNER JOIN  Articulos A
+                ON      C.Id_Articulo = A.Id_Articulo
+            ----------- One of these two must have an entry
+            LEFT JOIN   Socios2 S
+                ON      C.Id_Sucursal_Socio = S.Id_Sucursal AND
+                        C.Id_Socio = S.Id_Socio
+            LEFT JOIN   Socios2 STMK
+                ON      C.Id_Sucursal_Socio = STMK.Id_Sucursal AND
+                        C.Id_Socio = STMK.Id_Socio
+            --------------- main condition
+            WHERE       {{ID:Id_Articulo}} AND
+                        C.Estado = 'A'
+            ORDER BY    C.Id_Articulo, C.Id_Comentario DESC
+    query.prefix:       C
+    query.id:           [ "Id_Articulo" ]
+    query.group:        [ "ProductId" ]
+    query.key:          [ "ProductId" ]
+    query.columns:      [ "ProductId", "EntityType", "EntityId", "RatingId", "CommentStatus",
+                          "CommentText", "Rating", "CommentDate", "ProductForm", "NickName",
+                          "Categoria_Seccion", "Categoria_Grupo", "Categoria_Familia",
+                          "Categoria_Subfamilia" ]
+
+
+####################################################################
+####################################################################
+####################################################################
+#
+# main query def
+#
+
+#
+# expand
+#
+# Get showcase and recents for subject page
+#
+query.sql:          >
+    SELECT          'PROD'                  AS EntityType,
+                    A.Id_Articulo           AS EntityId,
+                    A.Id_Articulo           AS ProductId,
+                    -------------- support attributes
+                    A.Categoria_Seccion     AS Categoria_Seccion,
+                    A.Categoria_Grupo       AS Categoria_Grupo,
+                    A.Categoria_Familia     AS Categoria_Familia,
+                    A.Categoria_Subfamilia  AS Categoria_Subfamilia
+        FROM        Articulos A
+        WHERE       {{ID:Id_Articulo}}
+        ORDER BY    A.Id_Articulo
+query.prefix:       A
+query.id:           [ "Id_Articulo" ]
+query.key:          [ "ProductId" ]
+query.columns:      [ "EntityType", "EntityId", "ProductId", "Categoria_Seccion",
+                      "Categoria_Grupo", "Categoria_Familia", "Categoria_Subfamilia" ]
+query.augment:
+    Comments:
+        <<:             *query_unified

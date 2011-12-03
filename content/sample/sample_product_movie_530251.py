@@ -105,3 +105,15 @@ products_530251_main = {   'Archivo_Imagen': 'T',
     'Texts': None,
     'Title': 'Red'}
 
+##############################
+#
+#
+products_530251_comments = {   'Categoria_Familia': Decimal('1'),
+    'Categoria_Grupo': Decimal('4'),
+    'Categoria_Seccion': Decimal('5'),
+    'Categoria_Subfamilia': Decimal('0'),
+    'Comments': None,
+    'EntityId': Decimal('530251'),
+    'EntityType': 'PROD',
+    'ProductId': Decimal('530251')}
+
