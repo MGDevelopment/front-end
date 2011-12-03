@@ -7,8 +7,8 @@
 */
 var dataComments = {};
 
-{%- if data -%}
-dataComments['section'] = '{{ render.renderComments(data["Comments"], true)|replace("\n", "") }}';
+{%- if d -%}
+dataComments['section'] = '{{ render.renderComments(d["Comments"], true)|replace("\n", "") }}';
 {%- endif %}
 
 function loadComments() {
