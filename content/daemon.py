@@ -75,7 +75,7 @@ def jobGenerate(job):
     # build handy data (key being <EntityType, EntityId, datasetName>)
     data = { }
     for d in range(len(datasets)):
-        data[datasets[d]] = result[d]
+        data[datasets[d]] = result[d][3]
 
     # do the work
     return work.do(entities, docs, cannonicals, data)
