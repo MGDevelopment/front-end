@@ -58,7 +58,9 @@
             {% include "subject/showcase.html" %}
         </div>
         <div id="related"> {{ related }} </div>
-        <div id="comments"> {{ comments }} </div>
+        <div id="comments">
+            {% include "fragments/comments.html" %}
+        </div>
         <div class="lastvisited"> {{ lastvisited }} </div>
     </div>
     <div id="rightmenu"> {{ rightmenu }} </div>
