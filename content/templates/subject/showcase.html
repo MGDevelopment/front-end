@@ -1,9 +1,6 @@
 {%- import './macros/slider.html' as renderS -%}
 {%- import './macros/tooltip.html' as renderT -%}
 
-{#- Ugly hack, showcase will die so no need to waste time on this -#}
-{%- set section_name = { 'Libros': 'books', 'Musica': 'music', 'Peliculas': 'movies', 'Juegos': 'games' }[d['Title']] -%}
-
 <div class="tmtkMesaNovedades" id="mesa">
 	<!-- mesa y t&iacute;tulos de secciones -->
 	<a href="/libros" class="tmtkMesaSeccionesTit" title="Libros"
@@ -60,12 +57,12 @@
 							</tr>
 							<tr>
 								<td align="center">
-								<div id="sliderSection{{ section_name }}">
+								<div id="sliderSection">
 									<a class="buttons prev" id="anterior1" onfocus="this.blur()"
 										href="#"><object>
 											<div id="anterior1DIV" class="mesaAnterior"></div>
 										</object>
-								</a><div id="slider{{ section_name }}">{{ renderS.renderSlider(d['Showcase'], d['Title'], 6, url) }}</div>
+								</a><div id="slider">{{ renderS.renderSlider(d['Showcase'], d['Title'], 6, url) }}</div>
 									 <a class="buttons next" id="siguiente1" onfocus="this.blur()" href="#"><object>
 											<div id="siguiente1DIV" class="mesaSiguiente"></div>
 										</object>
@@ -77,5 +74,3 @@
 		</div>
 	</div>
 </div>
-<!-- FIN mesa y t&iacute;tulos de secciones -->
-<div id="tooltip_content_section_{{ section_name }}" style="display: none;">{{ renderT.renderToolTip(tooltip_home_books, section_name)|replace("\n", "") }}</div>
