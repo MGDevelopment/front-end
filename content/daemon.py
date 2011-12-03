@@ -10,6 +10,7 @@ import ecommerce.queue
 
 import tmklib.url
 
+import preprocess
 import jobs
 import documents
 import work
@@ -125,6 +126,9 @@ def daemon(config, prefix, queue):
 
     # initialize the work
     work.initialize(config, prefix)
+
+    # set dataset preprocessing
+    ecommerce.db.dataset.setPreProcess(preprocess.preProcess)
 
     # start looping
     now  = time.time()
