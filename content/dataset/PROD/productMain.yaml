@@ -1,0 +1,429 @@
+﻿---
+
+####################################################################
+####################################################################
+####################################################################
+#
+# ragings
+#
+
+#
+# the Ratings query
+#
+# Returns a list of the products with the average rating and the number of comments
+#
+augment_products_rating:    &augment_products_rating
+    query.sql:  >
+        SELECT              CA.Id_Articulo                  AS ProductId,
+                            -------------- rating
+                            COUNT(*)                        AS CommentCount,
+                            ROUND(AVG(Evaluacion), 3)       AS Rating
+                FROM        Comentario_Articulos CA
+                WHERE       {{ID:Id_Articulo}}
+                GROUP BY    CA.Id_Articulo
+                ORDER BY    CA.Id_Articulo
+    query.prefix:       CA
+    query.id:           [ "Id_Articulo" ]
+    query.key:          [ "ProductId" ]
+    query.columns:      [ "ProductId", "CommentCount", "Rating" ]
+
+
+####################################################################
+####################################################################
+####################################################################
+#
+# authors
+#
+
+augment_products_authors:  &augment_products_authors
+    query.sql:  >
+        SELECT              A.Id_Articulo               AS ProductId,
+                            AA.Orden                    AS EntryOrder,
+                            AA.Role                     AS ContributorRole,
+                            'ONIX.17'                   AS ContributorRole_list,
+                            CGRF_Role.RV_Meaning        AS ContributorRole_desc,
+                            AU.Id_Autor                 AS ContributorId,
+                            AU.Descripcion              AS ContributorName,
+                            NULL                        AS ContributorURL,
+                            -------------- support attributes
+                            A.Categoria_Seccion         AS Categoria_Seccion
+                FROM        Articulos A
+                INNER JOIN  Articulos_Autores AA
+                    ON      A.Id_Articulo = AA.Id_Articulo AND
+                            AA.Role IN ('A01', 'D02', 'E01')
+                LEFT JOIN   CG_REF_CODES CGRF_Role
+                    ON      CGRF_Role.RV_Domain = 'ONIX:ContributorRole' AND
+                            AA.Role = CGRF_Role.RV_Low_Value
+                INNER JOIN  Autores AU
+                    ON      AA.Id_Autor = AU.Id_Autor
+                WHERE       {{ID:Id_Articulo}}
+                ORDER BY    A.Id_Articulo, AA.Orden
+    query.prefix:       A
+    query.id:           [ "Id_Articulo" ]
+    query.group:        [ "ProductId" ]
+    query.columns:      [ "ProductId", "EntryOrder",
+                          "ContributorRole", "ContributorRole_list", "ContributorRole_desc",
+                          "ContributorId", "ContributorName", "ContributorURL",
+                          "Categoria_Seccion" ]
+    query.post:         [ "tmklib.fixes.CONT.title",
+                          "tmklib.url.CONT"
+                        ]
+
+
+####################################################################
+####################################################################
+####################################################################
+#
+# identifiers (barcodes)
+#
+
+augment_products_identifiers:  &augment_products_identifiers
+    query.sql:  >
+        SELECT          I.Id_Articulo               AS ProductId,
+                        I.Tipo_Codigo               AS IdentifierTypeId,
+                        CASE
+                            WHEN    I.Tipo_Codigo = 'Y' THEN    '01'
+                            WHEN    I.Tipo_Codigo = 'I' AND
+                                    LENGTH(I.ISBN) = 13 THEN    '15'
+                            WHEN    I.Tipo_Codigo = 'I' THEN    '02'
+                            WHEN    I.Tipo_Codigo = 'B' AND
+                                    LENGTH(I.ISBN) = 12 THEN    '04'
+                            WHEN    I.Tipo_Codigo = 'B' THEN    '03'
+                            WHEN    I.Tipo_Codigo = 'O' THEN    '99'
+                        END                         AS IdentifierType,
+                        'ONIX.5'                    AS IdentifierType_list,
+                        CASE
+                            WHEN I.Tipo_Codigo = 'Y' THEN       'Yenny'
+                            WHEN    I.Tipo_Codigo = 'I' AND
+                                    LENGTH(I.ISBN) = 13 THEN    'ISBN-13'
+                            WHEN    I.Tipo_Codigo = 'I' THEN    'ISBN-10'
+                            WHEN    I.Tipo_Codigo = 'B' AND
+                                    LENGTH(I.ISBN) = 12 THEN    'UPC'
+                            WHEN    I.Tipo_Codigo = 'B' THEN    'GTIN-13'
+                            WHEN    I.Tipo_Codigo = 'O' THEN    'Otros'
+                        END                         AS IdentifierType_desc,
+                        I.ISBN                      AS IDValue,
+                        CASE I.Tipo_Codigo
+                            WHEN 'Y' THEN                       0
+                            WHEN 'I' THEN                       1
+                            WHEN 'B' THEN                       2
+                            WHEN 'O' THEN                       3
+                            ELSE                                4
+                        END                         AS Orden
+            FROM        Articulos_ISBN I
+            WHERE       {{ID:Id_Articulo}}
+            ORDER BY    I.Id_Articulo,
+                        CASE I.Tipo_Codigo
+                            WHEN 'Y' THEN                       0
+                            WHEN 'I' THEN                       1
+                            WHEN 'B' THEN                       2
+                            WHEN 'O' THEN                       3
+                            ELSE                                4
+                        END,
+                        LENGTH(I.ISBN) DESC
+    query.prefix:       I
+    query.id:           [ "Id_Articulo" ]
+    query.group:        [ "ProductId" ]
+    query.columns:      [ "ProductId", "IdentifierTypeId", "IdentifierType",
+                          "IdentifierType_list", "IdentifierType_desc",
+                          "IDValue", "Orden" ]
+
+
+
+####################################################################
+####################################################################
+####################################################################
+#
+# audiences
+#
+
+augment_products_audiences:  &augment_products_audiences
+    query.sql:  >
+        SELECT          A.Id_Articulo               AS ProductId,
+                        A.Auditorio                 AS AudienceCode,
+                        'ONIX.5'                    AS AudienceCode_list,
+                        CASE CGRF_Au.RV_Low_Value
+                            WHEN '01' THEN                  'General'
+                            WHEN '02' THEN                  'Chicos'
+                            WHEN '03' THEN                  'Adolecentes'
+                            WHEN '04' THEN                  'Educativo'
+                            WHEN '05' THEN                  'Universitario'
+                            WHEN '06' THEN                  'Profesional'
+                            WHEN '07' THEN                  'ETL/ESL'
+                            WHEN 'Y1' THEN                  CGRF_Au.RV_Meaning
+                            WHEN 'Y2' THEN                  CGRF_Au.RV_Meaning
+                            WHEN 'Y3' THEN                  CGRF_Au.RV_Meaning
+                            WHEN 'Y4' THEN                  CGRF_Au.RV_Meaning
+                        END                         AS AudienceCode_desc
+            FROM        Articulos_Auditorio A
+            LEFT JOIN   CG_REF_CODES CGRF_Au
+                ON      CGRF_Au.RV_Domain = 'ONIX:AudienceCode' AND
+                        A.Auditorio = CGRF_Au.RV_Low_Value
+            WHERE       {{ID:Id_Articulo}}
+            ORDER BY    A.Id_Articulo, A.Auditorio
+    query.prefix:       A
+    query.id:           [ "Id_Articulo" ]
+    query.group:        [ "ProductId" ]
+    query.columns:      [ "ProductId", "AudienceCode", "AudienceCode_list",
+                          "AudienceCode_desc" ]
+
+
+####################################################################
+####################################################################
+####################################################################
+#
+# content (songs)
+#
+
+augment_products_content:  &augment_products_content
+    query.sql:  >
+        SELECT          A.Id_Articulo               AS ProductId,
+                        A.Nro_Tema                  AS EntryOrder,
+                        A.Nro_Tema                  AS SequenceNumber,
+                        '03'                        AS TextItemType,
+                        'ONIX.42'                   AS TextItemType_list,
+                        'Body Matter'               AS TextItemType_desc,
+                        'Track'                     AS ComponentTypeName,
+                        A.Nro_Tema                  AS ComponentNumber,
+                        '01'                        AS TitleType,
+                        'ONIX.42'                   AS TitleType_list,
+                        'Distinctive Title'         AS TitleType_desc,
+                        'es'                        AS EffectiveLanguageCode,
+                        'ONIX.75'                   AS EffectiveLanguageCode_list,
+                        'Castellano'                AS EffectiveLanguageCode_desc,
+                        A.Nombre                    AS EffectiveTitle
+            FROM        Articulos_Temas_Musicales A
+            WHERE       {{ID:Id_Articulo}}
+            ORDER BY    A.Id_Articulo, A.Nro_Tema
+    query.prefix:       A
+    query.id:           [ "Id_Articulo" ]
+    query.group:        [ "ProductId" ]
+    query.columns:      [ "ProductId", "EntryOrder", "SequenceNumber", "TextItemType",
+                          "TextItemType_list", "TextItemType_desc", "ComponentTypeName",
+                          "ComponentNumber", "TitleType", "TitleType_list", "TitleType_desc",
+                          "EffectiveLanguageCode", "EffectiveLanguageCode_list",
+                          "EffectiveLanguageCode_desc", "EffectiveTitle" ]
+    query.post:         [ "tmklib.fixes.PROD.content_title" ]
+
+
+####################################################################
+####################################################################
+####################################################################
+#
+# main query def
+#
+
+#
+# expand
+#
+# Get primary data for product
+#
+query.sql:          >
+    SELECT  'PROD'                          AS EntityType,
+            A.Id_Articulo                   AS EntityId,
+            A.Id_Articulo                   AS ProductId,
+            -------------- links
+            --
+            -- calculated by post-processing
+            NULL                            AS LinkBase,
+            NULL                            AS CoverSmall,
+            NULL                            AS CoverSmallGeneric,
+            NULL                            AS CoverLarge,
+            -------------- title
+            --
+            -- capitalized by post-processing
+            A.Titulo                        AS Title,
+            -------------- Comments and Ratings
+            --
+            -- imported from augmented data by post-processing
+            NULL                            AS Rating,
+            NULL                            AS CommentCount,
+            -------------- Imprint
+            --
+            -- URL calculated by post-processing,
+            -- '[MUS] ' removed from name by post processing
+            -- name capitalized by post processing
+            A.Id_Editor                     AS ImprintId,
+            E.Nombre                        AS ImprintName,
+            NULL                            AS ImprintURL,
+            -------------- Ranking
+            MVS.Orden                       AS Ranking,
+            -------------- Publishing Date
+            '00'                            AS PublishingDateFormat,
+            'ONIX.55'                       AS PublishingDateFormat_list,
+            'YYYYMMDD'                      AS PublishingDateFormat_desc,
+            TO_CHAR(A.Fecha_Alta, 'YYYYMMDD')
+                                            AS PublishingDateValue,
+            COALESCE(A.Idioma, 'es')        AS LanguageCode,
+            'ONIX.74'                       AS LanguageCode_list,
+            CGRC_LC.RV_Meaning              AS LanguageCode_desc,
+            -------------- Pages/Duration
+            NVL2(A.Paginas,
+                    CASE A.Categoria_Seccion
+                        WHEN 1 THEN                     '00'
+                        WHEN 3 THEN                     NULL
+                        WHEN 4 THEN                     '09'
+                        WHEN 5 THEN                     '09'
+                    END, NULL)              AS ExtentType,
+            'ONIX.23'                       AS ExtentType_list,
+            NVL2(A.Paginas,
+                    CASE A.Categoria_Seccion
+                        WHEN 1 THEN                     'Páginas'
+                        WHEN 3 THEN                     NULL
+                        WHEN 4 THEN                     'Duración'
+                        WHEN 5 THEN                     'Duración'
+                    END, NULL)              AS ExtentType_desc,
+            NVL2(A.Paginas,
+                    CASE A.Categoria_Seccion
+                        WHEN 1 THEN                     '03'
+                        WHEN 3 THEN                     NULL
+                        WHEN 4 THEN                     '05'
+                        WHEN 5 THEN                     '05'
+                    END, NULL)              AS ExtentUnit,
+            'ONIX.24'                       AS ExtentUnit_list,
+            NVL2(A.Paginas,
+                    CASE A.Categoria_Seccion
+                        WHEN 1 THEN                     'Páginas'
+                        WHEN 3 THEN                     NULL
+                        WHEN 4 THEN                     'Minutos'
+                        WHEN 5 THEN                     'Minutos'
+                    END, NULL)              AS ExtentUnit_desc,
+            A.Paginas                       AS ExtentValue,
+            -------------- Product Form
+            COALESCE(
+                A.AuxVarchar03,
+                CASE A.Categoria_Seccion
+                    WHEN 1 THEN                     'BA'
+                    WHEN 3 THEN                     'ZA'
+                    WHEN 4 THEN                     'AA'
+                    WHEN 5 THEN                     'VA'
+                END
+            )                               AS ProductForm,
+            'ONIX.150'                      AS ProductForm_list,
+            COALESCE(
+                CGRC_PF.RV_Meaning,
+                CASE A.Categoria_Seccion
+                    WHEN 1 THEN                     NULL
+                    WHEN 3 THEN                     NULL
+                    WHEN 4 THEN                     'Cd Musical'
+                    WHEN 5 THEN                     'Dvd'
+                END
+            )                               AS ProductForm_desc,
+            -------------- Availability and Price
+            CASE
+                WHEN A.Activo = 'SI' AND A.Habilitado_Tematika = 'S' THEN   '04'
+                ELSE                                                        '08'
+            END                             AS MarketPublishingStatus,
+            'ONIX.68'                       AS MarketPublishingStatus_list,
+            CASE
+                WHEN A.Activo = 'SI' AND A.Habilitado_Tematika = 'S' THEN   'Activo'
+                ELSE                                                        'Inactivo'
+            END                             AS MarketPublishingStatus_desc,
+            CASE D.Pedido_Especial
+                WHEN 'N' THEN                   '21'
+                ELSE                            '22'
+            END                             AS ProductAvailability,
+            'ONIX.65'                       AS ProductAvailability_list,
+            CASE D.Pedido_Especial
+                WHEN 'N' THEN                   'En Stock'
+                ELSE                            'Pedido Especial'
+            END                             AS ProductAvailability_desc,
+            CASE D.Tipo_Unidad
+                WHEN 'HORAS' THEN               '01'
+                ELSE                            '02'
+            END                             AS FulfillmentType,
+            'eCommerce.FulfillmentType'     AS FulfillmentType_list,
+            CASE D.Tipo_Unidad
+                WHEN 'HORAS' THEN               'Horas'
+                ELSE                            'Dias'
+            END                             AS FulfillmentType_desc,
+            D.Cant_Unidad                   AS FulfillmentValue,
+            CASE A.Id_Moneda_Venta
+                WHEN '1' THEN                   'ARS'
+                WHEN '2' THEN                   'USD'
+                WHEN '3' THEN                   'EUR'
+                ELSE                            'USD'
+            END                             AS CurrencyCode,
+            'ONIX.96'                       AS CurrencyCode_list,
+            CASE A.Id_Moneda_Venta
+                WHEN '1' THEN                   '$'
+                WHEN '2' THEN                   'U$S'
+                WHEN '3' THEN                   'Eu'
+                ELSE                            'U$S'
+            END                             AS CurrencyCode_desc,
+            A.Precio_Venta_Vigente          AS PriceAmount,
+            -------------- support attributes
+            A.Categoria_Seccion             AS Categoria_Seccion,
+            A.Categoria_Grupo               AS Categoria_Grupo,
+            A.Categoria_Familia             AS Categoria_Familia,
+            A.Categoria_Subfamilia          AS Categoria_Subfamilia,
+            A.Archivo_Imagen                AS Archivo_Imagen
+        FROM        Articulos A
+        -------------- Ranking
+        LEFT JOIN   Mas_Vendidos_Seccion MVS
+            ON      A.Categoria_Seccion = MVS.Categoria_Seccion AND
+                    A.Id_Articulo = MVS.Id_Articulo
+        -------------- Disponibilidades
+        INNER JOIN  Disponibilidades D
+            ON      A.Id_Disponibilidad = D.Id_Disponibilidad AND
+                    -------------- ***** CONDITION
+                    D.Id_Esquema = 'PROD'
+        -------------- Product Form
+        LEFT JOIN   CG_Ref_Codes CGRC_PF
+            ON      CGRC_PF.RV_Domain = 'ONIX:ProductForm' AND
+                    A.AuxVarchar03 = CGRC_PF.RV_Low_Value
+        -------------- Language Code
+        LEFT JOIN   CG_Ref_Codes CGRC_LC
+            ON      CGRC_LC.RV_Domain = 'CGRC_LC' AND
+                    COALESCE(A.Idioma, 'ES') = CGRC_LC.RV_Low_Value
+        -------------- Editor
+        INNER JOIN  Editores E
+            ON      A.Id_Editor = E.Id_Editor
+        -------------- main condition
+        WHERE       {{ID:Id_Articulo}}
+        ORDER BY    A.Id_Articulo
+query.prefix:       A
+query.id:           [ "Id_Articulo" ]
+query.key:          [ "ProductId" ]
+query.columns:      [ "EntityType", "EntityId", "ProductId", "LinkBase",
+                      "CoverSmall", "CoverSmallGeneric", "CoverLarge", "Title",
+                      "Rating", "CommentCount", "ImprintId", "ImprintName",
+                      "ImprintURL", "Ranking", "PublishingDateFormat",
+                      "PublishingDateFormat_list", "PublishingDateFormat_desc",
+                      "PublishingDateValue", "LanguageCode",
+                      "LanguageCode_list", "LanguageCode_desc", "ExtentType",
+                      "ExtentType_list", "ExtentType_desc", "ExtentUnit",
+                      "ExtentUnit_list", "ExtentUnit_desc", "ExtentValue",
+                      "ProductForm", "ProductForm_list", "ProductForm_desc",
+                      "MarketPublishingStatus", "MarketPublishingStatus_list",
+                      "MarketPublishingStatus_desc", "ProductAvailability",
+                      "ProductAvailability_list", "ProductAvailability_desc",
+                      "FulfillmentType", "FulfillmentType_list",
+                      "FulfillmentType_desc", "FulfillmentValue",
+                      "CurrencyCode", "CurrencyCode_list", "CurrencyCode_desc",
+                      "PriceAmount", "Categoria_Seccion", "Categoria_Grupo",
+                      "Categoria_Familia", "Categoria_Subfamilia",
+                      "Archivo_Imagen" ]
+query.post:         [ "tmklib.fixes.PROD.title",
+                      "tmklib.fixes.PROD.calcImages",
+                      "tmklib.url.PROD",
+                      "tmklib.fixes.PROD.embedRatings",
+                      "tmklib.fixes.IMPR.title",
+                      "tmklib.url.IMPR"
+                    ]
+query.augment:
+    Authors:
+        <<:     *augment_products_authors
+        join.key:       [ "ProductId" ]
+    Ratings:
+        <<:     *augment_products_rating
+        join.key:       [ "ProductId" ]
+    Identifiers:
+        <<:     *augment_products_identifiers
+        join.key:       [ "ProductId" ]
+    Audiences:
+        <<:     *augment_products_audiences
+        join.key:       [ "ProductId" ]
+    Content:
+        <<:     *augment_products_content
+        join.key:       [ "ProductId" ]
