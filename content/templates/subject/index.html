@@ -1,6 +1,8 @@
 {% extends "page.html" %}
 
 {#- Pick useful data -#}
+{#- Ugly hack, showcase will die so no need to waste time on this -#}
+{%- set section_name = { 'Libros': 'books', 'Musica': 'music', 'Peliculas': 'moves', 'Juegos': 'games' }[d['Title']] -%}
 
 {% block head_extra %}
     <link type="text/css" rel="stylesheet" href="{{ url.data }}/css/jquery.qtip.min.css">
@@ -89,10 +91,7 @@
 	<script type="text/javascript">
 
 		jQuery(document).ready(function() {
-			$('#sliderHomeBooks').tinycarousel({ axis: 'y', display: 1} );
-			$('#sliderHomeMusic').tinycarousel({ axis: 'y', display: 1} );
-			$('#sliderHomeMovies').tinycarousel({ axis: 'y', display: 1} );
-			$('#sliderHomeGames').tinycarousel({ axis: 'y', display: 1} );
+			$('#sliderSection{{ section_name }}').tinycarousel({ axis: 'y', display: 1} );
 			renderLastVisited('lastvisited');
 		});
 		/* parse messages */
