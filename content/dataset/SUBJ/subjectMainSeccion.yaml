@@ -719,6 +719,8 @@ query.sql:          >
                     S.Categoria_Grupo       AS Categoria_Grupo,
                     S.Categoria_Familia     AS Categoria_Familia,
                     S.Categoria_Subfamilia  AS Categoria_Subfamilia,
+                    NULL                    AS Tree,
+                    NULL                    AS Path,
                     S.Subtype               AS Subtype
         FROM        Stage0_Subjects S
         INNER JOIN  Categ_Secciones C
@@ -730,9 +732,10 @@ query.id:           [ "SubjectId" ]
 query.key:          [ "SubjectId" ]
 query.columns:      [ "EntityType", "EntityId", "SubjectId", "Title", "LinkBase",
                       "Categoria_Seccion", "Categoria_Grupo", "Categoria_Familia",
-                      "Categoria_Subfamilia", "Subtype" ]
+                      "Categoria_Subfamilia", "Tree", "Path", "Subtype" ]
 query.post:         [ "tmklib.fixes.SUBJ.title",
-                      "tmklib.url.SUBJ"
+                      "tmklib.url.SUBJ",
+                      "tmklib.fixes.SUBJ.tree"
                     ]
 query.augment:
     Products:
