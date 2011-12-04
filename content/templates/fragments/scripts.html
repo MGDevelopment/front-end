@@ -13,7 +13,7 @@
 	$(document).ready(function(){
 		//verificarFiltros();
 		aux = '#ctrlDisabled';
-		if ($(aux)) {
+		if ($(aux) && $(aux).get(0)) {
 			$(aux).get(0).style.display="none";
 		}
 	});
