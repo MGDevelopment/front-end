@@ -17,3 +17,5 @@ function callBackDropDownShowCase(section) {
 
 	return;
 }
+
+APP.addData('showcaseFilter', 'Showcase');
