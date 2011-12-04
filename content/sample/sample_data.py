@@ -9182,3 +9182,31 @@ homeCommentsData = {   'All': [   {   'Archivo_Imagen': '393065.jpg',
                      'RatingId': Decimal('23930'),
                      'Title': 'The Resistance'}]}
 
+##############################
+#
+#
+homePriceData = {   'ARS-EUR': {   'BuyRate': 0.167,
+                   'Converting': 'ARS-EUR',
+                   'DestinationCurrencyId': 'EUR',
+                   'QuoteDate': datetime.datetime(2011, 5, 4, 0, 1),
+                   'SellRate': 0.165,
+                   'SourceCurrencyId': 'ARS'},
+    'ARS-USD': {   'BuyRate': 0.248,
+                   'Converting': 'ARS-USD',
+                   'DestinationCurrencyId': 'USD',
+                   'QuoteDate': datetime.datetime(2011, 5, 4, 0, 1),
+                   'SellRate': 0.24500000000000002,
+                   'SourceCurrencyId': 'ARS'},
+    'EUR-ARS': {   'BuyRate': 5.99,
+                   'Converting': 'EUR-ARS',
+                   'DestinationCurrencyId': 'ARS',
+                   'QuoteDate': datetime.datetime(2011, 5, 4, 0, 1),
+                   'SellRate': 6.0497000000000005,
+                   'SourceCurrencyId': 'EUR'},
+    'USD-ARS': {   'BuyRate': 4.038,
+                   'Converting': 'USD-ARS',
+                   'DestinationCurrencyId': 'ARS',
+                   'QuoteDate': datetime.datetime(2011, 5, 4, 0, 1),
+                   'SellRate': 4.078,
+                   'SourceCurrencyId': 'USD'}}
+

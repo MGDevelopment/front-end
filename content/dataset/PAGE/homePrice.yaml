@@ -1,0 +1,78 @@
+﻿---
+
+#
+# expand
+#
+# Get showcase for home page
+#
+single:         true
+query.sql:  >
+    SELECT      'USD-ARS'               AS Converting,
+                'USD'                   AS SourceCurrencyId,
+                'ARS'                   AS DestinationCurrencyId,
+                C.Compra                AS BuyRate,
+                CASE C.Venta
+                    WHEN 0 THEN                 C.Compra
+                    ELSE                        C.Venta
+                END                     AS SellRate,
+                C.Fecha_Vigencia        AS QuoteDate
+        FROM    Cotizaciones C
+        WHERE   C.Id_Moneda = 2 AND
+                C.Fecha_Vigencia = (SELECT      MAX(D.Fecha_Vigencia) 
+                                        FROM    Cotizaciones D
+                                        WHERE   D.Id_Moneda = 2 AND
+                                                D.Fecha_Vigencia <= SYSDATE)
+    UNION
+    SELECT      'ARS-USD'               AS Converting,
+                'ARS'                   AS SourceCurrencyId,
+                'USD'                   AS DestinationCurrencyId,
+                CAST(1 / C.Compra AS NUMBER(20, 3))
+                                        AS BuyRate,
+                CAST(1 / CASE C.Venta
+                    WHEN 0 THEN                 C.Compra
+                    ELSE                        C.Venta
+                END AS NUMBER(20, 3))   AS SellRate,
+                C.Fecha_Vigencia        AS QuoteDate
+        FROM    Cotizaciones C
+        WHERE   C.Id_Moneda = 2 AND
+                C.Fecha_Vigencia = (SELECT      MAX(D.Fecha_Vigencia) 
+                                        FROM    Cotizaciones D
+                                        WHERE   D.Id_Moneda = 2 AND
+                                                D.Fecha_Vigencia <= SYSDATE)
+    UNION
+    SELECT      'EUR-ARS'               AS Converting,
+                'EUR'                   AS SourceCurrencyId,
+                'ARS'                   AS DestinationCurrencyId,
+                C.Compra                AS BuyRate,
+                CASE C.Venta
+                    WHEN 0 THEN                 C.Compra
+                    ELSE                        C.Venta
+                END                     AS SellRate,
+                C.Fecha_Vigencia        AS QuoteDate
+        FROM    Cotizaciones C
+        WHERE   C.Id_Moneda = 3 AND
+                C.Fecha_Vigencia = (SELECT      MAX(D.Fecha_Vigencia) 
+                                        FROM    Cotizaciones D
+                                        WHERE   D.Id_Moneda = 3 AND
+                                                D.Fecha_Vigencia <= SYSDATE)
+    UNION
+    SELECT      'ARS-EUR'               AS Converting,
+                'ARS'                   AS SourceCurrencyId,
+                'EUR'                   AS DestinationCurrencyId,
+                CAST(1 / C.Compra AS NUMBER(20, 3))
+                                        AS BuyRate,
+                CAST(1 / CASE C.Venta
+                    WHEN 0 THEN                 C.Compra
+                    ELSE                        C.Venta
+                END AS NUMBER(20, 3))   AS SellRate,
+                C.Fecha_Vigencia        AS QuoteDate
+        FROM    Cotizaciones C
+        WHERE   C.Id_Moneda = 3 AND
+                C.Fecha_Vigencia = (SELECT      MAX(D.Fecha_Vigencia) 
+                                        FROM    Cotizaciones D
+                                        WHERE   D.Id_Moneda = 3 AND
+                                                D.Fecha_Vigencia <= SYSDATE)
+    ORDER BY    1
+query.key:          [ "Converting" ]
+query.columns:      [ "Converting", "SourceCurrencyId", "DestinationCurrencyId",
+                      "BuyRate", "SellRate", "QuoteDate" ]
