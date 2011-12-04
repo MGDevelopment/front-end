@@ -13,6 +13,11 @@
     width: 200px;
 }
 
+/* XXX hack to use same fragment, no need to waste time */
+div.tmtkMesaMenuMod ul {
+    display: none;
+}
+
 /* mesa_seccion.css */
 
 .disabledEfect {
