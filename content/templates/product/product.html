@@ -64,7 +64,7 @@
    	<div id="dTopLeft">
         <div class="dImagenes"><div class="detalleImagen"><img src="{{ url.images ~ d.CoverSmall }}" alt="{{ d.Title }}" title="{{ d.Title }}"></div></div>
 		<div class="dInfoPrincipal">
-			<div class="dInfoTit"><h1><b style="font-size:20px;">{{ d.Title }}</b></h1></div>
+			<div class="dInfoTit"><h1><b style="font-size:20px;">{{ d.Title.decode('utf-8') }}</b></h1></div>
 			{%- if d.Authors -%}
             <div class="dInfoAutor"><h2>de&nbsp;{%- for contributor in d.Authors -%}<a href="{{ contributor.ContributorURL }}"><b>{{ contributor.ContributorName }}</b></a>&nbsp;{%- endfor %}</h2></div>
             {%- endif %}
@@ -98,7 +98,7 @@
     <div id="dInfoCompl">
     	<div class="dSolapas" id="datosCompl">
 			<div class="tmtkMesaMenuMod"><img class="solapasTitDatosPrinc" title="Datos principales"  alt="<tmpl_var altDatosPrincipales>" src="/imagenes/rediseno/imagenes/comun/t-datosPrinc.gif" /></div>
-			<div class="dResena">{%- if getOnixItem(d.Texts, '17') -%}<span>Solapa:</span>{{ getOnixItem(d.Texts, '17') }}{%- endif %}{%- if getOnixItem(d.Texts, '18') -%}<span>Contratapa:</span>{{ getOnixItem(d.Texts, '18') }}{%- endif %}{%- if getOnixItem(d.Texts, '01') -%}<span>Sinopsis:</span>{{ getOnixItem(d.Texts, '01') }}{%- endif %}</div>
+			<div class="dResena">{%- if getOnixItem(d.Texts, '17') -%}<span>Solapa:</span>{{ getOnixItem(d.Texts, '17') }}{%- endif %}{%- if getOnixItem(d.Texts, '18') -%}<span>Contratapa:</span>{{ getOnixItem(d.Texts, '18') }}{%- endif %}{%- if getOnixItem(d.Texts, '01') -%}<span>Sinopsis:</span>{{ getOnixItem(d.Texts, '01') }} {%- else -%} {%- if getOnixItem(d.Texts, '02') -%}<span>Sinopsis:</span>{{ getOnixItem(d.Texts, '02') }} {%- endif %} {%- endif %}</div>
         </div>
 		{%- if getOnixItem(d.Texts, '04') -%}
 			<div class="dSolapas" id="indCont">
@@ -122,8 +122,10 @@
 	        	{%- endif %}
 	        	{%- if d.Authors -%}
 	        		{%- for author in d.Authors -%}
-	        			{{ getOnixItem(author.Texts, '13') }}
-	        			<br>
+	        			{%- if getOnixItem(author.Texts, '13') -%}
+	        				{{ getOnixItem(author.Texts, '13') }}
+	        				<br>
+	        			{%- endif %}
 	        		{%- endfor %}
 	        	{%- endif %}
 	        	</div>
@@ -145,7 +147,7 @@
 	</div>
 </div>
 <!-- <tmpl_var contenidoSEO> -->
-<div id="divModuloExtra"><div id="modExtra_detail"><div id="dTopRight"><div class="dCompra"><p align="center"></p></div></div></div></div>
+<div id="divModuloExtra"><div id="price_detail"><div id="dTopRight"><div class="dCompra"><p align="center"></p></div></div></div></div>
 <input type="hidden" value="{{ d.Categoria_Seccion }}" id="idSccion">
 <input type="hidden" value="{{ d.PriceAmount }}" id="precio">
 <input type="hidden" value="{{ d.EntityId }}" id="idArticulo">
