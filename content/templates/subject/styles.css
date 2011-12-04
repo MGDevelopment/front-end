@@ -1,5 +1,14 @@
 {# XXX this needs to have template variables for colors #}
 {% set section = d.Categoria_Seccion %}
+
+/* XXX forced for section pages previosly on comun.css */
+.solapaModulos {
+    width: 642px;
+}
+.solapaCalleSeparador {
+    width: 21px;
+}
+
 /* mesa_seccion.css */
 
 .disabledEfect {
