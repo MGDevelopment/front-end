@@ -4,21 +4,21 @@
     <ul class="overview">
 {%- if product_list is iterable -%}
     {%- for p in product_list -%}
-        {%- set title  = p.Title.decode('utf-8') -%}
+        {%- set title  = p.Title.decode('utf-8')|e -%}
         {%- set section  = p.Categoria_Seccion|string -%}
         {%- set price  = p.PriceAmount|string -%}
         {%- set product_id  = p.ProductId|string -%}
         {%- set product_url  = p.LinkBase ~ '.htm' -%}
         {%- set hs = p.FulfillmentValue|int -%}
         {%- if p.Authors[0] -%}
-            {%- set author = p.Authors[0].ContributorName.decode('utf-8') -%}
+            {%- set author = p.Authors[0].ContributorName.decode('utf-8')|e -%}
             {%- set author_id = p.Authors[0].ContributorId|string -%}
         {%- else -%}
             {%- set author = None -%}
             {%- set author_id = 0 -%}
         {%- endif -%}
         {%- if p.ImprintName != None -%}
-            {%- set imprint = p.ImprintName.decode('utf-8') -%}
+            {%- set imprint = p.ImprintName.decode('utf-8')|e -%}
         {%- endif -%}
         {%- if p.ProductForm[0] == 'B' -%}
             {%- set book = True -%}
