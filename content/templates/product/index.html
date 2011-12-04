@@ -60,6 +60,7 @@
 	<script type="text/javascript" src="{{ url.data }}js/jfather.js"></script>
 
 	<script type="text/javascript">
+		{% include "fragments/exchange.js" %}
 		{% include "fragments/price.js" %}
 	    {% include "fragments/comments.js" %}
 	    {% include "fragments/messages.js" %}
@@ -69,6 +70,7 @@
 	</script>
 
 	<!-- Data Scripts -->
+	<script type="text/javascript" src="{{ url.data }}home-exchange.js"></script>
 	<script type="text/javascript" src="{{ url.data }}product-comments.js"></script>
 	<script type="text/javascript" src="{{ url.data }}product-related.js"></script>
 	<script type="text/javascript" src="{{ url.data }}product-price.js"></script>
@@ -76,7 +78,39 @@
 	<script type="text/javascript">
 
 		jQuery(document).ready(function() {
-
+			try {
+				var currencyCode = document.getElementById('currencyCode').value;
+				var priceAmount = document.getElementById('priceAmount').value;
+				if (document.getElementById('USD')) {
+					document.getElementById('USD').innerHTML = 'U$S&nbsp;' + doExchange('ARS', 'USD', priceAmount).toFixed(2) + '.-';
+				}
+				if (document.getElementById('EUR')) {
+					document.getElementById('EUR').innerHTML = '&euro;&nbsp;' + doExchange('ARS', 'EUR', priceAmount).toFixed(2) + '.-';
+				}
+			} catch (e) {
+				// TODO
+			}
+			var url = '{{ d.LinkBase ~ ".htm" }}';
+			var title = '{{ d.Title.decode("utf-8")|e }}';
+			var urlPrincipalAttribute = null;
+			var principalAttribute = null;
+			{%- if d.Authors -%}
+				urlPrincipalAttribute = '{{ d.Authors[0].ContributorURL }}';
+				principalAttribute = '{{ d.Authors[0].ContributorName }}';
+			{%- endif %}
+			var urlGroup = null;
+			var group = null;
+			{%- if d.Authors -%}
+				var urlGroup = '{{ d.Categories[0].URL }}';
+				var group = '{{ d.Categories[0].Title.decode("utf-8")|e }}';
+			{%- endif %}
+			var price = '{{ d.CurrencyCode_desc }}&nbsp;{{ "%.2f"|format(d.PriceAmount) }}.-';
+			var available = null;
+			{%- if d.ProductAvailability == '21' -%}
+				available = 'true';
+			{%- endif %}
+			var id = '{{ d.EntityId }}';
+			addLastVisited(new Article(url, title, urlPrincipalAttribute, principalAttribute, urlGroup, group, price, available, id));
 		});
 
 		/* parse messages */

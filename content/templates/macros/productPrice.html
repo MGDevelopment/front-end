@@ -2,12 +2,11 @@
 <div id="dTopRight">
 	<div class="dCompra">
 		<ul>
-			<span> {{ price_data.CurrencyCode_desc }}&nbsp;{{ "%.2f"|format(price_data.PriceAmount) }}
+			<span id="ARS">{{ price_data.CurrencyCode_desc }}&nbsp;{{ "%.2f"|format(price_data.PriceAmount) }}.-</span>
 				<br>
-					DOLAR
+			<span id="USD">DOLAR</span>
 				<br>
-					EURO
-			</span>
+			<span id="EUR">EURO</span>
 			<span><p>
 					+
 					{{ price_data.eXtraPoints|int }} puntos <img
@@ -35,4 +34,6 @@
 		<br>
 	</div>
 </div>
+<input type="hidden" id="currencyCode" value="{{ price_data.CurrencyCode }}"></input>
+<input type="hidden" id="priceAmount" value="{{ price_data.PriceAmount }}"></input>
 {%- endmacro %}
