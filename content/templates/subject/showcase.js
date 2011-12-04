@@ -4,22 +4,16 @@
 */
 var dataShowCase = {};
 
-{%- for key in d['Showcase'] -%}
-	{%- for subKey in d[key] -%}
-        {%- set dataKey = key|replace("Recommended-","")|replace("Showcase-","")|lower -%}
-		{# dataShowCase['{{ subKey }}{{ key }}'] = '{{ render.renderSlider(showcase_data[key][subKey], key)|replace("\n", "") }}'; #}
-        dataShowCase['{{ key }}'] = '{{ render.renderSlider(d[key], dataKey, 6, url)}}';
-	{%- endfor %}
+{% for key in ('Classics', 'Showcase') %}
+
+    dataShowCase['{{ key }}'] = '{{ render.renderSlider(d[key], key|lower, 6, url)|replace("\n", "") }}';
+
 {%- endfor -%}
 
-function loadShowCase() {
-	APP.addData('showcase', dataShowCase);
-	return;
-}
+APP.addData('showcase', dataShowCase);
 
-var callBackDropDownShowCase = function (section) {
+// XXX ????
+function callBackDropDownShowCase(section) {
 
 	return;
 }
-
-loadShowCase();
