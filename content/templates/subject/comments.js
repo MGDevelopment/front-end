@@ -9,7 +9,7 @@
 var dataComments = {};
 
 {%- if d -%}
-dataComments['{{ section_name }}'] = '{{ render.renderComments(d["Comments"], url, true)|replace("\n", "") }}';
+dataComments['{{ section_name }}'] = '{{ render.renderComments(d["Comments"], url, 3, false)|replace("\n", "") }}';
 {%- endif %}
 
 function loadComments() {
