@@ -1,3 +1,4 @@
+{%- set languages = { 'ES': 'Espa&ntilde;ol', 'EN': 'Ingl&eacute;s' } -%}
 {%- macro getOrigen(id) -%}
 	{%- if id == 1 -%}
 		Editorial
@@ -64,30 +65,31 @@
    	<div id="dTopLeft">
         <div class="dImagenes"><div class="detalleImagen"><img src="{{ url.images ~ d.CoverSmall }}" alt="{{ d.Title }}" title="{{ d.Title }}"></div></div>
 		<div class="dInfoPrincipal">
-			<div class="dInfoTit"><h1><b style="font-size:20px;">{{ d.Title.decode('utf-8') }}</b></h1></div>
+			<div class="dInfoTit"><h1><b style="font-size:20px;">{{ d.Title.decode('utf-8')|e }}</b></h1></div>
 			{%- if d.Authors -%}
-            <div class="dInfoAutor"><h2>de&nbsp;{%- for contributor in d.Authors -%}<a href="{{ contributor.ContributorURL }}"><b>{{ contributor.ContributorName }}</b></a>&nbsp;{%- endfor %}</h2></div>
+            <div class="dInfoAutor"><h2>de&nbsp;{%- for contributor in d.Authors -%}<a href="{{ contributor.ContributorURL }}"><b>{{ contributor.ContributorName }}</b></a>{%- if not loop.last -%}&nbsp;|&nbsp;{%- endif %}{%- endfor %}</h2></div>
             {%- endif %}
-            <span>{{ getOrigen(d.Categoria_Seccion) }}: <a href="{{ d.ImprintURL }}">{{ d.ImprintName }}</a></span>
+            <span>{{ getOrigen(d.Categoria_Seccion) }}: <a href="{{ d.ImprintURL }}">{{ d.ImprintName.decode('utf-8')|e }}</a></span>
             {%- if d.Identifiers -%}
             <span>I.S.B.N : {{ d.Identifiers[0].IDValue }}</span>
             {%- endif %}
-            <span>Clasificaci&oacute;n: {%- for categorie in d.Categories -%}<a href="{{ categorie.URL }}">{{ categorie.Text }}</a>&nbsp;{%- if not loop.last -%}&nbsp;{%- endif %} {%- endfor %}</span>
+            <span>Clasificaci&oacute;n: {%- for categorie in d.Categories -%}<a href="{{ categorie.URL }}">{{ categorie.Title.decode('utf-8')|e }}</a>{%- if not loop.last -%}&nbsp;&raquo;&nbsp;{%- endif %} {%- endfor %}</span>
             {%- if d.ProductForm -%}<span>Formato: {{ d.ProductForm_desc }}</span>{%- endif %}
             <span>Disponibilidad: {{ d.ProductAvailability_desc }}</span>
             {%- if d.ExtentUnit -%}<span>{{ d.ExtentUnit_desc }}:{{ d.ExtentValue }}</span>{%- endif %}
-            <span>Publicaci&oacute;n: {{ d.PublishingDateValue }} | Idioma: {{ d.LanguageCode }}</span>
+            {%- set pd = d.PublishingDateValue -%}
+            <span>Publicaci&oacute;n: {{- (pd[6:8], pd[4:6], pd[0:4])|join('/') -}} | Idioma: {{- languages[d.LanguageCode] -}}</span>
             <div class="dInfoM">{%- if getOnixItem(d.Texts, '24') -%}<a href="#primerCap">[+] Primer capitulo</a>&nbsp;{%- endif %}{%- if getOnixItem(d.Texts, '04') -%}<a href="#indCont">[+] Indice de contenidos</a>&nbsp;{%- endif %}{%- if getOnixItem(d.Texts, '13') -%}<a href="#biogra">[+] Biografia</a>&nbsp;{%- endif %}{%- if getOnixItem(d.Texts, '40') -%}<a href="#entrevista">[+] Ver Entrevista</a>&nbsp;{%- endif %}</div>
             {%- if d.CoverLarge %}<a href="javascript:mostrarImagen('{{ url.images ~ d.CoverLarge }}')">Ampliar imagen</a>{%- endif %}
 			<div id="divEvaluacion"><div id="divEvaluacion"><div class="dInfoCalif"><div class="dInfoCalifStarMod"><span>Calificaci&oacute;n de lectores:</span>
 			{%- if d.Rating -%}
-				{%- for number in range(0, 4) -%}
-				   	{%- if number+1 <= d.Rating|int -%}
-				   		<div class="dInfoCalifStar"></div>
-				   	{%- else -%}
-				   		<div class="dInfoCalifStarDes"></div>
-				   	{%- endif %}
-				{%- endfor %}
+				{%- set s = d.Rating|round|int -%}
+				{%- for i in range(s) -%}
+                    <div class="dInfoCalifStar"></div>
+                {%- endfor -%}
+                {%- for i in range(5 - s) -%}
+                    <div class="dInfoCalifStarDes"></div>
+                {%- endfor -%}
 			{%- else -%}
 				<label><a href="/Comentario?ID_ARTICULO={{ d.EntityId }}&idSeccion=">S&eacute; el primero en comentarlo!</a></label>
 			{%- endif %}

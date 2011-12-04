@@ -9,17 +9,17 @@
 		        <div class="tapaInfo" style="visibility: hidden;">
 		    </div>
 		    </div>
-		    <a href="{{ article.LinkBase }}" class="fTitulos">{{ article.Title }}</a>
-		    <span>Precio:{{ article.CurrencyCode_desc }}{{ "%.2f"|format(article.PriceAmount) }}</span>
+		    <a href="{{ article.LinkBase }}" class="fTitulos">{{ article.Title.decode('utf-8')|e }}</a>
+		    <span>Precio:{{ article.CurrencyCode_desc }}&nbsp;{{ "%.2f"|format(article.PriceAmount) }}.-</span>
 		    <div class="calificacionMod">
-		      <span>Calificaci&oacute;n:</span>
-		      {%- for number in range(0, 4) -%}
-              	{%- if number+1 <= article.Rating|int -%}
-               		<div class="calificacionStar"></div>
-               	{%- else -%}
-               		<div class="calificacionStarDes"></div>
-               	{%- endif %}
-              {%- endfor %}
+		    	<span>Calificaci&oacute;n:</span>
+		      	{%- set s = article.Rating|round|int -%}
+				{%- for i in range(s) -%}
+                    <div class="calificacionStar"></div>
+                {%- endfor -%}
+                {%- for i in range(5 - s) -%}
+                    <div class="calificacionStarDes"></div>
+                {%- endfor -%}
 		    </div>
 	 {%- endfor %}
 </div>
