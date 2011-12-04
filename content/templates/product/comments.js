@@ -10,8 +10,8 @@
 */
 var dataComments = {};
 
-{%- if data -%}
-dataComments['detail'] = '{{ render.renderComments(data["ArticleId"], url, data["SubjectId"], data["Comments"])|replace("\n", "") }}';
+{%- if d -%}
+dataComments['detail'] = '{{ render.renderComments(d.EntityId, url, d.Categoria_Seccion, d["Comments"])|replace("\n", "") }}';
 {% endif %}
 
 function loadComments() {
