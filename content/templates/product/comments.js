@@ -11,7 +11,7 @@
 var dataComments = {};
 
 {%- if d -%}
-dataComments['detail'] = '{{ render.renderComments(d.EntityId, url, d.Categoria_Seccion, d["Comments"])|replace("\n", "") }}';
+dataComments['detail'] = '{{ render.renderComments(d.EntityId, d.Categoria_Seccion, d["Comments"])|replace("\n", "") }}';
 {% endif %}
 
 function loadComments() {

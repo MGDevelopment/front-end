@@ -8,7 +8,7 @@
 var dataRelatedProduct = {};
 
 {%- if d -%}
-	dataRelatedProduct = '{{ render.renderRelated(d.Related)|replace("\n", "") }}';
+	dataRelatedProduct = '{{ render.renderRelated(d.Related, url)|replace("\n", "") }}';
 {% endif %}
 
 function loadRelatedProduct() {
