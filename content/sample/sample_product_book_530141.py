@@ -113,3 +113,44 @@ products_530141_comments = {   'Categoria_Familia': Decimal('8'),
     'EntityType': 'PROD',
     'ProductId': Decimal('530141')}
 
+##############################
+#
+#
+products_530141_related = {   'Categoria_Familia': Decimal('8'),
+    'Categoria_Grupo': Decimal('2'),
+    'Categoria_Seccion': Decimal('1'),
+    'Categoria_Subfamilia': Decimal('1'),
+    'EntityId': Decimal('530141'),
+    'EntityType': 'PROD',
+    'ProductId': Decimal('530141'),
+    'Related': None}
+
+##############################
+#
+#
+products_530141_price = {   'Categoria_Familia': Decimal('8'),
+    'Categoria_Grupo': Decimal('2'),
+    'Categoria_Seccion': Decimal('1'),
+    'Categoria_Subfamilia': Decimal('1'),
+    'CurrencyCode': 'ARS',
+    'CurrencyCode_desc': '$',
+    'CurrencyCode_list': 'ONIX.96',
+    'EntityId': Decimal('530141'),
+    'EntityType': 'PROD',
+    'FulfillmentType': '01',
+    'FulfillmentType_desc': 'Horas',
+    'FulfillmentType_list': 'eCommerce.FulfillmentType',
+    'FulfillmentValue': Decimal('48'),
+    'MarketPublishingStatus': '04',
+    'MarketPublishingStatus_desc': 'Activo',
+    'MarketPublishingStatus_list': 'ONIX.68',
+    'PriceAmount': Decimal('65'),
+    'ProductAvailability': '21',
+    'ProductAvailability_desc': 'En Stock',
+    'ProductAvailability_list': 'ONIX.65',
+    'ProductForm': 'BC',
+    'ProductForm_desc': 'R\xc3\xbastica',
+    'ProductForm_list': 'ONIX.150',
+    'ProductId': Decimal('530141'),
+    'eXtraPoints': 195.0}
+

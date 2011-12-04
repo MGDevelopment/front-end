@@ -1,0 +1,113 @@
+---
+
+####################################################################
+####################################################################
+####################################################################
+#
+# main query def
+#
+
+#
+# expand
+#
+# Get showcase and recents for subject page
+#
+query.sql:          >
+    SELECT          'PROD'                          AS EntityType,
+                    A.Id_Articulo                   AS EntityId,
+                    A.Id_Articulo                   AS ProductId,
+                    -------------- Product Form
+                    COALESCE(
+                        A.AuxVarchar03,
+                        CASE A.Categoria_Seccion
+                            WHEN 1 THEN                     'BA'
+                            WHEN 3 THEN                     'ZA'
+                            WHEN 4 THEN                     'AA'
+                            WHEN 5 THEN                     'VA'
+                        END
+                    )                               AS ProductForm,
+                    'ONIX.150'                      AS ProductForm_list,
+                    COALESCE(
+                        CGRC_PF.RV_Meaning,
+                        CASE A.Categoria_Seccion
+                            WHEN 1 THEN                     NULL
+                            WHEN 3 THEN                     NULL
+                            WHEN 4 THEN                     'Cd Musical'
+                            WHEN 5 THEN                     'Dvd'
+                        END
+                    )                               AS ProductForm_desc,
+                    -------------- Availability and Price
+                    CASE
+                        WHEN A.Activo = 'SI' AND A.Habilitado_Tematika = 'S' THEN   '04'
+                        ELSE                                                        '08'
+                    END                             AS MarketPublishingStatus,
+                    'ONIX.68'                       AS MarketPublishingStatus_list,
+                    CASE
+                        WHEN A.Activo = 'SI' AND A.Habilitado_Tematika = 'S' THEN   'Activo'
+                        ELSE                                                        'Inactivo'
+                    END                             AS MarketPublishingStatus_desc,
+                    CASE D.Pedido_Especial
+                        WHEN 'N' THEN                   '21'
+                        ELSE                            '22'
+                    END                             AS ProductAvailability,
+                    'ONIX.65'                       AS ProductAvailability_list,
+                    CASE D.Pedido_Especial
+                        WHEN 'N' THEN                   'En Stock'
+                        ELSE                            'Pedido Especial'
+                    END                             AS ProductAvailability_desc,
+                    CASE D.Tipo_Unidad
+                        WHEN 'HORAS' THEN               '01'
+                        ELSE                            '02'
+                    END                             AS FulfillmentType,
+                    'eCommerce.FulfillmentType'     AS FulfillmentType_list,
+                    CASE D.Tipo_Unidad
+                        WHEN 'HORAS' THEN               'Horas'
+                        ELSE                            'Dias'
+                    END                             AS FulfillmentType_desc,
+                    D.Cant_Unidad                   AS FulfillmentValue,
+                    CASE A.Id_Moneda_Venta
+                        WHEN '1' THEN                   'ARS'
+                        WHEN '2' THEN                   'USD'
+                        WHEN '3' THEN                   'EUR'
+                        ELSE                            'USD'
+                    END                             AS CurrencyCode,
+                    'ONIX.96'                       AS CurrencyCode_list,
+                    CASE A.Id_Moneda_Venta
+                        WHEN '1' THEN                   '$'
+                        WHEN '2' THEN                   'U$S'
+                        WHEN '3' THEN                   'Eu'
+                        ELSE                            'U$S'
+                    END                             AS CurrencyCode_desc,
+                    A.Precio_Venta_Vigente          AS PriceAmount,
+                    -------------- points
+                    FDN_OPERACIONES.get_puntos_basicos(A.Precio_Venta_Vigente)
+                                                    AS eXtraPoints,
+                    -------------- support attributes
+                    A.Categoria_Seccion             AS Categoria_Seccion,
+                    A.Categoria_Grupo               AS Categoria_Grupo,
+                    A.Categoria_Familia             AS Categoria_Familia,
+                    A.Categoria_Subfamilia          AS Categoria_Subfamilia
+        FROM        Articulos A
+        -------------- Disponibilidades
+        INNER JOIN  Disponibilidades D
+            ON      A.Id_Disponibilidad = D.Id_Disponibilidad AND
+                    -------------- ***** CONDITION
+                    D.Id_Esquema = 'PROD'
+        -------------- Product Form
+        LEFT JOIN   CG_Ref_Codes CGRC_PF
+            ON      CGRC_PF.RV_Domain = 'ONIX:ProductForm' AND
+                    A.AuxVarchar03 = CGRC_PF.RV_Low_Value
+        WHERE       {{ID:Id_Articulo}}
+        ORDER BY    A.Id_Articulo
+query.prefix:       A
+query.id:           [ "Id_Articulo" ]
+query.key:          [ "ProductId" ]
+query.columns:      [ "EntityType", "EntityId", "ProductId", "ProductForm",
+                      "ProductForm_list", "ProductForm_desc", "MarketPublishingStatus",
+                      "MarketPublishingStatus_list", "MarketPublishingStatus_desc",
+                      "ProductAvailability", "ProductAvailability_list",
+                      "ProductAvailability_desc", "FulfillmentType",
+                      "FulfillmentType_list", "FulfillmentType_desc", "FulfillmentValue",
+                      "CurrencyCode", "CurrencyCode_list", "CurrencyCode_desc",
+                      "PriceAmount", "eXtraPoints", "Categoria_Seccion", "Categoria_Grupo",
+                      "Categoria_Familia", "Categoria_Subfamilia" ]

@@ -117,3 +117,44 @@ products_530251_comments = {   'Categoria_Familia': Decimal('1'),
     'EntityType': 'PROD',
     'ProductId': Decimal('530251')}
 
+##############################
+#
+#
+products_530251_related = {   'Categoria_Familia': Decimal('1'),
+    'Categoria_Grupo': Decimal('4'),
+    'Categoria_Seccion': Decimal('5'),
+    'Categoria_Subfamilia': Decimal('0'),
+    'EntityId': Decimal('530251'),
+    'EntityType': 'PROD',
+    'ProductId': Decimal('530251'),
+    'Related': None}
+
+##############################
+#
+#
+products_530251_price = {   'Categoria_Familia': Decimal('1'),
+    'Categoria_Grupo': Decimal('4'),
+    'Categoria_Seccion': Decimal('5'),
+    'Categoria_Subfamilia': Decimal('0'),
+    'CurrencyCode': 'ARS',
+    'CurrencyCode_desc': '$',
+    'CurrencyCode_list': 'ONIX.96',
+    'EntityId': Decimal('530251'),
+    'EntityType': 'PROD',
+    'FulfillmentType': '02',
+    'FulfillmentType_desc': 'Dias',
+    'FulfillmentType_list': 'eCommerce.FulfillmentType',
+    'FulfillmentValue': Decimal('0'),
+    'MarketPublishingStatus': '04',
+    'MarketPublishingStatus_desc': 'Activo',
+    'MarketPublishingStatus_list': 'ONIX.68',
+    'PriceAmount': Decimal('26.64'),
+    'ProductAvailability': '22',
+    'ProductAvailability_desc': 'Pedido Especial',
+    'ProductAvailability_list': 'ONIX.65',
+    'ProductForm': 'DD',
+    'ProductForm_desc': 'ESP-DVD Digital Versatile Disk',
+    'ProductForm_list': 'ONIX.150',
+    'ProductId': Decimal('530251'),
+    'eXtraPoints': 81.0}
+

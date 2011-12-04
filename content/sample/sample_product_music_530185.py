@@ -213,3 +213,44 @@ products_530185_comments = {   'Categoria_Familia': Decimal('1'),
     'EntityType': 'PROD',
     'ProductId': Decimal('530185')}
 
+##############################
+#
+#
+products_530185_related = {   'Categoria_Familia': Decimal('1'),
+    'Categoria_Grupo': Decimal('1'),
+    'Categoria_Seccion': Decimal('4'),
+    'Categoria_Subfamilia': Decimal('0'),
+    'EntityId': Decimal('530185'),
+    'EntityType': 'PROD',
+    'ProductId': Decimal('530185'),
+    'Related': None}
+
+##############################
+#
+#
+products_530185_price = {   'Categoria_Familia': Decimal('1'),
+    'Categoria_Grupo': Decimal('1'),
+    'Categoria_Seccion': Decimal('4'),
+    'Categoria_Subfamilia': Decimal('0'),
+    'CurrencyCode': 'ARS',
+    'CurrencyCode_desc': '$',
+    'CurrencyCode_list': 'ONIX.96',
+    'EntityId': Decimal('530185'),
+    'EntityType': 'PROD',
+    'FulfillmentType': '02',
+    'FulfillmentType_desc': 'Dias',
+    'FulfillmentType_list': 'eCommerce.FulfillmentType',
+    'FulfillmentValue': Decimal('0'),
+    'MarketPublishingStatus': '04',
+    'MarketPublishingStatus_desc': 'Activo',
+    'MarketPublishingStatus_list': 'ONIX.68',
+    'PriceAmount': Decimal('92.4'),
+    'ProductAvailability': '22',
+    'ProductAvailability_desc': 'Pedido Especial',
+    'ProductAvailability_list': 'ONIX.65',
+    'ProductForm': 'AA',
+    'ProductForm_desc': 'Cd Musical',
+    'ProductForm_list': 'ONIX.150',
+    'ProductId': Decimal('530185'),
+    'eXtraPoints': 276.0}
+
