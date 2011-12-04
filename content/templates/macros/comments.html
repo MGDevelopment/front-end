@@ -24,7 +24,7 @@
 		libros
 	{%- endif -%}
 {%- endmacro %}
-{%- macro renderComments(comments_data, urls, extraComments=None) -%}
+{%- macro renderComments(comments_data, urls, cols, sectionMore) -%}
 	<div class="solapaModulos">
 		{%- for article in comments_data -%}
 	        <div class="solapaCalle" id="calleLibrosComents" style="height: 250px;">
@@ -50,20 +50,17 @@
 	                		<div class="calificacionStarDes"></div>
 	                	{%- endif %}
 	                {%- endfor %}
-	            {%- if extraComments == None -%}
+	            {%- if sectionMore -%}
 	            	<a href="/{{ getSection(article.Categoria_Seccion)|trim }}#coment" class="vermas">+ comentarios de {{ getSection(article.Categoria_Seccion)|trim }}</a>
 	            {%- endif %}
 	          </div>
-	          {%- if extraComments == None -%}
-		          {%- if not loop.last -%}
-		          	<div class="solapaCalleSeparador" id="calleSeparadorComents" style="height: 250px;"></div>
-		          {%- endif %}
-		      {%- else -%}
-		  		  {%- if not loop.index in [3, 6] -%}
-		          	<div class="solapaCalleSeparador" id="calleSeparadorComents" style="height: 250px;"></div>
-		  		  {%- endif -%}
-	          {%- endif %}
 	        </div>
+{%- if not (loop.index % cols) == 0 -%} {#- separate cells -#}
+		        <div class="solapaCalleSeparador" id="calleSeparadorComents" style="height: 250px;"></div>
+{%- else %} {#- end row, start new row -#}
+	</div>
+    <div class="solapaModulos">
+{%- endif %}
 		{%- endfor %}
 	</div>
 {%- endmacro %}

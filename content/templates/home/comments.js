@@ -12,7 +12,7 @@
 var dataComments = {};
 
 {%- for key in d -%}
-	dataComments['{{ key|lower }}'] = '{{ render.renderComments(d[key], url)|replace("\n", "") }}';
+	dataComments['{{ key|lower }}'] = '{{ render.renderComments(d[key], url, 4, True)|replace("\n", "") }}';
 {%- endfor -%}
 
 function loadComments() {
