@@ -1,4 +1,5 @@
 {%- macro renderComments(idArticle, idSubject, comments_data) -%}
+{%- if comments_data is iterable -%}
 	{%- for comment in comments_data -%}
 		<div class="dComentarios" >
 	              <div class="dComentsInfo" >
@@ -22,9 +23,12 @@
 	                  </div>
 	              </div>
 	     </div>
+	     <input type="hidden" value="{{ comments_data|length }}" id="cantidad">
 	{%- endfor %}
+{%- else -%}
+	<input type="hidden" value="0" id="cantidad">
+{%- endif %}
 	<div class="dSolapasPie">
 	    <a href="/Comentario?ID_ARTICULO={{ idArticle }}&idSeccion={{ idSubject }}"><div>AGREGAR COMENTARIO</div></a>
 	</div>
-	<input type="hidden" value="{{ comments_data|length }}" id="cantidad">
 {%- endmacro %}

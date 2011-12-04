@@ -1,5 +1,6 @@
 {%- macro renderRelated(related_data, url) -%}
 	<div class="dRecomendTit">Obras relacionadas</div>
+{%- if related_data is iterable -%}
 	{%- for article in related_data -%}
 		<div class="dRecomendMod">
 		    <div class="tapaContenedor">
@@ -22,5 +23,6 @@
                 {%- endfor -%}
 		    </div>
 	 {%- endfor %}
+{%- endif %}
 </div>
 {%- endmacro %}

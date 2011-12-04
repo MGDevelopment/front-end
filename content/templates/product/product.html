@@ -24,11 +24,13 @@
 	{%- endif -%}
 {%- endmacro %}
 {%- macro getOnixItem(texts, code) -%}
-	{%- for text in texts -%}
-		{%- if text.EntryCode == code -%}
-			{{ text.TextContent }}
-		{%- endif %}
-	{%- endfor %}
+	{%- if texts is iterable -%}
+		{%- for text in texts -%}
+			{%- if text.EntryCode == code -%}
+				{{ text.TextContent }}
+			{%- endif %}
+		{%- endfor %}
+	{%- endif %}
 {%- endmacro %}
 {%- macro getAvailability(code) -%}
 	{%- if code == '21' -%}
