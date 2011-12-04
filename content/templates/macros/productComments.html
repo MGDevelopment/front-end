@@ -18,7 +18,7 @@
 	              </div>
 	              <div class="dComentsMod">
 	                  <div class="dComentsTxt">
-	                  		{{ comment.CommentText.decode('utf-8')|truncate(300)|replace("\r","")|escape }}
+	                  		{{ comment.CommentText.decode('utf-8')|replace("\r","")|escape }}
 	                  </div>
 	              </div>
 	     </div>

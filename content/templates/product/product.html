@@ -62,23 +62,23 @@
 <a href="/{{ getSection(d.Categoria_Seccion) }}" class="panelSeccAct"></a>
 <div class="detalleInfoPrinc">
    	<div id="dTopLeft">
-        <div class="dImagenes"><div class="detalleImagen"><img src="{{ d.CoverSmall}}" alt="{{ d.Title }}" title="{{ d.Title }}"></div></div>
+        <div class="dImagenes"><div class="detalleImagen"><img src="{{ url.images ~ d.CoverSmall }}" alt="{{ d.Title }}" title="{{ d.Title }}"></div></div>
 		<div class="dInfoPrincipal">
 			<div class="dInfoTit"><h1><b style="font-size:20px;">{{ d.Title }}</b></h1></div>
 			{%- if d.Authors -%}
             <div class="dInfoAutor"><h2>de&nbsp;{%- for contributor in d.Authors -%}<a href="{{ contributor.ContributorURL }}"><b>{{ contributor.ContributorName }}</b></a>&nbsp;{%- endfor %}</h2></div>
             {%- endif %}
-            <span>{{ÊgetOrigen(d.Categoria_Seccion) }}: <a href="{{ d.ImprintURL }}">{{ d.ImprintName }}</a></span>
+            <span>{{ getOrigen(d.Categoria_Seccion) }}: <a href="{{ d.ImprintURL }}">{{ d.ImprintName }}</a></span>
             {%- if d.Identifiers -%}
             <span>I.S.B.N : {{ d.Identifiers[0].IDValue }}</span>
             {%- endif %}
-            <span>Clasificaci&oacute;n: {%- for categorie in d.Categories -%}<a href="{{ categorie.URL }}">{{ categorie.Text }}</a>&nbsp;{%- if not loop.last -%}È&nbsp;{%- endif %} {%- endfor %}</span>
+            <span>Clasificaci&oacute;n: {%- for categorie in d.Categories -%}<a href="{{ categorie.URL }}">{{ categorie.Text }}</a>&nbsp;{%- if not loop.last -%}&nbsp;{%- endif %} {%- endfor %}</span>
             {%- if d.ProductForm -%}<span>Formato: {{ d.ProductForm_desc }}</span>{%- endif %}
             <span>Disponibilidad: {{ d.ProductAvailability_desc }}</span>
             {%- if d.ExtentUnit -%}<span>{{ d.ExtentUnit_desc }}:{{ d.ExtentValue }}</span>{%- endif %}
             <span>Publicaci&oacute;n: {{ d.PublishingDateValue }} | Idioma: {{ d.LanguageCode }}</span>
             <div class="dInfoM">{%- if getOnixItem(d.Texts, '24') -%}<a href="#primerCap">[+] Primer capitulo</a>&nbsp;{%- endif %}{%- if getOnixItem(d.Texts, '04') -%}<a href="#indCont">[+] Indice de contenidos</a>&nbsp;{%- endif %}{%- if getOnixItem(d.Texts, '13') -%}<a href="#biogra">[+] Biografia</a>&nbsp;{%- endif %}{%- if getOnixItem(d.Texts, '40') -%}<a href="#entrevista">[+] Ver Entrevista</a>&nbsp;{%- endif %}</div>
-            {%- if d.CoverLarge %}<a href="javascript:mostrarImagen('{{ d.CoverLarge }}')">Ampliar imagen</a>{%- endif %}
+            {%- if d.CoverLarge %}<a href="javascript:mostrarImagen('{{ url.images ~ d.CoverLarge }}')">Ampliar imagen</a>{%- endif %}
 			<div id="divEvaluacion"><div id="divEvaluacion"><div class="dInfoCalif"><div class="dInfoCalifStarMod"><span>Calificaci&oacute;n de lectores:</span>
 			{%- if d.Rating -%}
 				{%- for number in range(0, 4) -%}
@@ -89,7 +89,7 @@
 				   	{%- endif %}
 				{%- endfor %}
 			{%- else -%}
-				<label><a href="/Comentario?ID_ARTICULO={{ d.EntityId }}&idSeccion=">SŽ el primero en comentarlo!</a></label>
+				<label><a href="/Comentario?ID_ARTICULO={{ d.EntityId }}&idSeccion=">S&eacute; el primero en comentarlo!</a></label>
 			{%- endif %}
 			</div>
 			<div class="dInfoCalifBoton"><span><a href="/Comentario?ID_ARTICULO={{ d.EntityId }}&idSeccion="></a></span><a href="#"><div>AGREGAR COMENTARIO</div></a></div></div></div></div>
@@ -149,7 +149,7 @@
 <input type="hidden" value="{{ d.Categoria_Seccion }}" id="idSccion">
 <input type="hidden" value="{{ d.PriceAmount }}" id="precio">
 <input type="hidden" value="{{ d.EntityId }}" id="idArticulo">
-<input type="hidden" value="{{ÊgetAvailability(d.ProductAvailability) }}" id="estaDisponible">
+<input type="hidden" value="{{ getAvailability(d.ProductAvailability) }}" id="estaDisponible">
 <input type="hidden" value="{{ url }}" id="urlPage">
 <input type="hidden" value="{{ d.Title }}" id="titulParaRedSocial">
 <div id="dRecomendaciones" style="height: 550px;" ><div id="divArticulosRelacionados"><div id="related_detail"><div class="dRecomendTit" ></div></div></div></div>
