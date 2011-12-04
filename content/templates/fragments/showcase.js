@@ -1,5 +1,4 @@
 /* showcase.js */
-APP.addData('showcaseFilter', 'Recommended');
 
 function fillShowCase(filter, callback) {
     var commentsHTML = '';
@@ -11,6 +10,13 @@ function fillShowCase(filter, callback) {
         APP.addData('showcaseFilter', filter);
     }
 
+    // Section page
+    if (filter === 'Classics' || filter === 'Showcase') {
+        document.getElementById('slider').innerHTML = APP.getData('showcase')[filter];
+        $('#sliderSection').tinycarousel({ axis: 'y', display: 1} );
+    }
+
+    // XXX ??? homepage ?
     section = filter;
 
     try {
