@@ -4,7 +4,7 @@
 */
 var dataShowCase = {};
 
-{%- for key in d['ShowCase'] -%}
+{%- for key in d['Showcase'] -%}
 	{%- for subKey in d[key] -%}
         {%- set dataKey = key|replace("Recommended-","")|replace("Showcase-","")|lower -%}
 		{# dataShowCase['{{ subKey }}{{ key }}'] = '{{ render.renderSlider(showcase_data[key][subKey], key)|replace("\n", "") }}'; #}
