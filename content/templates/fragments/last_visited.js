@@ -15,7 +15,7 @@ function addLastVisited(article) {
 
 	// check if cookie exists
 	if (APP.readCookie(_cookieLastVisitedName) != null) {
-		articleList = JFather.unserialize((APP.readCookie(_cookieLastVisitedName));
+		articleList = JFather.unserialize(APP.readCookie(_cookieLastVisitedName));
 		for (var i = 0; i < _numberOfItems; i++) {
 			tmpArticle = articleList[i];
 			if (tmpArticle != null && tmpArticle.getArticleId() == article.getArticleId()) {
