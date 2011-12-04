@@ -5,6 +5,8 @@ by Jose Luis Campanello
 
 import types
 import Queue
+import logging
+import logging.config
 import traceback
 
 import workerpool
@@ -18,6 +20,7 @@ pool        = None
 storages    = None
 urls        = None
 jinjaEnv    = None
+logger      = None
 
 #
 # the job class
@@ -43,9 +46,6 @@ class GeneratorJob(workerpool.Job):
             targets = self._doc["target.path"]
             if not isinstance(targets, types.ListType):
                 targets = [ targets ]
-
-            #print "cannonical [%s]" % self._cannonical
-            #print "targets:\n%s" % targets
 
             targets = self.macros(targets, { "cannonical" : self._cannonical } )
 
@@ -74,14 +74,15 @@ class GeneratorJob(workerpool.Job):
                     "EntityId"   : self._entityId,
                     "Document"   : self._doc.get("name", "uknown") } )
         except Exception as ex:
+            # log an error
             err = traceback.format_exc()
-            print err
+            logger.error("Document %s for %s/%d failed. Stack trace follows:\n%s",
+                         self._doc.get("name", "uknown"), self._entityType, self._entityId, err)
             # send an error to the queue
             self._errqueue.put( {
                 "EntityType" : self._entityType,
                 "EntityId"   : self._entityId,
                 "Document"   : self._doc.get("name", "uknown") } )
-
 
     def macros(self, values, variables):
         """Expand the variables in the values"""
@@ -104,20 +105,28 @@ class GeneratorJob(workerpool.Job):
 #
 # initialize
 #
-def initialize(config, prefix):
+def initialize(config, prefix, _logger):
     """Initialize the worker system"""
 
     global pool
     global storages
     global urls
     global jinjaEnv
+    global logger
+
+    # save the logger
+    logger = _logger
 
     # create the worker pool
     threads = config.getMulti(prefix, "daemon.threads", 1)
     pool = workerpool.WorkerPool(size = threads)
 
+    logger.info("Worker pool size %d (# threads)", threads)
+
     # get the storages
     storages = ecommerce.storage.getStorages(config, prefix + ".repositories")
+
+    logger.info("Repositories: %s", ", ".join(storages.keys()))
 
     # prepare the base urls
     urls = config.getMulti(prefix, "urls", { })
@@ -125,6 +134,8 @@ def initialize(config, prefix):
     # jinja environment
     folder = config.getMulti(prefix, "templates.folder", "./templates")
     jinjaEnv = jinja2.Environment(loader = jinja2.FileSystemLoader(folder))
+
+    logger.info("Templates folder: %s", folder)
 
 
 
@@ -136,32 +147,43 @@ def deinitialize():
     """Deinitialize the worker system"""
 
     global pool
+    global storages
+    global urls
+    global jinjaEnv
+    global logger
+
+    logger.info("Terminating all threads in Worker pool")
 
     # send the shutdown command to all workers and wait
     pool.shutdown()
     pool.wait()
+
+    logger.info("Terminated all threads in Worker pool")
 
     # delete the pool, storages and urls
     pool        = None
     storages    = None
     urls        = None
     jinjaEnv    = None
+    logger      = None
 
 
 ############################################
 #
 # do - execute a job
 #
-def do(entities, docs, cannonicals, data):
+def do(id, entities, docs, cannonicals, data):
     """Do the document generation"""
 
     global pool     # not sure if modifing methods require pool to be global
 
     # if no pool, signal job error
     if pool is None:
+        logger.error("No worker pool?")
         return False
 
     # error queue
+    logger.debug("Created error queue")
     errqueue = Queue.Queue(0)
 
     # for each entity, dispatch the documents needed
@@ -172,6 +194,7 @@ def do(entities, docs, cannonicals, data):
         cannonical           = cannonicals.get( (entityType, entityId), "")
 
         # iterate each document
+        count = 0
         for doc in docs[entityType]:
 
             # get the dataset name
@@ -181,12 +204,35 @@ def do(entities, docs, cannonicals, data):
             jobData = data.get( (entityType, entityId, dataset), { } )
 
             # create the job and put it in queue
+            logger.debug("Dispatching document %s for %s/%d/%s cannonical %s",
+                         doc["name"], entityType, entityId, dataset, cannonical)
             job = GeneratorJob(entityType, entityId, cannonical, doc, jobData, errqueue)
             pool.put(job)
 
+            # one more job
+            count += 1
+
+        logger.info("Job %s requires %d documents", id, count)
+
     # wait until all jobs are complete
+    logger.info("Waiting for documents to complete")
     pool.wait()
 
-    # if the error queue is not empty, signal job error
-    return False if errqueue.empty() else True
+    # figure out if job was done OK or with error
+    success = True
+    if not errqueue.empty():
+        # job failed
+        success = False
 
+        # get the list of what went wrong
+        errors = [ ]
+        while not errqueue.empty():
+            errors.append(errqueue.get())
+        errlist = "\n".join( [ str( (err["EntityType"],
+                                     err["EntityId"],
+                                     err["Document"]) ) for err in errors ] )
+        logger.error("%d Documents where not generated. The list follows:\n%s", len(errors), errlist)
+    else:
+        logger.debug("All Documents completed OK")
+
+    return success

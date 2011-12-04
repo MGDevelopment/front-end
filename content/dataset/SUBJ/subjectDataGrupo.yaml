@@ -764,7 +764,7 @@ query.augment:
     #
     # this query gets the top selling items for the subject
     #
-    # NOTE: the query selects the top selling (as opposed to "clasics") by
+    # NOTE: the query selects the top selling (as opposed to "classics") by
     #       considering the publication date. If it's less than a specified
     #       system constant is a top selling, if it's greater than that
     #       constant, it's a classic. The operator is passed to the query
@@ -790,12 +790,12 @@ query.augment:
     #
     # this query gets the top selling items for the subject
     #
-    # NOTE: the query selects the top selling (as opposed to "clasics") by
+    # NOTE: the query selects the top selling (as opposed to "classics") by
     #       considering the publication date. If it's less than a specified
     #       system constant is a top selling, if it's greater than that
     #       constant, it's a classic. The operator is passed to the query
     #
-    Clasics:
+    Classics:
         <<:             *query_showcase_main
         query.var:
             operator:   "<"             # we want items whose date is recent

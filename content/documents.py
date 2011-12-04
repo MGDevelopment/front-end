@@ -68,6 +68,20 @@ documents = {
             "target.path"   : "/home-comments.js",
             "target.repo"   : "static"
         },
+        ####################### price.js
+        ####{
+        ####    "name"          : "homepage-price",
+        ####    "dataset"       : "homePrice",
+        ####    "template"      : "home/price.js",
+        ####    "headers"       : {
+        ####        "Content-Type"      : "text/javascript",
+        ####        "Content-Encoding"  : "gzip",
+        ####        "Cache-Control"     : "max-age=3600, must-revalidate"
+        ####    },
+        ####    "tags"          : [ "main" ],
+        ####    "target.path"   : "/home-price.js",
+        ####    "target.repo"   : "static"
+        ####},
         ####################### app.js
         {
             "name"          : "homepage-app",
