@@ -20,3 +20,6 @@ var callBackDropDownShowCase = function (section) {
 	return;
 }
 loadShowCase();
+
+/* XXX is this OK? def home page specific so moved it here */
+APP.addData('showcaseFilter', 'Recommended');
