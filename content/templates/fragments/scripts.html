@@ -13,7 +13,9 @@
 	$(document).ready(function(){
 		//verificarFiltros();
 		aux = '#ctrlDisabled';
-		$(aux).get(0).style.display="none";
+		if ($(aux)) {
+			$(aux).get(0).style.display="none";
+		}
 	});
 
 	var idsCat = new Array();
