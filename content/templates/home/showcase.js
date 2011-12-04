@@ -7,7 +7,7 @@ var dataShowCase = {};
 
 {%- for key in d -%}
 	{%- set dataKey = key|replace("Recommended-","")|replace("Showcase-","")|lower -%}
-	dataShowCase['{{ key }}'] = '{{ render.renderSlider(d[key], dataKey, 2, url)|replace("\n", "") }}';
+	dataShowCase['{{ key }}'] = '{{ render.renderSlider(d[key], dataKey, 2, url)|replace("\n", "")|e }}';
 {%- endfor -%}
 
 function loadShowCase() {
