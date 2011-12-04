@@ -1,4 +1,5 @@
 {%- import 'macros/comments.html' as render -%}
+{%- set section_name = d['Title']|lower -%}
 /**
 * Name:
 * 	- subject-comments.js
@@ -8,7 +9,7 @@
 var dataComments = {};
 
 {%- if d -%}
-dataComments['section'] = '{{ render.renderComments(d["Comments"], true)|replace("\n", "") }}';
+dataComments['{{ section_name }}'] = '{{ render.renderComments(d["Comments"], url, true)|replace("\n", "") }}';
 {%- endif %}
 
 function loadComments() {

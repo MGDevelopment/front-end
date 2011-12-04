@@ -97,7 +97,7 @@
 		/* parse messages */
 		{% include "fragments/messages_parse.js" %}
 		/* Update data */
-	    fillComments(null);
+	    fillComments('{{ section_name }}');
 	    {% include "fragments/right_menu.js" %}
 	</script>
 {%- endblock %}
