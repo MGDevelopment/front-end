@@ -43,7 +43,7 @@
 <div id="divCarrito" class="efectoCarritoMod" style="display:none">
 	<div class="efectoCarritoTxt"><span class="txtMsgCarritoOK" id="msgCarritoOK"></span><br /><div id="msgCarritoERROR" style="font-size:12;color:red"></div><span id="spnPrecioCarrito" class="txtPrecioCarrito">PRECIO: $ <span  class="txtPrecioCarrito" id="precioCarrito"></span>.-</span></div>
 	<div class="efectoCarritoImages"><img id="carritoImagen" src="" class="efectoCarritoImag"></div>
-	<div id="efectoCarritoB"><a href="javascript:carrito_CloseCarrito();"><img src="/imagenes/b-carrContinuar.gif" alt="Continuar" border="0"></a></div>
+	<div id="efectoCarritoB"><a href="javascript:carrito_CloseCarrito();"><img src="{{ url.images }}/imagenes/b-carrContinuar.gif" alt="Continuar" border="0"></a></div>
 </div>
 <div id="modalBack" style="display:none"></div>
 <div class="globoArticuloLoad" id="loadArticulo" style="display:none;" ></div>
@@ -103,13 +103,13 @@
     	{%- if d.Categoria_Seccion == 1 -%}
 	    	{%- if getOnixItem(d.Texts, '17') or getOnixItem(d.Texts, '18') or getOnixItem(d.Texts, '01') or getOnixItem(d.Texts, '02') -%}
 	    	<div class="dSolapas" id="datosCompl">
-				<div class="tmtkMesaMenuMod"><img class="solapasTitDatosPrinc" title="Datos principales"  alt="<tmpl_var altDatosPrincipales>" src="/imagenes/rediseno/imagenes/comun/t-datosPrinc.gif" /></div>
+				<div class="tmtkMesaMenuMod"><img class="solapasTitDatosPrinc" title="Datos principales"  alt="Datos Principales" src="{{ url.images }}/imagenes/rediseno/imagenes/comun/t-datosPrinc.gif" /></div>
 				<div class="dResena">{%- if getOnixItem(d.Texts, '17') -%}<span>Solapa:</span>{{ getOnixItem(d.Texts, '17') }}{%- endif %}{%- if getOnixItem(d.Texts, '18') -%}<span>Contratapa:</span>{{ getOnixItem(d.Texts, '18') }}{%- endif %}{%- if getOnixItem(d.Texts, '01') -%}<span>Sinopsis:</span>{{ getOnixItem(d.Texts, '01') }} {%- else -%} {%- if getOnixItem(d.Texts, '02') -%}<span>Sinopsis:</span>{{ getOnixItem(d.Texts, '02') }} {%- endif %} {%- endif %}</div>
 	        </div>
 	        {%- endif %}
 	    {%- elif d.Categoria_Seccion == 4 %}
 	    	<div class="dSolapas" id="datosCompl">
-				<div class="tmtkMesaMenuMod"><img class="solapasTitDatosPrinc" title="Datos principales"  alt="<tmpl_var altDatosPrincipales>" src="/imagenes/rediseno/imagenes/comun/t-datosPrinc.gif" /></div>
+				<div class="tmtkMesaMenuMod"><img class="solapasTitDatosPrinc" title="Datos principales"  alt="Datos Principales" src="{{ url.images }}/imagenes/rediseno/imagenes/comun/t-datosPrinc.gif" /></div>
 				<div class="dResena">Musica: Lista De Temas de <b>{{ d.Title.decode('utf-8')|e }}</b><br>
 				{%- if d.Content -%}
 					{% for content in d.Content %}
@@ -150,7 +150,7 @@
 	        	</div>
 			</div>
 		{%- endif %}
-		<a name="coment"></a><div class="dSolapas" id="comentarios"><div class="tmtkMesaMenuMod"><img class="solapasTitComent" alt="<tmp_var altComentarios>" src="/imagenes/rediseno/imagenes/comun/t-comentarios.gif" /></div></div>
+		<a name="coment"></a><div class="dSolapas" id="comentarios"><div class="tmtkMesaMenuMod"><img class="solapasTitComent" alt="Comentarios" src="{{ url.images }}/imagenes/rediseno/imagenes/comun/t-comentarios.gif" /></div></div>
 		<div id="divComentarios"><div id="comments_detail"></div></div>
 		{%- if getOnixItem(d.Texts, '40') -%}
 			<div class="dSolapas" id="entrevista">
