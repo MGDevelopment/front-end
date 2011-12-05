@@ -1,0 +1,16 @@
+{%- if d.Categoria_Seccion -%}
+<div class="panelSeccionesLeft" id="divBarraDerecha">
+	{%- set SubjectId = d.Categoria_Seccion -%}
+	{%- if SubjectId == 1 -%}
+	{%- endif %}
+	{%- if SubjectId == 4 -%}
+		<a href="/libros" id="panelSeccLibros" title="Libros"><span></span></a>
+	{% endif %}
+	{%- if SubjectId == 5 -%}
+		<a href="/musica" id="panelSeccMusica" title="M&uacute;sica"><span></span></a>
+	{%- endif %}
+	{%- if SubjectId == '3' -%}
+	    <a href="/peliculas" id="panelSeccPeliculas" title="Pel&iacute;culas"><span></span></a>
+	{%- endif %}
+</div>
+{%- endif %}
