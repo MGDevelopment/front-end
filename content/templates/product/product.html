@@ -172,5 +172,5 @@
 <input type="hidden" value="{{ d.EntityId }}" id="idArticulo">
 <input type="hidden" value="{{ getAvailability(d.ProductAvailability) }}" id="estaDisponible">
 <input type="hidden" value="{{ url }}" id="urlPage">
-<input type="hidden" value="{{ d.Title }}" id="titulParaRedSocial">
+<input type="hidden" value="{{ d.Title.decode('utf-8')|e }}" id="titulParaRedSocial">
 <div id="dRecomendaciones" style="height: 550px;" ><div id="divArticulosRelacionados"><div id="related_detail"><div class="dRecomendTit" ></div></div></div></div>
