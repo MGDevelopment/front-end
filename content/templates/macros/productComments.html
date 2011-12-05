@@ -4,7 +4,7 @@
 			<div class="dComentarios" >
 		              <div class="dComentsInfo" >
 		                  <span>
-		                  	<a href="#">{{ comment.NickName|escape }}</a> dijo el {{ comment.CommentDate }}:
+		                  	<a href="#">{{ comment.NickName|escape }}</a> dijo el {{ comment.CommentDate.strftime("%d/%m/%y") }}:
 		                  </span>
 		                  <div class="calificacionMod">
 		                      <span>Calificaci&oacute;n del producto:</span>
