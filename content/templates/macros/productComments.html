@@ -1,34 +1,32 @@
 {%- macro renderComments(idArticle, idSubject, comments_data) -%}
-{%- if comments_data is iterable -%}
-	{%- for comment in comments_data -%}
-		<div class="dComentarios" >
-	              <div class="dComentsInfo" >
-	                  <span>
-	                  	<a href="#">{{ comment.NickName|escape }}</a> dijo el {{ comment.CommentDate }}:
-	                  </span>
-	                  <div class="calificacionMod">
-	                      <span>Calificaci&oacute;n del producto:</span>
-	                      	     {%- for number in range(0, 4) -%}
-				                	{%- if number+1 <= comment.Rating|int -%}
-				                		<div class="calificacionStar"></div>
-				                	{%- else -%}
-				                		<div class="calificacionStarDes"></div>
-				                	{%- endif %}
-				                {%- endfor %}
-	                  </div>
-	              </div>
-	              <div class="dComentsMod">
-	                  <div class="dComentsTxt">
-	                  		{{ comment.CommentText.decode('utf-8')|replace("\r","")|escape }}
-	                  </div>
-	              </div>
-	     </div>
-	     <input type="hidden" value="{{ comments_data|length }}" id="cantidad">
-	{%- endfor %}
-{%- else -%}
-	<input type="hidden" value="0" id="cantidad">
-{%- endif %}
-	<div class="dSolapasPie">
+	{%- if comments_data is iterable -%}
+		{%- for comment in comments_data -%}
+			<div class="dComentarios" >
+		              <div class="dComentsInfo" >
+		                  <span>
+		                  	<a href="#">{{ comment.NickName|escape }}</a> dijo el {{ comment.CommentDate }}:
+		                  </span>
+		                  <div class="calificacionMod">
+		                      <span>Calificaci&oacute;n del producto:</span>
+		                      	     {%- for number in range(0, 4) -%}
+					                	{%- if number+1 <= comment.Rating|int -%}
+					                		<div class="calificacionStar"></div>
+					                	{%- else -%}
+					                		<div class="calificacionStarDes"></div>
+					                	{%- endif %}
+					                {%- endfor %}
+		                  </div>
+		              </div>
+		              <div class="dComentsMod">
+		                  <div class="dComentsTxt">
+		                  		{{ comment.CommentText.decode('utf-8')|replace("\r","")|escape }}
+		                  </div>
+		              </div>
+		     </div>
+		{%- endfor %}
+		<div class="dSolapasPie">
 	    <a href="/Comentario?ID_ARTICULO={{ idArticle }}&idSeccion={{ idSubject }}"><div>AGREGAR COMENTARIO</div></a>
-	</div>
+		</div>
+		<input type="hidden" value="{{ comments_data|length }}" id="cantidad">
+	{%- endif %}
 {%- endmacro %}

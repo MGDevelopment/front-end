@@ -1,28 +1,28 @@
 {%- macro renderRelated(related_data, url) -%}
-	<div class="dRecomendTit">Obras relacionadas</div>
-{%- if related_data is iterable -%}
-	{%- for article in related_data -%}
-		<div class="dRecomendMod">
-		    <div class="tapaContenedor">
-		        <a href="{{ article.LinkBase }}">
-		        	<img src="{{ url.images ~ article.CoverSmall }}" class="tapaLibros">
-		        </a>
-		        <div class="tapaInfo" style="visibility: hidden;">
-		    </div>
-		    </div>
-		    <a href="{{ article.LinkBase }}" class="fTitulos">{{ article.Title.decode('utf-8')|e }}</a>
-		    <span>Precio:{{ article.CurrencyCode_desc }}&nbsp;{{ "%.2f"|format(article.PriceAmount) }}.-</span>
-		    <div class="calificacionMod">
-		    	<span>Calificaci&oacute;n:</span>
-		      	{%- set s = article.Rating|round|int -%}
-				{%- for i in range(s) -%}
-                    <div class="calificacionStar"></div>
-                {%- endfor -%}
-                {%- for i in range(5 - s) -%}
-                    <div class="calificacionStarDes"></div>
-                {%- endfor -%}
-		    </div>
-	 {%- endfor %}
-{%- endif %}
-</div>
+	{%- if related_data is iterable -%}
+		<div class="dRecomendTit">Obras relacionadas</div>
+		{%- for article in related_data -%}
+			<div class="dRecomendMod">
+			    <div class="tapaContenedor">
+			        <a href="{{ article.LinkBase }}">
+			        	<img src="{{ url.images ~ article.CoverSmall }}" class="tapaLibros">
+			        </a>
+			        <div class="tapaInfo" style="visibility: hidden;">
+			    </div>
+			    </div>
+			    <a href="{{ article.LinkBase }}" class="fTitulos">{{ article.Title.decode('utf-8')|e }}</a>
+			    <span>Precio:{{ article.CurrencyCode_desc }}&nbsp;{{ "%.2f"|format(article.PriceAmount) }}.-</span>
+			    <div class="calificacionMod">
+			    	<span>Calificaci&oacute;n:</span>
+			      	{%- set s = article.Rating|round|int -%}
+					{%- for i in range(s) -%}
+	                    <div class="calificacionStar"></div>
+	                {%- endfor -%}
+	                {%- for i in range(5 - s) -%}
+	                    <div class="calificacionStarDes"></div>
+	                {%- endfor -%}
+			    </div>
+		 {%- endfor %}
+		 </div>
+	{%- endif %}
 {%- endmacro %}
