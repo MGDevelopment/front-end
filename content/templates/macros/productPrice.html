@@ -1,3 +1,16 @@
+{%- macro getSection(id) -%}
+	{%- if id == 1 -%}
+		Libros
+	{%- elif id == 4-%}
+		Musica
+	{%- elif id == 5 -%}
+		Peliculas
+	{%- elif id == 3 -%}
+		Pasatiempos
+	{%- else -%}
+		Libros
+	{%- endif -%}
+{%- endmacro %}
 {%- macro renderPrice(price_data) -%}
 <div id="dTopRight">
 	<div class="dCompra">
@@ -19,7 +32,7 @@
 				<div class="dComprarButton" title="Agregar al carrito"></div>
 			</a>
 		{%- else -%}
-			<img style="padding-left: 20px; cursor: pointer;" onclick="javascript:if (confirm(\'Este producto no esta disponible actualmente. Desea hacer un pedido?\'))document.location = \'/PedidoEspecial?ID_ARTICULO={{ price_data.EntityId }}\';"	src="/imagenes/rediseno/imagenes/seccion{{ price_data.Categoria_Seccion }}/b-pedir.png"	alt="Pedir" />
+			<img style="padding-left: 20px; cursor: pointer;" onclick="javascript:if (confirm(\'Este producto no esta disponible actualmente. Desea hacer un pedido?\'))document.location = \'/PedidoEspecial?ID_ARTICULO={{ price_data.EntityId }}\';"	src="/imagenes/rediseno/imagenes/seccion{{ getSection(price_data.Categoria_Seccion) }}/b-pedir.png"	alt="Pedir" />
 		{%- endif %}
 		<a href="/ayuda/ayudaEstandar.jsp?url=/ayuda/enviosPlazos.jsp"
 			target="_blank" class="dComprarEnvio">Ver costos de env&iacute;o y
