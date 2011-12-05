@@ -21,7 +21,7 @@
         <link href="http://{{ site_domain }}/rss/rankingPasatiempos.xml" title="RSS" type="application/rss+xml" rel="alternate">
         <link rel="search" type="application/opensearchdescription+xml" title="Tematika" href="/plugin/search/busquedaInicio.xml">
     {%- endblock %}
-    
+
     <style type="text/css">
     {% block page_css %}
         {% include "fragments/common.css" %}
@@ -35,7 +35,7 @@
     {% block ie_fix %}
         <!--[if lt IE 7]>
             <link href="/estilos/ie.css" type="text/css" rel="stylesheet">
-        <![endif]-->  
+        <![endif]-->
     {% endblock %}
     {% block head_extra %}{% endblock %}
 
@@ -73,6 +73,11 @@
         {% endblock %}
         </div>
         <div id="content">
+        	{% block left_menu %}
+                <div id="leftmenu">
+                    {% include "fragments/left_menu.html" %}
+                </div>
+            {% endblock %}
             {% block canvas_content %}{% endblock %}
             {% block right_menu %}
                 <div id="rightmenu">
