@@ -62,7 +62,7 @@ def getEntityIds(type):
 SELECT      EntityId
     FROM    Stage0_Delta
     WHERE   EntityType = ?
-    ORDER BY EntityId
+    ORDER BY EntityId DESC
 """, type)
 
     # fetch the ids
