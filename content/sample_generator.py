@@ -321,7 +321,7 @@ documentos = [
            "Content-Encoding"  : "gzip",
            "Cache-Control"     : "max-age=3600, must-revalidate"
        },
-       "target.path"   : "/product-index.html",
+       "target.path"   : "/product-book-index.html",
        "target.repo"   : "dynamic"
    },
               #
@@ -387,7 +387,7 @@ documentos = [
            "Content-Encoding"  : "gzip",
            "Cache-Control"     : "max-age=3600, must-revalidate"
        },
-       "target.path"   : "/product-index.html",
+       "target.path"   : "/product-music-index.html",
        "target.repo"   : "dynamic"
    }
     
