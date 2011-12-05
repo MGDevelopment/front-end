@@ -2,6 +2,15 @@
 
 {% block head_extra %}
     <style type="text/css">
+    	{%- if d.Categoria_Seccion == 1 -%}
+    		{% include "css/seccion_libros.css" %}
+    	{%- elif d.Categoria_Seccion == 4 -%}
+    		{% include "css/seccion_musica.css" %}
+    	{%- elif d.Categoria_Seccion == 5 -%}
+    		{% include "css/seccion_peliculas.css" %}
+    	{%- elif d.Categoria_Seccion == 3 -%}
+    		{% include "css/seccion_pasatiempos.css" %}
+    	{%- endif %}
         {% include "product/styles.css" %}
         {% include "fragments/cart.css" %}
         {% include "fragments/common.css" %}
@@ -119,6 +128,9 @@
 		fillPrice(null);
 	    fillComments('detail');
 	    fillRelatedProduct(null);
+	    {%- if d.Categoria_Seccion == 1 -%}
+	    	{% include "product/googleBooks.js" %}
+	    {%- endif %}
 
 	</script>
 {%- endblock %}

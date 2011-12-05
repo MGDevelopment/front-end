@@ -11,6 +11,8 @@ import sample.sample_data_books_1_1_1_1
 import sample.sample_data_games_3
 import sample.sample_data_music_4
 import sample.sample_data_movies_5
+import sample.sample_product_book_413418
+import sample.sample_product_music_530185
 
 
 # String to wrap HTML content with JS loader
@@ -239,7 +241,156 @@ documentos = [
         },
         "target.path"   : "/libros/comments.js",
         "target.repo"   : "static"
-    }
+    },
+ # home - exchange
+   #
+   {
+       "EntityType"    : "PAGE",
+       "EntityId"      : 1,
+       "dataset"       : "homeExchange",       "_data" : sample.sample_data.homePriceData,
+                                               "_url"  : homeURL,
+       "template"      : "home/exchange.js",
+       "headers"       : {
+           "Content-Type"      : "text/javascript",        # requerido por IE
+           "Content-Encoding"  : "gzip",
+           "Cache-Control"     : "max-age=3600, must-revalidate"
+       },
+       "target.path"   : "/home-exchange.js",
+       "target.repo"   : "static"
+   },
+    #
+   # product - comentarios
+   #
+   {
+       "EntityType"    : "PAGE",
+       "EntityId"      : 1,
+       "dataset"       : "productComments",       "_data" : sample.sample_product_book_413418.products_413418_comments,
+                                               "_url"  : homeURL,
+       "template"      : "product/comments.js",
+       "headers"       : {
+           "Content-Type"      : "text/javascript",        # requerido por IE
+           "Content-Encoding"  : "gzip",
+           "Cache-Control"     : "max-age=3600, must-revalidate"
+       },
+       "target.path"   : "/product-comments.js",
+       "target.repo"   : "static"
+   },
+   #
+   # product - related
+   #
+   {
+       "EntityType"    : "PAGE",
+       "EntityId"      : 1,
+       "dataset"       : "productRelated",       "_data" : sample.sample_product_book_413418.products_413418_related,
+                                               "_url"  : homeURL,
+       "template"      : "product/related.js",
+       "headers"       : {
+           "Content-Type"      : "text/javascript",        # requerido por IE
+           "Content-Encoding"  : "gzip",
+           "Cache-Control"     : "max-age=3600, must-revalidate"
+       },
+       "target.path"   : "/product-related.js",
+       "target.repo"   : "static"
+   },
+   #
+   # product - price
+   #
+   {
+       "EntityType"    : "PAGE",
+       "EntityId"      : 1,
+       "dataset"       : "productPrice",       "_data" : sample.sample_product_book_413418.products_413418_price,
+                                               "_url"  : homeURL,
+       "template"      : "product/price.js",
+       "headers"       : {
+           "Content-Type"      : "text/javascript",        # requerido por IE
+           "Content-Encoding"  : "gzip",
+           "Cache-Control"     : "max-age=3600, must-revalidate"
+       },
+       "target.path"   : "/product-price.js",
+       "target.repo"   : "static"
+   },
+########## /index.html
+   {
+       "EntityType"    : "PAGE",
+       "EntityId"      : 1,
+       "dataset"       : "main",          "_data" : sample.sample_product_book_413418.products_413418_main,
+                                              "_url"  : homeURL,
+       "template"      : "product/index.html",
+       "headers"       : {
+           "Content-Type"      : "text/html",
+           "Content-Encoding"  : "gzip",
+           "Cache-Control"     : "max-age=3600, must-revalidate"
+       },
+       "target.path"   : "/product-book-index.html",
+       "target.repo"   : "dynamic"
+   },
+              #
+   # product - comentarios
+   #
+   {
+       "EntityType"    : "PAGE",
+       "EntityId"      : 1,
+       "dataset"       : "productComments",       "_data" : sample.sample_product_music_530185.products_530185_comments,
+                                               "_url"  : homeURL,
+       "template"      : "product/comments.js",
+       "headers"       : {
+           "Content-Type"      : "text/javascript",        # requerido por IE
+           "Content-Encoding"  : "gzip",
+           "Cache-Control"     : "max-age=3600, must-revalidate"
+       },
+       "target.path"   : "/product-comments.js",
+       "target.repo"   : "static"
+   },
+   #
+   # product - related
+   #
+   {
+       "EntityType"    : "PAGE",
+       "EntityId"      : 1,
+       "dataset"       : "productRelated",       "_data" : sample.sample_product_music_530185.products_530185_related,
+                                               "_url"  : homeURL,
+       "template"      : "product/related.js",
+       "headers"       : {
+           "Content-Type"      : "text/javascript",        # requerido por IE
+           "Content-Encoding"  : "gzip",
+           "Cache-Control"     : "max-age=3600, must-revalidate"
+       },
+       "target.path"   : "/product-related.js",
+       "target.repo"   : "static"
+   },
+   #
+   # product - price
+   #
+   {
+       "EntityType"    : "PAGE",
+       "EntityId"      : 1,
+       "dataset"       : "productPrice",       "_data" : sample.sample_product_music_530185.products_530185_price,
+                                               "_url"  : homeURL,
+       "template"      : "product/price.js",
+       "headers"       : {
+           "Content-Type"      : "text/javascript",        # requerido por IE
+           "Content-Encoding"  : "gzip",
+           "Cache-Control"     : "max-age=3600, must-revalidate"
+       },
+       "target.path"   : "/product-price.js",
+       "target.repo"   : "static"
+   },
+########## /index.html
+   {
+       "EntityType"    : "PAGE",
+       "EntityId"      : 1,
+       "dataset"       : "main",          "_data" : sample.sample_product_music_530185.products_530185_main,
+                                              "_url"  : homeURL,
+       "template"      : "product/index.html",
+       "headers"       : {
+           "Content-Type"      : "text/html",
+           "Content-Encoding"  : "gzip",
+           "Cache-Control"     : "max-age=3600, must-revalidate"
+       },
+       "target.path"   : "/product-music-index.html",
+       "target.repo"   : "dynamic"
+   }
+    
 ]
 
 
