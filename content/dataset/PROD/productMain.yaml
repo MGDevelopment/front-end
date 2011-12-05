@@ -248,7 +248,7 @@ query.sql:          >
             E.Nombre                        AS ImprintName,
             NULL                            AS ImprintURL,
             -------------- Ranking
-            MVS.Orden                       AS Ranking,
+            CAST(MVS.Orden AS NUMBER(10))   AS Ranking,
             -------------- Publishing Date
             '00'                            AS PublishingDateFormat,
             'ONIX.55'                       AS PublishingDateFormat_list,
