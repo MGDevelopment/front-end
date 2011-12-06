@@ -1,4 +1,4 @@
-﻿{%- macro renderSlider(product_list, prefix, cols, url) -%}
+{%- macro renderSlider(product_list, prefix, cols, url) -%}
 {%- set languages = { 'ES': 'Espa&ntilde;ol', 'EN': 'Ingl&eacute;s' } -%}
 <div class="viewport">
     <ul class="overview">
@@ -70,7 +70,7 @@
                             {%- else       -%}Editorial:
                             {%- endif -%}
                             <span class="product-imprint">
-                                <a href="/buscador/productos.jsp?seccion={{ section }}&amp;idSeccion={{ section }}&amp;criterioDeOrden=2&amp;claveDeBusqueda=porIDdeEditorial&amp;texto={{ imprint }}&amp;idEditor={{ p.ImprintId.decode('utf-8')|string }}" id="artEditor">{{ imprint}}</a>
+                                <a href="/buscador/productos.jsp?seccion={{ section }}&amp;idSeccion={{ section }}&amp;criterioDeOrden=2&amp;claveDeBusqueda=porIDdeEditorial&amp;texto={{ imprint }}&amp;idEditor={{ p.ImprintId }}" id="artEditor">{{ imprint}}</a>
                             </span><br>
                         {%- endif -%}
                         {%- if p.Rating -%}
