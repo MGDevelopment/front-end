@@ -40,7 +40,7 @@ augment_query_related_rating:  &augment_query_related_rating
                                                                                               NULL,
                                                                                               ART.Fecha_Alta) AND
                                                             RCO.Tipo_Relacion = 'C' AND
-                                                            RCO.Id_Articulo IN (413418, 493520, 526900, 530061, 530141, 530251, 530185) AND
+                                                            {{ID:Id_Articulo}} AND
                                                             ARR.Habilitado_Tematika = 'S' AND
                                                             ARR.Categoria_Seccion IN (1, 3, 4, 5)
                                                 UNION
@@ -51,7 +51,7 @@ augment_query_related_rating:  &augment_query_related_rating
                                                     WHERE   ARR.Activo = 'SI' AND
                                                             ARR.Id_Articulo = RCO.Id_Articulo_Relacionado AND
                                                             RCO.Tipo_Relacion = 'M' AND
-                                                            RCO.Id_Articulo IN (413418, 493520, 526900, 530061, 530141, 530251, 530185) AND
+                                                            {{ID:Id_Articulo}} AND
                                                             NVL(RCO.Fecha_Expiracion, SYSDATE + 1) >= SYSDATE AND
                                                             ARR.Habilitado_Tematika = 'S' AND
                                                             ARR.Categoria_Seccion IN (1, 3, 4, 5)
@@ -61,8 +61,8 @@ augment_query_related_rating:  &augment_query_related_rating
                                     WHERE   Row_Number <= 3
                             )
                 GROUP BY    CA.Id_Articulo
-    query.prefix:       S
-    query.id:           [ "SubjectId" ]
+    query.prefix:       RCO
+    query.id:           [ "Id_Articulo" ]
     query.key:          [ "ProductId" ]
     query.columns:      [ "ProductId", "CommentCount", "Rating" ]
 
@@ -117,7 +117,7 @@ augment_query_related_authors:  &augment_query_related_authors
                                                                                               NULL,
                                                                                               ART.Fecha_Alta) AND
                                                             RCO.Tipo_Relacion = 'C' AND
-                                                            RCO.Id_Articulo IN (413418, 493520, 526900, 530061, 530141, 530251, 530185) AND
+                                                            {{ID:Id_Articulo}} AND
                                                             ARR.Habilitado_Tematika = 'S' AND
                                                             ARR.Categoria_Seccion IN (1, 3, 4, 5)
                                                 UNION
@@ -128,7 +128,7 @@ augment_query_related_authors:  &augment_query_related_authors
                                                     WHERE   ARR.Activo = 'SI' AND
                                                             ARR.Id_Articulo = RCO.Id_Articulo_Relacionado AND
                                                             RCO.Tipo_Relacion = 'M' AND
-                                                            RCO.Id_Articulo IN (413418, 493520, 526900, 530061, 530141, 530251, 530185) AND
+                                                            {{ID:Id_Articulo}} AND
                                                             NVL(RCO.Fecha_Expiracion, SYSDATE + 1) >= SYSDATE AND
                                                             ARR.Habilitado_Tematika = 'S' AND
                                                             ARR.Categoria_Seccion IN (1, 3, 4, 5)
@@ -138,8 +138,8 @@ augment_query_related_authors:  &augment_query_related_authors
                                     WHERE   Row_Number <= 3
                             )
                 ORDER BY    A.Id_Articulo, AA.Orden
-    query.prefix:       S
-    query.id:           [ "SubjectId" ]
+    query.prefix:       RCO
+    query.id:           [ "Id_Articulo" ]
     query.group:        [ "ProductId" ]
     query.columns:      [ "ProductId", "EntryOrder",
                           "ContributorRole", "ContributorRole_list", "ContributorRole_desc",
@@ -326,7 +326,7 @@ query_unified:  &query_unified
                                                                               NULL,
                                                                               ART.Fecha_Alta) AND
                                             RCO.Tipo_Relacion = 'C' AND
-                                            RCO.Id_Articulo IN (413418, 493520, 526900, 530061, 530141, 530251, 530185) AND
+                                            {{ID:Id_Articulo}} AND
                                             ARR.Habilitado_Tematika = 'S' AND
                                             ARR.Categoria_Seccion IN (1, 3, 4, 5)
                                 UNION
@@ -337,7 +337,7 @@ query_unified:  &query_unified
                                     WHERE   ARR.Activo = 'SI' AND
                                             ARR.Id_Articulo = RCO.Id_Articulo_Relacionado AND
                                             RCO.Tipo_Relacion = 'M' AND
-                                            RCO.Id_Articulo IN (413418, 493520, 526900, 530061, 530141, 530251, 530185) AND
+                                            {{ID:Id_Articulo}} AND
                                             NVL(RCO.Fecha_Expiracion, SYSDATE + 1) >= SYSDATE AND
                                             ARR.Habilitado_Tematika = 'S' AND
                                             ARR.Categoria_Seccion IN (1, 3, 4, 5)
@@ -354,7 +354,7 @@ query_unified:  &query_unified
                         A.Id_Articulo = MVS.Id_Articulo
             -------------- Disponibilidades
             INNER JOIN  Disponibilidades D
-                ON      A.Id_Disponibilidad = D.Id_Disponibilidad AND
+                ON      NVL(A.Id_Disponibilidad, 1) = D.Id_Disponibilidad AND
                         -------------- ***** CONDITION
                         D.Id_Esquema = 'PROD'
             -------------- Product Form

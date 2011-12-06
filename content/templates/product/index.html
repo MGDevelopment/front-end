@@ -1,4 +1,4 @@
-{% extends "page.html" %}
+﻿{% extends "page.html" %}
 
 {% block head_extra %}
     <style type="text/css">
@@ -98,7 +98,7 @@
 			var principalAttribute = null;
 			{%- if d.Authors -%}
 				urlPrincipalAttribute = '{{ d.Authors[0].ContributorURL }}';
-				principalAttribute = '{{ d.Authors[0].ContributorName }}';
+				principalAttribute = '{{ d.Authors[0].ContributorName.decode("utf-8")|e }}';
 			{%- endif %}
 			var urlGroup = null;
 			var group = null;

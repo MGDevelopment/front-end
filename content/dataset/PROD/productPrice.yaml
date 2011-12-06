@@ -90,7 +90,7 @@ query.sql:          >
         FROM        Articulos A
         -------------- Disponibilidades
         INNER JOIN  Disponibilidades D
-            ON      A.Id_Disponibilidad = D.Id_Disponibilidad AND
+            ON      NVL(A.Id_Disponibilidad, 1) = D.Id_Disponibilidad AND
                     -------------- ***** CONDITION
                     D.Id_Esquema = 'PROD'
         -------------- Product Form

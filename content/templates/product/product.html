@@ -69,7 +69,7 @@
 		<div class="dInfoPrincipal">
 			<div class="dInfoTit"><h1><b style="font-size:20px;">{{ d.Title.decode('utf-8')|e }}</b></h1></div>
 			{%- if d.Authors -%}
-            <div class="dInfoAutor"><h2>de&nbsp;{%- for contributor in d.Authors -%}<a href="{{ contributor.ContributorURL }}"><b>{{ contributor.ContributorName }}</b></a>{%- if not loop.last -%}&nbsp;|&nbsp;{%- endif %}{%- endfor %}</h2></div>
+            <div class="dInfoAutor"><h2>de&nbsp;{%- for contributor in d.Authors -%}<a href="{{ contributor.ContributorURL.decode('utf-8')|e }}"><b>{{ contributor.ContributorName }}</b></a>{%- if not loop.last -%}&nbsp;|&nbsp;{%- endif %}{%- endfor %}</h2></div>
             {%- endif %}
             <span>{{ getOrigen(d.Categoria_Seccion) }}: <a href="{{ d.ImprintURL }}">{{ d.ImprintName.decode('utf-8')|e }}</a></span>
             {%- if d.Identifiers -%}
