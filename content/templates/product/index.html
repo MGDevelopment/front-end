@@ -59,8 +59,10 @@
 {% block scripts_extra -%}
 	<!-- JFather -->
 	<script type="text/javascript" src="{{ url.data }}/stage0/js/jfather.js"></script>
+	<!-- script type="text/javascript" src="{{ url.data }}/stage0/js/gserializer.js"></script-->
 
 	<script type="text/javascript">
+		{% include "fragments/serialize.js" %}
 		{% include "fragments/exchange.js" %}
 		{% include "fragments/price.js" %}
 	    {% include "fragments/comments.js" %}

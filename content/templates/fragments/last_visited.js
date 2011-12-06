@@ -15,7 +15,7 @@ function addLastVisited(article) {
 
 	// check if cookie exists
 	if (APP.readCookie(_cookieLastVisitedName) != null) {
-		articleList = JFather.unserialize(APP.readCookie(_cookieLastVisitedName));
+		articleList = _unserialize(APP.readCookie(_cookieLastVisitedName));
 		for (var i = 0; i < _numberOfItems; i++) {
 			tmpArticle = articleList[i];
 			if (tmpArticle != null && tmpArticle.getArticleId() == article.getArticleId()) {
@@ -32,14 +32,14 @@ function addLastVisited(article) {
 	articleList[0] = article;
 
 	// create cookie
-	APP.createCookie(_cookieLastVisitedName, JFather.serialize(articleList), null);
+	APP.createCookie(_cookieLastVisitedName, _serialize(articleList), null);
 	return;
 }
 
 function renderLastVisited(divTarget) {
 	var articleList = null;
 	if (APP.readCookie(_cookieLastVisitedName) != null) {
-		articleList = JFather.unserialize(APP.readCookie(_cookieLastVisitedName));
+		articleList = _unserialize(APP.readCookie(_cookieLastVisitedName));
 	}
 	var lastVisitedHTML = getNoItems();
 	if (articleList != null) {

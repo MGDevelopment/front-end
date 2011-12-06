@@ -16,12 +16,12 @@ function fillMessages(callback) {
 
 function setMessagesReaded(messages) {
 	// create cookie
-	APP.createCookie(_cookieMessagesName, JFather.serialize(messages), _expiration);
+	APP.createCookie(_cookieMessagesName, _serialize(messages), _expiration);
 }
 function getMessagesReaded() {
 	var messagesReaded = '';
 	if (APP.readCookie(_cookieMessagesName) != null) {
-		messagesReaded = JFather.unserialize(APP.readCookie(_cookieMessagesName));
+		messagesReaded = _unserialize(APP.readCookie(_cookieMessagesName));
 	}
 	return messagesReaded;
 }
@@ -52,13 +52,13 @@ function getToken(id) {
 function getViewMessages() {
 	var view = true;
 	if (APP.readCookie(_cookieViewMessagesName) != null) {
-		view = JFather.unserialize(APP.readCookie(_cookieViewMessagesName));
+		view = _unserialize(APP.readCookie(_cookieViewMessagesName));
 	}
 	return view;
 }
 
 function setViewMessages(view) {
-	APP.createCookie(_cookieViewMessagesName, JFather.serialize(view), null);
+	APP.createCookie(_cookieViewMessagesName, _serialize(view), null);
 }
 
 
