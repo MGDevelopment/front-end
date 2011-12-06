@@ -22,10 +22,12 @@ def preProcess(entities, application = None):
     _loadCache()
 
     # iterate the entities and change dataset as needed
+    _entities = [ ]
     for i in range(len(entities)):
 
         # if not a SUBJ => continue
         if entities[i][0] != 'SUBJ':
+            _entities.append(entities[i])
             continue
 
         # find subtype in cache and entity id
@@ -34,9 +36,10 @@ def preProcess(entities, application = None):
         subtype  = _cache.get(entities[i][1], "")
 
         # replace the tuple
-        entities[i] = ('SUBJ', entityId, dataset + subtype)
+        _entities.append( ('SUBJ', entityId, dataset + subtype) )
 
-    return entities
+    return _entities
+
 
 def _loadCache():
     """Load the cache if not already loaded"""

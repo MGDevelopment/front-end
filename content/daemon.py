@@ -148,7 +148,7 @@ def daemon(config, prefix, queue):
     global logger
 
     # configure logging
-    logging.basicConfig(level = logging.INFO, datefmt = '%Y-%m-%d %H:%M:%S')
+    logging.basicConfig(level = logging.DEBUG, datefmt = '%Y-%m-%d %H:%M:%S')
     logconf = config.getMulti(prefix, "logging")
     if logconf is not None:
 

@@ -39,6 +39,10 @@ class GeneratorJob(workerpool.Job):
 
     def run(self):
 
+        global jinjaEnv
+        global logger
+        global storage
+
         # catch errors
         try:
 
@@ -57,6 +61,7 @@ class GeneratorJob(workerpool.Job):
             # get the template, build the params and render de document
             template    = jinjaEnv.get_template(self._doc["template"])
             parameters  = { "d" : self._jobData, "url" : _urls }
+
             document    = template.render(parameters).encode("utf-8")
 
             # save the document
@@ -200,7 +205,6 @@ def do(id, entities, docs, cannonicals, data):
             # get the dataset name
             dataset = doc["dataset"]
 
-            # get the data
             jobData = data.get( (entityType, entityId, dataset), { } )
 
             # create the job and put it in queue
