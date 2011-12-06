@@ -41,11 +41,11 @@ function fillShowCase(filter, callback) {
             sliderSectionHTML = APP.getData('showcase')[section];
         }
     } catch (e) {
-        sliderBooksHTML = 'Sin comentarios';
-        sliderMusicHTML = 'Sin comentarios';
-        sliderMoviesHTML = 'Sin comentarios';
-        sliderGamesHTML = 'Sin comentarios';
-        sliderSectionHTML = 'Sin comentarios';
+        sliderBooksHTML = '<!-- Sin datos -->';
+        sliderMusicHTML = '<!-- Sin datos -->';
+        sliderMoviesHTML = '<!-- Sin datos -->';
+        sliderGamesHTML = '<!-- Sin datos -->';
+        sliderSectionHTML = '<!-- Sin datos -->';
     }
     // render
     if (document.getElementById('sliderBooks')) {

@@ -12,10 +12,12 @@ function fillComments(section, callback) {
             commentsHTML = APP.getData('comments')[section];
         }
     } catch (e) {
-        commentsHTML = 'Sin comentarios';
+        commentsHTML = '<!-- Sin comentarios -->';
     }
-    document.getElementById('comments_detail').innerHTML = commentsHTML;
-    
+    if (document.getElementById('comments_detail')) {
+    	document.getElementById('comments_detail').innerHTML = commentsHTML;
+    }
+
     try {
         if (callback && typeof (callback) === "function") {
             // execute the callback, passing parameters as necessary

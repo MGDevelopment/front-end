@@ -10,7 +10,7 @@ function fillTree(divName, callback) {
             treeHTML = APP.getData('tree');
         }
     } catch (e) {
-        treeHTML = 'Sin arbol';
+        treeHTML = '<!-- Sin arbol -->';
     }
 
     if (document.getElementById(divName)) {

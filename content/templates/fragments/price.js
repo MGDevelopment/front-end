@@ -9,9 +9,11 @@ function fillPrice(callback) {
 			priceHTML = APP.getData('price');
 		}
 	} catch (e) {
-		priceHTML = 'Sin datos';
+		priceHTML = '<!-- Sin datos -->';
 	}
-	document.getElementById('price_detail').innerHTML = priceHTML;
+	if (document.getElementById('price_detail')) {
+		document.getElementById('price_detail').innerHTML = priceHTML;
+	}
 
 	try {
 		if (callback && typeof (callback) === "function") {

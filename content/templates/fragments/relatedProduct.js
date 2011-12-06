@@ -9,9 +9,11 @@ function fillRelatedProduct(callback) {
 			relatedDetailHTML = APP.getData('relatedProduct');
 		}
 	} catch (e) {
-		relatedDetailHTML = 'Sin datos';
+		relatedDetailHTML = '<!-- Sin datos -->';
 	}
-	document.getElementById('related_detail').innerHTML = relatedDetailHTML;
+	if (document.getElementById('related_detail')) {
+		document.getElementById('related_detail').innerHTML = relatedDetailHTML;
+	}
 
 	try {
 		if (callback && typeof (callback) === "function") {

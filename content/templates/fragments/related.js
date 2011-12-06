@@ -20,7 +20,7 @@ function fillRelated(order, callback) {
 		}
 
 	} catch (e) {
-		relatedHTML = 'Sin comentarios';
+		relatedHTML = '<!-- Sin datos -->';
 	}
 	// render
 	if (document.getElementById('relatedSection')) {
