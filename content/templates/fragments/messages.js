@@ -29,7 +29,8 @@ function getMessages() {
 	var messages = APP.getData('messages');
 	var messagesReaded = getMessagesReaded();
 	if (messages != null) {
-		for (var i = messages.length-1; i >= 0; i--) {
+        var i;
+		for (i = messages.length - 1; i >= 0; i--) {
 			var msg = messages[i];
 			if (msg == undefined || messagesReaded.indexOf(getToken(msg.getId())) >= 0) {
 				messages.splice(i, 1);
@@ -74,7 +75,7 @@ function getMensaje() {
 			getMensajeActual();
 		} else {
 			$('#msjMin').get(0).style.display = 'none';
-			$('#msjMax').get(0).style.display = 'none'
+			$('#msjMax').get(0).style.display = 'none';
 		}
 	} else {
 	}
@@ -82,52 +83,51 @@ function getMensaje() {
 }
 function getVisualizaMensaje() {
 	// fix mgoldsman 20110831
-	document.getElementById('msjMax').innerHTML = '<div class="panelMsjTit">Tenes&nbsp;<span id="totalMsg"></span> mensajes por leer &gt;</div>'
-			+ '<div class="panelMsjTxt">'
-			+ '<a href="javascript:mostrarDiv(\'msjMin\'); javascript:mostrarDiv(\'msjMax\');javascript:setVisualizaMensaje(false)" class="panelMsjCerrar">cerrar</a>'
-			+ '<span id="pagMsg"></span> <span id="textoMsgActual"></span> <div><a href="javascript:void(0);" class="pnlMsgComandos" id="msgAnterior">&lt;Anterior</a> | <a href="javascript:void(0);" class="pnlMsgComandos" id="msgSiguiente">Siguiente&gt;</a> | <a href="javascript:void(0);" class="pnlMsgComandos" id="msgLeido">No volver a mostrar este mensaje</a></div>'
-			+ '</div>';
+	document.getElementById('msjMax').innerHTML = ['<div class="panelMsjTit">Tenes&nbsp;<span id="totalMsg"></span> mensajes por leer &gt;</div>',
+			'<div class="panelMsjTxt">',
+			'<a href="javascript:mostrarDiv(\'msjMin\'); javascript:mostrarDiv(\'msjMax\');javascript:setVisualizaMensaje(false)" class="panelMsjCerrar">cerrar</a>',
+			'<span id="pagMsg"></span> <span id="textoMsgActual"></span> <div><a href="javascript:void(0);" class="pnlMsgComandos" id="msgAnterior">&lt;Anterior</a> | <a href="javascript:void(0);" class="pnlMsgComandos" id="msgSiguiente">Siguiente&gt;</a> | <a href="javascript:void(0);" class="pnlMsgComandos" id="msgLeido">No volver a mostrar este mensaje</a></div>',
+			'</div>'].join('');
 	document.getElementById('msjMin').innerHTML = '<div class="panelMsjTxt"><a href="javascript:mostrarDiv(\'msjMin\'); javascript:mostrarDiv(\'msjMax\');javascript:setVisualizaMensaje(true)" class="panelMsjAbrir">abrir panel y ver mensajes</a>   </div>';
 	getMensaje();
 }
 function setMensajeUsuario(indice) {
 	$('#totalMsg').get(0).innerHTML = listaMensaje.length;
-	$('#pagMsg').get(0).innerHTML = 'Mensaje ' + (indice + 1) + '/'
-			+ listaMensaje.length + ':';
+	$('#pagMsg').get(0).innerHTML = 'Mensaje ' + (indice + 1) + '/' + listaMensaje.length + ':';
 	$('#textoMsgActual').get(0).innerHTML = unescape(listaMensaje[indice].getText());
 	if (getViewMessages()) {
 		$('#msjMax').get(0).style.display = 'block';
-		$('#msjMin').get(0).style.display = 'none'
+		$('#msjMin').get(0).style.display = 'none';
 	} else {
 		$('#msjMax').get(0).style.display = 'none';
-		$('#msjMin').get(0).style.display = 'block'
+		$('#msjMin').get(0).style.display = 'block';
 	}
 	if (indice == 0) {
 		$('#msgAnterior').get(0).href = 'javascript:void(0);';
-		$('#msgAnterior').get(0).className = 'linkDisabled'
+		$('#msgAnterior').get(0).className = 'linkDisabled';
 	} else {
 		$('#msgAnterior').get(0).href = 'javascript:msgIrAnterior()';
-		$('#msgAnterior').get(0).className = 'pnlMsgComandos'
+		$('#msgAnterior').get(0).className = 'pnlMsgComandos';
 	}
 	if (indice == (listaMensaje.length - 1)) {
 		$('#msgSiguiente').get(0).href = 'javascript:void(0);';
-		$('#msgSiguiente').get(0).className = 'linkDisabled'
+		$('#msgSiguiente').get(0).className = 'linkDisabled';
 	} else {
 		$('#msgSiguiente').get(0).href = 'javascript:msgIrSiguiente()';
-		$('#msgSiguiente').get(0).className = 'pnlMsgComandos'
+		$('#msgSiguiente').get(0).className = 'pnlMsgComandos';
 	}
 	$('#msgLeido').get(0).className = 'pnlMsgComandos';
-	$('#msgLeido').get(0).href = 'javascript:setMensajeLeido()'
+	$('#msgLeido').get(0).href = 'javascript:setMensajeLeido()';
 }
 function msgIrAnterior() {
 	indiceMensajeActual--;
 	setMensajeUsuario(indiceMensajeActual);
-	setMensajeActual(indiceMensajeActual)
+	setMensajeActual(indiceMensajeActual);
 }
 function msgIrSiguiente() {
 	indiceMensajeActual++;
 	setMensajeUsuario(indiceMensajeActual);
-	setMensajeActual(indiceMensajeActual)
+	setMensajeActual(indiceMensajeActual);
 }
 function setVisualizaMensaje(visualiza) {
 	//visualizaMensaje = visualiza;
@@ -144,7 +144,7 @@ function setMensajeLeido() {
 	removeMessage(id);
 	if (indiceMensajeActual == (listaMensaje.length - 1)) {
 		indiceMensajeActual--;
-		setMensajeActual(indiceMensajeActual)
+		setMensajeActual(indiceMensajeActual);
 	}
 	getMensaje();
 }
