@@ -25,6 +25,7 @@
 	{%- endif -%}
 {%- endmacro %}
 {%- macro renderComments(comments_data, urls, cols, sectionMore) -%}
+    {%- if comments_data is iterable -%}
 	<div class="solapaModulos">
 		{%- for article in comments_data -%}
 	        <div class="solapaCalle" id="calleLibrosComents" style="height: 250px;">
@@ -62,5 +63,6 @@
     <div class="solapaModulos">
 {%- endif %}
 		{%- endfor %}
+    {%- endif -%} {# comments_data is iterable #}
 	</div>
 {%- endmacro %}
