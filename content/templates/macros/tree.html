@@ -1,21 +1,21 @@
 {%- macro iterateTree(items, prefix='') -%}
 	{%- for item in items -%}
-		{%- set prefix = prefix + "_" + loop.index -%}
-		{%- if item.childs -%}
-			<li id="{{ item.SectionId }}{{ prefix }}"><a href="{{ item.LinkBase }}">{{ item.name }}</a></li>
+		{%- set prefix = prefix + "_" + loop.index|string -%}
+		{%- if item.Children -%}
+			<li id="{{ item.Categoria_Seccion|string }}{{ prefix }}"><a href="{{ item.LinkBase }}.htm">{{ item.Nombre.decode('utf-8')|e }}</a></li>
 			<ul>
 				{%- for subitem in item.childs -%}
 					{{ renderTree(subitem, prefix) }}
 				{%- endfor %}
 			</ul>
 		{%- else -%}
-			<li id="{{ item.SectionId }}"><a href="{{ item.LinkBase }}">{{ item.name }}</a></li>
+			<li id="{{ item.Categoria_Seccion|string }}"><a href="{{ item.LinkBase }}.htm">{{ item.Nombre.decode('utf-8')|e }}</a></li>
 		{%- endif -%}
 	{%- endfor -%}
 {%- endmacro %}
 
 {%- macro renderTree(tree_data) -%}
 	<ul id="tree">
-		{{ iterateTree(tree_data.items) }}
+		{{ iterateTree(tree_data.Children) }}
 	</ul>
 {%- endmacro -%}
