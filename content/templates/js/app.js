@@ -279,6 +279,7 @@ APP = (function() {
     _app.init    = init;
     _app.readCookie = readCookie;
     _app.createCookie = createCookie;
+    _app.eraseCookie = eraseCookie;
 
     // Horrible search box JS logic XXX
     _app.pressedEnter = pressedEnter;
