@@ -72,6 +72,7 @@
 	<!-- JQuery Carousel and qTip -->
 	<script type="text/javascript" src="{{ url.data }}/stage0/js/jquery.tinycarousel.js"></script>
 	<script type="text/javascript" src="{{ url.data }}/stage0/js/jquery.qtip.min.js"></script>
+	<script type="text/javascript" src="{{ url.data }}/stage0/js/jquery.treeview.js"></script>
 	<!-- JFather -->
 	<script type="text/javascript" src="{{ url.data }}/stage0/js/jfather.js"></script>
 
@@ -81,6 +82,8 @@
 	    {% include "fragments/messages.js" %}
 	    {% include "fragments/showcase.js" %}
 	    {% include "fragments/last_visited.js" %}
+	    {% include "subject/tree.js" %}
+	    {% include "fragments/tree.js" %}
 	</script>
 
 	<!-- Data Scripts -->
@@ -100,5 +103,8 @@
 		/* Update data */
 	    fillComments('{{ section_name }}');
 	    {% include "fragments/right_menu.js" %}
+
+        fillTree("arbolLibros", callBackTree);
+
 	</script>
 {%- endblock %}

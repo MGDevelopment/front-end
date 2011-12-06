@@ -50,7 +50,7 @@ homeURL = {
     "checkout"      : "seguro.tematika.com",
     "service"       : "servicios.tematika.com",
     "images"        : "http://img-tmk.tematika.com",
-    "data"          : "http://beta1.testmatika.com.s3-website-us-east-1.amazonaws.com/"
+    "data"          : "http://beta1.testmatika.com.s3-website-us-east-1.amazonaws.com"
 }
 
 librosURL = {
@@ -62,7 +62,7 @@ librosURL = {
     "checkout"      : "seguro.tematika.com",
     "service"       : "servicios.tematika.com",
     "images"        : "http://img-tmk.tematika.com",
-    "data"          : "http://beta1.testmatika.com.s3-website-us-east-1.amazonaws.com/"
+    "data"          : "http://beta1.testmatika.com.s3-website-us-east-1.amazonaws.com"
 }
 
 musicaURL = {
@@ -74,7 +74,7 @@ musicaURL = {
     "checkout"      : "seguro.tematika.com",
     "service"       : "servicios.tematika.com",
     "images"        : "http://img-tmk.tematika.com",
-    "data"          : "http://beta1.testmatika.com.s3-website-us-east-1.amazonaws.com/"
+    "data"          : "http://beta1.testmatika.com.s3-website-us-east-1.amazonaws.com"
 }
 
 

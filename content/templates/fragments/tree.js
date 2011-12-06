@@ -7,7 +7,7 @@ function fillTree(divName, callback) {
 
     try {
         if (APP.getData('tree')) {
-            treeHTML = APP.getData('tree');
+            treeHTML = APP.getData('tree')['tree'];
         }
     } catch (e) {
         treeHTML = '<!-- Sin arbol -->';
@@ -18,8 +18,8 @@ function fillTree(divName, callback) {
     }
 
 	$("#tree").treeview({
-		persist: "cookie",
-		cookieId: "TMKtreeview-black"
+		//persist: "cookie",
+		'cookieId': "TMKtreeview-black"
 	});
 
     try {
