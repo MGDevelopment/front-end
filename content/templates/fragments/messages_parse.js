@@ -3,7 +3,7 @@ function parseMSJ(){
 	var messageList = new Array(100);
 	    	$.ajax({
 	    		type: "GET",
-	    		url: "/recursos/mensajes/msj.xml",
+	    		url: "/mensajes/msj.xml",
 	    		dataType: "xml",
 	    		success: function(xml) {
 	    			count = 0;
