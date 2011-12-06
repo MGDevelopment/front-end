@@ -4,8 +4,8 @@
 		{%- if item.Children -%}
 			<li id="{{ item.Categoria_Seccion|string }}{{ prefix }}"><a href="{{ item.LinkBase }}.htm">{{ item.Nombre.decode('utf-8')|e }}</a></li>
 			<ul>
-				{%- for subitem in item.childs -%}
-					{{ renderTree(subitem, prefix) }}
+				{%- for subitem in item.Children -%}
+					{{ renderTree(subitem) }}
 				{%- endfor %}
 			</ul>
 		{%- else -%}
