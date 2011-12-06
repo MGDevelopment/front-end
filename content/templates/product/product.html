@@ -97,7 +97,7 @@
 				<div class="dResena">Musica: Lista De Temas de <b>{{ d.Title.decode('utf-8')|e }}</b><br>
 				{%- if d.Content -%}
 					{% for content in d.Content %}
-						{{ content.ComponentNumber }}&nbsp;-&nbsp;{{ content.EffectiveTitle }}<br>
+						{{ content.ComponentNumber }}&nbsp;-&nbsp;{{ content.EffectiveTitle.decode('utf-8')|e }}<br>
 					{% endfor %}
 				{%- endif %}
 				</div>
