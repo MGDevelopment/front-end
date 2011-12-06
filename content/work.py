@@ -39,9 +39,10 @@ class GeneratorJob(workerpool.Job):
 
     def run(self):
 
+        global urls
         global jinjaEnv
         global logger
-        global storage
+        global storages
 
         # catch errors
         try:
