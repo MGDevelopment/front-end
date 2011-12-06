@@ -28,7 +28,7 @@ background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionTematika
 width:17px;
 height:90px;
 cursor:pointer;
-background-image:url({{ url.images }}{{ url.images }}/imagenes/rediseno/imagenes/seccionTematika/panelSeccSucTop-back.gif);
+background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionTematika/panelSeccSucTop-back.gif);
 display:block;
 }
 
