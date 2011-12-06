@@ -77,6 +77,18 @@ musicaURL = {
     "data"          : "http://beta1.testmatika.com.s3-website-us-east-1.amazonaws.com"
 }
 
+peliculasURL = {
+    "cannonical"    : "/peliculas",
+    "urls"          : [ "/peliculas", "/peliculas/index.html", "/peliculas/index.jsp" ],
+    "static"        : "estatico.tematika.com",
+    "dynamic"       : "www.tematika.com",
+    "search"        : "buscador.tematika.com",
+    "checkout"      : "seguro.tematika.com",
+    "service"       : "servicios.tematika.com",
+    "images"        : "http://img-tmk.tematika.com",
+    "data"          : "http://beta1.testmatika.com.s3-website-us-east-1.amazonaws.com"
+}
+
 
 ############################################################
 ############################################################
@@ -205,6 +217,7 @@ documentos = [
         "target.path"   : "/libros/index.html",
         "target.repo"   : "dynamic"
     },
+
     ########## /musica/index.html
     {
         "EntityType"    : "SUBJ",
@@ -220,6 +233,23 @@ documentos = [
         "target.path"   : "/musica/index.html",
         "target.repo"   : "dynamic"
     },
+
+    ########## /peliculas/index.html
+    {
+        "EntityType"    : "SUBJ",
+        "EntityId"      : 1,
+        "dataset"       : "subjectMain",        "_data" : sample.sample_data_movies_5.movies_5_main,
+                                                "_url"  : peliculasURL,
+        "template"      : "subject/index.html",
+        "headers"       : {
+            "Content-Type"      : "text/html",
+            "Content-Encoding"  : "gzip",
+            "Cache-Control"     : "max-age=3600, must-revalidate"
+        },
+        "target.path"   : "/peliculas/index.html",
+        "target.repo"   : "dynamic"
+    },
+
     ########## /libros/index.jsp
     {
         "EntityType"    : "SUBJ",
