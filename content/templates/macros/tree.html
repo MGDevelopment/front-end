@@ -1,5 +1,5 @@
 {%- macro iterateTree2(item) -%}
-		<li id="{{ item.Categoria_Seccion|string }}"><a href="{{ item.LinkBase }}.htm">{{ item.Nombre.decode('utf-8')|e }}</a>
+		<li id="{{ item.Categoria_Seccion|string }}"><a href="{{ item.LinkBase }}.htm">{{ item.Nombre.decode('utf-8')|e }}</a></li>
 {%- endmacro %}
 
 {%- macro iterateTree1(item) -%}
