@@ -99,7 +99,7 @@ margin:10px 0 0 10px;
 
 #arbolMusica,#arbolLibros,#arbolPeliculas,#arbolPasatiempos {
 border:solid 1px #F5CFAA;
-width:215px;
+width:180px;
 background-image:url({{ url.images }}/imagenes/rediseno/imagenes/seccionTematika/arbolMod-back.gif);
 background-position:bottom;
 background-repeat:no-repeat;
