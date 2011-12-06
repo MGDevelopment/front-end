@@ -15,7 +15,7 @@
 <div id="dTopRight">
 	<div class="dCompra">
 		<ul>
-			<span id="ARS">{{ price_data.CurrencyCode_desc }}&nbsp;{{ "%.2f"|format(price_data.PriceAmount) }}.-</span>
+			<span id="ARS">{{ price_data.CurrencyCode_desc.decode('utf-8') }}&nbsp;{{ "%.2f"|format(price_data.PriceAmount) }}.-</span>
 				<br>
 			<span id="USD">DOLAR</span>
 				<br>

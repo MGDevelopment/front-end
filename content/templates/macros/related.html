@@ -226,11 +226,11 @@
 																				<img src="{{ url.images ~ article.CoverSmall }}"
 																				width="45" height="68" border="0"
 																				class="Gimagesproductos"
-																				alt="{{ article.Title }}">
+																				alt="{{ article.Title.decode('utf-8') }}">
 																		</a></td>
 																		<td colspan="3" valign="top" class="celdacontenido">
 																			<a href="{{ article.LinkBase }}"
-																			class="FProductos">{{ article.Title }}</a><br> <a
+																			class="FProductos">{{ article.Title.decode('utf-8') }}</a><br> <a
 																			href="{{ article.LinkBase }}"
 																			class="Fautores">Subcategoria</a>&nbsp;<span
 																			class="Fprecio">****** TODO ******* Derecho y Ciencias Sociales</span></td>
@@ -251,13 +251,13 @@
 																							href="{{ article.LinkBase }}"
 																							class="FProductos"><img
 																								src="{{ url.images }}/imagenes/libros/b-info.gif"
-																								alt="{{ article.Title }}"
-																								title="{{Êarticle.Title }}"
+																								alt="{{ article.Title.decode('utf-8') }}"
+																								title="{{ article.Title.decode('utf-8') }}"
 																								border="0" /> </a>
 																						</td>
 
 																						<td class="divComprarPedir"><a
-																							href="javascript:carrito_AgregarArticulo({{ article.ProductIdÊ}});window.scrollTo(0,0);"
+																							href="javascript:carrito_AgregarArticulo({{ article.ProductId }});window.scrollTo(0,0);"
 																							rel="nofollow"><img
 																								src="{{ url.images }}/imagenes/libros/b-comprar.gif"
 																								alt="Comprar" border="0" /> </a>

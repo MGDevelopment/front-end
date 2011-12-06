@@ -70,7 +70,7 @@
                             {%- else       -%}Editorial:
                             {%- endif -%}
                             <span class="product-imprint">
-                                <a href="/buscador/productos.jsp?seccion={{ section }}&amp;idSeccion={{ section }}&amp;criterioDeOrden=2&amp;claveDeBusqueda=porIDdeEditorial&amp;texto={{ imprint }}&amp;idEditor={{ p.ImprintId|string }}" id="artEditor">{{ imprint}}</a>
+                                <a href="/buscador/productos.jsp?seccion={{ section }}&amp;idSeccion={{ section }}&amp;criterioDeOrden=2&amp;claveDeBusqueda=porIDdeEditorial&amp;texto={{ imprint }}&amp;idEditor={{ p.ImprintId.decode('utf-8')|string }}" id="artEditor">{{ imprint}}</a>
                             </span><br>
                         {%- endif -%}
                         {%- if p.Rating -%}
@@ -146,9 +146,9 @@
                             <br><span>
                             Capital Federal: {{ hs }} horas
                             h&aacute;biles.<br>
-                            GBA: {{ hs + 24 }} horas hábiles.<br>
+                            GBA: {{ hs + 24 }} horas h&aacute;biles.<br>
                             Interior del pa&iacute;s: {{ hs + 48 }} horas
-                            hábiles.<br>
+                            h&aacute;biles.<br>
                             Resto del Mundo: var&iacute;a entre
                             {{ hs + 24 }} a {{ hs + 48 }} horas
                             h&aacute;biles dependiendo si se trata de una
