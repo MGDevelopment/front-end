@@ -18,8 +18,10 @@ function fillTree(divName, callback) {
     }
 
 	$("#tree").treeview({
-		//persist: "cookie",
-		'cookieId': "TMKtreeview-black"
+		'cookieId': "TMKtreeview-black",
+		collapsed: true,
+		unique: true,
+		persist: "cookie"
 	});
 
     try {
