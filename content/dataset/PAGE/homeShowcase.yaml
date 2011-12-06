@@ -48,7 +48,7 @@ query_recommended_main:     &query_recommended_main
                 E.Nombre                        AS ImprintName,
                 NULL                            AS ImprintURL,
                 -------------- Ranking
-                CAST(MVS.Orden AS NUMBER(10))   AS Ranking,
+                TO_CHAR(MVS.Orden, '9999999')   AS Ranking,
                 -------------- Publishing Date
                 '00'                            AS PublishingDateFormat,
                 'ONIX.55'                       AS PublishingDateFormat_list,
@@ -272,7 +272,8 @@ augment_query_recommended_authors:  &augment_query_recommended_authors
                         'ONIX.17'                   AS ContributorRole_list,
                         CGRF_Role.RV_Meaning        AS ContributorRole_desc,
                         AU.Id_Autor                 AS ContributorId,
-                        AU.Descripcion              AS ContributorName,
+                        COALESCE(AU.Descripcion2, AU.Descripcion)
+                                                    AS ContributorName,
                         NULL                        AS ContributorURL,
                         -------------- support attributes
                         A.Categoria_Seccion         AS Categoria_Seccion
@@ -357,7 +358,7 @@ query_showcase_main:     &query_showcase_main
                         E.Nombre                        AS ImprintName,
                         NULL                            AS ImprintURL,
                         -------------- Ranking
-                        CAST(MVS.Orden AS NUMBER(10))   AS Ranking,
+                        TO_CHAR(MVS.Orden, '9999999')   AS Ranking,
                         -------------- Publishing Date
                         '00'                            AS PublishingDateFormat,
                         'ONIX.55'                       AS PublishingDateFormat_list,
@@ -596,7 +597,8 @@ augment_query_showcase_authors:  &augment_query_showcase_authors
                             'ONIX.17'                   AS ContributorRole_list,
                             CGRF_Role.RV_Meaning        AS ContributorRole_desc,
                             AU.Id_Autor                 AS ContributorId,
-                            AU.Descripcion              AS ContributorName,
+                            COALESCE(AU.Descripcion2, AU.Descripcion)
+                                                        AS ContributorName,
                             NULL                        AS ContributorURL,
                             -------------- support attributes
                             A.Categoria_Seccion         AS Categoria_Seccion

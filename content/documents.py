@@ -194,7 +194,7 @@ documents = {
                 "Cache-Control"     : "max-age=3600, must-revalidate"
             },
             "tags"          : [ "main" ],
-            "target.path"   : "{{cannonical}}/showcase.js",
+            "target.path"   : "{{cannonical}}-showcase.js",
             "target.repo"   : "static"
         },
         ####################### comments
@@ -208,7 +208,7 @@ documents = {
                 "Cache-Control"     : "max-age=3600, must-revalidate"
             },
             "tags"          : [ "main", "comment" ],
-            "target.path"   : "{{cannonical}}/comments.js",
+            "target.path"   : "{{cannonical}}-comments.js",
             "target.repo"   : "static"
         }
     ]

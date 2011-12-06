@@ -1,4 +1,4 @@
-{%- macro renderSlider(product_list, prefix, cols, url) -%}
+﻿{%- macro renderSlider(product_list, prefix, cols, url) -%}
 {%- set languages = { 'ES': 'Espa&ntilde;ol', 'EN': 'Ingl&eacute;s' } -%}
 <div class="viewport">
     <ul class="overview">
@@ -96,7 +96,7 @@
                         {%- endif -%}
                         {%- if p.Ranking -%}
                             Ranking: <span class="product-ranking">
-                                {{- '%d'|format(p.Ranking) -}}
+                                {{- p.Ranking -}}
                             </span><br>
                         {%- endif -%}
                         {%- if p.PublishingDateValue -%}
