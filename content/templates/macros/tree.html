@@ -6,7 +6,7 @@
 		<li id="{{ item.Categoria_Seccion|string }}"><a href="{{ item.LinkBase }}.htm">{{ item.Nombre.decode('utf-8')|e }}</a>
 		{%- if item.Children -%}
 				<ul>
-					{%- for subitem in item.Children -%}
+					{%- for subitem in item.Children|sort(attribute='Nombre') -%}
 						{{ iterateTree2(subitem) }}
 					{%- endfor %}
 				</ul>
@@ -19,7 +19,7 @@
 			{%- if item.Children -%}
 				<li id="{{ item.Categoria_Seccion|string }}"><a href="{{ item.LinkBase }}.htm">{{ item.Nombre.decode('utf-8')|e }}</a>
 				<ul>
-					{%- for subitem in item.Children -%}
+					{%- for subitem in item.Children|sort(attribute='Nombre') -%}
 						{{ iterateTree1(subitem) }}
 					{%- endfor %}
 				</ul>
@@ -36,6 +36,6 @@
 
 {%- macro renderTree(tree_data) -%}
 	<ul id="tree">
-		{{ iterateTree(tree_data.Children) }}
+		{{ iterateTree(tree_data.Children|sort(attribute='Nombre')) }}
 	</ul>
 {%- endmacro -%}
