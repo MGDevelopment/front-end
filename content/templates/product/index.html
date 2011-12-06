@@ -106,7 +106,7 @@
 				var urlGroup = '{{ d.Categories[0].URL }}';
 				var group = '{{ d.Categories[0].Title.decode("utf-8")|e }}';
 			{%- endif %}
-			var price = '{{ d.CurrencyCode_desc }}&nbsp;{{ "%.2f"|format(d.PriceAmount) }}.-';
+			var price = '{{ d.CurrencyCode_desc.decode('utf-8') }}&nbsp;{{ "%.2f"|format(d.PriceAmount) }}.-';
 			var available = null;
 			{%- if d.ProductAvailability == '21' -%}
 				available = 'true';
