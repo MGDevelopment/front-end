@@ -1,12 +1,14 @@
 {%- import './macros/slider.html' as renderS -%}
 {%- import './macros/tooltip.html' as renderT -%}
 
+{%- set section_name = d['Title'] -%}
+
 <div class="tmtkMesaNovedades" id="mesa">
 	<!-- mesa y t&iacute;tulos de secciones -->
-	<a href="/libros" class="tmtkMesaSeccionesTit" title="Libros"
-		onmouseover="javascript:mostrarDiv('tmtkMesaSeccionesTitLibros');"
-		onmouseout="javascript:mostrarDiv('tmtkMesaSeccionesTitLibros');"><object>
-			<div id="tmtkMesaSeccionesTitLibros" style="display: none;"></div>
+	<a href="/{{ section_name|lower }}" class="tmtkMesaSeccionesTit" title="{{ section_name }}"
+		onmouseover="javascript:mostrarDiv('tmtkMesaSeccionesTit{{ section_name }}s');"
+		onmouseout="javascript:mostrarDiv('tmtkMesaSeccionesTit{{ section_name }}s');"><object>
+			<div id="tmtkMesaSeccionesTit{{ section_name }}s" style="display: none;"></div>
 		</object>
 	</a>
 	<div class="tmtkMesa-back">

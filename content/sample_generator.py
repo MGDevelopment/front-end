@@ -50,7 +50,7 @@ homeURL = {
     "checkout"      : "seguro.tematika.com",
     "service"       : "servicios.tematika.com",
     "images"        : "http://img-tmk.tematika.com",
-    "data"          : "http://beta1.testmatika.com.s3.amazonaws.com"
+    "data"          : "http://beta1.testmatika.com.s3-website-us-east-1.amazonaws.com/"
 }
 
 librosURL = {
@@ -62,8 +62,21 @@ librosURL = {
     "checkout"      : "seguro.tematika.com",
     "service"       : "servicios.tematika.com",
     "images"        : "http://img-tmk.tematika.com",
-    "data"          : "http://beta1.testmatika.com.s3.amazonaws.com"
+    "data"          : "http://beta1.testmatika.com.s3-website-us-east-1.amazonaws.com/"
 }
+
+musicaURL = {
+    "cannonical"    : "/musica",
+    "urls"          : [ "/musica", "/musica/index.html", "/musica/index.jsp" ],
+    "static"        : "estatico.tematika.com",
+    "dynamic"       : "www.tematika.com",
+    "search"        : "buscador.tematika.com",
+    "checkout"      : "seguro.tematika.com",
+    "service"       : "servicios.tematika.com",
+    "images"        : "http://img-tmk.tematika.com",
+    "data"          : "http://beta1.testmatika.com.s3-website-us-east-1.amazonaws.com/"
+}
+
 
 ############################################################
 ############################################################
@@ -190,6 +203,21 @@ documentos = [
             "Cache-Control"     : "max-age=3600, must-revalidate"
         },
         "target.path"   : "/libros/index.html",
+        "target.repo"   : "dynamic"
+    },
+    ########## /musica/index.html
+    {
+        "EntityType"    : "SUBJ",
+        "EntityId"      : 1,
+        "dataset"       : "subjectMain",        "_data" : sample.sample_data_music_4.music_4_main,
+                                                "_url"  : musicaURL,
+        "template"      : "subject/index.html",
+        "headers"       : {
+            "Content-Type"      : "text/html",
+            "Content-Encoding"  : "gzip",
+            "Cache-Control"     : "max-age=3600, must-revalidate"
+        },
+        "target.path"   : "/musica/index.html",
         "target.repo"   : "dynamic"
     },
     ########## /libros/index.jsp
