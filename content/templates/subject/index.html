@@ -1,6 +1,6 @@
 {% extends "page.html" %}
 
-{%- set section_name = d['Title']|lower -%}
+{%- set section_name = d['Title'].decode('utf-8')|lower -%}
 
 {% block head_extra %}
     <link type="text/css" rel="stylesheet" href="{{ url.data }}/stage0/css/jquery.qtip.min.css">
