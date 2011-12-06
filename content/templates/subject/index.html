@@ -4,6 +4,7 @@
 
 {% block head_extra %}
     <link type="text/css" rel="stylesheet" href="{{ url.data }}/stage0/css/jquery.qtip.min.css">
+    <link type="text/css" rel="stylesheet" href="{{ url.data }}/stage0/css/jquery.treeview.css">
     <style type="text/css">
         {% include "fragments/section_style.css" %} {# multi-section #}
         {% include "fragments/tinycarousel.css" %}
@@ -103,6 +104,7 @@
 		/* Update data */
 	    fillComments('{{ section_name }}');
 	    {% include "fragments/right_menu.js" %}
+	    {% include "fragments/alliance.js" %}
 
         fillTree("arbolLibros", callBackTree);
 
