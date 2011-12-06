@@ -218,6 +218,22 @@ documentos = [
         "target.repo"   : "dynamic"
     },
 
+    ########## /catalogo/libros/ficcion_y_literatura--1.htm
+    {
+        "EntityType"    : "SUBJ",
+        "EntityId"      : 1,
+        "dataset"       : "subjectMain",        "_data" : sample.sample_data_books_1_1.books_1_1_main,
+                                                "_url"  : librosURL,
+        "template"      : "subject/index.html",
+        "headers"       : {
+            "Content-Type"      : "text/html",
+            "Content-Encoding"  : "gzip",
+            "Cache-Control"     : "max-age=3600, must-revalidate"
+        },
+        "target.path"   : "/catalogo/libros/ficcion_y_literatura--1.htm",
+        "target.repo"   : "dynamic"
+    },
+
     ########## /musica/index.html
     {
         "EntityType"    : "SUBJ",
