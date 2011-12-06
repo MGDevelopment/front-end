@@ -1,6 +1,9 @@
 /**
  * tree.js
  */
+{%- if d.Categoria_Seccion > 0 and d.Categoria_Grupo < 0 and d.Categoria_Familia < 0 and d.Categoria_Subfamilia < 0 -%}
+	APP.eraseCookie('TMKtreeview-black');
+{%- endif -%}
 
 function fillTree(divName, callback) {
     var treeHTML = '';
