@@ -24,8 +24,15 @@ function fillTree(divName, callback) {
 		'cookieId': "TMKtreeview-black",
 		collapsed: true,
 		unique: true,
-		persist: "cookie"
+		//persist: "cookie"
 	});
+
+	{%- if d.Categoria_Grupo > 0 -%}
+		$("li[id='arbol-{{ d.Categoria_Seccion }}-{{ d.Categoria_Grupo }}']").children('.hitarea').trigger('click');
+		{%- if d.Categoria_Familia > 0 -%}
+			$("li[id='arbol-{{ d.Categoria_Seccion }}-{{ d.Categoria_Grupo }}-{{ d.Categoria_Familia }}']").children('.hitarea').trigger('click');
+		{%- endif -%}
+	{%- endif -%}
 
     try {
         if (callback && typeof (callback) === "function") {
