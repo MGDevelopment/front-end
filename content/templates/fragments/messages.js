@@ -16,12 +16,12 @@ function fillMessages(callback) {
 
 function setMessagesReaded(messages) {
 	// create cookie
-	APP.createCookie(_cookieMessagesName, _serialize(messages), _expiration);
+	APP.createCookie(_cookieMessagesName, _serialize(escape(messages)), _expiration);
 }
 function getMessagesReaded() {
 	var messagesReaded = '';
 	if (APP.readCookie(_cookieMessagesName) != null) {
-		messagesReaded = _unserialize(APP.readCookie(_cookieMessagesName));
+		messagesReaded = unescape(_unserialize(APP.readCookie(_cookieMessagesName)));
 	}
 	return messagesReaded;
 }
@@ -47,7 +47,7 @@ function removeMessage(msgId) {
 }
 
 function getToken(id) {
-	return 'msg.Id=' + id + ';';
+	return 'msg.Id=' + id + '@';
 }
 
 function getViewMessages() {
