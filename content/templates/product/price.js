@@ -8,7 +8,7 @@
 var dataPrice = {};
 
 {%- if d -%}
-	dataPrice = '{{ render.renderPrice(d)|replace("\n", "") }}';
+	dataPrice = '{{ render.renderPrice(d, url)|replace("\n", "") }}';
 {% endif %}
 
 function loadPrice() {
