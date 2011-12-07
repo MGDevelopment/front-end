@@ -47,7 +47,7 @@ function removeMessage(msgId) {
 }
 
 function getToken(id) {
-	return "msg.Id=" + id + ";";
+	return 'msg.Id=' + id + ';';
 }
 
 function getViewMessages() {
