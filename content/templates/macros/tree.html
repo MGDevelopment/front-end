@@ -1,5 +1,5 @@
 {%- macro getId(item) -%}
-	{%- set id = item.Categoria_Seccion|string -%}
+	{%- set id = 'arbol-' + item.Categoria_Seccion|string -%}
 	{%- if item.Categoria_Grupo and item.Categoria_Grupo > 0 -%}
 		{%- set id = id + '-' + item.Categoria_Grupo|string -%}
 		{%- if item.Categoria_Familia and item.Categoria_Familia > 0  -%}
@@ -30,7 +30,6 @@
 
 {%- macro iterateTree(items) -%}
 		{%- for item in items -%}
-
 			{%- if item.Children -%}
 				<li id="{{ getId(item) }}"><a href="{{ item.LinkBase }}.htm">{{ item.Nombre.decode('utf-8')|e }}</a>
 				<ul>
