@@ -180,7 +180,7 @@ documentos = [
             "Content-Encoding"  : "gzip",
             "Cache-Control"     : "max-age=3600, must-revalidate"
         },
-        "target.path"   : "/app.js",
+        "target.path"   : "/stage0/js/app.js",
         "target.repo"   : "static"
     },
     #######################################################
