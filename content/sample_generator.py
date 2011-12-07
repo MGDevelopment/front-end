@@ -89,6 +89,17 @@ peliculasURL = {
     "data"          : "http://beta1.testmatika.com.s3-website-us-east-1.amazonaws.com"
 }
 
+pasatiemposURL = {
+    "cannonical"    : "/pasatiempos",
+    "urls"          : [ "/pasatiempos", "/pasatiempos/index.html", "/pasatiempos/index.jsp" ],
+    "static"        : "estatico.tematika.com",
+    "dynamic"       : "www.tematika.com",
+    "search"        : "buscador.tematika.com",
+    "checkout"      : "seguro.tematika.com",
+    "service"       : "servicios.tematika.com",
+    "images"        : "http://img-tmk.tematika.com",
+    "data"          : "http://beta1.testmatika.com.s3-website-us-east-1.amazonaws.com"
+}
 
 ############################################################
 ############################################################
@@ -247,6 +258,20 @@ documentos = [
             "Cache-Control"     : "max-age=3600, must-revalidate"
         },
         "target.path"   : "/musica/index.html",
+        "target.repo"   : "dynamic"
+    },
+    {
+        "EntityType"    : "SUBJ",
+        "EntityId"      : 1,
+        "dataset"       : "subjectMain",        "_data" : sample.sample_data_games_3.games_3_main,
+                                                "_url"  : pasatiemposURL,
+        "template"      : "subject/index.html",
+        "headers"       : {
+            "Content-Type"      : "text/html",
+            "Content-Encoding"  : "gzip",
+            "Cache-Control"     : "max-age=3600, must-revalidate"
+        },
+        "target.path"   : "/pasatiempos/index.html",
         "target.repo"   : "dynamic"
     },
 
