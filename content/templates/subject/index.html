@@ -5,11 +5,18 @@
 {% block head_extra %}
     <link type="text/css" rel="stylesheet" href="{{ url.data }}/stage0/css/jquery.qtip.min.css">
     <link type="text/css" rel="stylesheet" href="{{ url.data }}/stage0/css/jquery.treeview.css">
-    <style type="text/css">
-        {% include "fragments/section_style.css" %} {# multi-section #}
-        {% include "fragments/tinycarousel.css" %}
-        {% include "fragments/showcase.css" %}
-    </style>
+    <link type="text/css" rel="stylesheet" href="{{ url.data }}/stage0/css/tinycarousel.css">
+    <link type="text/css" rel="stylesheet" href="{{ url.data }}/stage0/css/showcase.css">
+    {% set section = d.Categoria_Seccion %}
+    {% if section == 1 %}
+        <link href="/stage0/css/books.css" rel="stylesheet" type="text/css">
+    {% elif section == 4 %}
+        <link href="/stage0/css/music.css" rel="stylesheet" type="text/css">
+    {% elif section == 5 %}
+        <link href="/stage0/css/movies.css" rel="stylesheet" type="text/css">
+    {% elif section == 3 %}
+        <link href="/stage0/css/games.css" rel="stylesheet" type="text/css">
+    {% endif %}
 {% endblock %}
 
 {% block search_box %}

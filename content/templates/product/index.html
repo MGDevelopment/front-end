@@ -1,13 +1,16 @@
 ﻿{% extends "page.html" %}
 
 {% block head_extra %}
-    <style type="text/css">
-        {% include "fragments/section_style.css" %} {# multi-section #}
-        {% include "product/styles.css" %}
-        {% include "fragments/cart.css" %}
-        {% include "fragments/common.css" %}
-        {% include "fragments/last_visited.css" %}
-    </style>
+    {% set section = d.Categoria_Seccion %}
+    {% if section == 1 %}
+        <link href="/stage0/css/books.css" rel="stylesheet" type="text/css">
+    {% elif section == 4 %}
+        <link href="/stage0/css/music.css" rel="stylesheet" type="text/css">
+    {% elif section == 5 %}
+        <link href="/stage0/css/movies.css" rel="stylesheet" type="text/css">
+    {% elif section == 3 %}
+        <link href="/stage0/css/games.css" rel="stylesheet" type="text/css">
+    {% endif %}
 {% endblock %}
 
 {% block search_box %}
