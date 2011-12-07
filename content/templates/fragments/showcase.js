@@ -1,6 +1,32 @@
 /* showcase.js */
 
-function fillShowCase(filter, callback) {
+APP.setTips = function () {
+    $('ul.overview td.product-entry').qtip({
+        content: function () {
+            return this.find('div.product-popup-content').html();
+            },
+        position: {
+            my: 'left center',
+            at: 'right center',
+            viewport: $(this)
+            },
+        style: {
+            classes: 'ui-tooltip-rounded ui-tooltip-light',
+            tip: {
+                width:  15,
+                height: 20
+                }
+            },
+        hide: {
+            delay: 300,
+            fixed: true
+            }
+    });
+};
+
+APP.setTips();
+
+function fillShowCase(filter, callback, homePage) {
     var commentsHTML = '';
     var defaultFilter = APP.getData('showcaseFilter');
 
@@ -10,10 +36,12 @@ function fillShowCase(filter, callback) {
         APP.addData('showcaseFilter', filter);
     }
 
-    // Section page
-    if (filter === 'Classics' || filter === 'Showcase') {
+    if (homePage != true) {
+        // Section page
         document.getElementById('slider').innerHTML = APP.getData('showcase')[filter];
         $('#sliderSection').tinycarousel({ axis: 'y', display: 1} );
+        APP.setTips();
+        return;
     }
 
     // XXX ??? homepage ?
@@ -77,27 +105,6 @@ function fillShowCase(filter, callback) {
     } catch (e) {
         // TODO: handle exception
     }
-    return;
-}
 
-$('ul.overview td.product-entry').qtip({
-    content: function () {
-        return this.find('div.product-popup-content').html();
-        },
-    position: {
-        my: 'left center',
-        at: 'right center',
-        viewport: $(this)
-        },
-    style: {
-        classes: 'ui-tooltip-rounded ui-tooltip-light',
-        tip: {
-            width:  15,
-            height: 20
-            }
-        },
-    hide: {
-        delay: 300,
-        fixed: true
-        }
-});
+    APP.setTips();
+}
