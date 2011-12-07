@@ -21,6 +21,7 @@
                     onmouseover="clearTimeout(tempo);"
                     onmouseout="ocultarOpcionesT('listaBuscador');">
 
+{% if section_name == 'libros' %}
                     <li>
                         <a id="optBus1" href="javascript:APP.searchShowBy('optBus1','optBusqueda','listaBuscador','1','1','En Libros');">T&iacute;tulo</a>
                     </li>
@@ -33,6 +34,43 @@
                     <li>
                         <a id="optBus4" href="javascript:APP.searchShowBy('optBus4','optBusqueda','listaBuscador', '1', '1','En Peliculas');">ISBN</a>
                     </li>
+
+{% elif section_name == 'musica' %}
+
+<li><a id="optBus1"  href="javascript:mostrarBuscarPor('optBus1','optBusqueda','listaBuscador','4','4','En Musica');">T&iacute;tulo</a></li>
+
+<li><a id="optBus2"  href="javascript:mostrarBuscarPor('optBus2','optBusqueda','listaBuscador','4','4','En Musica');">Grupo/Int&eacute;rprete</a></li>
+
+<li><a id="optBus3"  href="javascript:mostrarBuscarPor('optBus3','optBusqueda','listaBuscador','4','4','En Musica');">Sello Discogr&aacute;fico</a></li>
+
+<li><a id="optBus4"  href="javascript:mostrarBuscarPor('optBus4','optBusqueda','listaBuscador','4','4','En Musica');">Tema Musical</a></li>
+
+<li><a id="optBus5"  href="javascript:mostrarBuscarPor('optBus5','optBusqueda','listaBuscador','4','4','En Musica');">Palabra Clave</a></li>
+
+{% elif section_name == 'peliculas' %}
+
+<li><a id="optBus1"  href="javascript:mostrarBuscarPor('optBus1','optBusqueda','listaBuscador','5','5','En Peliculas');">Título</a></li>
+
+<li><a id="optBus2"  href="javascript:mostrarBuscarPor('optBus2','optBusqueda','listaBuscador','5','5','En Peliculas');">Director/Actor</a></li>
+
+<li><a id="optBus3"  href="javascript:mostrarBuscarPor('optBus3','optBusqueda','listaBuscador','5','5','En Peliculas');">Productora</a></li>
+
+<li><a id="optBus5"  href="javascript:mostrarBuscarPor('optBus5','optBusqueda','listaBuscador','5','5','En Peliculas');">Palabra Clave</a></li>
+
+{% elif section_name == 'pasatiempos' %}
+
+
+<li><a id="optBus1"  href="javascript:mostrarBuscarPor('optBus1','optBusqueda','listaBuscador','3','3','En Pasatiempos');">Título</a></li>
+
+<li><a id="optBus2"  href="javascript:mostrarBuscarPor('optBus2','optBusqueda','listaBuscador','3','3','En Pasatiempos');">Autor</a></li>
+
+<li><a id="optBus3"  href="javascript:mostrarBuscarPor('optBus3','optBusqueda','listaBuscador','3','3','En Pasatiempos');">Editorial</a></li>
+
+<li><a id="optBus4"  href="javascript:mostrarBuscarPor('optBus4','optBusqueda','listaBuscador','3','3','En Pasatiempos');">ISBN</a></li>
+
+<li><a id="optBus5"  href="javascript:mostrarBuscarPor('optBus5','optBusqueda','listaBuscador','3','3','En Pasatiempos');">Palabra Clave</a></li>
+
+{% endif %}
 
                 </ul>
             </li>
