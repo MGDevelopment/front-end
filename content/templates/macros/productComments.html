@@ -8,13 +8,13 @@
 		                  </span>
 		                  <div class="calificacionMod">
 		                      <span>Calificaci&oacute;n del producto:</span>
-		                      	     {%- for number in range(0, 4) -%}
-					                	{%- if number+1 <= comment.Rating|int -%}
-					                		<div class="calificacionStar"></div>
-					                	{%- else -%}
-					                		<div class="calificacionStarDes"></div>
-					                	{%- endif %}
-					                {%- endfor %}
+					                {%- set s = comment.Rating|round|int -%}
+									{%- for i in range(s) -%}
+	                    				<div class="calificacionStar"></div>
+	                				{%- endfor -%}
+	                				{%- for i in range(5 - s) -%}
+	                    				<div class="calificacionStarDes"></div>
+	                				{%- endfor -%}
 		                  </div>
 		              </div>
 		              <div class="dComentsMod">
