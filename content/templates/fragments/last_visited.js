@@ -118,7 +118,7 @@ function getItems(articleList) {
 		               						'<td class="divComprarPedir">';
 
 		    if (article.getAvailable()) {
-		    	HTML = HTML + '<a href="javascript:carrito_AgregarArticulo(\"' + article.getArticleId() + '\");window.scrollTo(0,0);" rel="nofollow">' +
+		    	HTML = HTML + '<a href="javascript:APP.cartAdd(\"' + article.getArticleId() + '\");window.scrollTo(0,0);" rel="nofollow">' +
 		               			'<img src="{{ url.images }}/imagenes/inicio/b-comprar.gif" alt="Comprar"  border="0" /></a>';
 		    } else {
 		    	HTML = HTML + '<a href="javascript:if (confirm(\"Este producto no esta disponible actualmente. Desea hacer un pedido?\"))document.location = "/PedidoEspecial?ID_ARTICULO=' + article.getArticleId() + ';" rel="nofollow">' +

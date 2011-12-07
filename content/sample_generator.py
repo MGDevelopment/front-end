@@ -346,7 +346,7 @@ documentos = [
            "Content-Encoding"  : "gzip",
            "Cache-Control"     : "max-age=3600, must-revalidate"
        },
-       "target.path"   : "/product-comments.js",
+       "target.path"   : "/libros/ciencias_de_la_salud__naturales_y_divulgacion_cientifica--7/divulgacion_cientifica--1/en_general--1/matematica___estas_ahi_sobre_numeros__personajes__problemas_y_curiosidades--413418-comments.js",
        "target.repo"   : "static"
    },
    #
@@ -363,7 +363,7 @@ documentos = [
            "Content-Encoding"  : "gzip",
            "Cache-Control"     : "max-age=3600, must-revalidate"
        },
-       "target.path"   : "/product-related.js",
+       "target.path"   : "/libros/ciencias_de_la_salud__naturales_y_divulgacion_cientifica--7/divulgacion_cientifica--1/en_general--1/matematica___estas_ahi_sobre_numeros__personajes__problemas_y_curiosidades--413418-related.js",
        "target.repo"   : "static"
    },
    #
@@ -380,7 +380,7 @@ documentos = [
            "Content-Encoding"  : "gzip",
            "Cache-Control"     : "max-age=3600, must-revalidate"
        },
-       "target.path"   : "/product-price.js",
+       "target.path"   : "/libros/ciencias_de_la_salud__naturales_y_divulgacion_cientifica--7/divulgacion_cientifica--1/en_general--1/matematica___estas_ahi_sobre_numeros__personajes__problemas_y_curiosidades--413418-price.js",
        "target.repo"   : "static"
    },
 ########## /index.html
@@ -395,7 +395,7 @@ documentos = [
            "Content-Encoding"  : "gzip",
            "Cache-Control"     : "max-age=3600, must-revalidate"
        },
-       "target.path"   : "/product-book-index.html",
+       "target.path"   : "/libros/ciencias_de_la_salud__naturales_y_divulgacion_cientifica--7/divulgacion_cientifica--1/en_general--1/matematica___estas_ahi_sobre_numeros__personajes__problemas_y_curiosidades--413418.htm",
        "target.repo"   : "dynamic"
    },
               #
@@ -606,6 +606,7 @@ if __name__ == '__main__':
             if content_type == 'text/html':
                 # Convert to script tag replacing document.body
                 target_path = target_path.replace('.html', '_html.js')
+                target_path = target_path.replace('.htm', '_htm.js')
                 headers['Content-Type'] = 'text/javascript'
                 page_html = JS_WRAP % js_dump(page_html)
 

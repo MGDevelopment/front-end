@@ -11,7 +11,7 @@
 		Libros
 	{%- endif -%}
 {%- endmacro %}
-{%- macro renderPrice(price_data) -%}
+{%- macro renderPrice(price_data, url) -%}
 <div id="dTopRight">
 	<div class="dCompra">
 		<ul>
@@ -23,12 +23,12 @@
 			<span><p>
 					+
 					{{ price_data.eXtraPoints|int }} puntos <img
-						src="/imagenes/rediseno/imagenes/comun/detalleExtraLogo.gif" /> <a
+						src="{{ url.images }}/imagenes/rediseno/imagenes/comun/detalleExtraLogo.gif" /> <a
 						href="/fidelizacion/panel/index.jsp">ingresar a extra</a>
 				</p> </span>
 		</ul>
 		{%- if price_data.ProductAvailability == '21' -%}
-			<a href="javascript:agregarProducto({{ price_data.EntityId }})">
+			<a href="javascript:APP.cartAdd({{ price_data.EntityId }})">
 				<div class="dComprarButton" title="Agregar al carrito"></div>
 			</a>
 		{%- else -%}
