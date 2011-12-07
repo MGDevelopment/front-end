@@ -587,9 +587,7 @@ if __name__ == '__main__':
         t = env.get_template(d['template'])
         t_params = { 'd': d['_data'], 'url': d['_url'].copy() }
 
-        if not script_tag:
-            t_params['url']['gen_script'] = '' # use the same source
-        else:
+        if script_tag:
             # trick HTML to load from same source as remote script
             t_params['url']['gen_script'] = t_params['url']['data']
 
