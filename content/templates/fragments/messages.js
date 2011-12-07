@@ -8,7 +8,7 @@ var _expiration = 1000;
 function fillMessages(callback) {
 	// check if cookie exists
 	if (APP.readCookie(_cookieMessagesName) == null) {
-		setMessagesReaded('');
+		setMessagesReaded(getToken(0));
 	}
 	getVisualizaMensaje();
 	return;
