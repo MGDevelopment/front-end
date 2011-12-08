@@ -1,5 +1,12 @@
-{%- macro renderComments(idArticle, idSubject, comments_data) -%}
+{%- macro renderComments(idArticle, idSubject, comments_data, url) -%}
 	{%- if comments_data is iterable -%}
+<a name="coment"></a>
+<div class="dSolapas" id="comentarios">
+ <div class="tmtkMesaMenuMod">
+  <img class="solapasTitComent" alt="Comentarios" src="{{ url.images }}/imagenes/rediseno/imagenes/comun/t-comentarios.gif" />
+ </div>
+</div>
+<div id="divComentarios"></div>
 		{%- for comment in comments_data -%}
 			<div class="dComentarios" >
 		              <div class="dComentsInfo" >
