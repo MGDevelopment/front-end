@@ -271,7 +271,7 @@ documentos = [
             "Content-Encoding"  : "gzip",
             "Cache-Control"     : "max-age=3600, must-revalidate"
         },
-        "target.path"   : "/pasatiempos/index.html",
+        "target.path"   : "/jugetes/index.html",
         "target.repo"   : "dynamic"
     },
 
@@ -371,7 +371,7 @@ documentos = [
            "Content-Encoding"  : "gzip",
            "Cache-Control"     : "max-age=3600, must-revalidate"
        },
-       "target.path"   : "/libros/ciencias_de_la_salud__naturales_y_divulgacion_cientifica--7/divulgacion_cientifica--1/en_general--1/matematica___estas_ahi_sobre_numeros__personajes__problemas_y_curiosidades--413418-comments.js",
+       "target.path"   : "/comments/libros/ciencias_de_la_salud__naturales_y_divulgacion_cientifica--7/divulgacion_cientifica--1/en_general--1/matematica___estas_ahi_sobre_numeros__personajes__problemas_y_curiosidades--413418.js",
        "target.repo"   : "static"
    },
    #
@@ -388,7 +388,7 @@ documentos = [
            "Content-Encoding"  : "gzip",
            "Cache-Control"     : "max-age=3600, must-revalidate"
        },
-       "target.path"   : "/libros/ciencias_de_la_salud__naturales_y_divulgacion_cientifica--7/divulgacion_cientifica--1/en_general--1/matematica___estas_ahi_sobre_numeros__personajes__problemas_y_curiosidades--413418-related.js",
+       "target.path"   : "/related/libros/ciencias_de_la_salud__naturales_y_divulgacion_cientifica--7/divulgacion_cientifica--1/en_general--1/matematica___estas_ahi_sobre_numeros__personajes__problemas_y_curiosidades--413418.js",
        "target.repo"   : "static"
    },
    #
@@ -405,7 +405,7 @@ documentos = [
            "Content-Encoding"  : "gzip",
            "Cache-Control"     : "max-age=3600, must-revalidate"
        },
-       "target.path"   : "/libros/ciencias_de_la_salud__naturales_y_divulgacion_cientifica--7/divulgacion_cientifica--1/en_general--1/matematica___estas_ahi_sobre_numeros__personajes__problemas_y_curiosidades--413418-price.js",
+       "target.path"   : "/price/libros/ciencias_de_la_salud__naturales_y_divulgacion_cientifica--7/divulgacion_cientifica--1/en_general--1/matematica___estas_ahi_sobre_numeros__personajes__problemas_y_curiosidades--413418.js",
        "target.repo"   : "static"
    },
 ########## /index.html
@@ -437,7 +437,7 @@ documentos = [
            "Content-Encoding"  : "gzip",
            "Cache-Control"     : "max-age=3600, must-revalidate"
        },
-       "target.path"   : "/product-comments.js",
+       "target.path"   : "/comments/cds/rp_internacional--1/rp_internacional--1/true_sacd--530185.js",
        "target.repo"   : "static"
    },
    #
@@ -454,7 +454,7 @@ documentos = [
            "Content-Encoding"  : "gzip",
            "Cache-Control"     : "max-age=3600, must-revalidate"
        },
-       "target.path"   : "/product-related.js",
+       "target.path"   : "/related/cds/rp_internacional--1/rp_internacional--1/true_sacd--530185.js",
        "target.repo"   : "static"
    },
    #
@@ -471,7 +471,7 @@ documentos = [
            "Content-Encoding"  : "gzip",
            "Cache-Control"     : "max-age=3600, must-revalidate"
        },
-       "target.path"   : "/product-price.js",
+       "target.path"   : "/price/cds/rp_internacional--1/rp_internacional--1/true_sacd--530185.js",
        "target.repo"   : "static"
    },
 ########## /index.html
@@ -486,7 +486,7 @@ documentos = [
            "Content-Encoding"  : "gzip",
            "Cache-Control"     : "max-age=3600, must-revalidate"
        },
-       "target.path"   : "/product-music-index.html",
+       "target.path"   : "/cds/rp_internacional--1/rp_internacional--1/true_sacd--530185.htm",
        "target.repo"   : "dynamic"
    }
     
