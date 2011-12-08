@@ -217,7 +217,7 @@ def do(id, entities, docs, cannonicals, data):
             # one more job
             count += 1
 
-        logger.info("Job %s requires %d documents", id, count)
+        logger.debug("Job %s requires %d documents", id, count)
 
     # wait until all jobs are complete
     logger.info("Waiting for documents to complete")

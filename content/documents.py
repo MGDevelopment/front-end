@@ -37,8 +37,8 @@ documents = {
                 "Cache-Control"     : "max-age=3600, must-revalidate"
             },
             "tags"          : [ "main" ],
-            "target.path"   : [ "/index.html", "index.jsp" ],
-            "target.repo"   : "dynamic"
+            "target.path"   : [ "/index.htm", "/index.html" ],
+            "target.repo"   : "jrunhome"
         },
         ####################### showcase
         {
@@ -52,7 +52,7 @@ documents = {
             },
             "tags"          : [ "main" ],
             "target.path"   : "/home-showcase.js",
-            "target.repo"   : "static"
+            "target.repo"   : "jrunhome"
         },
         ####################### comments
         {
@@ -66,7 +66,7 @@ documents = {
             },
             "tags"          : [ "main", "comment" ],
             "target.path"   : "/home-comments.js",
-            "target.repo"   : "static"
+            "target.repo"   : "jrunhome"
         },
         ################### price.js
         {
@@ -80,7 +80,7 @@ documents = {
             },
             "tags"          : [ "main" ],
             "target.path"   : "/home-exchange.js",
-            "target.repo"   : "static"
+            "target.repo"   : "jrunhome"
         },
         ####################### app.js
         {
@@ -114,8 +114,7 @@ documents = {
                 "Cache-Control"     : "max-age=3600, must-revalidate"
             },
             "tags"          : [ "main" ],
-            "target.path"   : [ "{{cannonical}}.htm",
-                                "{{cannonical}}.jsp" ],
+            "target.path"   : [ "{{cannonical}}.htm" ],
             "target.repo"   : "dynamic"
         },
         ####################### related
@@ -179,8 +178,7 @@ documents = {
             },
             "tags"          : [ "main" ],
             "target.path"   : [ "{{cannonical}}.htm",
-                                "{{cannonical}}/index.htm",
-                                "{{cannonical}}/index.jsp" ],
+                                "{{cannonical}}/index.htm" ],
             "target.repo"   : "dynamic"
         },
         ####################### showcase
@@ -213,7 +211,6 @@ documents = {
         }
     ]
 }
-
 
 ############################################
 #

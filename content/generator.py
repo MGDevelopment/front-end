@@ -50,6 +50,44 @@ def getProducer():
     return ecommerce.queue.queue(config, queuePrefix)
 
 
+entityQueries   = {
+    ######################################
+    #
+    # PAGE
+    #
+    "PAGE"      : """
+SELECT          D.EntityId
+    FROM        Stage0_Delta D
+    WHERE       D.EntityType = ?
+    ORDER BY    D.EntityId DESC
+    """,
+    ######################################
+    #
+    # SUBJ
+    #
+    "SUBJ"      : """
+SELECT          D.EntityId
+    FROM        Stage0_Delta D
+    WHERE       D.EntityType = ?
+    ORDER BY    D.EntityId DESC
+    """,
+    ######################################
+    #
+    # PROD
+    #
+    "PROD"      : """
+SELECT          D.EntityId
+    FROM        Stage0_Delta D
+    INNER JOIN  Articulos A
+        ON      D.Id_Articulo = A.Id_Articulo AND
+                A.Categoria_Seccion IN (1, 3, 4, 5) AND
+                A.Activo = 'SI' AND
+                A.Habilitado_Tematika = 'S'
+    WHERE       D.EntityType = ?
+    ORDER BY    D.EntityId DESC
+    """
+}
+
 def getEntityIds(type):
     """Get the list of all entities of a given type from DB"""
 
@@ -57,13 +95,12 @@ def getEntityIds(type):
     conn = ecommerce.db.getConnection()
     cursor = conn.cursor()
 
+    # decide the query to execute
+    if type not in entityQueries:
+        return [ ]
+
     # execute the query
-    cursor.execute("""
-SELECT      EntityId
-    FROM    Stage0_Delta
-    WHERE   EntityType = ?
-    ORDER BY EntityId DESC
-""", type)
+    cursor.execute(entityQueries[type], type)
 
     # fetch the ids
     elist = [ ]
