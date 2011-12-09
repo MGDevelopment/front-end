@@ -83,6 +83,10 @@
 	<script type="text/javascript" src="{{ url.data }}/related{{ d.LinkBase }}.js"></script>
 	<script type="text/javascript" src="{{ url.data }}/price{{ d.LinkBase }}.js"></script>
 
+	{%- if d.Categoria_Seccion == 1 -%}
+	<script type="text/javascript" src="http://www.google.com/jsapi"></script>
+	{%- endif -%}
+
 	<script type="text/javascript">
 
 		jQuery(document).ready(function() {
@@ -128,7 +132,7 @@
 	    fillComments('detail');
 	    fillRelatedProduct(null);
 	    {%- if d.Categoria_Seccion == 1 -%}
-	    	{# include "product/googleBooks.js" #}
+	    	{% include "product/googleBooks.js" %}
 	    {%- endif %}
 	    {% include "fragments/right_menu.js" %}
 	    {% include "fragments/alliance.js" %}

@@ -7,9 +7,7 @@
  *
  * dependency:
  * 	- info: http://code.google.com/intl/es-ES/apis/books/docs/viewer/developers_guide.html
- * 	- <script type="text/javascript" src="http://www.google.com/jsapi"></script>
- * ISBN Format:
- *  - (JAVA) String[]isbn_ = articulo.getISBN().split("-"); StringBuffer cadena = new StringBuffer("");for(int i=0;i<isbn_.length;i++){ cadena.append(""+isbn_[i]); }
+ *
  *
  */
 
@@ -38,8 +36,12 @@ function initialize() {
 	var viewer = new google.books.DefaultViewer(divVisor, {
 		'showLinkChrome' : false
 	});
-	viewer.load('ISBN:{{ ISBN }}', alertNotFound,
+	{%- if d.Identifiers -%}
+		viewer.load('ISBN:{{ d.Identifiers[0].IDValue }}', alertNotFound,
 			alertInitialized);
+	{%- else -%}
+		// no ISBN
+	{%- endif -%}
 }
 
 if (document.getElementById('viewerCanvas') != null) {

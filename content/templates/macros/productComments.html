@@ -1,20 +1,24 @@
 {%- macro renderComments(idArticle, idSubject, comments_data, url) -%}
 	{%- if comments_data is iterable -%}
-<a name="coment"></a>
-<div class="dSolapas" id="comentarios">
- <div class="tmtkMesaMenuMod">
-  <img class="solapasTitComent" alt="Comentarios" src="{{ url.images }}/imagenes/rediseno/imagenes/comun/t-comentarios.gif" />
- </div>
-</div>
-<div id="divComentarios"></div>
+		<a name="coment"></a>
+		<div class="dSolapas" id="comentarios">
+		 <div class="tmtkMesaMenuMod">
+		  <img class="solapasTitComent" alt="Comentarios" src="{{ url.images }}/imagenes/rediseno/imagenes/comun/t-comentarios.gif" />
+		 </div>
+		</div>
+		<div id="divComentarios"></div>
 		{%- for comment in comments_data -%}
-			<div class="dComentarios" >
-		              <div class="dComentsInfo" >
+			{%- if loop.index == 5 -%}
+			<div id="hideComments" style="display: none">
+			{%- endif -%}
+			<div class="dComentarios">
+		              <div class="dComentsInfo">
 		                  <span>
 		                  	<a href="#">{{ comment.NickName.decode('utf-8')|escape }}</a> dijo el {{ comment.CommentDate.strftime("%d/%m/%y") }}:
 		                  </span>
 		                  <div class="calificacionMod">
 		                      <span>Calificaci&oacute;n del producto:</span>
+		                      {%- if comment.Rating -%}
 					                {%- set s = comment.Rating|round|int -%}
 									{%- for i in range(s) -%}
 	                    				<div class="calificacionStar"></div>
@@ -22,6 +26,7 @@
 	                				{%- for i in range(5 - s) -%}
 	                    				<div class="calificacionStarDes"></div>
 	                				{%- endfor -%}
+	                		  {%- endif -%}
 		                  </div>
 		              </div>
 		              <div class="dComentsMod">
@@ -31,7 +36,13 @@
 		              </div>
 		     </div>
 		{%- endfor %}
+		{%- if loop.index >= 5 -%}
+			</div>
+		{%- endif -%}
 		<div class="dSolapasPie">
+		{%- if loop.index >= 5 -%}
+		<a href="javascript:showAllComments(\'hideComments\');" class="dSolapasPieLink"><span id="plus_minus">+</span>&nbsp;comentarios&nbsp;({{ loop.index - 4 }})</a>
+		{%- endif -%}
 	    <a href="/Comentario?ID_ARTICULO={{ idArticle }}&idSeccion={{ idSubject }}"><div>AGREGAR COMENTARIO</div></a>
 		</div>
 		<input type="hidden" value="{{ comments_data|length }}" id="cantidad">

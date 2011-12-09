@@ -79,7 +79,7 @@ SELECT          D.EntityId
 SELECT          D.EntityId
     FROM        Stage0_Delta D
     INNER JOIN  Articulos A
-        ON      D.Id_Articulo = A.Id_Articulo AND
+        ON      D.EntityId = A.Id_Articulo AND
                 A.Categoria_Seccion IN (1, 3, 4, 5) AND
                 A.Activo = 'SI' AND
                 A.Habilitado_Tematika = 'S'

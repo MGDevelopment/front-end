@@ -20,3 +20,14 @@ function loadComments() {
 }
 
 loadComments();
+
+function showAllComments(divName) {
+	if (document.getElementById('plus_minus')) {
+		if (document.getElementById('plus_minus').innerHTML == '+') {
+			document.getElementById('plus_minus').innerHTML = '-';
+		} else {
+			document.getElementById('plus_minus').innerHTML = '+';
+		}
+	}
+	$('#'+divName).toggle();
+}
