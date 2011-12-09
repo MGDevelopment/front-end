@@ -141,10 +141,14 @@
 	</script>
 
 	<!-- Data Scripts -->
+    {%- set ubase = d['LinkBase'] -%} {#- /section/sub /section/sub.js #}
+    {%- if ubase[-1] == '/' -%}
+        {%- set ubase = ubase[:-1] -%} {#- /section/ /section.js #}
+    {%- endif -%}
 	<script type="text/javascript"
-            src="{{ url.data }}/{{ section_name }}/comments.js"></script>
+            src="{{ url.data }}/comments{{ ubase }}.js"></script>
 	<script type="text/javascript"
-            src="{{ url.data }}/{{ section_name }}/showcase.js"></script>
+            src="{{ url.data }}/showcase{{ ubase }}.js"></script>
 
 	<script type="text/javascript">
 
