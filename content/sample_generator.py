@@ -263,7 +263,7 @@ documentos = [
     {
         "EntityType"    : "SUBJ",
         "EntityId"      : 1,
-        "dataset"       : "subjectComments",    "_data" : sample.sample_data_books_1_1.books_1_1_data,
+        "dataset"       : "subjectComments",    "_data" : sample.sample_data_books_1_1.books_1_1_comments,
                                                 "_url"  : librosURL,
         "template"      : "subject/comments.js",
         "headers"       : {
