@@ -25,7 +25,7 @@
 	{%- endif -%}
 {%- endmacro %}
 {%- macro renderComments(comments_data, urls, cols, sectionMore) -%}
-    {%- if comments_data is iterable -%}
+    {%- if comments_data and comments_data is iterable -%}
 	<div class="tmtkMesaMenuMod">
     	<div class="solapasTitComent"></div>
         <ul class="dropdown">
