@@ -26,7 +26,7 @@
 {%- macro getOnixItem(texts, code) -%}
 	{%- if texts is iterable -%}
 		{%- for text in texts -%}
-			{%- if text.EntryCode == code -%}
+			{%- if text.EntryCode == code and text.TextContent -%}
 				{{ text.TextContent.decode('utf-8') }}
 			{%- endif %}
 		{%- endfor %}
