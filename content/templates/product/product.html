@@ -106,13 +106,27 @@
 		{%- if getOnixItem(d.Texts, '04') -%}
 			<div class="dSolapas" id="indCont">
 	            <div class="tmtkMesaMenuMod"><div class="solapasTitIndCont" title="&Iacute;ndice de contenidos"/></div></div>
-	            <div class="dResena" id="divIndContenido" style="border:thin solid;border-color: white;">{{ getOnixItem(d.Texts, '04') }}</div>
+	            <div class="dResena" id="divIndContenido" style="border:thin solid;border-color: white;">
+	            {%- if getOnixItem(d.Texts, '04')|length > 915 -%}
+	            	<div id="indice">{{ getOnixItem(d.Texts, '04')|truncate(915)}}...<br><a onclick="javascript:changeDiv('indice', 'hideIndice');" href="#indCont" class="dSolapasPieLink">+&nbsp;seguir leyendo</a></div>
+	            	<div id="hideIndice" style="display: none">{{ getOnixItem(d.Texts, '04') }}<br><a onclick="javascript:changeDiv('hideIndice', 'indice');" href="#indCont" class="dSolapasPieLink">-&nbsp;seguir leyendo</a></div>
+	            {%- else -%}
+	            	{{ getOnixItem(d.Texts, '04') }}
+	            {%- endif -%}
+	            </div>
 			</div>
 		{%- endif %}
 		{%- if getOnixItem(d.Texts, '24') -%}
 		   	<div class="dSolapas" id="primerCap">
 				<div class="tmtkMesaMenuMod"><div class="solapasTitprimerCap" title="Primer cap&iacute;tulo"/></div></div>
-				<div class="dResena" id="divPrimerCapitulo" style="border:thin solid;border-color: white;">{{ getOnixItem(d.Texts, '24') }}</div>
+				<div class="dResena" id="divPrimerCapitulo" style="border:thin solid;border-color: white;">
+				{%- if getOnixItem(d.Texts, '24')|length > 915 -%}
+	            	<div id="primerCapitulo">{{ getOnixItem(d.Texts, '24')|truncate(915)}}...<br><a onclick="javascript:changeDiv('primerCapitulo', 'hidePrimerCap');" href="#primerCap" class="dSolapasPieLink">+&nbsp;seguir leyendo</a></div>
+	            	<div id="hidePrimerCap" style="display: none">{{ getOnixItem(d.Texts, '24') }}<br><a onclick="javascript:changeDiv('hidePrimerCap', 'primerCapitulo');" href="#primerCap" class="dSolapasPieLink">-&nbsp;seguir leyendo</a></div>
+	            {%- else -%}
+	            	{{ getOnixItem(d.Texts, '24') }}
+	            {%- endif -%}
+				</div>
 			</div>
 		{%- endif %}
 		{%- if getOnixItem(d.Texts, '13') or (d.Authors and getOnixItem(d.Authors[0].Texts, '13'))-%}
@@ -138,7 +152,14 @@
 		{%- if getOnixItem(d.Texts, '40') -%}
 			<div class="dSolapas" id="entrevista">
 		    	<div class="tmtkMesaMenuMod"><div class="solapasTitEntrev" title="Entrevista"/></div></div>
-				<div class="dResena" id="divEnrevista"><span></span>{{ getOnixItem(d.Texts, '40') }}</div>
+				<div class="dResena" id="divEnrevista"><span></span>
+				{%- if getOnixItem(d.Texts, '40')|length > 915 -%}
+	            	<div id="interview">{{ getOnixItem(d.Texts, '40')|truncate(915)}}...<br><a onclick="javascript:changeDiv('interview', 'hideInterview');" href="#entrevista" class="dSolapasPieLink">+&nbsp;seguir leyendo</a></div>
+	            	<div id="hideInterview" style="display: none">{{ getOnixItem(d.Texts, '40') }}<br><a onclick="javascript:changeDiv('hideInterview', 'interview');" href="#entrevista" class="dSolapasPieLink">-&nbsp;seguir leyendo</a></div>
+	            {%- else -%}
+	            	{{ getOnixItem(d.Texts, '40') }}
+	            {%- endif -%}
+				</div>
 			</div>
 		{%- endif %}
 		<div id="googleBook" class="dSolapas1"><div id="viewerCanvas" style="height: 500px;">
