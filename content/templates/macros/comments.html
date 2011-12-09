@@ -44,13 +44,15 @@
 	            </div>
 	            <div class="calificacionMod">
 	                <span>Calificaci&oacute;n del producto:</span>
-	                {%- set s = article.Rating|round|int -%}
-					{%- for i in range(s) -%}
-	                    <div class="calificacionStar"></div>
-	                {%- endfor -%}
-	                {%- for i in range(5 - s) -%}
-	                    <div class="calificacionStarDes"></div>
-	                {%- endfor -%}
+	                {%- if article.Rating -%}
+		                {%- set s = article.Rating|round|int -%}
+						{%- for i in range(s) -%}
+		                    <div class="calificacionStar"></div>
+		                {%- endfor -%}
+		                {%- for i in range(5 - s) -%}
+		                    <div class="calificacionStarDes"></div>
+		                {%- endfor -%}
+		            {%- endif -%}
 	            {%- if sectionMore -%}
 	            	<a href="/{{ getSection(article.Categoria_Seccion)|trim }}#coment" class="vermas">+ comentarios de {{ getSection(article.Categoria_Seccion)|trim }}</a>
 	            {%- endif %}
