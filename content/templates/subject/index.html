@@ -97,7 +97,13 @@
 {% block canvas_content -%}
 <div class="barraCentral" id="barraCentral">
     <div id="seccionTematika">
-    	<a href="/{{ section_name }}" class="panelSeccAct"></a>
+    	<div style="float: left; display: block; ">
+			<div style="position: fixed; ">
+				<a href="/{{ section_name }}">
+					<img src="{{ url.images }}/imagenes/blank.gif" border="0px" width="210px" height="60px" title="home de {{ section_name }}"/>
+				</a>
+			</div>
+		</div>
         <div id="tree">
             {% include "fragments/tree.html" %}
         </div>
