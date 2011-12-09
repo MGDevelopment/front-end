@@ -128,7 +128,7 @@ documents = {
                 "Cache-Control"     : "max-age=3600, must-revalidate"
             },
             "tags"          : [ "main", "related" ],
-            "target.path"   : "{{cannonical}}-related.js",
+            "target.path"   : "/related/{{cannonical}}.js",
             "target.repo"   : "static"
         },
         ####################### comments
@@ -142,7 +142,7 @@ documents = {
                 "Cache-Control"     : "max-age=3600, must-revalidate"
             },
             "tags"          : [ "main", "comment" ],
-            "target.path"   : "{{cannonical}}-comments.js",
+            "target.path"   : "/comments/{{cannonical}}.js",
             "target.repo"   : "static"
         },
         ####################### price
@@ -156,7 +156,7 @@ documents = {
                 "Cache-Control"     : "max-age=3600, must-revalidate"
             },
             "tags"          : [ "main", "price" ],
-            "target.path"   : "{{cannonical}}-price.js",
+            "target.path"   : "/price/{{cannonical}}.js",
             "target.repo"   : "static"
         }
     ],
