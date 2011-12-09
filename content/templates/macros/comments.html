@@ -26,6 +26,20 @@
 {%- endmacro %}
 {%- macro renderComments(comments_data, urls, cols, sectionMore) -%}
     {%- if comments_data is iterable -%}
+	<div class="tmtkMesaMenuMod">
+    	<div class="solapasTitComent"></div>
+        <ul class="dropdown">
+			<li onclick="javascript:desplegarOpciones(\'listaComentarios\');" class="dir">
+				<span id="optComentarios">&Uacute;ltimos comentados</span>
+				<ul onmouseout="ocultarOpcionesT(\'listaComentarios\');" onmouseover="clearTimeout(tempo);" id="listaComentarios" style="display: none;">
+					<li><a href="javascript:mostrarBuscarPor(\'lstoptBus1\',\'lstoptBusqueda\',\'listaComentarios\');fillComments(\'books\', callBackDropDownComments);" id="lstoptBus1">Solo libros</a></li>
+					<li><a href="javascript:mostrarBuscarPor(\'lstoptBus2\',\'lstoptBusqueda\',\'listaComentarios\');fillComments(\'music\', callBackDropDownComments);" id="lstoptBus2">Solo musica</a></li>
+					<li><a href="javascript:mostrarBuscarPor(\'lstoptBus3\',\'lstoptBusqueda\',\'listaComentarios\');fillComments(\'movies\', callBackDropDownComments);" id="lstoptBus3">Solo peliculas</a></li>
+					<li><a href="javascript:mostrarBuscarPor(\'lstoptBus4\',\'lstoptBusqueda\',\'listaComentarios\');fillComments(\'all\', callBackDropDownComments);" id="lstoptBus4">&Uacute;ltimos comentados</a></li>
+				</ul>
+			</li>
+		</ul>
+	</div>
 	<div class="solapaModulos">
 		{%- for article in comments_data -%}
 	        <div class="solapaCalle" id="calleLibrosComents" style="height: 250px;">

@@ -244,6 +244,36 @@ documentos = [
         "target.path"   : "/catalogo/libros/ficcion_y_literatura--1.htm",
         "target.repo"   : "dynamic"
     },
+    ########## /catalogo/libros/ficcion_y_literatura--1 showcase
+    {
+        "EntityType"    : "SUBJ",
+        "EntityId"      : 1,
+        "dataset"       : "subjectShowcase",    "_data" : sample.sample_data_books_1_1.books_1_1_data,
+                                                "_url"  : librosURL,
+        "template"      : "subject/showcase.js",
+        "headers"       : {
+            "Content-Type"      : "text/javascript",        # requerido por IE
+            "Content-Encoding"  : "gzip",
+            "Cache-Control"     : "max-age=3600, must-revalidate"
+        },
+        "target.path"   : "/showcase/catalogo/libros/ficcion_y_literatura--1.js",
+        "target.repo"   : "static"
+    },
+    ########## /catalogo/libros/ficcion_y_literatura--1 comments
+    {
+        "EntityType"    : "SUBJ",
+        "EntityId"      : 1,
+        "dataset"       : "subjectComments",    "_data" : sample.sample_data_books_1_1.books_1_1_data,
+                                                "_url"  : librosURL,
+        "template"      : "subject/comments.js",
+        "headers"       : {
+            "Content-Type"      : "text/javascript",        # requerido por IE
+            "Content-Encoding"  : "gzip",
+            "Cache-Control"     : "max-age=3600, must-revalidate"
+        },
+        "target.path"   : "/comments/catalogo/libros/ficcion_y_literatura--1.js",
+        "target.repo"   : "static"
+    },
 
     ########## /musica/index.html
     {
@@ -321,7 +351,7 @@ documentos = [
             "Content-Encoding"  : "gzip",
             "Cache-Control"     : "max-age=3600, must-revalidate"
         },
-        "target.path"   : "/libros/showcase.js",
+        "target.path"   : "/showcase/libros.js",
         "target.repo"   : "static"
     },
     #
@@ -338,7 +368,7 @@ documentos = [
             "Content-Encoding"  : "gzip",
             "Cache-Control"     : "max-age=3600, must-revalidate"
         },
-        "target.path"   : "/libros/comments.js",
+        "target.path"   : "/comments/libros.js",
         "target.repo"   : "static"
     },
  # home - exchange
