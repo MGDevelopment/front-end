@@ -107,7 +107,7 @@
 			var title = '{{ d.Title.decode("utf-8")|e }}';
 			var urlPrincipalAttribute = null;
 			var principalAttribute = null;
-			{%- if d.Authors and d.authors|length > 0 -%}
+			{%- if d.Authors and d.Authors|length > 0 -%}
 				urlPrincipalAttribute = '{{ d.Authors[0].ContributorURL }}';
 				principalAttribute = '{{ d.Authors[0].ContributorName.decode("utf-8")|e }}';
 			{%- endif %}
