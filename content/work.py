@@ -99,9 +99,14 @@ class GeneratorJob(workerpool.Job):
         # iterate on the variables
         for v in variables:
 
+            # remove trailing "/" (if present)
+            varvalue = variables[v]
+            if varvalue.endswith("/"):
+                varvalue = varvalue.rstrip("/")
+
             # replace in all values
             for i in range(len(values)):
-                values[i] = values[i].replace("{{" + v + "}}", variables[v])
+                values[i] = values[i].replace("{{" + v + "}}", varvalue)
 
         return values
 
