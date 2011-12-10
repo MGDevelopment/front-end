@@ -43,8 +43,8 @@ augment_products_authors:  &augment_products_authors
                             'ONIX.17'                   AS ContributorRole_list,
                             CGRF_Role.RV_Meaning        AS ContributorRole_desc,
                             AU.Id_Autor                 AS ContributorId,
-                            COALESCE(AU.Descripcion2, AU.Descripcion)
-                                                        AS ContributorName,
+                            AU.Descripcion              AS ContributorName,
+                            AU.Descripcion2             AS ContributorName2,
                             NULL                        AS ContributorURL,
                             -------------- support attributes
                             A.Categoria_Seccion         AS Categoria_Seccion
@@ -64,8 +64,8 @@ augment_products_authors:  &augment_products_authors
     query.group:        [ "ProductId" ]
     query.columns:      [ "ProductId", "EntryOrder",
                           "ContributorRole", "ContributorRole_list", "ContributorRole_desc",
-                          "ContributorId", "ContributorName", "ContributorURL",
-                          "Categoria_Seccion" ]
+                          "ContributorId", "ContributorName", "ContributorName2",
+                          "ContributorURL", "Categoria_Seccion" ]
     query.post:         [ "tmklib.fixes.CONT.title",
                           "tmklib.url.CONT",
                           "tmklib.PROD.author_texts",

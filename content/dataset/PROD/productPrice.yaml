@@ -80,7 +80,7 @@ query.sql:          >
                     END                             AS CurrencyCode_desc,
                     A.Precio_Venta_Vigente          AS PriceAmount,
                     -------------- points
-                    FDN_OPERACIONES.get_puntos_basicos(A.Precio_Venta_Vigente)
+                    TO_CHAR(FDN_OPERACIONES.get_puntos_basicos(A.Precio_Venta_Vigente))
                                                     AS eXtraPoints,
                     -------------- support attributes
                     A.Categoria_Seccion             AS Categoria_Seccion,

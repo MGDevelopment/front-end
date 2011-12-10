@@ -1,10 +1,5 @@
 ﻿---
 
-
-
-
-
-
 #
 # the Ratings query
 #
@@ -80,8 +75,8 @@ augment_query_related_authors:  &augment_query_related_authors
                             'ONIX.17'                   AS ContributorRole_list,
                             CGRF_Role.RV_Meaning        AS ContributorRole_desc,
                             AU.Id_Autor                 AS ContributorId,
-                            COALESCE(AU.Descripcion2, AU.Descripcion)
-                                                        AS ContributorName,
+                            AU.Descripcion              AS ContributorName,
+                            AU.Descripcion2             AS ContributorName2,
                             NULL                        AS ContributorURL,
                             -------------- support attributes
                             A.Categoria_Seccion         AS Categoria_Seccion
@@ -143,8 +138,8 @@ augment_query_related_authors:  &augment_query_related_authors
     query.group:        [ "ProductId" ]
     query.columns:      [ "ProductId", "EntryOrder",
                           "ContributorRole", "ContributorRole_list", "ContributorRole_desc",
-                          "ContributorId", "ContributorName", "ContributorURL",
-                          "Categoria_Seccion" ]
+                          "ContributorId", "ContributorName", "ContributorName2",
+                          "ContributorURL", "Categoria_Seccion" ]
     query.post:         [ "tmklib.fixes.CONT.title",
                           "tmklib.url.CONT"
                         ]
@@ -158,12 +153,12 @@ augment_query_related_authors:  &augment_query_related_authors
 query_unified:  &query_unified
     query.sql:  >
         SELECT              'PROD'                          AS EntityType,
-                            AR.Id_Articulo                  AS EntityId,
-                            AR.Id_Articulo                  AS ProductId,
+                            AR2.Id_Articulo                 AS EntityId,
+                            AR2.Id_Articulo                 AS ProductId,
                             'YR'                            AS RelationCode,
                             'ONIX.51'                       AS RelationCode_list,
                             'Obras relacionadas'            AS RelationCode_desc,
-                            AR.Row_Number                   AS EntryOrder,
+                            TO_CHAR(AR.Row_Number)          AS EntryOrder,
                             'PROD'                          AS RelatedEntityType,
                             A.Id_Articulo                   AS RelatedEntityId,
                             A.Id_Articulo                   AS RelatedProductId,
@@ -346,8 +341,12 @@ query_unified:  &query_unified
                     )
                     WHERE   Row_Number <= 3
             ) AR
-            INNER JOIN      Articulos A
-                ON          AR.Id_Articulo_Relacionado = A.Id_Articulo
+            -------------- para obtener un id_articulo que tenga precision
+            INNER JOIN  Articulos AR2
+                ON      AR.Id_Articulo_Relacionado = AR2.Id_Articulo
+            -------------- Datos del Articulo Relacionado
+            INNER JOIN  Articulos A
+                ON      AR.Id_Articulo_Relacionado = A.Id_Articulo
             -------------- Ranking
             LEFT JOIN   Mas_Vendidos_Seccion MVS
                 ON      A.Categoria_Seccion = MVS.Categoria_Seccion AND

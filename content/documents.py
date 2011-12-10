@@ -177,8 +177,7 @@ documents = {
                 "Cache-Control"     : "max-age=3600, must-revalidate"
             },
             "tags"          : [ "main" ],
-            "target.path"   : [ "{{cannonical}}.htm",
-                                "{{cannonical}}/index.htm" ],
+            "target.path"   : [ "{{cannonical}}/index.htm" ],
             "target.repo"   : "dynamic"
         },
         ####################### showcase
@@ -192,7 +191,7 @@ documents = {
                 "Cache-Control"     : "max-age=3600, must-revalidate"
             },
             "tags"          : [ "main" ],
-            "target.path"   : "{{cannonical}}-showcase.js",
+            "target.path"   : "/showcase/{{cannonical}}.js",
             "target.repo"   : "static"
         },
         ####################### comments
@@ -206,7 +205,7 @@ documents = {
                 "Cache-Control"     : "max-age=3600, must-revalidate"
             },
             "tags"          : [ "main", "comment" ],
-            "target.path"   : "{{cannonical}}-comments.js",
+            "target.path"   : "/comments/{{cannonical}}.js",
             "target.repo"   : "static"
         }
     ]
