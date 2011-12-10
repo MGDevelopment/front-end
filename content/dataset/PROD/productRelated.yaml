@@ -343,7 +343,7 @@ query_unified:  &query_unified
             ) AR
             -------------- para obtener un id_articulo que tenga precision
             INNER JOIN  Articulos AR2
-                ON      AR.Id_Articulo_Relacionado = AR2.Id_Articulo
+                ON      AR.Id_Articulo = AR2.Id_Articulo
             -------------- Datos del Articulo Relacionado
             INNER JOIN  Articulos A
                 ON      AR.Id_Articulo_Relacionado = A.Id_Articulo
