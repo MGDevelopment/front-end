@@ -98,6 +98,7 @@
 	        </div>
 	        {%- endif %}
 	    {%- elif d.Categoria_Seccion == 4 %}
+	    	{%- if d.Content and d.Content|length > 0 -%}
 	    	<div class="dSolapas" id="datosCompl">
 				<div class="tmtkMesaMenuMod"><img class="solapasTitDatosPrinc" title="Datos principales"  alt="Datos Principales" src="{{ url.images }}/imagenes/rediseno/imagenes/comun/t-datosPrinc.gif" /></div>
 				<div class="dResena">Musica: Lista De Temas de <b>{{ d.Title.decode('utf-8')|e }}</b><br>
@@ -108,6 +109,7 @@
 				{%- endif %}
 				</div>
 	        </div>
+	    	{%- endif -%} {# d.Content #}
         {%- endif %}
 		{%- if getOnixItem(d.Texts, '04') -%}
 			<div class="dSolapas" id="indCont">
