@@ -2,26 +2,33 @@
  * maximize_img.js
  */
 
-var newwindow = ''
-function popitup(url) {
-	try {
-		if (newwindow.location && !newwindow.closed) {
-		    newwindow.location.href = url;
-		    newwindow.focus(); }
-		else {
-			var newImg = new Image();
-			newImg.src = url;
-			var height = newImg.height;
-			var width = newImg.width;
-		    newwindow=window.open(url,'htmlname','width=' + width +',height=' + height +',resizable=1');
-		}
-	} catch (e) {
-		// TODO
-	}
+function popitup(imgLocation) {
+
+	img = new Image();
+
+	img.src = imgLocation;
+
+	img.onload = doImgpop;
+
 }
 
-function tidy() {
-	if (newwindow.location && !newwindow.closed) {
-	   newwindow.close();
+function doImgpop(e) {
+	try {
+		var img = this; // I THINK that's the right way to get the image object. If
+						// not, may involve using e.
+
+		var width = img.width + 20;
+
+		var height = img.height + 20;
+
+		var settings = "width="
+				+ width
+				+ ",height="
+				+ height
+				+ "resizable=1";
+
+		var popup = window.open(img.src, '', settings);
+	} catch(exception) {
+		// TODO
 	}
 }
