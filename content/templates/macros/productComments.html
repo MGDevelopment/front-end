@@ -6,7 +6,7 @@
 		  <img class="solapasTitComent" alt="Comentarios" src="{{ url.images }}/imagenes/rediseno/imagenes/comun/t-comentarios.gif" />
 		 </div>
 		</div>
-		<div id="divComentarios"></div>
+		<div id="divComentarios">
 		{%- for comment in comments_data -%}
 			{%- if loop.index == 5 -%}
 			<div id="hideComments" style="display: none">
@@ -46,5 +46,6 @@
 	    <a href="/Comentario?ID_ARTICULO={{ idArticle }}&idSeccion={{ idSubject }}"><div>AGREGAR COMENTARIO</div></a>
 		</div>
 		<input type="hidden" value="{{ comments_data|length }}" id="cantidad">
+		</div>
 	{%- endif %}
 {%- endmacro %}
