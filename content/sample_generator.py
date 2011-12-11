@@ -275,6 +275,22 @@ documentos = [
         "target.repo"   : "static"
     },
 
+    ########## /catalogo/libros/ficcion_y_literatura--1 More
+    {
+        "EntityType"    : "SUBJ",
+        "EntityId"      : 1,
+        "dataset"       : "subjectComments",    "_data" : sample.sample_data_books_1_1.books_1_1_data,
+                                                "_url"  : librosURL,
+        "template"      : "subject/catalog.js",
+        "headers"       : {
+            "Content-Type"      : "text/javascript",
+            "Content-Encoding"  : "gzip",
+            "Cache-Control"     : "max-age=3600, must-revalidate"
+        },
+        "target.path"   : "/catalog/catalogo/libros/ficcion_y_literatura--1.js",
+        "target.repo"   : "static"
+    },
+
     ########## /musica/index.html
     {
         "EntityType"    : "SUBJ",
@@ -318,22 +334,6 @@ documentos = [
             "Cache-Control"     : "max-age=3600, must-revalidate"
         },
         "target.path"   : "/peliculas/index.html",
-        "target.repo"   : "dynamic"
-    },
-
-    ########## /libros/index.jsp
-    {
-        "EntityType"    : "SUBJ",
-        "EntityId"      : 1,
-        "dataset"       : "subjectMain",        "_data" : sample.sample_data_books_1.books_1_main,
-                                                "_url"  : librosURL,
-        "template"      : "subject/index.html",
-        "headers"       : {
-            "Content-Type"      : "text/html",
-            "Content-Encoding"  : "gzip",
-            "Cache-Control"     : "max-age=3600, must-revalidate"
-        },
-        "target.path"   : "/libros/index.jsp",
         "target.repo"   : "dynamic"
     },
 

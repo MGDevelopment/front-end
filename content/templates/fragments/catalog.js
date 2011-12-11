@@ -1,35 +1,35 @@
 /**
- * related.js
+ * catalog.js
  */
-APP.addData('relatedFilter_order', 'OPT1');
+APP.addData('catalogFilter_order', 'OPT1');
 
-function fillRelated(order, callback) {
-	var relatedHTML = '';
-	var defaultOrder = APP.getData('relatedFilter_order');
+function fillCatalog(order, callback) {
+	var catalogHTML = '';
+	var defaultOrder = APP.getData('catalogFilter_order');
 
 	if (order == null) {
 		order = defaultOrder;
 	} else {
 		order = 'OPT' + order;
-		APP.addData('relatedFilter_order', order);
+		APP.addData('catalogFilter_order', order);
 	}
 
 	try {
-		if (APP.getData('related')[order]) {
-			relatedHTML = APP.getData('related')[order];
+		if (APP.getData('catalog')[order]) {
+			catalogHTML = APP.getData('catalog')[order];
 		}
 
 	} catch (e) {
-		relatedHTML = '<!-- Sin datos -->';
+		catalogHTML = '<!-- Sin datos -->';
 	}
 	// render
-	if (document.getElementById('relatedSection')) {
-		document.getElementById('relatedSection').innerHTML = relatedHTML;
+	if (document.getElementById('catalogSection')) {
+		document.getElementById('catalogSection').innerHTML = catalogHTML;
 	}
 
 	var pageCount = 1;
-	if (document.getElementById('relatedPageCount')) {
-		pageCount = document.getElementById('relatedPageCount').value;
+	if (document.getElementById('catalogPageCount')) {
+		pageCount = document.getElementById('catalogPageCount').value;
 	}
 	if (pageCount > 1) {
 		var display = pageCount;

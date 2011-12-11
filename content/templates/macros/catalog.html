@@ -84,7 +84,7 @@
 
 													<tr>
 														<td class="moduloordencelda"><div id="OPT1ON" style="display:{{ showdiv(order, 1, 'ON') }}"><a id="OPT1"
-															href="javascript:fillRelated(1, callBackRelated);"
+															href="javascript:fillCatalog(1, callBackCatalog);"
 															class="Flink02" rel="nofollow">- Los m&aacute;s vendidos<span class="Ftexto02"></a></div>
 															<div id="OPT1OFF" style="display:{{ showdiv(order, 1, 'OFF') }}">- Los m&aacute;s vendidos</div>
 														</td>
@@ -92,7 +92,7 @@
 
 													<tr>
 														<td class="moduloordencelda"><div id="OPT2ON" style="display:{{ showdiv(order, 2, 'ON') }}"><a id="OPT2"
-															href="javascript:fillRelated(2, callBackRelated);"
+															href="javascript:fillCatalog(2, callBackCatalog);"
 															class="Flink02" rel="nofollow">- Precio de venta<br />
 																<span class="Ftexto02">&nbsp;&nbsp;</span>(+econ&oacute;micos
 																primeros)</a></div>
@@ -105,7 +105,7 @@
 
 													<tr>
 														<td class="moduloordencelda"><div id="OPT3ON" style="display:{{ showdiv(order, 3, 'ON') }}"><a id="OPT3"
-															href="javascript:fillRelated(3, callBackRelated);"
+															href="javascript:fillCatalog(3, callBackCatalog);"
 															class="Flink02" rel="nofollow">- Fecha de
 																aparici&oacute;n<br /> <span class="Ftexto02">&nbsp;&nbsp;</span>(+antiguos
 																primeros)</a></div>
@@ -118,7 +118,7 @@
 
 													<tr>
 														<td class="moduloordencelda"><div id="OPT4ON" style="display:{{ showdiv(order, 4, 'ON') }}"><a id="OPT4"
-															href="javascript:fillRelated(4, callBackRelated);"
+															href="javascript:fillCatalog(4, callBackCatalog);"
 															class="Flink02" rel="nofollow">- Fecha de
 																aparici&oacute;n<br /> <span class="Ftexto02">&nbsp;&nbsp;</span>(+recientes
 																primeros)</a></div>
@@ -131,7 +131,7 @@
 
 													<tr>
 														<td class="moduloordencelda"><div id="OPT5ON" style="display:{{ showdiv(order, 5, 'ON') }}"><a id="OPT5"
-															href="javascript:fillRelated(5, callBackRelated);"
+															href="javascript:fillCatalog(5, callBackCatalog);"
 															class="Flink02" rel="nofollow">- Precio de venta<br />
 																<span class="Ftexto02">&nbsp;&nbsp;</span>(+costosos
 																primeros)</a></div>
@@ -144,7 +144,7 @@
 
 													<tr>
 														<td class="moduloordencelda"><div id="OPT6ON" style="display:{{ showdiv(order, 6, 'ON') }}"><a id="OPT6"
-															href="javascript:fillRelated(6, callBackRelated);"
+															href="javascript:fillCatalog(6, callBackCatalog);"
 															class="Flink02" rel="nofollow">- Alfab&eacute;ticamente (A-Z)<br/></a></div>
 															<div id="OPT6OFF" style="display:{{ showdiv(order, 6, 'OFF') }}">- Alfab&eacute;ticamente (A-Z)<br/></div>
 														</td>
@@ -152,7 +152,7 @@
 
 													<tr>
 														<td class="moduloordencelda"><div id="OPT7ON" style="display:{{ showdiv(order, 7, 'ON') }}"><a id="OPT7"
-															href="javascript:fillRelated(7, callBackRelated);"
+															href="javascript:fillCatalog(7, callBackCatalog);"
 															class="Flink02" rel="nofollow">-
 																Alfab&eacute;ticamente (Z-A)<br/></a></div>
 															<div id="OPT7OFF" style="display:{{ showdiv(order, 7, 'OFF') }}">- Alfab&eacute;ticamente (Z-A)<br/></div>
@@ -193,7 +193,7 @@
 {%- endmacro -%}
 {# fin deficion macros #}
 {# comienzo del codigo principal del codigo de la pagina tmp #}
-{%- macro renderRelated(maxItemPage, order, articles) -%}
+{%- macro renderCatalog(maxItemPage, order, articles) -%}
 	<div id="paginationdemo" class="demo">
 		{%- set pageItemCount = maxItemPage -%}
 		{%- set pageCount = 0 -%}
@@ -276,7 +276,7 @@
 
 			{% set pageItemCount = pageItemCount + 1 %}
 			{% if loop.last %}
-				<input type="hidden" id="relatedPageCount" value="{{ pageCount|string }}">
+				<input type="hidden" id="catalogPageCount" value="{{ pageCount|string }}">
 				{{ renderEndDiv() }}
 		<table>
 			<tr>

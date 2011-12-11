@@ -1,7 +1,6 @@
-{%- import 'macros/related.html' as render -%}
+{%- import 'macros/catalog.html' as render -%}
 /**
-* Name:
-* 	- subject-related.js
+* 	- catalog/section.js
 * expected keys:
 * 	- OPT1 = MAS_VENDIDOS
 * 	- OPT2 = PRECIO_VENTA_1 + economicos primero
@@ -16,18 +15,18 @@
 * 	- order
 * 	- articles
 */
-var dataRelated = {};
+var dataCatalog = {};
 
 {%- for item in data -%}
-	dataRelated['{{ item }}'] = '{{ render.renderRelated(data[item].maxItemPage, data[item].order, data[item].articles)|replace("\n", "") }}';
+	dataCatalog['{{ item }}'] = '{{ render.renderCatalog(data[item].maxItemPage, data[item].order, data[item].articles)|replace("\n", "") }}';
 {%- endfor %}
 
-function loadRelated() {
-	APP.addData('related', dataRelated);
+function loadCatalog() {
+	APP.addData('catalog', dataCatalog);
 	return;
 }
 
-var callBackRelated = function (order) {
+var callBackCatalog = function (order) {
 {%- for item in data -%}
 	if (order == '{{ item }}') {
 		document.getElementById('{{ item }}OFF').style.display = 'block';
@@ -39,5 +38,5 @@ var callBackRelated = function (order) {
 {%- endfor %}
 	return;
 }
-loadRelated();
+loadCatalog();
 
