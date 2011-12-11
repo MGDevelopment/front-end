@@ -110,7 +110,8 @@
         <div id="showcase">
             {% include "subject/showcase.html" %}
         </div>
-        <div id="related"> {{ related }} </div>
+        <div id="catalogSection" style="width: 650px; float: right; position: static;"></div>
+
         <div id="comments">
             {% include "fragments/comments.html" %}
         </div>
@@ -138,6 +139,7 @@
 	    {% include "fragments/last_visited.js" %}
 	    {% include "subject/tree.js" %}
 	    {% include "fragments/tree.js" %}
+	    {% include "fragments/catalog.js" %}
 	</script>
 
 	<!-- Data Scripts -->
@@ -149,6 +151,8 @@
             src="{{ url.data }}/comments{{ ubase }}.js"></script>
 	<script type="text/javascript"
             src="{{ url.data }}/showcase{{ ubase }}.js"></script>
+	<script type="text/javascript"
+            src="{{ url.data }}/catalog{{ ubase }}.js"></script>
 
 	<script type="text/javascript">
 
