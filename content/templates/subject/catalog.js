@@ -1,4 +1,3 @@
-{%- import 'macros/catalog.html' as render -%}
 (function () {
 
 var pProductId = 0,
