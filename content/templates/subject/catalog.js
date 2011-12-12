@@ -64,8 +64,10 @@ APP.fillCatalog = function (order, page) {
     var elems     = c.slice(pageStart, pageEnd); {# element of this page #}
 
     pageElems.each(function (i, v) {
+
         if (elems.length <= i)
             return; /* missing elements to fill, leave rest */
+
         var e = elems[i];
         var productLink  = e[pLink] + '.htm';
         $(v).find('.celdafoto a')[0].href   = productLink;
