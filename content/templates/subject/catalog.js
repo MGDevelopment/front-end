@@ -53,10 +53,8 @@ APP.fillCatalog = function (order, page) {
         c.sort(function (a, b) { return a[pDate]  - b[pDate]; });
     } else if (order === 'date-high') {
         c.sort(function (a, b) { return b[pDate]  - a[pDate]; });
-    } else {
-        alert('fillCatalog: bad sort error');
-        return;
     }
+        /* else keeps last sort */
 
     var pageElems = $('.moduleproductob');
 
