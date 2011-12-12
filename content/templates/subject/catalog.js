@@ -72,7 +72,7 @@ APP.fillCatalog = function (order) {
         $(v).find('.divInfo a')[0].href    = productLink;
         $(v).find('.divInfo a img')[0].alt = e[pTitle];
         $(v).find('.divInfo a img')[0].title = e[pAuthor] + ' - ' + e[pTitle];
-        $(v).find('.divComprarPedir a')[0].href = 'javascript:APP.cartAdd(' + e[pProductId] + ');window.scrollto(0,0);';
+        $(v).find('.divComprarPedir a')[0].href = 'javascript:APP.cartAdd(' + e[pProductId] + ');window.scrollTo(0,0);';
         
     });
 
