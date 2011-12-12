@@ -270,6 +270,29 @@ def cmd_exit():
 #########################################################
 #########################################################
 #
+# COMMAND - CACHE
+#
+def cmd_cache():
+
+    # create an exit job
+    job = jobs.encode(jobs.cache())
+
+    # get a producer
+    producer = getProducer()
+
+    # get an item, set content and make it ready
+    item = producer.item()
+    item.content = job
+    producer.ready(item)
+
+    print "Cache command put in queue"
+
+    return 0
+
+
+#########################################################
+#########################################################
+#
 # COMMAND - HELP
 #
 def cmd_help():
@@ -279,6 +302,9 @@ def cmd_help():
 Where parameters can be one of:
 - add job to the regeneration queue
     "add" ( <entity type> [ * | <entity id list> ] )+
+
+- regenerate internal cache (images, interviews, biographies, etc)
+    "cache"
 
 - go into daemon mode
     "daemon"
@@ -328,6 +354,7 @@ def cmd_list():
 #
 commands = {
     "add"           : cmd_add,
+    "cache"         : cmd_cache,
     "daemon"        : cmd_daemon,
     "delta"         : cmd_delta,
     "exit"          : cmd_exit,

@@ -46,6 +46,23 @@ def exit(tag = "*", design = "*", store = "*"):
 #########################################################
 #########################################################
 #
+# JOB - CACHE
+#
+def cache(tag = "*", design = "*", store = "*"):
+    """Create a job of type cache"""
+
+    job = {
+        "type"      : "cache",
+        "tag"       : tag,
+        "design"    : design,
+        "store"     : store
+    }
+    return job
+
+
+#########################################################
+#########################################################
+#
 # JOB - GENERATE
 #
 def generate(entities, tag = "*", design = "*", store = "*"):

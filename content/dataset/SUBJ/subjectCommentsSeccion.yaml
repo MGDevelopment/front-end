@@ -51,12 +51,19 @@ query_unified:  &query_unified
                                 row_number() OVER (PARTITION BY S.SubjectId
                                                    ORDER BY S.SubjectId, C.Id_Comentario DESC)
                                                                 AS Row_Number
-                    FROM        Comentario_Articulos C
+                    FROM        (
+                        SELECT      CA2.Id_Articulo, CA2.Id_Comentario
+                            FROM    Comentario_Articulos CA2
+                            WHERE   CA2.Estado = 'A'
+                    ) CA
                     INNER JOIN  Articulos A
-                        ON      C.Id_Articulo = A.Id_Articulo AND
+                        ON      CA.Id_Articulo = A.Id_Articulo AND
                                 A.Archivo_Imagen != 'N' AND
                                 A.Activo = 'SI' AND
                                 A.Habilitado_Tematika = 'S'
+                    INNER JOIN  Comentario_Articulos C
+                        ON      CA.Id_Articulo = C.Id_Articulo AND
+                                CA.Id_Comentario = C.Id_Comentario
                     INNER JOIN  Disponibilidades D
                         ON      A.Id_Disponibilidad = D.Id_Disponibilidad AND
                                 --------------- condition

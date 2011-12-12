@@ -12,6 +12,7 @@ import ecommerce.db.dataset
 import ecommerce.queue
 
 import tmklib.url
+import tmklib.cache
 
 import preprocess
 import jobs
@@ -107,6 +108,22 @@ def jobGenerate(id, job):
 
 ############################################
 #
+# job - cache
+#
+def jobCache(id, job):
+    """Regenerate the cache"""
+
+    logger.info("Processing cache Job. Begin cache reload")
+
+    tmklib.cache.reload()
+
+    logger.info("Processing cache Job. Terminated cache reload")
+
+    return True
+
+
+############################################
+#
 # job - exit
 #
 _terminating = False
@@ -135,6 +152,7 @@ def jobExit(id, job):
 #
 jobTypes = {
     "exit"      : jobExit,
+    "cache"     : jobCache,
     "generate"  : jobGenerate
 }
 
