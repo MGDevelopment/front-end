@@ -145,8 +145,8 @@
 	              </td>
 	            </tr>
 	{% endfor %}
-	{%- set pages = (p_count/per_page)|round(0, 'ceil')|int -%}
-	{#- set pages = 10 -#}
+	{#- set pages = (p_count/per_page)|round(0, 'ceil')|int -#}
+	{%- set pages = 10 -%}
 	            <tr>
 	              <td class="celdapaginas">
 	                <a href="javascript:APP.fillCatalog(null,0)" class="FAyuda">Anterior</a>
