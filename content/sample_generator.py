@@ -228,6 +228,22 @@ documentos = [
         "target.path"   : "/libros/index.html",
         "target.repo"   : "dynamic"
     },
+    ########## /catalogo/libros.js More
+    {
+        "EntityType"    : "SUBJ",
+        "EntityId"      : 1,
+        "dataset"       : "subjectComments",    "_data" : sample.sample_data_books_1.books_1_data,
+                                                "_url"  : librosURL,
+        "template"      : "subject/catalog.js",
+        "headers"       : {
+            "Content-Type"      : "text/javascript",
+            "Content-Encoding"  : "gzip",
+            "Cache-Control"     : "max-age=3600, must-revalidate"
+        },
+        "target.path"   : "/catalog/libros.js",
+        "target.repo"   : "static"
+    },
+
 
     ########## /catalogo/libros/ficcion_y_literatura--1.htm
     {
