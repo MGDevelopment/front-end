@@ -154,7 +154,7 @@
 	                <a href="javascript:APP.fillCatalog(null,0)" class="FAyuda"
 	                    style="font-weight: bolder;">1</a>
 	{% for i in range(1, pages - 1) %}
-	                <a href="javascript:APP.fillCatalog(null,{{ i }})" class="FAyuda">{{ i + 1 }}</a>
+	                <a href="javascript:APP.fillCatalog(null,{{ i }})" id="catalogPage_{{ i }}" class="FAyuda">{{ i + 1 }}</a>
 	{% endfor %}
 	                <span class="Ftexto05">| </span><a href="javascript:APP.fillCatalog(null,{{ 1 }})" class="FAyuda">Siguiente</a>
 	              </td>
@@ -196,14 +196,14 @@
 	                  <span class="Ftexto02">
 	                    <a href="javascript:APP.fillCatalog('price-low');"
 	                        class="Flink02" rel="nofollow">- Precio de venta<br>
-	                      (+económicos primeros)</a></span>
+	                      (+econ&oacute;micos primeros)</a></span>
 	                </td>
 	              </tr>
 	              <tr>
 	                <td class="moduloordencelda">
 	                  <span class="Ftexto02">
 	                    <a href="javascript:APP.fillCatalog('date-low');"
-	                        class="Flink02" rel="nofollow">- Fecha de aparición<br>
+	                        class="Flink02" rel="nofollow">- Fecha de aparici&oacute;n<br>
 	                      (+antiguos primeros)</a></span>
 	                </td>
 	              </tr>
@@ -211,7 +211,7 @@
 	                <td class="moduloordencelda">
 	                  <span class="Ftexto02">
 	                    <a href="javascript:APP.fillCatalog('date-high');"
-	                        class="Flink02" rel="nofollow">- Fecha de aparición<br>
+	                        class="Flink02" rel="nofollow">- Fecha de aparici&oacute;n<br>
 	                      (+recientes primeros)</a></span>
 	                </td>
 	              </tr>
@@ -228,7 +228,7 @@
 	                  <span class="Ftexto02">
 	                    <a href="javascript:APP.fillCatalog('name-low');"
 	                        class="Flink02"
-	                        rel="nofollow">- Alfabéticamente (A-Z)</a></span>
+	                        rel="nofollow">- Alfab&eacute;ticamente (A-Z)</a></span>
 	                </td>
 	              </tr>
 	              <tr>
@@ -236,7 +236,7 @@
 	                  <span class="Ftexto02">
 	                    <a href="javascript:APP.fillCatalog('name-high');"
 	                        class="Flink02"
-	                        rel="nofollow">- Alfabéticamente (Z-A)</a></span>
+	                        rel="nofollow">- Alfab&eacute;ticamente (Z-A)</a></span>
 	                </td>
 	              </tr>
 	              </tbody>
