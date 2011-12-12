@@ -52,13 +52,21 @@ query_unified:  &query_unified
                                 A.Categoria_Familia             AS Categoria_Familia,
                                 A.Categoria_Subfamilia          AS Categoria_Subfamilia,
                                 A.Archivo_Imagen                AS Archivo_Imagen
-                    FROM        Comentario_Articulos C
+                    FROM        (
+                        SELECT      CA2.Id_Articulo, CA2.Id_Comentario
+                            FROM    Comentario_Articulos CA2
+                            WHERE   CA2.Estado = 'A'
+                    ) CA
                     INNER JOIN  Articulos A
-                        ON      C.Id_Articulo = A.Id_Articulo AND
+                        ON      CA.Id_Articulo = A.Id_Articulo AND
                                 A.Categoria_Seccion IN ({{VAR:filter}}) AND
+                                A.Archivo_Imagen IS NOT NULL AND
                                 A.Archivo_Imagen != 'N' AND
                                 A.Activo = 'SI' AND
                                 A.Habilitado_Tematika = 'S'
+                    INNER JOIN  Comentario_Articulos C
+                        ON      CA.Id_Articulo = C.Id_Articulo AND
+                                CA.Id_Comentario = C.Id_Comentario
                     INNER JOIN  Disponibilidades D
                         ON      A.Id_Disponibilidad = D.Id_Disponibilidad AND
                                 --------------- condition
@@ -72,7 +80,6 @@ query_unified:  &query_unified
                         ON      C.Id_Sucursal_Socio = STMK.Id_Sucursal AND
                                 C.Id_Socio = STMK.Id_Socio
                     --------------- main condition
-                    WHERE       C.Estado = 'A'
                     ORDER BY    C.Id_Comentario DESC
             ) d
             WHERE       ROWNUM <= {{VAR:limit}}
