@@ -11,30 +11,31 @@ var pProductId = 0,
     pDate      = 8;
 
 APP.addData('catalog', [
-
-{%- for p in d['Products'] -%}
-    {%- if p['Authors'] and p['Authors'][0]|length > 0 -%}
-        {%- set author = p['Authors'][0]['ContributorName'].decode('utf-8')|e -%}
-        {%- set author_url = p['Authors'][0]['ContributorURL'] -%}
-    {%- else -%}
-        {%- set author = '' -%}
-        {%- set author_url = '' -%}
-    {%- endif -%}
-[
-{{ p['EntityId'] }},
-'{{ p['CoverSmall'] }}',
-'{{ p['Title'].decode('utf-8')|e }}',
-'{{ p['LinkBase'] }}',
-'{{ author }}',
-'{{ author_url }}',
-{{ p['Row_Number']|int }},
-{{ p['PriceAmount'] }},
-{{ p['PublishingDateValue'] }}
-]
-{%- if loop.index < loop.length -%}
-,
+{%- if d['Products'] -%}
+	{%- for p in d['Products'] -%}
+	    {%- if p['Authors'] and p['Authors'][0]|length > 0 -%}
+	        {%- set author = p['Authors'][0]['ContributorName'].decode('utf-8')|e -%}
+	        {%- set author_url = p['Authors'][0]['ContributorURL'] -%}
+	    {%- else -%}
+	        {%- set author = '' -%}
+	        {%- set author_url = '' -%}
+	    {%- endif -%}
+	[
+	{{ p['EntityId'] }},
+	'{{ p['CoverSmall'] }}',
+	'{{ p['Title'].decode('utf-8')|e }}',
+	'{{ p['LinkBase'] }}',
+	'{{ author }}',
+	'{{ author_url }}',
+	{{ p['Row_Number']|int }},
+	{{ p['PriceAmount'] }},
+	{{ p['PublishingDateValue'] }}
+	]
+	{%- if loop.index < loop.length -%}
+	,
+	{%- endif -%}
+	{%- endfor %}
 {%- endif -%}
-{%- endfor %}
 ]);
 
 APP.fillCatalog = function (order, page) {
@@ -96,7 +97,7 @@ APP.fillCatalog = function (order, page) {
         $(v).find('.divInfo a img')[0].alt = e[pTitle];
         $(v).find('.divInfo a img')[0].title = e[pAuthor] + ' - ' + e[pTitle];
         $(v).find('.divComprarPedir a')[0].href = 'javascript:APP.cartAdd(' + e[pProductId] + ');window.scrollTo(0,0);';
-        
+
     });
 
     var prevPage = page - 1;
