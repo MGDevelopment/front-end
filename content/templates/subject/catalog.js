@@ -111,31 +111,46 @@ APP.fillCatalog = function (order, page) {
 
     /* first and last links are prev and next */
     $('.celdapaginas a.FAyuda').each(function (i,v) {
-    	if (i > lastPage) {
-    		if (v.id) {
-    			// hide page numbers out of range
-    			$(v).hide();
-    		} else {
-    			if (nextPage >= lastPage) {
-    				// on last link page hide next link
-    				$(v).hide();
-    			} else {
-    				// on other link page show next link
-    				$(v).show();
-    			}
-    		}
+    	if (lastPage == 0) {
+    		// hide all links when no pages or only page
+    		$(v).hide();
+    	} else {
+	    	if (i > lastPage) {
+	    		if (v.id) {
+	    			// hide page numbers out of range
+	    			$(v).hide();
+	    		} else {
+	    			if (nextPage >= lastPage) {
+	    				// on last link page hide next link
+	    				$(v).hide();
+	    			} else {
+	    				// on other link page show next link
+	    				$(v).show();
+	    			}
+	    		}
+	    	} else {
+	    		if (!v.id) {
+	    			// nextPage == 1 then first page
+	    			if (nextPage == 1) {
+	    				// when no prev then hide
+	    				$(v).hide();
+	    			} else {
+	    				// when exists prev then show
+	    				$(v).show();
+	    			}
+	    		}
+	        if (i === 0) {
+	            v.href = 'javascript:APP.fillCatalog(null,' + prevPage + ');';
+	        } else if (i > lastPage) {
+	            v.href = 'javascript:APP.fillCatalog(null,' + nextPage + ');';
+	        } else {
+	            if (i === page + 1) {
+	                $(v).css({'font-weight' : 'bolder'});
+	            } else {
+	                $(v).css({'font-weight' : 'normal'});
+	            }
+	        }
     	}
-        if (i === 0) {
-            v.href = 'javascript:APP.fillCatalog(null,' + prevPage + ');';
-        } else if (i > lastPage) {
-            v.href = 'javascript:APP.fillCatalog(null,' + nextPage + ');';
-        } else {
-            if (i === page + 1) {
-                $(v).css({'font-weight' : 'bolder'});
-            } else {
-                $(v).css({'font-weight' : 'normal'});
-            }
-        }
     });
 
 };
