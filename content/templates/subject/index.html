@@ -174,7 +174,7 @@
 		/* parse messages */
 		{% include "fragments/messages_parse.js" %}
 		/* Update data */
-	    fillComments('{{ section_name }}');
+	    fillComments('{{ section_name|lower }}');
 	    {% include "fragments/right_menu.js" %}
 	    {% include "fragments/alliance.js" %}
 
