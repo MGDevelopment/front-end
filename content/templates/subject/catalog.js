@@ -38,7 +38,9 @@ APP.addData('catalog', [
 {%- endfor %}
 ]);
 
-APP.fillCatalog = function (order) {
+APP.fillCatalog = function (order, page) {
+
+    var page = page || 0; {# default page zero #}
 
     var c = APP.getData('catalog');
     if (order === 'rank') {
@@ -56,10 +58,14 @@ APP.fillCatalog = function (order) {
     }
 
     var pageElems = $('.moduleproductob');
-    var elems = c.slice(0, pageElems.length);
+
+    var perPage   = pageElems.length;
+    var pageStart = page * perPage;
+    var pageEnd   = pageStart + perPage;
+    var elems     = c.slice(pageStart, pageEnd); {# element of this page #}
 
     pageElems.each(function (i, v) {
-        var e    = c[i];
+        var e = elems[i];
         var productLink  = e[pLink] + '.htm';
         $(v).find('.celdafoto a')[0].href   = productLink;
         $(v).find('.celdafoto img')[0].src  = e[pCover];
