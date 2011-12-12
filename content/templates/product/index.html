@@ -1,6 +1,31 @@
 ﻿{% extends "page.html" %}
 
-{% block head_extra %}
+    {%- set title = d.Title.decode('utf-8')|e -%}
+    {%- if d.Authors and d.Authors[0]|length > 0 -%}
+        {%- set author = d.Authors[0].ContributorName.decode('utf-8')|e -%}
+        {%- set author_url = d.Authors[0].ContributorURL -%}
+    {%- else -%}
+        {%- set author = '' -%}
+        {%- set author_url = '' -%}
+    {%- endif -%}
+    {%- if d.Categoria_Seccion == 1 -%}
+        {%- set section_name = 'Libros' -%}
+    {%- elif d.Categoria_Seccion == 4 -%}
+        {%- set section_name = 'M&uacute;sica' -%}
+    {%- elif d.Categoria_Seccion == 5 -%}
+        {%- set section_name = 'Pel&iacute;culas' -%}
+    {%- elif d.Categoria_Seccion == 3 -%}
+        {%- set section_name = 'Juegos' -%}
+    {%- else -%}
+        {%- set section_name = '' -%}
+    {%- endif -%}
+
+    {% block head_title %}
+	    <title>{{ title }} - {{ author }} - {{ section_name }}</title>
+    {% endblock %}
+
+    {% block head_extra %}
+
     {% set section = d.Categoria_Seccion %}
     {% if section == 1 %}
         <link href="/stage0/css/books.css" rel="stylesheet" type="text/css">
