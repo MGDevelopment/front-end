@@ -72,16 +72,19 @@ APP.fillCatalog = function (order, page) {
     var perPage   = pageElems.length;
     var lastPage  = Math.ceil(c.length/perPage) - 1;
     var page = page || 0; /* default page zero */
-    if (page > lastPage)
-        page = lastPage;
+    if (page > lastPage+1)
+        page = lastPage+1;
     var pageStart = page * perPage;
     var pageEnd   = pageStart + perPage;
     var elems     = c.slice(pageStart, pageEnd); /* element of this page */
 
     pageElems.each(function (i, v) {
 
-        if (elems.length <= i)
-            i = elems.length - 1; /* repeat last */
+        if (elems.length <= i) {
+        	$(v).hide();
+    		return;
+            //i = elems.length - 1; /* repeat last */
+        }
 
         var e = elems[i];
         var productLink  = e[pLink] + '.htm';
@@ -105,7 +108,7 @@ APP.fillCatalog = function (order, page) {
         prevPage = 0;
     }
     var nextPage = page + 1;
-    if (page == lastPage) {
+    if (page == lastPage+1) {
         nextPage = page;
     }
 
@@ -115,33 +118,29 @@ APP.fillCatalog = function (order, page) {
     		// hide all links when no pages or only page
     		$(v).hide();
     	} else {
-	    	if (i > lastPage) {
+	    	if (i > lastPage+1) {
 	    		if (v.id) {
 	    			// hide page numbers out of range
 	    			$(v).hide();
-	    		} else {
-	    			if (nextPage >= lastPage) {
-	    				// on last link page hide next link
-	    				$(v).hide();
-	    			} else {
-	    				// on other link page show next link
-	    				$(v).show();
-	    			}
 	    		}
-	    	} else {
-	    		if (!v.id) {
-	    			// nextPage == 1 then first page
-	    			if (nextPage == 1) {
-	    				// when no prev then hide
-	    				$(v).hide();
-	    			} else {
-	    				// when exists prev then show
-	    				$(v).show();
-	    			}
-	    		}
+	    	}
+    		if (v.id == 'catalogPrev') {
+    	    	if (nextPage == 1) {
+    	    		$(v).hide();
+    	    	} else {
+    	    		$(v).show();
+    	    	}
+        	}
+        	if (v.id == 'catalogNext') {
+    	    	if (nextPage == lastPage+1) {
+    	    		$(v).hide();
+    	    	} else {
+    	    		$(v).show();
+    	    	}
+        	}
 	        if (i === 0) {
 	            v.href = 'javascript:APP.fillCatalog(null,' + prevPage + ');';
-	        } else if (i > lastPage) {
+	        } else if (i > lastPage+1) {
 	            v.href = 'javascript:APP.fillCatalog(null,' + nextPage + ');';
 	        } else {
 	            if (i === page + 1) {
