@@ -19,6 +19,7 @@ APP.addData('catalog', [
         {%- set author_url = p['Authors'][0]['ContributorURL'] -%}
     {%- else -%}
         {%- set author = '' -%}
+        {%- set author_url = '' -%}
     {%- endif -%}
 [
 {{ p['EntityId'] }},
