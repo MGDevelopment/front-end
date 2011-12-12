@@ -1,6 +1,11 @@
 {% extends "page.html" %}
 
-{%- set section_name = d['Title'].decode('utf-8')|lower -%}
+{%- set section_name = d.Title.decode('utf-8') -%}
+{%- set subsection_name = d.Path[-1].Nombre.decode('utf-8') -%}
+
+{% block head_title %}
+	<title>{{ subsection_name }} - Venta de {{ section_name }}</title>
+{% endblock %}
 
 {% block head_extra %}
     <link type="text/css" rel="stylesheet" href="{{ url.data }}/stage0/css/jquery.qtip.min.css">
@@ -28,7 +33,7 @@
                     onmouseover="clearTimeout(tempo);"
                     onmouseout="ocultarOpcionesT('listaBuscador');">
 
-{% if section_name == 'libros' %}
+{% if section_name == 'Libros' %}
                     <li>
                         <a id="optBus1" href="javascript:APP.searchShowBy('optBus1','optBusqueda','listaBuscador','1','1','En Libros');">T&iacute;tulo</a>
                     </li>
@@ -42,7 +47,7 @@
                         <a id="optBus4" href="javascript:APP.searchShowBy('optBus4','optBusqueda','listaBuscador', '1', '1','En Peliculas');">ISBN</a>
                     </li>
 
-{% elif section_name == 'musica' %}
+{% elif section_name == 'Musica' %}
 
 <li><a id="optBus1"  href="javascript:mostrarBuscarPor('optBus1','optBusqueda','listaBuscador','4','4','En Musica');">T&iacute;tulo</a></li>
 
@@ -54,7 +59,7 @@
 
 <li><a id="optBus5"  href="javascript:mostrarBuscarPor('optBus5','optBusqueda','listaBuscador','4','4','En Musica');">Palabra Clave</a></li>
 
-{% elif section_name == 'peliculas' %}
+{% elif section_name == 'Peliculas' %}
 
 <li><a id="optBus1"  href="javascript:mostrarBuscarPor('optBus1','optBusqueda','listaBuscador','5','5','En Peliculas');">Título</a></li>
 
@@ -64,7 +69,7 @@
 
 <li><a id="optBus5"  href="javascript:mostrarBuscarPor('optBus5','optBusqueda','listaBuscador','5','5','En Peliculas');">Palabra Clave</a></li>
 
-{% elif section_name == 'pasatiempos' %}
+{% elif section_name == 'Pasatiempos' %}
 
 
 <li><a id="optBus1"  href="javascript:mostrarBuscarPor('optBus1','optBusqueda','listaBuscador','3','3','En Pasatiempos');">Título</a></li>
@@ -110,7 +115,9 @@
         <div id="showcase">
             {% include "subject/showcase.html" %}
         </div>
-        <div id="catalogSection" style="width: 650px; float: right; position: static;"></div>
+        {%- if d.Products|length > 0-%}
+            {% include "subject/catalog.html" %}
+        {%- endif -%}
 
         <div id="comments">
             {% include "fragments/comments.html" %}

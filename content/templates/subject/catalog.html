@@ -1,0 +1,255 @@
+<div style="width: 650px; float: right; position:static;">
+  <table width="600" border="0" cellpadding="0" cellspacing="0"
+      class="Gtablacontenido" align="center">
+  <tbody>
+  <tr>
+    <td class="Gcentro" width="422">
+      <table width="390" border="0" align="center" cellpadding="0"
+          cellspacing="0">
+      <tbody>
+      <tr>
+        <td>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div style="margin-top:10px">
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          &nbsp;
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div align="center">
+            <table width="390" border="0" cellspacing="0" cellpadding="0"
+                class="modulobuscador">
+            <tbody>
+            <tr>
+              <td>
+                <table width="390" border="0" cellspacing="0" cellpadding="0">
+                <tbody>
+                <tr class="modulosmedio">
+                  <td>
+                    <table width="390" border="0" cellspacing="0"
+                        cellpadding="0" class="titulosceldastabla">
+                    <tbody>
+                    <tr>
+                      <td class="titulosceldas">
+                        <table width="390" border="0" cellpadding="0"
+                            cellspacing="0" class="titulosceldas2">
+                        <tbody>
+                        <tr>
+                          <td>
+                            <img src="{{ url.images }}/imagenes/libros/t-otrostitulos.gif"
+                                alt="Otros títulos">
+                          </td>
+                        </tr>
+                        </tbody>
+                        </table>
+                      </td>
+                    </tr>
+                    </tbody>
+                    </table>
+                  </td>
+                </tr>
+                </tbody>
+                </table>
+              </td>
+            </tr>
+{%- set section         = d.Categoria_Seccion -%}
+{%- set section_name    = d.Title.decode('utf-8') -%}
+{%- set subsection_name = d.Path[-1].Nombre.decode('utf-8') -%}
+{%- set cat_group       = d.Categoria_Grupo -%}
+{%- set per_page        = 20 -%}
+{%- set p_count         = d.Products|length -%}
+{%- if p_count < 20 %}
+    {%- set per_page = p_count -%}
+{%- endif -%}
+{% for i in range(per_page) %}
+    {%- set p = d.Products[i] -%}
+    {%- if p['Authors'] and p['Authors'][0]|length > 0 -%}
+        {%- set author = p.Authors[0].ContributorName.decode('utf-8')|e -%}
+        {%- set author_url = p.Authors[0].ContributorURL -%}
+    {%- else -%}
+        {%- set author = '' -%}
+        {%- set author_url = '' -%}
+    {%- endif -%}
+    {%- set p_id    = p.EntityId -%}
+    {%- set p_cover = url.images + p.CoverSmall -%}
+    {%- set p_title = p.Title.decode('utf-8')|e -%}
+    {%- set p_url   = p.LinkBase + '.htm' -%}
+    {%- set p_rank  = p.Row_Number|int -%}
+    {%- set p_price = p.PriceAmount -%}
+    {%- set p_date  = p.PublishingDateValue -%}
+            <tr>
+              <td>
+                <table width="390" border="0" cellspacing="0" cellpadding="0"
+                    class="moduleproductob">
+                <tbody>
+                <tr>
+                  <td>
+                    <table width="390" border="0" cellspacing="0"
+                        cellpadding="0">
+                    <tbody>
+                    <tr>
+                      <td width="82" rowspan="5" class="celdafoto">
+                        <a href="{{ p_url }}">
+                        <img src="{{ p_cover }}" width="45" height="68"
+                            border="0" class="Gimagesproductos"
+                            alt="{{ p_title }}">
+                        </a>
+                      </td>
+                      <td colspan="3" valign="top" class="celdacontenido">
+                        <a href="{{ p_url }}" class="FProductos">{{ p_title}}</a><br>
+                        <a href="{{ author_url }}" class="Fautores">{{ author }}</a><br>
+                        <a href="/buscador/productos.jsp?seccion={{ section }}&amp;idSeccion={{ section }}&amp;criterioDeOrden=6&amp;claveDeBusqueda=porCategorias&amp;texto={{ subsection_name|replace(' ','+')|e }}&amp;grupo={{ cat_group }}" class="Fautores">Subcategoria</a>&nbsp;<span class="Fprecio">{{ subsection_name }}</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td width="201" valign="bottom" class="celdapreciocomprar">
+                        <div align="left">
+                          <span class="Fprecio">PRECIO: $ {{ p_price }}.-</span>
+                        </div>
+                      </td>
+                      <td valign="bottom">
+                        <div align="right">
+                          <table width="2" border="0" cellspacing="0" cellpadding="0">
+                          <tbody>
+                          <tr>
+                            <td height="19" class="divInfo">
+                              <a href="{{ p_url }}" class="FProductos"><img src="{{ url.images }}/imagenes/libros/b-info.gif" alt="{{ author }} - {{ p_title }}" title="{{ author }} - {{ p_title }}" border="0"></a>
+                            </td>
+                            <td class="divComprarPedir">
+                              <a href="javascript:APP.cartAdd('+e[pProductId]+');window.scrollTo(0,0);" rel="nofollow">
+                                <img src="{{ url.images }}/imagenes/libros/b-comprar.gif"
+                                    alt="Comprar" border="0">
+                              </a>
+                            </td>
+                          </tr>
+                          </tbody>
+                          </table>
+                        </div>
+                      </td>
+                    </tr>
+                    </tbody>
+                    </table>
+                  </td>
+                </tr>
+                </tbody>
+                </table>
+              </td>
+            </tr>
+{% endfor %}
+            <tr>
+              <td class="celdapaginas">
+                <a href="javascript:APP.fillCatalog(null,0)" class="FAyuda">Anterior</a>
+                <span class="Ftexto05"> |</span>
+{#- set pages = (p_count/per_page)|round(0, 'ceil')|int -#}
+{%- set pages = 10 -%}
+                <a href="javascript:APP.fillCatalog(null,0)" class="FAyuda"
+                    style="font-weight: bolder;">1</a>
+{% for i in range(1, pages - 1) %}
+                <a href="javascript:APP.fillCatalog(null,{{ i }})" class="FAyuda">{{ i + 1 }}</a>
+{% endfor %}
+                <span class="Ftexto05">| </span><a href="javascript:APP.fillCatalog(null,{{ 1 }})" class="FAyuda">Siguiente</a>
+              </td>
+            </tr>
+            </tbody>
+            </table>
+          </div>
+        </td>
+      </tr>
+      </tbody>
+      </table>
+    </td>
+    <td class="Gbarraderecha" width="162">
+      <table width="155" border="0" cellspacing="0" cellpadding="0">
+      <tbody>
+      <tr class="">
+        <td>
+          <table width="155" border="0" cellspacing="0" cellpadding="0" class="moduloorden" style="margin-bottom:15px">
+          <tbody>
+          <tr>
+            <td>
+              <table border="0" cellspacing="0" cellpadding="0">
+              <tbody>
+              <tr>
+                <td>
+                  <span class="Ftexto02">ORDENAR T&Iacute;TULOS POR:</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="moduloordencelda">
+                  <span class="Ftexto02">
+                    <a href="javascript:APP.fillCatalog('rank');"
+                        class="Flink02"
+                        rel="nofollow">- Los m&aacute;s vendidos</a></span>
+                </td>
+              </tr>
+              <tr>
+                <td class="moduloordencelda">
+                  <span class="Ftexto02">
+                    <a href="javascript:APP.fillCatalog('price-low');"
+                        class="Flink02" rel="nofollow">- Precio de venta<br>
+                      (+económicos primeros)</a></span>
+                </td>
+              </tr>
+              <tr>
+                <td class="moduloordencelda">
+                  <span class="Ftexto02">
+                    <a href="javascript:APP.fillCatalog('date-low');"
+                        class="Flink02" rel="nofollow">- Fecha de aparición<br>
+                      (+antiguos primeros)</a></span>
+                </td>
+              </tr>
+              <tr>
+                <td class="moduloordencelda">
+                  <span class="Ftexto02">
+                    <a href="javascript:APP.fillCatalog('date-high');"
+                        class="Flink02" rel="nofollow">- Fecha de aparición<br>
+                      (+recientes primeros)</a></span>
+                </td>
+              </tr>
+              <tr>
+                <td class="moduloordencelda">
+                  <span class="Ftexto02">
+                    <a href="javascript:APP.fillCatalog('price-high');"
+                        class="Flink02" rel="nofollow">- Precio de venta<br>
+                      (+costosos primeros)</a></span>
+                </td>
+              </tr>
+              <tr>
+                <td class="moduloordencelda">
+                  <span class="Ftexto02">
+                    <a href="javascript:APP.fillCatalog('name-low');"
+                        class="Flink02"
+                        rel="nofollow">- Alfabéticamente (A-Z)</a></span>
+                </td>
+              </tr>
+              <tr>
+                <td class="moduloordencelda">
+                  <span class="Ftexto02">
+                    <a href="javascript:APP.fillCatalog('name-high');"
+                        class="Flink02"
+                        rel="nofollow">- Alfabéticamente (Z-A)</a></span>
+                </td>
+              </tr>
+              </tbody>
+              </table>
+            </td>
+          </tr>
+          </tbody>
+          </table>
+        </td>
+      </tr>
+      </tbody>
+      </table>
+    </td>
+  </tr>
+  </tbody>
+  </table>
+</div>

@@ -40,7 +40,15 @@ APP.addData('catalog', [
 
 APP.fillCatalog = function (order, page) {
 
-    var page = page || 0; {# default page zero #}
+    function strCmp(a,b) {
+        if (a < b) {
+            return -1;
+        } else if (a > b) {
+            return 1;
+        } else {
+            return 0;
+        }
+    }
 
     var c = APP.getData('catalog');
     if (order === 'rank') {
@@ -53,25 +61,32 @@ APP.fillCatalog = function (order, page) {
         c.sort(function (a, b) { return a[pDate]  - b[pDate]; });
     } else if (order === 'date-high') {
         c.sort(function (a, b) { return b[pDate]  - a[pDate]; });
+    } else if (order === 'name-low') {
+        c.sort(function (a, b) { return strCmp(a[pTitle], b[pTitle]); });
+    } else if (order === 'name-high') {
+        c.sort(function (a, b) { return strCmp(b[pTitle], a[pTitle]); });
     }
         /* else keeps last sort */
 
     var pageElems = $('.moduleproductob');
-
     var perPage   = pageElems.length;
+    var lastPage  = Math.ceil(c.length/perPage) - 1;
+    var page = page || 0; /* default page zero */
+    if (page > lastPage)
+        page = lastPage;
     var pageStart = page * perPage;
     var pageEnd   = pageStart + perPage;
-    var elems     = c.slice(pageStart, pageEnd); {# element of this page #}
+    var elems     = c.slice(pageStart, pageEnd); /* element of this page */
 
     pageElems.each(function (i, v) {
 
         if (elems.length <= i)
-            return; /* missing elements to fill, leave rest */
+            i = elems.length - 1; /* repeat last */
 
         var e = elems[i];
         var productLink  = e[pLink] + '.htm';
         $(v).find('.celdafoto a')[0].href   = productLink;
-        $(v).find('.celdafoto img')[0].src  = e[pCover];
+        $(v).find('.celdafoto img')[0].src  = '{{ url.images }}' + e[pCover];
         $(v).find('.celdafoto img')[0].alt  = e[pTitle] + '- tapa';
         $(v).find('.celdacontenido a')[0].innerHTML = e[pTitle];
         $(v).find('.celdacontenido a')[0].href      = productLink;
@@ -83,6 +98,30 @@ APP.fillCatalog = function (order, page) {
         $(v).find('.divInfo a img')[0].title = e[pAuthor] + ' - ' + e[pTitle];
         $(v).find('.divComprarPedir a')[0].href = 'javascript:APP.cartAdd(' + e[pProductId] + ');window.scrollTo(0,0);';
         
+    });
+
+    var prevPage = page - 1;
+    if (page == 0) {
+        prevPage = 0;
+    }
+    var nextPage = page + 1;
+    if (page == lastPage) {
+        nextPage = page;
+    }
+
+    /* first and last links are prev and next */
+    $('.celdapaginas a.FAyuda').each(function (i,v) {
+        if (i === 0) {
+            v.href = 'javascript:APP.fillCatalog(null,' + prevPage + ');';
+        } else if (i > lastPage) {
+            v.href = 'javascript:APP.fillCatalog(null,' + nextPage + ');';
+        } else {
+            if (i === page + 1) {
+                $(v).css({'font-weight' : 'bolder'});
+            } else {
+                $(v).css({'font-weight' : 'normal'});
+            }
+        }
     });
 
 };
