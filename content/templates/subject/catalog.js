@@ -140,7 +140,7 @@ APP.fillCatalog = function (order, page) {
         	}
 	        if (i === 0) {
 	            v.href = 'javascript:APP.fillCatalog(null,' + prevPage + ');';
-	        } else if (i > lastPage+1) {
+	        } else if (i > lastPage) {
 	            v.href = 'javascript:APP.fillCatalog(null,' + nextPage + ');';
 	        } else {
 	            if (i === page + 1) {
