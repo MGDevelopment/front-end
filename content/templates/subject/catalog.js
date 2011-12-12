@@ -111,6 +111,20 @@ APP.fillCatalog = function (order, page) {
 
     /* first and last links are prev and next */
     $('.celdapaginas a.FAyuda').each(function (i,v) {
+    	if (i > lastPage) {
+    		if (v.id) {
+    			// hide page numbers out of range
+    			$(v).hide();
+    		} else {
+    			if (nextPage >= lastPage) {
+    				// on last link page hide next link
+    				$(v).hide();
+    			} else {
+    				// on other link page show next link
+    				$(v).show();
+    			}
+    		}
+    	}
         if (i === 0) {
             v.href = 'javascript:APP.fillCatalog(null,' + prevPage + ');';
         } else if (i > lastPage) {
