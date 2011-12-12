@@ -1,42 +1,80 @@
 {%- import 'macros/catalog.html' as render -%}
-/**
-* 	- catalog/section.js
-* expected keys:
-* 	- OPT1 = MAS_VENDIDOS
-* 	- OPT2 = PRECIO_VENTA_1 + economicos primero
-* 	- OPT3 = FECHA_APARICION_1 + antiguos primero
-* 	- OPT4 = FECHA_APARICION_2 + recientes primero
-* 	- OPT5 = PRECIO_VENTA_2 + costosos primero
-* 	- OPT6 = ALFABETICAMENTE_AZ
-* 	- OPT7 = ALFABETICAMENTE_ZA
-*
-* TODO:
-* 	- maxItemPage
-* 	- order
-* 	- articles
-*/
-var dataCatalog = {};
+(function () {
 
-{%- for item in data -%}
-	dataCatalog['{{ item }}'] = '{{ render.renderCatalog(data[item].maxItemPage, data[item].order, data[item].articles)|replace("\n", "") }}';
+var pProductId = 0,
+    pCover     = 1,
+    pTitle     = 2,
+    pLink      = 3,
+    pAuthor    = 4,
+    pAuthorUrl = 5,
+    pRank      = 6,
+    pPrice     = 7,
+    pDate      = 8;
+
+APP.addData('catalog', [
+
+{%- for p in d['Products'] -%}
+    {%- if p['Authors'] and p['Authors'][0]|length > 0 -%}
+        {%- set author = p['Authors'][0]['ContributorName'].decode('utf-8')|e -%}
+        {%- set author_url = p['Authors'][0]['ContributorURL'] -%}
+    {%- else -%}
+        {%- set author = '' -%}
+    {%- endif -%}
+[
+{{ p['EntityId'] }},
+'{{ p['CoverSmall'] }}',
+'{{ p['Title'].decode('utf-8')|e }}',
+'{{ p['LinkBase'] }}',
+'{{ author }}',
+'{{ author_url }}',
+{{ p['Row_Number']|int }},
+{{ p['PriceAmount'] }},
+{{ p['PublishingDateValue'] }}
+]
+{%- if loop.index < loop.length -%}
+,
+{%- endif -%}
 {%- endfor %}
+]);
 
-function loadCatalog() {
-	APP.addData('catalog', dataCatalog);
-	return;
-}
+APP.fillCatalog = function (order) {
 
-var callBackCatalog = function (order) {
-{%- for item in data -%}
-	if (order == '{{ item }}') {
-		document.getElementById('{{ item }}OFF').style.display = 'block';
-		document.getElementById('{{ item }}ON').style.display = 'none';
-	} else {
-		document.getElementById('{{ item }}OFF').style.display = 'none';
-		document.getElementById('{{ item }}ON').style.display = 'block';
-	}
-{%- endfor %}
-	return;
-}
-loadCatalog();
+    var c = APP.getData('catalog');
+    if (order === 'rank') {
+        c.sort(function (a, b) { return a[pRank]  - b[pRank]; });
+    } else if (order === 'price-low') {
+        c.sort(function (a, b) { return a[pPrice] - b[pPrice]; });
+    } else if (order === 'price-high') {
+        c.sort(function (a, b) { return b[pPrice] - a[pPrice]; });
+    } else if (order === 'date-low') {
+        c.sort(function (a, b) { return a[pDate]  - b[pDate]; });
+    } else if (order === 'date-high') {
+        c.sort(function (a, b) { return b[pDate]  - a[pDate]; });
+    } else {
+        alert('fillCatalog: bad sort error');
+    }
 
+    var pageElems = $('.moduleproductob');
+    var elems = c.slice(0, pageElems.length);
+
+    pageElems.each(function (i, v) {
+        var e    = c[i];
+        var productLink  = e[pLink] + '.htm';
+        $(v).find('.celdafoto a')[0].href   = productLink;
+        $(v).find('.celdafoto img')[0].src  = e[pCover];
+        $(v).find('.celdafoto img')[0].alt  = e[pTitle] + '- tapa';
+        $(v).find('.celdacontenido a')[0].innerHTML = e[pTitle];
+        $(v).find('.celdacontenido a')[0].href      = productLink;
+        $(v).find('.celdacontenido a')[1].innerHTML = e[pAuthor];
+        $(v).find('.celdacontenido a')[1].href      = e[pAuthorUrl];
+        $(v).find('.celdapreciocomprar .Fprecio')[0].innerHTML = 'Precio $ ' + e[pPrice] + '.-';
+        $(v).find('.divInfo a')[0].href    = productLink;
+        $(v).find('.divInfo a img')[0].alt = e[pTitle];
+        $(v).find('.divInfo a img')[0].title = e[pAuthor] + ' - ' + e[pTitle];
+        $(v).find('.divComprarPedir a')[0].href = 'javascript:APP.cartAdd(' + e[pProductId] + ');window.scrollto(0,0);';
+        
+    });
+
+};
+
+}());
