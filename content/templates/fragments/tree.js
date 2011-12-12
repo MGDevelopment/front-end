@@ -23,8 +23,7 @@ function fillTree(divName, callback) {
 	$("#tree").treeview({
 		'cookieId': "TMKtreeview-black",
 		collapsed: true,
-		unique: true,
-		//persist: "cookie"
+		unique: true
 	});
 
 	{%- if d.Categoria_Grupo > 0 -%}
