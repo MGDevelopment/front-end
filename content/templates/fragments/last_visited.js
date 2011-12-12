@@ -63,10 +63,10 @@ function addLastVisited(article) {
 	// create cookie
 	setArticle(_cookieLastVisitedName1, article1);
 	if (article2) {
-		setArticle(_cookieLastVisitedName2, article2)
+		setArticle(_cookieLastVisitedName2, article2);
 	}
 	if (article3) {
-		setArticle(_cookieLastVisitedName3, article3)
+		setArticle(_cookieLastVisitedName3, article3);
 	}
 	return;
 }
