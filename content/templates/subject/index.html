@@ -2,6 +2,11 @@
 
 {%- set section_name = d.Title.decode('utf-8') -%}
 {%- set subsection_name = d.Path[-1].Nombre.decode('utf-8') -%}
+{%- if d.Path and d.Path|length == 1 -%}
+    {%- set section_page = true -%}
+{%- else -%}
+    {%- set section_page = false -%}
+{%- endif -%}
 
 {% block head_title %}
 	<title>{{ subsection_name }} - Venta de {{ section_name }}</title>
@@ -115,9 +120,9 @@
         <div id="showcase">
             {% include "subject/showcase.html" %}
         </div>
-        {%- if d.Products|length > 0-%}
+        {# if not section_page #}
             {% include "subject/catalog.html" %}
-        {%- endif -%}
+        {# endif #}
 
         <div id="comments">
             {% include "fragments/comments.html" %}
