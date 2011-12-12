@@ -55,6 +55,7 @@ APP.fillCatalog = function (order, page) {
         c.sort(function (a, b) { return b[pDate]  - a[pDate]; });
     } else {
         alert('fillCatalog: bad sort error');
+        return;
     }
 
     var pageElems = $('.moduleproductob');
