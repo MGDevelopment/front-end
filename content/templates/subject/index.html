@@ -126,9 +126,11 @@
         {# if not section_page #}
             {% include "subject/catalog.html" %}
         {# endif #}
-        <div class="lastvisited"> {{ lastvisited }} </div>
+        <div id="lastvisited"
+                style="width: 900px; padding-top: 10px; float: left;">
+            {% include "fragments/last_visited.html" %}
+        </div>
     </div>
-    <div id="rightmenu"> {{ rightmenu }} </div>
 </div>
 
 {%- endblock %}
