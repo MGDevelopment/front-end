@@ -120,12 +120,12 @@
         <div id="showcase">
             {% include "subject/showcase.html" %}
         </div>
-        <div id="comments">
-            {% include "fragments/comments.html" %}
-        </div>
         {# if not section_page #}
             {% include "subject/catalog.html" %}
         {# endif #}
+        <div id="comments">
+            {% include "fragments/comments.html" %}
+        </div>
         <div id="lastvisited"
                 style="width: 900px; padding-top: 10px; float: left;">
             {% include "fragments/last_visited.html" %}
