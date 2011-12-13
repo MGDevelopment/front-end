@@ -320,6 +320,9 @@ Where parameters can be one of:
 
 - list the queue
     "list"
+
+- regenerate the related files for all products
+    "related"
 """
 
     return 0
@@ -350,6 +353,86 @@ def cmd_list():
 #########################################################
 #########################################################
 #
+# COMMAND - RELATED
+#
+def cmd_related():
+    """Regenerate the related documents for Products"""
+
+    print "Retrieving the Products with Relations"
+
+    # get a cursor
+    conn = ecommerce.db.getConnection()
+    cursor = conn.cursor()
+
+    # execute the query
+    cursor.execute("""
+SELECT          DISTINCT AR.Id_Articulo
+    FROM        RCO_Articulos_Relacionados AR
+    WHERE       AR.Id_Articulo IN (
+                    SELECT      A.Id_Articulo
+                        FROM    Articulos A
+                        WHERE   A.Categoria_Seccion IN (1, 3, 4, 5) AND
+                                A.Activo = 'SI' AND
+                                A.Habilitado_Tematika = 'S')
+    ORDER BY    AR.Id_Articulo DESC
+""")
+
+    # fetch the ids
+    elist = [ ]
+    row = cursor.fetchone()
+    while row is not None:
+        elist.append(int(row[0]))
+        row = cursor.fetchone()
+    cursor.close()
+    conn.close()
+
+    # get a producer
+    producer = getProducer()
+
+    # start creating jobs (of up to 256 entries each)
+    jobCount = 0
+    jlist = [ ]
+    for e in elist:
+        # append the entity
+        jlist.append( [ "PROD", e ] )
+
+        # if max number of entities reached, send job
+        if len(jlist) == maxEntities:
+
+            # create the job
+            job = jobs.encode(jobs.generate(jlist, "related"))
+
+            # get an item, set content and make it ready
+            item = producer.item()
+            item.content = job
+            producer.ready(item)
+            jobCount += 1
+
+            # new list
+            jlist = [ ]
+
+    # if list not empty, send job
+    if len(jlist) > 0:
+
+        # create the job
+        job = jobs.encode(jobs.generate(jlist, "related"))
+
+        # get an item, set content and make it ready
+        item = producer.item()
+        item.content = job
+        producer.ready(item)
+        jobCount += 1
+
+    # report the number of jobs created
+    print "Put %d jobs in queue" % jobCount
+
+    return 0
+
+
+
+#########################################################
+#########################################################
+#
 # MAIN FUNCTION
 #
 commands = {
@@ -360,6 +443,7 @@ commands = {
     "exit"          : cmd_exit,
     "help"          : cmd_help,
     "list"          : cmd_list,
+    "related"       : cmd_related,
     "__default__"   : cmd_help
 }
 
