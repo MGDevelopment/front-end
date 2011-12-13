@@ -333,7 +333,7 @@ documentos = [
             "Content-Encoding"  : "gzip",
             "Cache-Control"     : "max-age=3600, must-revalidate"
         },
-        "target.path"   : "/jugetes/index.html",
+        "target.path"   : "/juguetes/index.html",
         "target.repo"   : "dynamic"
     },
 
