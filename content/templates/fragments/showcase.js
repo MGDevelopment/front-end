@@ -8,7 +8,7 @@ APP.setTips = function () {
         position: {
             my: 'left center',
             at: 'right center',
-            viewport: $(this)
+            viewport: $('#tmtkMesa')
             },
         style: {
             classes: 'ui-tooltip-rounded ui-tooltip-light',
