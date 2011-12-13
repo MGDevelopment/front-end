@@ -1,5 +1,9 @@
 {% extends "page.html" %}
 
+{% block head_canonical %}
+    <link rel="canonical" href="http://{{ url.cannonical }}">
+{% endblock %}
+
 {% block head_extra %}
     <link type="text/css" rel="stylesheet" href="{{ url.data }}/stage0/css/jquery.qtip.min.css">
     <link type="text/css" rel="stylesheet" href="{{ url.data }}/stage0/css/tinycarousel.css">

@@ -12,6 +12,10 @@
 	<title>{{ subsection_name }} - Venta de {{ section_name }}</title>
 {% endblock %}
 
+{% block head_canonical %}
+    <link rel="canonical" href="http://{{ url.cannonical }}.htm">
+{% endblock %}
+
 {% block head_extra %}
     <link type="text/css" rel="stylesheet" href="{{ url.data }}/stage0/css/jquery.qtip.min.css">
     <link type="text/css" rel="stylesheet" href="{{ url.data }}/stage0/css/jquery.treeview.css">
