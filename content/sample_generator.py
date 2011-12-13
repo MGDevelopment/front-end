@@ -12,6 +12,7 @@ import sample.sample_data_games_3
 import sample.sample_data_music_4
 import sample.sample_data_movies_5
 import sample.sample_product_book_413418
+import sample.sample_product_book_465771
 import sample.sample_product_music_530185
 
 
@@ -467,6 +468,21 @@ documentos = [
            "Cache-Control"     : "max-age=3600, must-revalidate"
        },
        "target.path"   : "/libros/ciencias_de_la_salud__naturales_y_divulgacion_cientifica--7/divulgacion_cientifica--1/en_general--1/matematica___estas_ahi_sobre_numeros__personajes__problemas_y_curiosidades--413418.htm",
+       "target.repo"   : "dynamic"
+   },
+########## prouct page
+   {
+       "EntityType"    : "PAGE",
+       "EntityId"      : 1,
+       "dataset"       : "main",          "_data" : sample.sample_product_book_465771.products_465771_main,
+                                              "_url"  : homeURL,
+       "template"      : "product/index.html",
+       "headers"       : {
+           "Content-Type"      : "text/html",
+           "Content-Encoding"  : "gzip",
+           "Cache-Control"     : "max-age=3600, must-revalidate"
+       },
+       "target.path"   : "/libros/ficcion_y_literatura--1/novelas--1/general--1/comer__rezar__amar--465771.htm",
        "target.repo"   : "dynamic"
    },
               #
