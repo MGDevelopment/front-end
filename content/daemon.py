@@ -216,7 +216,9 @@ def daemon(config, prefix, queue):
             if jobType not in jobTypes:
                 handled = False
             else:
+                tStart  = time.time()
                 handled = jobTypes[jobType](item.id, job)
+                tEnd    = time.time()
 
             # mark as done or error
             if handled:
@@ -225,6 +227,7 @@ def daemon(config, prefix, queue):
             else:
                 logger.info("Job %s processed with ERROR", item.id)
                 queue.error(item)
+            logger.info("Took %3f seconds to complete job", tEnd - tStart)
         else:
             logger.debug("Job Queue empty")
 

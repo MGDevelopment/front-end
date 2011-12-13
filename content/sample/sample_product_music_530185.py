@@ -175,8 +175,8 @@ products_530185_main = {   'Archivo_Imagen': 'T',
                            'Orden': 2.0,
                            'ProductId': Decimal('530185')}],
     'ImprintId': Decimal('50003'),
-    'ImprintName': 'Emi - Ode\xc3\x83\xc2\xbfN',
-    'ImprintURL': '/buscador/productos.jsp?claveDeBusqueda=porIDdeEditorial&criterioDeOrden=2&idSeccion=4&texto=Emi+-+Ode%C3%83%C2%BFN&seccion=4&idEditor=50003',
+    'ImprintName': 'Emi - Ode\xc3\xa3\xc2\xbfN',
+    'ImprintURL': '/buscador/productos.jsp?claveDeBusqueda=porIDdeEditorial&criterioDeOrden=2&idSeccion=4&texto=Emi+-+Ode%C3%A3%C2%BFN&seccion=4&idEditor=50003',
     'LanguageCode': 'ES',
     'LanguageCode_desc': None,
     'LanguageCode_list': 'ONIX.74',
@@ -252,5 +252,5 @@ products_530185_price = {   'Categoria_Familia': Decimal('1'),
     'ProductForm_desc': 'Cd Musical',
     'ProductForm_list': 'ONIX.150',
     'ProductId': Decimal('530185'),
-    'eXtraPoints': 276.0}
+    'eXtraPoints': '276'}
 

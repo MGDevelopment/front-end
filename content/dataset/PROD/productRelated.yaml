@@ -1,5 +1,42 @@
 ﻿---
 
+####
+#### JLUIS - TODO - FIX PERFORMANCE
+####
+#### Change the 3:
+####
+####    RCO.Cant_Comprobantes >= 1 AND
+####
+#### by
+####
+####    RCO.Cant_Comprobantes >=
+####            GET_RECO_UMBRAL_CATEGORIA(ART.Categoria_Seccion,
+####                                      ART.Categoria_Grupo,
+####                                      ART.Categoria_Familia,
+####                                      ART.Categoria_Subfamilia,
+####                                      NULL,
+####                                      ART.Fecha_Alta) AND
+####
+
+####
+#### JLUIS - TODO - FIX PERFORMANCE
+####
+#### Removed from related main query and from extra data subqueries:
+####
+####    UNION
+####    SELECT      RCO.Id_Articulo_Relacionado,
+####                RCO.Cant_Comprobantes,
+####                RCO.Id_Articulo
+####        FROM    Articulos ARR, RCO_Articulos_Relacionados RCO
+####        WHERE   ARR.Activo = 'SI' AND
+####                ARR.Id_Articulo = RCO.Id_Articulo_Relacionado AND
+####                RCO.Tipo_Relacion = 'M' AND
+####                {{ID:Id_Articulo}} AND
+####                NVL(RCO.Fecha_Expiracion, SYSDATE + 1) >= SYSDATE AND
+####                ARR.Habilitado_Tematika = 'S' AND
+####                ARR.Categoria_Seccion IN (1, 3, 4, 5)
+####
+
 #
 # the Ratings query
 #
@@ -27,27 +64,9 @@ augment_query_related_rating:  &augment_query_related_rating
                                                     WHERE   ARR.Activo = 'SI' AND
                                                             ARR.Id_Articulo = RCO.Id_Articulo_Relacionado AND
                                                             ART.Id_Articulo  = RCO.Id_Articulo AND
-                                                            RCO.Cant_Comprobantes >=
-                                                                    GET_RECO_UMBRAL_CATEGORIA(ART.Categoria_Seccion,
-                                                                                              ART.Categoria_Grupo,
-                                                                                              ART.Categoria_Familia,
-                                                                                              ART.Categoria_Subfamilia,
-                                                                                              NULL,
-                                                                                              ART.Fecha_Alta) AND
+                                                            RCO.Cant_Comprobantes >= 1 AND
                                                             RCO.Tipo_Relacion = 'C' AND
                                                             {{ID:Id_Articulo}} AND
-                                                            ARR.Habilitado_Tematika = 'S' AND
-                                                            ARR.Categoria_Seccion IN (1, 3, 4, 5)
-                                                UNION
-                                                SELECT      RCO.Id_Articulo_Relacionado,
-                                                            RCO.Cant_Comprobantes,
-                                                            RCO.Id_Articulo
-                                                    FROM    Articulos ARR, RCO_Articulos_Relacionados RCO
-                                                    WHERE   ARR.Activo = 'SI' AND
-                                                            ARR.Id_Articulo = RCO.Id_Articulo_Relacionado AND
-                                                            RCO.Tipo_Relacion = 'M' AND
-                                                            {{ID:Id_Articulo}} AND
-                                                            NVL(RCO.Fecha_Expiracion, SYSDATE + 1) >= SYSDATE AND
                                                             ARR.Habilitado_Tematika = 'S' AND
                                                             ARR.Categoria_Seccion IN (1, 3, 4, 5)
                                             )
@@ -104,27 +123,9 @@ augment_query_related_authors:  &augment_query_related_authors
                                                     WHERE   ARR.Activo = 'SI' AND
                                                             ARR.Id_Articulo = RCO.Id_Articulo_Relacionado AND
                                                             ART.Id_Articulo  = RCO.Id_Articulo AND
-                                                            RCO.Cant_Comprobantes >=
-                                                                    GET_RECO_UMBRAL_CATEGORIA(ART.Categoria_Seccion,
-                                                                                              ART.Categoria_Grupo,
-                                                                                              ART.Categoria_Familia,
-                                                                                              ART.Categoria_Subfamilia,
-                                                                                              NULL,
-                                                                                              ART.Fecha_Alta) AND
+                                                            RCO.Cant_Comprobantes >= 1 AND
                                                             RCO.Tipo_Relacion = 'C' AND
                                                             {{ID:Id_Articulo}} AND
-                                                            ARR.Habilitado_Tematika = 'S' AND
-                                                            ARR.Categoria_Seccion IN (1, 3, 4, 5)
-                                                UNION
-                                                SELECT      RCO.Id_Articulo_Relacionado,
-                                                            RCO.Cant_Comprobantes,
-                                                            RCO.Id_Articulo
-                                                    FROM    Articulos ARR, RCO_Articulos_Relacionados RCO
-                                                    WHERE   ARR.Activo = 'SI' AND
-                                                            ARR.Id_Articulo = RCO.Id_Articulo_Relacionado AND
-                                                            RCO.Tipo_Relacion = 'M' AND
-                                                            {{ID:Id_Articulo}} AND
-                                                            NVL(RCO.Fecha_Expiracion, SYSDATE + 1) >= SYSDATE AND
                                                             ARR.Habilitado_Tematika = 'S' AND
                                                             ARR.Categoria_Seccion IN (1, 3, 4, 5)
                                             )
@@ -313,27 +314,9 @@ query_unified:  &query_unified
                                     WHERE   ARR.Activo = 'SI' AND
                                             ARR.Id_Articulo = RCO.Id_Articulo_Relacionado AND
                                             ART.Id_Articulo  = RCO.Id_Articulo AND
-                                            RCO.Cant_Comprobantes >=
-                                                    GET_RECO_UMBRAL_CATEGORIA(ART.Categoria_Seccion,
-                                                                              ART.Categoria_Grupo,
-                                                                              ART.Categoria_Familia,
-                                                                              ART.Categoria_Subfamilia,
-                                                                              NULL,
-                                                                              ART.Fecha_Alta) AND
+                                            RCO.Cant_Comprobantes >= 1 AND
                                             RCO.Tipo_Relacion = 'C' AND
                                             {{ID:Id_Articulo}} AND
-                                            ARR.Habilitado_Tematika = 'S' AND
-                                            ARR.Categoria_Seccion IN (1, 3, 4, 5)
-                                UNION
-                                SELECT      RCO.Id_Articulo_Relacionado,
-                                            RCO.Cant_Comprobantes,
-                                            RCO.Id_Articulo
-                                    FROM    Articulos ARR, RCO_Articulos_Relacionados RCO
-                                    WHERE   ARR.Activo = 'SI' AND
-                                            ARR.Id_Articulo = RCO.Id_Articulo_Relacionado AND
-                                            RCO.Tipo_Relacion = 'M' AND
-                                            {{ID:Id_Articulo}} AND
-                                            NVL(RCO.Fecha_Expiracion, SYSDATE + 1) >= SYSDATE AND
                                             ARR.Habilitado_Tematika = 'S' AND
                                             ARR.Categoria_Seccion IN (1, 3, 4, 5)
                             )

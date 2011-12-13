@@ -180,6 +180,21 @@ documents = {
             "target.path"   : [ "{{cannonical}}/index.htm" ],
             "target.repo"   : "dynamic"
         },
+
+        ####################### catalog
+        {
+            "name"          : "subject-catalog",
+            "dataset"       : "subjectData",
+            "template"      : "subject/catalog.js",
+            "headers"       : {
+                "Content-Type"      : "text/javascript",
+                "Content-Encoding"  : "gzip",
+                "Cache-Control"     : "max-age=3600, must-revalidate"
+            },
+            "tags"          : [ "main" ],
+            "target.path"   : "/catalog/{{cannonical}}.js",
+            "target.repo"   : "static"
+        },
         ####################### showcase
         {
             "name"          : "subject-showcase",

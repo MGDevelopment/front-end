@@ -382,11 +382,12 @@ query.sql:          >
         INNER JOIN  Editores E
             ON      A.Id_Editor = E.Id_Editor
         -------------- main condition
-        WHERE       {{ID:Id_Articulo}}
+        WHERE       {{ID:Id_Articulo#BETWEEN}}
         ORDER BY    A.Id_Articulo
 query.prefix:       A
 query.id:           [ "Id_Articulo" ]
 query.key:          [ "ProductId" ]
+query.filter:       "ProductId"
 query.columns:      [ "EntityType", "EntityId", "ProductId", "LinkBase",
                       "CoverSmall", "CoverSmallGeneric", "CoverLarge", "Title",
                       "Rating", "CommentCount", "ImprintId", "ImprintName",
