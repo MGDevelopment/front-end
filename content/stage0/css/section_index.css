@@ -1,0 +1,52 @@
+/* section_start.css */
+#seccionTematika {
+width:906px;
+z-index:100;
+background-image:url(/imagenes/rediseno/imagenes/seccionTematika/tmtkMesaNovedades-back.jpg);
+background-repeat:no-repeat;
+}
+
+#panelSeccSucursales,#panelSeccQuid,#panelSeccExtra {
+width:17px;
+background-image:url(/imagenes/rediseno/imagenes/comun/panelSecc-back.jpg);
+background-position:bottom;
+}
+
+#panelSeccSucursales {
+background-image:url(/imagenes/rediseno/imagenes/seccionTematika/panelSeccSucursales-back.gif);
+}
+
+#panelSeccQuid {
+background-image:url(/imagenes/rediseno/imagenes/seccionTematika/panelSeccQuid-back.gif);
+}
+
+#panelSeccExtra {
+background-image:url(/imagenes/rediseno/imagenes/seccionTematika/panelSeccExtra-back.gif);
+}
+
+.panelSeccSucursalesTop {
+width:17px;
+height:90px;
+cursor:pointer;
+background-image:url(/imagenes/rediseno/imagenes/seccionTematika/panelSeccSucTop-back.gif);
+display:block;
+}
+
+#panelSeccSucursales span,#panelSeccQuid span,#panelSeccExtra span {
+width:17px;
+height:90px;
+cursor:pointer;
+float:left;
+}
+
+#panelSeccSucursales span {
+background-image:url(/imagenes/rediseno/imagenes/seccionTematika/panelSeccSucTop-back.gif);
+}
+
+#panelSeccQuid span {
+background-image:url(/imagenes/rediseno/imagenes/seccionTematika/panelSeccQuidTop-back.gif);
+}
+
+#panelSeccExtra span {
+background-image:url(/imagenes/rediseno/imagenes/seccionTematika/panelSeccExtraTop-back.gif);
+}

@@ -1,0 +1,1127 @@
+.solapaModulos {
+    width: 642px;
+}
+.solapaCalleSeparador {
+    width: 21px;
+}
+
+.solapaCalle {
+    width: 200px;
+}
+
+/* XXX hack to use same fragment, no need to waste time */
+div.tmtkMesaMenuMod ul {
+    display: none;
+}
+
+/* mesa_seccion.css */
+
+.disabledEfect {
+position:absolute;
+width:645px;
+height:337px;
+margin:20px 0 0 6px;
+position:expression('absolute');
+z-index:1;
+background:gray;
+background-position:center;
+background-repeat:no-repeat;
+}
+
+.disabledEfectCtrl {
+margin:10px 0 0 6px;
+position:absolute;
+background-color:#AAA;
+filter:alpha(opacity=70);
+opacity:0.7;
+position:expression('absolute');
+z-index:1000;
+width:646px;
+height:355px;
+}
+
+.disabledEfectCtrl object {
+width:95px;
+height:100px;
+display:block;
+position:relative;
+margin:118px 0 0 275px;
+}
+
+.globoArticulo {
+position:absolute;
+position:expression('absolute');
+z-index:9999;
+width:387px;
+margin-top:-65px;
+margin-left:-30px;
+}
+
+.globoArticuloTop {
+float:left;
+width:342px;
+background-image:url(/imagenes/rediseno/imagenes/globoArticuloTop-back.png);
+padding:15px 15px 0 30px;
+}
+
+.globoArticuloRightTop {
+float:left;
+width:342px;
+background-image:url(/imagenes/rediseno/imagenes/globoArticuloRightTop-back.png);
+padding:15px 30px 0 15px;
+}
+
+.globoArticuloTapa {
+float:left;
+width:105px;
+border:solid 1px #666;
+}
+
+.globoArticuloInfo {
+float:left;
+width:227px;
+margin-left:8px;
+}
+
+.globoArticuloInfo #artTitulo {
+display:block;
+font-size:17px;
+font-weight:bold;
+line-height:16px;
+margin-bottom:5px;
+}
+
+.globoArticuloInfo #trAutor {
+display:block;
+border-bottom:dotted 1px #666;
+padding-bottom:4px;
+font-size:13px;
+margin-bottom:10px;
+}
+
+.globoArticuloInfo #trAutor a {
+font-size:13px;
+}
+
+.globoArticuloInfo .calificacionMod {
+padding-top:0;
+margin:-5px 0 10px;
+float:left;
+width:220px;
+}
+
+.globoArticuloInfo .calificacionMod span {
+margin-top:2px;
+}
+
+.globoArticuloInfo #tiempoEntrega {
+font-size:9px;
+padding-left:10px;
+background-color:#f5f5f5;
+position:absolute;
+position:expression('absolute');
+width:220px;
+z-index:10000;
+border:solid 1px #ccc;
+}
+
+.globoArticuloInfo div {
+display:block;
+font-size:11px;
+margin-bottom:4px;
+line-height:11px;
+}
+
+.globoArticuloInfo a {
+font-size:11px;
+}
+
+a.globoArticuloMasInfo {
+/*display:block;border-top:dotted 1px #666;border-bottom:dotted 1px #666;*/
+padding:3px 0;
+font-size:14px;
+margin:10px 0 5px;
+}
+
+div.globoArticuloMasInfo {
+display:block;
+border-top:dotted 1px #666;
+border-bottom:dotted 1px #666;
+padding:6px 0;
+font-size:14px;
+margin:10px 0 5px;
+}
+
+.globoArticuloBottom {
+float:left;
+width:244px;
+background-image:url(/imagenes/rediseno/imagenes/globoArticuloBottom-back.png);
+height:90px;
+background-repeat:no-repeat;
+padding-left:143px;
+}
+
+.globoArticuloRightBottom {
+float:left;
+width:244px;
+background-image:url(/imagenes/rediseno/imagenes/globoArticuloRightBottom-back.png);
+height:90px;
+background-repeat:no-repeat;
+padding-left:130px;
+}
+
+.globoArticuloPrecio {
+display:block;
+font-weight:bold;
+font-size:15px;
+}
+
+.globoArticuloComprar,.globoArticuloPedir {
+width:177px;
+height:46px;
+display:block;
+cursor:pointer;
+position:relative;
+left:-8px;
+}
+
+.globoArticuloLoad {
+overflow:hidden;
+position:fixed;
+background-color:#AAA;
+position:expression('absolute');
+z-index:1;
+}
+
+//.divMesa {
+position:relative;
+width:645px;
+height:308px;
+padding:1px 0;
+overflow:hidden;
+background-image:url(/imagenes/rediseno/imagenes/divMesaSecciones-back.jpg);
+background-repeat:no-repeat;
+margin:0 0 0 7px;
+}
+
+.divMesa {
+position:relative;
+width:645px;
+height:308px;
+padding:1px 0;
+overflow:hidden;
+background:gray;
+background-repeat:no-repeat;
+margin:0 0 0 7px;
+}
+
+.divMesa table {
+}
+
+.imgTapa {
+border:0;
+}
+
+.divMesa .arbolShadow {
+float:left;
+margin:5px 0 3px;
+display:inline;
+background-image:url(/imagenes/rediseno/imagenes/comun/arbolShadow-back.png);
+background-color:transparent;
+}
+
+.arbolShadow img {
+border:none;
+display:block;
+margin:-3px 3px 3px -3px;
+width:98px;
+height:auto;
+cursor:pointer;
+position:relative;
+}
+
+.divMesaCont {
+float:left;
+margin-left:7px;
+display:inline;
+}
+
+.mesaSiguiente,.mesaAnterior,.mesaSiguienteDeshabilitada,.mesaAnteriorDeshabilitada {
+width:645px;
+height:22px;
+border:none;
+margin-left:7px;
+}
+
+.mesaSiguiente {
+margin-top:1px;
+cursor:pointer;
+}
+
+.mesaSiguiente:hover {
+background-image:url(/imagenes/rediseno/imagenes/comun/mesaSiguiente-hover.gif);
+}
+
+.mesaAnterior {
+margin-bottom:1px;
+margin-top:10px;
+cursor:pointer;
+}
+
+.mesaAnterior:hover {
+background-image:url(/imagenes/rediseno/imagenes/comun/mesaAnterior-hover.gif);
+}
+
+.mesaSiguienteDeshabilitada {
+background-image:url(/imagenes/rediseno/imagenes/comun/mesaSiguienteGris.gif);
+margin-top:1px;
+cursor:default;
+}
+
+.mesaAnteriorDeshabilitada {
+background-image:url(/imagenes/rediseno/imagenes/comun/mesaAnteriorGris.gif);
+margin-bottom:1px;
+margin-top:10px;
+cursor:default;
+}
+
+/* seccion_pasatiempo.css */
+
+a {
+color:#1985A2;
+text-decoration:none;
+font-size:12px;
+}
+
+a:hover {
+color:#E17B5E;
+}
+
+a:visited {
+color:#E17B5E;
+}
+
+.hBuscador {
+background-image:url(/imagenes/rediseno/imagenes/seccionPasatiempos/hBuscador-back.png);
+}
+
+.hBuscMenu {
+background-image:url(/imagenes/rediseno/imagenes/seccionPasatiempos/hBuscMenu-back.png);
+}
+
+a.hBuscMenuDesplItem:hover {
+background-color:#E17B5E;
+color:#FFF;
+}
+
+.hServClientes {
+background-image:url(/imagenes/rediseno/imagenes/seccionPasatiempos/hServClientes-back.png);
+}
+
+.hModUsuarioBack {
+background-image:url(/imagenes/rediseno/imagenes/seccionPasatiempos/hModUsuario-back.png);
+}
+
+.panelMensajes a:visited {
+color:#1985A2;
+}
+
+.panelMensajes a:hover {
+color:#E17B5E;
+}
+
+.panelMsjCerrar {
+background-image:url(/imagenes/rediseno/imagenes/seccionPasatiempos/b-panelMsjCerrar.gif);
+}
+
+.panelMsjCerrar:hover {
+background-image:url(/imagenes/rediseno/imagenes/seccionPasatiempos/b-panelMsjCerrar-hover.gif);
+}
+
+.panelMsjAbrir {
+background-image:url(/imagenes/rediseno/imagenes/seccionPasatiempos/b-panelMsjAbrir.gif);
+}
+
+.panelMsjAbrir:hover {
+background-image:url(/imagenes/rediseno/imagenes/seccionPasatiempos/b-panelMsjAbrir-hover.gif);
+}
+
+#panelSeccSucursales,#panelSeccQuid,#panelSeccExtra {
+width:15px;
+background-image:url(/imagenes/rediseno/imagenes/comun/panelSecc-back.jpg);
+background-position:bottom;
+}
+
+#panelSeccSucursales {
+background-image:url(/imagenes/rediseno/imagenes/seccionPasatiempos/panelSeccSucursales-back.gif);
+}
+
+#panelSeccQuid {
+background-image:url(/imagenes/rediseno/imagenes/seccionPasatiempos/panelSeccQuid-back.gif);
+}
+
+#panelSeccExtra {
+background-image:url(/imagenes/rediseno/imagenes/seccionPasatiempos/panelSeccExtra-back.gif);
+}
+
+#panelSeccSucursales span,#panelSeccQuid span,#panelSeccExtra span {
+width:15px;
+height:90px;
+cursor:pointer;
+float:left;
+}
+
+#panelSeccSucursales span {
+background-image:url(/imagenes/rediseno/imagenes/seccionPasatiempos/panelSeccSucTop-back.gif);
+}
+
+#panelSeccQuid span {
+background-image:url(/imagenes/rediseno/imagenes/seccionPasatiempos/panelSeccQuidTop-back.gif);
+}
+
+#panelSeccExtra span {
+background-image:url(/imagenes/rediseno/imagenes/seccionPasatiempos/panelSeccExtraTop-back.gif);
+}
+
+#seccionTematika {
+width:861px;
+background-image:url(/imagenes/rediseno/imagenes/seccionPasatiempos/tmtkMesaNovedades-back.jpg);
+background-repeat:no-repeat;
+}
+
+.tmtkMesaSeccionesTit {
+display:none;
+}
+
+.tmtkMesaNovedades {
+float:right;
+width:660px;
+}
+
+.tmtkMesaMenuMod {
+margin:15px 0 0 155px;
+}
+
+.tmtkMesa-back {
+float:left;
+width:660px;
+background-image:url(/imagenes/rediseno/imagenes/seccionPasatiempos/solapas-back.png);
+margin-top:32px;
+}
+
+.tmtkMesa-back img {
+}
+
+.tmtkMesa {
+float:left;
+width:660px;
+margin-top:-5px;
+}
+
+.mesaSiguiente {
+background-image:url(/imagenes/rediseno/imagenes/seccionPasatiempos/mesaSiguiente.gif);
+}
+
+.mesaAnterior {
+background-image:url(/imagenes/rediseno/imagenes/seccionPasatiempos/mesaAnterior.gif);
+}
+
+.solapasMenu {
+background-image:url(/imagenes/rediseno/imagenes/seccionPasatiempos/solapasMenu-back.png);
+}
+
+.solapas {
+float:right;
+width:651px;
+background-image:url(/imagenes/rediseno/imagenes/seccionPasatiempos/solapas-back.png);
+}
+
+.solapaModTit {
+background-color:#DDEFF5;
+}
+
+.arbol {
+margin:75px 0 0 13px;
+}
+
+#arbolPasatiempos {
+border:solid 1px #A8CAD5;
+width:190px;
+background-image:url(/imagenes/rediseno/imagenes/seccionPasatiempos/arbolMod-back.gif);
+background-position:bottom;
+background-repeat:repeat-x;
+}
+
+.arbolItemMas {
+background-image:url(/imagenes/rediseno/imagenes/seccionPasatiempos/arbolItemMas-b.gif);
+}
+
+.arbolItemMin {
+background-image:url(/imagenes/rediseno/imagenes/seccionPasatiempos/arbolItemMin-b.gif);
+}
+
+.arbolItemF {
+background-image:url(/imagenes/rediseno/imagenes/seccionPasatiempos/arbolItemF.gif);
+}
+
+.arbolItemLink {
+width:160px;
+}
+
+.arbolItemA {
+border-bottom:solid 1px #A8CAD5;
+width:174px;
+}
+
+.arbolItemB {
+width:160px;
+border-bottom:dotted 1px #A8CAD5;
+}
+
+.arbolItemA .arbolItemLink {
+width:159px;
+}
+
+.arbolItemB .arbolItemLink {
+width:140px;
+}
+
+.arbolItemMax {
+display:none;
+}
+
+.solapaCalle {
+width:207px;
+}
+
+.hlistas:hover {
+background-color:#F2F9FB;
+}
+
+.hUsuarios:hover {
+background-color:#F2F9FB;
+}
+
+.hUsrUltAcc {
+width:642px;
+}
+
+.hTags {
+width:640px;
+}
+
+.hTags a:hover {
+color:#1985A2;
+}
+
+.tapaInfo {
+background-image:url(/imagenes/rediseno/imagenes/seccionPasatiempos/tapaInfo-back.png);
+}
+
+.footer a:hover {
+color:#ED7C24;
+}
+
+.footerText2 a:hover span {
+color:#ED7C24;
+}
+
+ul.dropdown ul a:hover {
+background-color:#1985A2;
+color:#FFF;
+}
+
+ul.dropdown *.dir {
+background-image:url(/imagenes/rediseno/imagenes/seccionPasatiempos/hBuscMenu-back.png);
+}
+
+.tmtkMesaMenuMod ul.dropdown *.dir,.busqFiltMenu ul.dropdown *.dir {
+background-image:url(/imagenes/rediseno/imagenes/seccionPasatiempos/solapasMenu-back.png);
+}
+
+.dropdown span:hover {
+color:#1985A2;
+}
+
+ul.dropdown *.diri {
+background-image:url(/imagenes/rediseno/imagenes/seccionPasatiempos/solapasMenu-back.png);
+}
+
+.tmtkMesaMenuMod ul.dropdown *.diri {
+background-image:url(/imagenes/rediseno/imagenes/seccionPasatiempos/solapasMenu-back.png);
+}
+
+.dSolapas .solapasTitComent {
+margin-left:31px;
+}
+
+.dSolapas .solapasTitListas {
+margin-left:66px;
+}
+
+.dSolapas .solapasTitTags {
+margin-left:49px;
+}
+
+.solapasTitDatosPrinc {
+width:175px;
+background-image:url(/imagenes/rediseno/imagenes/comun/t-datosPrinc.gif);
+margin:10px 5px 0 70px;
+}
+
+.dCompra {
+border:solid 1px #A8CAD5;
+background-image:url(/imagenes/rediseno/imagenes/seccionPasatiempos/arbolMod-back.gif);
+}
+
+.dCompra ul,.dComprarEnvio {
+border-top:dotted 1px #A8CAD5;
+border-bottom:dotted 1px #A8CAD5;
+}
+
+.dComprarButton {
+background-image:url(/imagenes/rediseno/imagenes/seccionPasatiempos/b-comprarD.png);
+}
+
+.detalleBotonMenu {
+background-image:url(/imagenes/rediseno/imagenes/seccionPasatiempos/detalleBotonMenu-back.png);
+}
+
+.detalleBotonMenu span,.detalleBoton span {
+color:#1985A2;
+}
+
+.detalleBotonMenu:hover > span,.detalleBoton:hover > span {
+color:#E17B5E;
+}
+
+.detalleListaMenu {
+background-image:url(/imagenes/rediseno/imagenes/seccionPasatiempos/listadoModAcciones-back.gif);
+}
+
+p.dListaMenuCheck {
+background-color:#F8E5DE;
+color:#E9B09C;
+}
+
+.dInfoAutor,.dInfoLinks {
+border-bottom:dotted 1px #A8CAD5;
+}
+
+.dInfoCalif {
+border-bottom:dotted 1px #A8CAD5;
+border-top:dotted 1px #A8CAD5;
+}
+
+.dInfoCalifStarMod {
+border-right:solid 1px #A8CAD5;
+}
+
+.detalleImagenAnt {
+background-image:url(/imagenes/rediseno/imagenes/seccionPasatiempos/detalleImagenAnt-back.gif);
+}
+
+.detalleImagenSig {
+background-image:url(/imagenes/rediseno/imagenes/seccionPasatiempos/detalleImagenSig-back.gif);
+}
+
+.dSolapas .hTags {
+width:577px;
+margin:9px 0 0 13px;
+display:inline;
+}
+
+.dComentarios {
+border-bottom:dotted 1px #A8CAD5;
+}
+
+.dComentsCalifP {
+background-image:url(/imagenes/rediseno/imagenes/seccionPasatiempos/dComentsCalifP-back.gif);
+}
+
+.dComentsCalifN {
+background-image:url(/imagenes/rediseno/imagenes/seccionPasatiempos/dComentsCalifN-back.gif);
+}
+
+.listadoMod {
+background-image:url(/imagenes/rediseno/imagenes/seccionPasatiempos/listadoMod.gif);
+}
+
+.listadoMod .dInfoLinks {
+border-bottom:none;
+border-top:dotted 1px #ADC4A1;
+}
+
+.listadoModAcciones div {
+background-image:url(/imagenes/rediseno/imagenes/seccionPasatiempos/listadoModAcciones-back.gif);
+border:solid 1px #A8CAD5;
+}
+
+.listadoModAcciones div a {
+width:100%;
+height:46px;
+display:block;
+background-position:center;
+margin:5px 0;
+background-image:url(/imagenes/rediseno/imagenes/seccionPasatiempos/b-comprar.png);
+}
+
+.globoArticuloComprar {
+background-image:url(/imagenes/rediseno/imagenes/seccionPasatiempos/b-comprar.png);
+}
+
+.globoArticuloPedir {
+background-image:url(/imagenes/rediseno/imagenes/seccionPasatiempos/b-pedir.png);
+}
+
+.panelMensajes a:visited {
+color:#1985A2;
+}
+
+.pnlMsgCmd:hover {
+color:#E17B5E;
+}
+
+.panelMsjCerrar {
+background-image:url(/imagenes/rediseno/imagenes/seccionPasatiempos/b-panelMsjCerrar.gif);
+}
+
+.panelMsjCerrar:hover {
+background-image:url(/imagenes/rediseno/imagenes/seccionPasatiempos/b-panelMsjCerrar-hover.gif);
+}
+
+.panelMsjAbrir {
+background-image:url(/imagenes/rediseno/imagenes/seccionPasatiempos/b-panelMsjAbrir.gif);
+}
+
+.panelMsjAbrir:hover {
+background-image:url(/imagenes/rediseno/imagenes/seccionPasatiempos/b-panelMsjAbrir-hover.gif);
+}
+
+.tituloBus {
+color:#1985A2;
+text-decoration:none;
+font-size:12px;
+font-weight:800;
+}
+
+.tituloBus:visited {
+color:#1985A2;
+}
+
+.busqTit span {
+color:#1985A2;
+}
+
+.busqFiltMod {
+border-color:#A8CAD5;
+}
+
+a.busqFiltApl {
+background-image:url(/imagenes/rediseno/imagenes/seccionPasatiempos/busqFiltApl.gif);
+}
+
+.busqContenido {
+width:640px;
+}
+
+.busqOrden {
+border:solid 1px #A8CAD5;
+width:635px;
+background-image:url(/imagenes/rediseno/imagenes/seccionPasatiempos/listadoModAcciones-back.gif);
+}
+
+.busqContenido .listadoMod {
+width:604px;
+}
+
+.busqContenido .listadoModInfo {
+width:335px;
+}
+
+/* old/seccion_pasatiempo.css */
+.modulosmedio {
+border-bottom:solid 2px #CCC;
+margin-top:15px;
+}
+
+.Gultimosvitadosprod {
+border-bottom:solid 1px #CCC;
+margin-top:10px;
+}
+
+.Gultimosvitadosprodprecio {
+padding-bottom:7px;
+padding-top:7px;
+}
+
+.Fprecio {
+font-size:10px;
+text-align:left;
+color:#777;
+text-decoration:none;
+}
+
+.FProductos {
+font-size:11px;
+color:#000;
+text-decoration:underline;
+text-transform:uppercase;
+}
+
+a.FProductos:hover {
+color:#333;
+}
+
+.divComprar {
+margin-top:5px;
+margin-bottom:8px;
+}
+
+.divInfo {
+border-right:solid 1px #BC1A8D;
+padding-right:4px;
+height:10px;
+text-align:left;
+}
+
+.divComprarPedir {
+padding-left:4px;
+height:10px;
+text-align:left;
+}
+
+.titulosceldas {
+background-color:#FFF;
+padding:0 0 4px;
+text-align:left;
+border-bottom:solid 2px #CCC;
+}
+
+.Fautores0 {
+font-size:10px;
+text-align:left;
+color:#777;
+text-decoration:underline;
+text-transform:uppercase;
+}
+
+a.Fautores0:hover {
+color:#000;
+}
+
+.FCategorias {
+font-size:11px;
+text-align:left;
+color:#666;
+text-decoration:underline;
+line-height:16px;
+}
+
+a.FCategorias:hover {
+color:#000;
+}
+
+.imagenPrincipal {
+border:solid 1px #CCC;
+margin-right:10px;
+text-align:left;
+}
+
+.bAmpliarImagen {
+margin-top:10px;
+}
+
+.celdaDetalle {
+padding-top:5px;
+vertical-align:top;
+}
+
+.celdaDetalle2 {
+padding-top:10px;
+vertical-align:bottom;
+}
+
+.areaCompra {
+background-color:#EFF0F2;
+border-top:solid 3px #000;
+border-bottom:solid 3px #000;
+padding:7px 5px;
+margin-top:10px;
+margin-bottom:10px;
+}
+
+.areaExtra {
+border:solid 1px #999;
+background-color:#EFF0F2;
+padding:7px;
+height:231px;
+margin-bottom:15px;
+}
+
+.areaExtra2 {
+padding:8px 0;
+border-bottom:solid 1px #999;
+text-align:left;
+}
+
+.areaExtra3 {
+padding-top:8px;
+text-align:left;
+}
+
+.FCategorias {
+font-size:11px;
+text-align:left;
+color:#666;
+text-decoration:underline;
+line-height:16px;
+}
+
+a.FCategorias:hover {
+color:#000;
+}
+
+.areaExtra {
+border:solid 1px #999;
+background-color:#EFF0F2;
+padding:7px;
+margin-bottom:15px;
+}
+
+.areaExtra2 {
+padding:8px 0;
+border-bottom:solid 1px #999;
+text-align:left;
+}
+
+.areaExtra3 {
+padding-top:8px;
+text-align:left;
+}
+
+.imagenPrincipal {
+border:solid 1px #CCC;
+margin-right:10px;
+text-align:left;
+}
+
+.bAmpliarImagen {
+margin-top:10px;
+}
+
+.celdaDetalle {
+padding-top:5px;
+vertical-align:top;
+}
+
+.celdaDetalle2 {
+padding-top:10px;
+vertical-align:bottom;
+}
+
+.areaCompra {
+background-color:#EFF0F2;
+border-top:solid 3px #000;
+border-bottom:solid 3px #000;
+padding:7px 5px;
+margin-top:10px;
+margin-bottom:10px;
+}
+
+.modulosmedioDetalle {
+border-bottom:solid 3px #000;
+margin-bottom:15px;
+}
+
+.modulosmedioDetalle2 {
+margin-bottom:10px;
+margin-top:10px;
+}
+
+.modulosmedioDetalle3 {
+margin-bottom:7px;
+margin-top:5px;
+}
+
+.modulosmediolista {
+border-right:solid 1px #CCC;
+text-align:left;
+padding-top:2px;
+}
+
+.modulosmediolista2 {
+text-align:left;
+padding-left:10px;
+padding-top:2px;
+}
+
+.titulosceldasDetalle {
+background-color:#FFF;
+padding:7px 0;
+text-align:left;
+border-bottom:solid 1px #000;
+border-top:solid 1px #666;
+}
+
+.modulovermascategorias {
+text-align:left;
+padding:7px 0;
+border-top:solid 3px #CCC;
+border-bottom:solid 3px #CCC;
+}
+
+.tituloceldasComentario {
+background-color:#FFF;
+padding:7px 0;
+text-align:left;
+border-bottom:solid 1px #000;
+border-top:solid 1px #666;
+}
+
+.fontautoresDetalle {
+font-size:10px;
+text-align:left;
+color:#777;
+text-decoration:underline;
+}
+
+a.fontautoresDetalle:hover {
+color:#000;
+}
+
+.moduloacerca {
+border:solid 3px #CCC;
+padding:10px;
+margin-top:5px;
+}
+
+.moduloacerca2Des {
+border-left:solid 2px #CCC;
+border-bottom:solid 1px #CCC;
+padding:5px;
+}
+
+.vermasceldadetalle {
+padding:5px 0;
+text-align:left;
+}
+
+.moduloacercabis {
+border:solid 3px #CCC;
+padding:10px;
+margin-top:5px;
+}
+
+.moduloacerca2 {
+border-left:solid 2px #000;
+border-bottom:solid 1px #CCC;
+padding:5px;
+}
+
+.modulosinopsis {
+padding:7px 0;
+text-align:left;
+}
+
+.resultadonum {
+text-align:center;
+border-top:solid 3px #CCC;
+border-bottom:solid 3px #CCC;
+margin:0 0 15px;
+padding:5px 0;
+}
+
+.modulobuscador {
+border-bottom:solid 3px #CCC;
+}
+
+.moduleproductob {
+margin-bottom:10px;
+border-bottom:solid 1px #666;
+padding-bottom:10px;
+}
+
+.celdafoto {
+border-right:solid 1px #CCC;
+vertical-align:top;
+text-align:center;
+}
+
+.celdacontenido {
+padding-left:10px;
+text-align:left;
+}
+
+.celdapreciocomprar {
+padding-left:10px;
+text-align:left;
+height:35px;
+vertical-align:bottom;
+}
+
+.celdapaginas {
+padding-top:8px;
+padding-bottom:18px;
+text-align:center;
+}
+
+.moduloorden {
+border-top:solid 1px #666;
+border-bottom:solid 1px #666;
+padding:10px 7px 12px;
+background-color:#EFF0F2;
+text-align:left;
+}
+
+.moduloordencelda {
+padding-top:7px;
+}
+
+.tablabavanzada {
+background-color:#F7F8F9;
+border:solid 1px #CCC;
+padding:10px;
+margin-top:5px;
+margin-bottom:20px;
+}
+
+.tablaaccesoavanzadas {
+border-top:solid 1px #000;
+border-bottom:solid 1px #000;
+margin:0 0 15px;
+padding:10px 0;
+}
+
+.rAtrPri {
+color:#000088;
+text-decoration:underline;
+}
+
+.rTxt {
+color:#000088;
+}
+
+.modulorecomendadosd {
+border-bottom:solid 2px #CCC;
+margin-top:15px;
+padding-bottom:7px;
+}
+
+.topnumeros {
+padding-right:5px;
+vertical-align:top;
+text-align:left;
+}
+
+.topcompracelda {
+padding:5px 0;
+vertical-align:top;
+text-align:left;
+font-size:1px;
+}
+
+.topvermas {
+padding:10px 0;
+border-bottom:solid 2px #CCC;
+}

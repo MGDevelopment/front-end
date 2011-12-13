@@ -1,0 +1,106 @@
+/* showcase.css */
+div.product-popup-content {
+    display:     none;
+    line-height: normal;
+}
+
+div.ui-tooltip-content {
+    width:       24em;
+    line-height: normal;
+}
+
+div.ui-tooltip-content p {
+    margin:      0;
+}
+
+div.ui-tooltip-content span {
+    margin-left: 0.5em;
+}
+
+div.ui-tooltip-content table {
+    width: 95%;
+}
+
+div.ui-tooltip-content table td.product-popup-titleauthor {
+    width: 70%;
+}
+
+div.ui-tooltip-content table td.product-popup-price {
+    width: 29%;
+}
+
+div.ui-tooltip-content p.product-popup-title,
+        div.ui-tooltip-content p.product-author {
+    padding: 0.3em;
+}
+
+div.ui-tooltip-content p.product-popup-price {
+    font-size:   2em;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+div.ui-tooltip-content p.product-popup-title a {
+    font-size:   1.8em;
+    font-weight: bold;
+}
+
+div.ui-tooltip-content p.product-cart-add {
+    text-align:  center;
+}
+
+div.ui-tooltip-content span.product-rating img {
+    vertical-align:  bottom;
+}
+
+div.ui-tooltip-content table.product-infocomment {
+    margin:       0.5em;
+    border-width: 2px;
+    width:        99%;
+    text-align:   center;
+}
+
+div.ui-tooltip-content table.product-infocomment td.product-moreinfo {
+    width:     34%;
+}
+
+div.ui-tooltip-content table.product-infocomment td.product-comment {
+    width:     65%;
+}
+
+div.ui-tooltip-content table.product-infocomment td a {
+    font-size:    1.5em;
+}
+
+div.ui-tooltip-content span.product-delivery-note a {
+    cursor:  default;
+}
+
+div.ui-tooltip-content span.product-delivery-note a span {
+    display: none;
+    color:   black;
+}
+
+div.ui-tooltip-content span.product-delivery-note a:hover span {
+    display:         inline;
+    text-decoration: none;
+    margin-left:     0;
+}
+
+.showcase-next, .showcase-prev {
+    width:            218px;
+    height:           22px;
+    cursor:           pointer;
+    border:           none;
+}
+
+.showcase-prev {
+    background-image: url(/imagenes/rediseno/imagenes/seccionTematika/mesaAnterior.png);
+    margin-bottom:    1px;
+    margin-top:       10px;
+}
+
+.showcase-next {
+    background-image: url(/imagenes/rediseno/imagenes/seccionTematika/mesaSiguiente.png);
+    margin-top:       1px;
+}
