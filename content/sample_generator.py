@@ -43,7 +43,7 @@ storage = {
 #
 
 homeURL = {
-    "cannonical"    : "/index.html",
+    "cannonical"    : "/",
     "urls"          : [ "/index.html", "/index.jsp" ],
     "static"        : "estatico.tematika.com",
     "dynamic"       : "www.tematika.com",
@@ -55,7 +55,7 @@ homeURL = {
 }
 
 librosURL = {
-    "cannonical"    : "/libros",
+    "cannonical"    : "/libros/",
     "urls"          : [ "/libros", "/libros/index.html", "/libros/index.jsp" ],
     "static"        : "estatico.tematika.com",
     "dynamic"       : "www.tematika.com",
@@ -67,7 +67,7 @@ librosURL = {
 }
 
 musicaURL = {
-    "cannonical"    : "/musica",
+    "cannonical"    : "/musica/",
     "urls"          : [ "/musica", "/musica/index.html", "/musica/index.jsp" ],
     "static"        : "estatico.tematika.com",
     "dynamic"       : "www.tematika.com",
@@ -79,7 +79,7 @@ musicaURL = {
 }
 
 peliculasURL = {
-    "cannonical"    : "/peliculas",
+    "cannonical"    : "/peliculas/",
     "urls"          : [ "/peliculas", "/peliculas/index.html", "/peliculas/index.jsp" ],
     "static"        : "estatico.tematika.com",
     "dynamic"       : "www.tematika.com",
@@ -91,7 +91,7 @@ peliculasURL = {
 }
 
 pasatiemposURL = {
-    "cannonical"    : "/pasatiempos",
+    "cannonical"    : "/pasatiempos/",
     "urls"          : [ "/pasatiempos", "/pasatiempos/index.html", "/pasatiempos/index.jsp" ],
     "static"        : "estatico.tematika.com",
     "dynamic"       : "www.tematika.com",
@@ -245,13 +245,48 @@ documentos = [
         "target.repo"   : "static"
     },
 
+    #
+    # libros - vidrieras
+    #
+    {
+        "EntityType"    : "SUBJ",
+        "EntityId"      : 1,
+        "dataset"       : "subjectShowcase",    "_data" : sample.sample_data_books_1.books_1_data,
+                                                "_url"  : librosURL,
+        "template"      : "subject/showcase.js",
+        "headers"       : {
+            "Content-Type"      : "text/javascript",        # requerido por IE
+            "Content-Encoding"  : "gzip",
+            "Cache-Control"     : "max-age=3600, must-revalidate"
+        },
+        "target.path"   : "/showcase/libros.js",
+        "target.repo"   : "static"
+    },
+    #
+    # libros - comentarios
+    #
+    {
+        "EntityType"    : "SUBJ",
+        "EntityId"      : 1,
+        "dataset"       : "subjectComments",    "_data" : sample.sample_data_books_1.books_1_comments,
+                                                "_url"  : librosURL,
+        "template"      : "subject/comments.js",
+        "headers"       : {
+            "Content-Type"      : "text/javascript",        # requerido por IE
+            "Content-Encoding"  : "gzip",
+            "Cache-Control"     : "max-age=3600, must-revalidate"
+        },
+        "target.path"   : "/comments/libros.js",
+        "target.repo"   : "static"
+    },
 
     ########## /catalogo/libros/ficcion_y_literatura--1.htm
     {
         "EntityType"    : "SUBJ",
         "EntityId"      : 1,
-        "dataset"       : "subjectMain",        "_data" : sample.sample_data_books_1_1.books_1_1_main,
-                                                "_url"  : librosURL,
+        "dataset"       : "subjectMain",
+        "_data"         : sample.sample_data_books_1_1.books_1_1_main,
+        "_url"          : dict(librosURL, **{'cannonical': "/catalogo/libros/ficcion_y_literatura--1"}),
         "template"      : "subject/index.html",
         "headers"       : {
             "Content-Type"      : "text/html",
@@ -354,40 +389,6 @@ documentos = [
         "target.repo"   : "dynamic"
     },
 
-    #
-    # libros - vidrieras
-    #
-    {
-        "EntityType"    : "SUBJ",
-        "EntityId"      : 1,
-        "dataset"       : "subjectShowcase",    "_data" : sample.sample_data_books_1.books_1_data,
-                                                "_url"  : librosURL,
-        "template"      : "subject/showcase.js",
-        "headers"       : {
-            "Content-Type"      : "text/javascript",        # requerido por IE
-            "Content-Encoding"  : "gzip",
-            "Cache-Control"     : "max-age=3600, must-revalidate"
-        },
-        "target.path"   : "/showcase/libros.js",
-        "target.repo"   : "static"
-    },
-    #
-    # libros - comentarios
-    #
-    {
-        "EntityType"    : "SUBJ",
-        "EntityId"      : 1,
-        "dataset"       : "subjectComments",    "_data" : sample.sample_data_books_1.books_1_comments,
-                                                "_url"  : librosURL,
-        "template"      : "subject/comments.js",
-        "headers"       : {
-            "Content-Type"      : "text/javascript",        # requerido por IE
-            "Content-Encoding"  : "gzip",
-            "Cache-Control"     : "max-age=3600, must-revalidate"
-        },
-        "target.path"   : "/comments/libros.js",
-        "target.repo"   : "static"
-    },
  # home - exchange
    #
    {
@@ -461,6 +462,7 @@ documentos = [
        "EntityId"      : 1,
        "dataset"       : "main",          "_data" : sample.sample_product_book_413418.products_413418_main,
                                               "_url"  : homeURL,
+        "_url"          : dict(librosURL, **{'cannonical': "/libros/ciencias_de_la_salud__naturales_y_divulgacion_cientifica--7/divulgacion_cientifica--1/en_general--1/matematica___estas_ahi_sobre_numeros__personajes__problemas_y_curiosidades--413418" }),
        "template"      : "product/index.html",
        "headers"       : {
            "Content-Type"      : "text/html",
@@ -476,6 +478,7 @@ documentos = [
        "EntityId"      : 1,
        "dataset"       : "main",          "_data" : sample.sample_product_book_465771.products_465771_main,
                                               "_url"  : homeURL,
+        "_url"          : dict(librosURL, **{'cannonical': "/libros/ficcion_y_literatura--1/novelas--1/general--1/comer__rezar__amar--465771"}),
        "template"      : "product/index.html",
        "headers"       : {
            "Content-Type"      : "text/html",
@@ -542,6 +545,7 @@ documentos = [
        "EntityId"      : 1,
        "dataset"       : "main",          "_data" : sample.sample_product_music_530185.products_530185_main,
                                               "_url"  : homeURL,
+        "_url"          : dict(musicaURL, **{'cannonical': "/libros/ficcion_y_literatura--1/novelas--1/general--1/comer__rezar__amar--465771"}),
        "template"      : "product/index.html",
        "headers"       : {
            "Content-Type"      : "text/html",
