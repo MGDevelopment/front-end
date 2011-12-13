@@ -177,7 +177,7 @@ documents = {
                 "Cache-Control"     : "max-age=3600, must-revalidate"
             },
             "tags"          : [ "main" ],
-            "target.path"   : [ "{{cannonical}}/index.htm" ],
+            "target.path"   : [ "{{cannonical}}/index.htm", "{{cannonical}}.htm" ],
             "target.repo"   : "dynamic"
         },
 
