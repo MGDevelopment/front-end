@@ -44,14 +44,14 @@
 		{%- for article in comments_data -%}
 	        <div class="solapaCalle" id="calleLibrosComents" style="height: 250px;">
 				<div class="tapaContenedor">
-				    <a href="{{ article.LinkBase }}">
+				    <a href="{{ article.LinkBase  ~ '.htm' }}">
 				    	<img src="{{ urls.images ~ article.CoverSmall }}" alt="{{ article.Title.decode('utf-8') }}" class="{{ getClass(article.Categoria_Seccion)|trim }}">
 				    </a>
 				    <div class="tapaInfo" style="visibility: hidden;"></div>
 				</div>
 	            <div class="hComentarios" id="comentarios01">
 	            	<a>{{ article.NickName.decode('utf-8')|escape }}</a>  dijo sobre
-	                <a href="{{ article.LinkBase }}" class="fTitulos">{{ article.Title.decode('utf-8') }}</a>
+	                <a href="{{ article.LinkBase  ~ '.htm' }}" class="fTitulos">{{ article.Title.decode('utf-8') }}</a>
 	                <span>
 	                 	{{ article.CommentText.decode('utf-8')|truncate(100)|replace("\r","")|escape }}
 	                </span>
