@@ -17,7 +17,7 @@
     {%- if not canonical[-1] == '/' -%}
         {%- set canonical = url.cannonical + '.htm' -%}
     {%- endif -%}
-    <link rel="canonical" href="http://{{ url.dynamic }}{{ canonical }}">
+    <link rel="canonical" href="{{ url.dynamic }}{{ canonical }}">
 {% endblock %}
 
 {% block head_extra %}
