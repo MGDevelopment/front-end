@@ -57,11 +57,11 @@ homeURL = {
 librosURL = {
     "cannonical"    : "/libros/",
     "urls"          : [ "/libros", "/libros/index.html", "/libros/index.jsp" ],
-    "static"        : "estatico.tematika.com",
-    "dynamic"       : "www.tematika.com",
-    "search"        : "buscador.tematika.com",
-    "checkout"      : "seguro.tematika.com",
-    "service"       : "servicios.tematika.com",
+    "static"        : "http://estatico.tematika.com",
+    "dynamic"       : "http://www.tematika.com",
+    "search"        : "http://buscador.tematika.com",
+    "checkout"      : "http://seguro.tematika.com",
+    "service"       : "http://servicios.tematika.com",
     "images"        : "http://img-tmk.tematika.com",
     "data"          : "http://beta1.testmatika.com.s3-website-us-east-1.amazonaws.com"
 }
@@ -69,11 +69,11 @@ librosURL = {
 musicaURL = {
     "cannonical"    : "/musica/",
     "urls"          : [ "/musica", "/musica/index.html", "/musica/index.jsp" ],
-    "static"        : "estatico.tematika.com",
-    "dynamic"       : "www.tematika.com",
-    "search"        : "buscador.tematika.com",
-    "checkout"      : "seguro.tematika.com",
-    "service"       : "servicios.tematika.com",
+    "static"        : "http://estatico.tematika.com",
+    "dynamic"       : "http://www.tematika.com",
+    "search"        : "http://buscador.tematika.com",
+    "checkout"      : "http://seguro.tematika.com",
+    "service"       : "http://servicios.tematika.com",
     "images"        : "http://img-tmk.tematika.com",
     "data"          : "http://beta1.testmatika.com.s3-website-us-east-1.amazonaws.com"
 }
@@ -81,11 +81,11 @@ musicaURL = {
 peliculasURL = {
     "cannonical"    : "/peliculas/",
     "urls"          : [ "/peliculas", "/peliculas/index.html", "/peliculas/index.jsp" ],
-    "static"        : "estatico.tematika.com",
-    "dynamic"       : "www.tematika.com",
-    "search"        : "buscador.tematika.com",
-    "checkout"      : "seguro.tematika.com",
-    "service"       : "servicios.tematika.com",
+    "static"        : "http://estatico.tematika.com",
+    "dynamic"       : "http://www.tematika.com",
+    "search"        : "http://buscador.tematika.com",
+    "checkout"      : "http://seguro.tematika.com",
+    "service"       : "http://servicios.tematika.com",
     "images"        : "http://img-tmk.tematika.com",
     "data"          : "http://beta1.testmatika.com.s3-website-us-east-1.amazonaws.com"
 }
@@ -93,11 +93,11 @@ peliculasURL = {
 pasatiemposURL = {
     "cannonical"    : "/pasatiempos/",
     "urls"          : [ "/pasatiempos", "/pasatiempos/index.html", "/pasatiempos/index.jsp" ],
-    "static"        : "estatico.tematika.com",
-    "dynamic"       : "www.tematika.com",
-    "search"        : "buscador.tematika.com",
-    "checkout"      : "seguro.tematika.com",
-    "service"       : "servicios.tematika.com",
+    "static"        : "http://estatico.tematika.com",
+    "dynamic"       : "http://www.tematika.com",
+    "search"        : "http://buscador.tematika.com",
+    "checkout"      : "http://seguro.tematika.com",
+    "service"       : "http://servicios.tematika.com",
     "images"        : "http://img-tmk.tematika.com",
     "data"          : "http://beta1.testmatika.com.s3-website-us-east-1.amazonaws.com"
 }
