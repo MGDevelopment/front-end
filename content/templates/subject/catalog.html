@@ -93,7 +93,7 @@
 	    {%- set p_title = p.Title.decode('utf-8')|e -%}
 	    {%- set p_url   = p.LinkBase + '.htm' -%}
 	    {%- set p_rank  = p.Row_Number|int -%}
-	    {%- set p_price = p.PriceAmount -%}
+	    {%- set p_price = "%.2f"|format(p.PriceAmount) -%}
 	    {%- set p_date  = p.PublishingDateValue -%}
 	            <tr>
 	              <td>

@@ -6,7 +6,7 @@
     {%- for p in product_list -%}
         {%- set title  = p.Title.decode('utf-8')|e -%}
         {%- set section  = p.Categoria_Seccion|string -%}
-        {%- set price  = p.PriceAmount|string -%}
+        {%- set price  = "%.2f"|format(p.PriceAmount) -%}
         {%- set product_id  = p.ProductId|string -%}
         {%- set product_url  = p.LinkBase ~ '.htm' -%}
         {%- set hs = p.FulfillmentValue|int -%}
