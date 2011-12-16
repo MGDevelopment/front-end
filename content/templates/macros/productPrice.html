@@ -48,5 +48,5 @@
 	</div>
 </div>
 <input type="hidden" id="currencyCode" value="{{ price_data.CurrencyCode }}"></input>
-<input type="hidden" id="priceAmount" value="{{ price_data.PriceAmount }}"></input>
+<input type="hidden" id="priceAmount" value="{{ '%.2f'|format(price_data.PriceAmount) }}"></input>
 {%- endmacro %}

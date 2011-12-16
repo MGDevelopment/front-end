@@ -28,7 +28,7 @@ APP.addData('catalog', [
 	'{{ author }}',
 	'{{ author_url }}',
 	{{ p['Row_Number']|int }},
-	{{ p['PriceAmount'] }},
+	{{ "%.2f"|format(p['PriceAmount']) }},
 	{{ p['PublishingDateValue'] }}
 	]
 	{%- if loop.index < loop.length -%}

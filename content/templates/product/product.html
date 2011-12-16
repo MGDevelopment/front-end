@@ -180,7 +180,7 @@
 <!-- <tmpl_var contenidoSEO> -->
 <div id="divModuloExtra"><div id="price_detail"><div id="dTopRight"><div class="dCompra"><p align="center"></p></div></div></div></div>
 <input type="hidden" value="{{ d.Categoria_Seccion }}" id="idSccion">
-<input type="hidden" value="{{ d.PriceAmount }}" id="precio">
+<input type="hidden" value="{{ '%.2f'|format(d.PriceAmount) }}" id="precio">
 <input type="hidden" value="{{ d.EntityId }}" id="idArticulo">
 <input type="hidden" value="{{ getAvailability(d.ProductAvailability) }}" id="estaDisponible">
 {# XXX what? <input type="hidden" value="{{ url }}" id="urlPage"> #}
