@@ -67,6 +67,15 @@
 	{%- set cat_group       = d.Categoria_Grupo -%}
 	{%- set per_page        = 20 -%}
 	{%- set p_count         = d.Products|length -%}
+	{%- if section == 1 -%}   {# Libros #}
+	    {%- set section_wh = (45, 68) -%}
+	{%- elif section == 4 -%} {# Musica #}
+	    {%- set section_wh = (55, 55) -%}
+	{%- elif section == 5 -%} {# Peliculas #}
+	    {%- set section_wh = (50, 75) -%}
+	{%- elif section == 3 -%} {# Juegos #}
+	    {%- set section_wh = (45, 68) -%}
+	{%- endif -%}
 	{%- if p_count < 20 %}
 	    {%- set per_page = p_count -%}
 	{%- endif -%}
@@ -99,9 +108,10 @@
 	                    <tr>
 	                      <td width="82" rowspan="5" class="celdafoto">
 	                        <a href="{{ p_url }}">
-	                        <img src="{{ p_cover }}" width="45" height="68"
-	                            border="0" class="Gimagesproductos"
-	                            alt="{{ p_title }}">
+	                        <img src="{{ p_cover }}" alt="{{ p_title }}"
+	                                border="0" class="Gimagesproductos"
+                                    width="{{ section_wh[0] }}"
+                                    height="{{ section_wh[1] }}">
 	                        </a>
 	                      </td>
 	                      <td colspan="3" valign="top" class="celdacontenido">
