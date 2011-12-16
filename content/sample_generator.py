@@ -125,7 +125,7 @@ documentos = [
         "headers"       : {
             "Content-Type"      : "text/html",
             "Content-Encoding"  : "gzip",
-            "Cache-Control"     : "max-age=3600, must-revalidate"
+            "Cache-Control"     : "max-age=3600"
         },
         "target.path"   : "/index.html",
         "target.repo"   : "dynamic"
@@ -140,7 +140,7 @@ documentos = [
         "headers"       : {
             "Content-Type"      : "text/html",
             "Content-Encoding"  : "gzip",
-            "Cache-Control"     : "max-age=3600, must-revalidate"
+            "Cache-Control"     : "max-age=3600"
         },
         "target.path"   : "/index.jsp",
         "target.repo"   : "dynamic"
@@ -157,7 +157,7 @@ documentos = [
         "headers"       : {
             "Content-Type"      : "text/javascript",        # requerido por IE
             "Content-Encoding"  : "gzip",
-            "Cache-Control"     : "max-age=3600, must-revalidate"
+            "Cache-Control"     : "max-age=3600"
         },
         "target.path"   : "/home-showcase.js",
         "target.repo"   : "static"
@@ -174,7 +174,7 @@ documentos = [
         "headers"       : {
             "Content-Type"      : "text/javascript",        # requerido por IE
             "Content-Encoding"  : "gzip",
-            "Cache-Control"     : "max-age=3600, must-revalidate"
+            "Cache-Control"     : "max-age=3600"
         },
         "target.path"   : "/home-comments.js",
         "target.repo"   : "static"
@@ -191,7 +191,7 @@ documentos = [
         "headers"       : {
             "Content-Type"      : "text/javascript",
             "Content-Encoding"  : "gzip",
-            "Cache-Control"     : "max-age=3600, must-revalidate"
+            "Cache-Control"     : "max-age=3600"
         },
         "target.path"   : "/stage0/js/app.js",
         "target.repo"   : "static"
@@ -210,7 +210,7 @@ documentos = [
 #        "headers"       : {
 #            "Content-Type"      : "text/html",
 #            "Content-Encoding"  : "gzip",
-#            "Cache-Control"     : "max-age=3600, must-revalidate"
+#            "Cache-Control"     : "max-age=3600"
 #        },
 #        "target.path"   : "/libros",
 #        "target.repo"   : "dynamic"
@@ -225,7 +225,7 @@ documentos = [
         "headers"       : {
             "Content-Type"      : "text/html",
             "Content-Encoding"  : "gzip",
-            "Cache-Control"     : "max-age=3600, must-revalidate"
+            "Cache-Control"     : "max-age=3600"
         },
         "target.path"   : "/libros/index.html",
         "target.repo"   : "dynamic"
@@ -240,7 +240,7 @@ documentos = [
         "headers"       : {
             "Content-Type"      : "text/javascript",
             "Content-Encoding"  : "gzip",
-            "Cache-Control"     : "max-age=3600, must-revalidate"
+            "Cache-Control"     : "max-age=3600"
         },
         "target.path"   : "/catalog/libros.js",
         "target.repo"   : "static"
@@ -258,7 +258,7 @@ documentos = [
         "headers"       : {
             "Content-Type"      : "text/javascript",        # requerido por IE
             "Content-Encoding"  : "gzip",
-            "Cache-Control"     : "max-age=3600, must-revalidate"
+            "Cache-Control"     : "max-age=3600"
         },
         "target.path"   : "/showcase/libros.js",
         "target.repo"   : "static"
@@ -275,7 +275,7 @@ documentos = [
         "headers"       : {
             "Content-Type"      : "text/javascript",        # requerido por IE
             "Content-Encoding"  : "gzip",
-            "Cache-Control"     : "max-age=3600, must-revalidate"
+            "Cache-Control"     : "max-age=3600"
         },
         "target.path"   : "/comments/libros.js",
         "target.repo"   : "static"
@@ -292,7 +292,7 @@ documentos = [
         "headers"       : {
             "Content-Type"      : "text/html",
             "Content-Encoding"  : "gzip",
-            "Cache-Control"     : "max-age=3600, must-revalidate"
+            "Cache-Control"     : "max-age=3600"
         },
         "target.path"   : "/catalogo/libros/ficcion_y_literatura--1.htm",
         "target.repo"   : "dynamic"
@@ -307,7 +307,7 @@ documentos = [
         "headers"       : {
             "Content-Type"      : "text/javascript",        # requerido por IE
             "Content-Encoding"  : "gzip",
-            "Cache-Control"     : "max-age=3600, must-revalidate"
+            "Cache-Control"     : "max-age=3600"
         },
         "target.path"   : "/showcase/catalogo/libros/ficcion_y_literatura--1.js",
         "target.repo"   : "static"
@@ -322,7 +322,7 @@ documentos = [
         "headers"       : {
             "Content-Type"      : "text/javascript",        # requerido por IE
             "Content-Encoding"  : "gzip",
-            "Cache-Control"     : "max-age=3600, must-revalidate"
+            "Cache-Control"     : "max-age=3600"
         },
         "target.path"   : "/comments/catalogo/libros/ficcion_y_literatura--1.js",
         "target.repo"   : "static"
@@ -338,7 +338,7 @@ documentos = [
         "headers"       : {
             "Content-Type"      : "text/javascript",
             "Content-Encoding"  : "gzip",
-            "Cache-Control"     : "max-age=3600, must-revalidate"
+            "Cache-Control"     : "max-age=3600"
         },
         "target.path"   : "/catalog/catalogo/libros/ficcion_y_literatura--1.js",
         "target.repo"   : "static"
@@ -358,7 +358,7 @@ documentos = [
         "headers"       : {
             "Content-Type"      : "text/html",
             "Content-Encoding"  : "gzip",
-            "Cache-Control"     : "max-age=3600, must-revalidate"
+            "Cache-Control"     : "max-age=3600"
         },
         "target.path"   : "/musica/index.html",
         "target.repo"   : "dynamic"
@@ -375,7 +375,7 @@ documentos = [
         "headers"       : {
             "Content-Type"      : "text/html",
             "Content-Encoding"  : "gzip",
-            "Cache-Control"     : "max-age=3600, must-revalidate"
+            "Cache-Control"     : "max-age=3600"
         },
         "target.path"   : "/catalogo/cds/rp_internacional--1.htm",
         "target.repo"   : "dynamic"
@@ -390,7 +390,7 @@ documentos = [
         "headers"       : {
             "Content-Type"      : "text/javascript",        # requerido por IE
             "Content-Encoding"  : "gzip",
-            "Cache-Control"     : "max-age=3600, must-revalidate"
+            "Cache-Control"     : "max-age=3600"
         },
         "target.path"   : "/showcase/catalogo/cds/rp_internacional--1.js",
         "target.repo"   : "static"
@@ -405,7 +405,7 @@ documentos = [
         "headers"       : {
             "Content-Type"      : "text/javascript",        # requerido por IE
             "Content-Encoding"  : "gzip",
-            "Cache-Control"     : "max-age=3600, must-revalidate"
+            "Cache-Control"     : "max-age=3600"
         },
         "target.path"   : "/comments/catalogo/cds/rp_internacional--1.js",
         "target.repo"   : "static"
@@ -421,7 +421,7 @@ documentos = [
         "headers"       : {
             "Content-Type"      : "text/javascript",
             "Content-Encoding"  : "gzip",
-            "Cache-Control"     : "max-age=3600, must-revalidate"
+            "Cache-Control"     : "max-age=3600"
         },
         "target.path"   : "/catalog/catalogo/cds/rp_internacional--1.js",
         "target.repo"   : "static"
@@ -437,7 +437,7 @@ documentos = [
         "headers"       : {
             "Content-Type"      : "text/html",
             "Content-Encoding"  : "gzip",
-            "Cache-Control"     : "max-age=3600, must-revalidate"
+            "Cache-Control"     : "max-age=3600"
         },
         "target.path"   : "/peliculas/index.html",
         "target.repo"   : "dynamic"
@@ -452,7 +452,7 @@ documentos = [
         "headers"       : {
             "Content-Type"      : "text/html",
             "Content-Encoding"  : "gzip",
-            "Cache-Control"     : "max-age=3600, must-revalidate"
+            "Cache-Control"     : "max-age=3600"
         },
         "target.path"   : "/juguetes/index.html",
         "target.repo"   : "dynamic"
@@ -469,7 +469,7 @@ documentos = [
        "headers"       : {
            "Content-Type"      : "text/javascript",        # requerido por IE
            "Content-Encoding"  : "gzip",
-           "Cache-Control"     : "max-age=3600, must-revalidate"
+           "Cache-Control"     : "max-age=3600"
        },
        "target.path"   : "/home-exchange.js",
        "target.repo"   : "static"
@@ -486,7 +486,7 @@ documentos = [
        "headers"       : {
            "Content-Type"      : "text/javascript",        # requerido por IE
            "Content-Encoding"  : "gzip",
-           "Cache-Control"     : "max-age=3600, must-revalidate"
+           "Cache-Control"     : "max-age=3600"
        },
        "target.path"   : "/comments/libros/ciencias_de_la_salud__naturales_y_divulgacion_cientifica--7/divulgacion_cientifica--1/en_general--1/matematica___estas_ahi_sobre_numeros__personajes__problemas_y_curiosidades--413418.js",
        "target.repo"   : "static"
@@ -503,7 +503,7 @@ documentos = [
        "headers"       : {
            "Content-Type"      : "text/javascript",        # requerido por IE
            "Content-Encoding"  : "gzip",
-           "Cache-Control"     : "max-age=3600, must-revalidate"
+           "Cache-Control"     : "max-age=3600"
        },
        "target.path"   : "/related/libros/ciencias_de_la_salud__naturales_y_divulgacion_cientifica--7/divulgacion_cientifica--1/en_general--1/matematica___estas_ahi_sobre_numeros__personajes__problemas_y_curiosidades--413418.js",
        "target.repo"   : "static"
@@ -520,7 +520,7 @@ documentos = [
        "headers"       : {
            "Content-Type"      : "text/javascript",        # requerido por IE
            "Content-Encoding"  : "gzip",
-           "Cache-Control"     : "max-age=3600, must-revalidate"
+           "Cache-Control"     : "max-age=3600"
        },
        "target.path"   : "/price/libros/ciencias_de_la_salud__naturales_y_divulgacion_cientifica--7/divulgacion_cientifica--1/en_general--1/matematica___estas_ahi_sobre_numeros__personajes__problemas_y_curiosidades--413418.js",
        "target.repo"   : "static"
@@ -536,7 +536,7 @@ documentos = [
        "headers"       : {
            "Content-Type"      : "text/html",
            "Content-Encoding"  : "gzip",
-           "Cache-Control"     : "max-age=3600, must-revalidate"
+           "Cache-Control"     : "max-age=3600"
        },
        "target.path"   : "/libros/ciencias_de_la_salud__naturales_y_divulgacion_cientifica--7/divulgacion_cientifica--1/en_general--1/matematica___estas_ahi_sobre_numeros__personajes__problemas_y_curiosidades--413418.htm",
        "target.repo"   : "dynamic"
@@ -552,7 +552,7 @@ documentos = [
        "headers"       : {
            "Content-Type"      : "text/html",
            "Content-Encoding"  : "gzip",
-           "Cache-Control"     : "max-age=3600, must-revalidate"
+           "Cache-Control"     : "max-age=3600"
        },
        "target.path"   : "/libros/ficcion_y_literatura--1/novelas--1/general--1/comer__rezar__amar--465771.htm",
        "target.repo"   : "dynamic"
@@ -569,7 +569,7 @@ documentos = [
        "headers"       : {
            "Content-Type"      : "text/javascript",        # requerido por IE
            "Content-Encoding"  : "gzip",
-           "Cache-Control"     : "max-age=3600, must-revalidate"
+           "Cache-Control"     : "max-age=3600"
        },
        "target.path"   : "/comments/cds/rp_internacional--1/rp_internacional--1/true_sacd--530185.js",
        "target.repo"   : "static"
@@ -586,7 +586,7 @@ documentos = [
        "headers"       : {
            "Content-Type"      : "text/javascript",        # requerido por IE
            "Content-Encoding"  : "gzip",
-           "Cache-Control"     : "max-age=3600, must-revalidate"
+           "Cache-Control"     : "max-age=3600"
        },
        "target.path"   : "/related/cds/rp_internacional--1/rp_internacional--1/true_sacd--530185.js",
        "target.repo"   : "static"
@@ -603,7 +603,7 @@ documentos = [
        "headers"       : {
            "Content-Type"      : "text/javascript",        # requerido por IE
            "Content-Encoding"  : "gzip",
-           "Cache-Control"     : "max-age=3600, must-revalidate"
+           "Cache-Control"     : "max-age=3600"
        },
        "target.path"   : "/price/cds/rp_internacional--1/rp_internacional--1/true_sacd--530185.js",
        "target.repo"   : "static"
@@ -619,7 +619,7 @@ documentos = [
        "headers"       : {
            "Content-Type"      : "text/html",
            "Content-Encoding"  : "gzip",
-           "Cache-Control"     : "max-age=3600, must-revalidate"
+           "Cache-Control"     : "max-age=3600"
        },
        "target.path"   : "/cds/rp_internacional--1/rp_internacional--1/true_sacd--530185.htm",
        "target.repo"   : "dynamic"
@@ -759,7 +759,7 @@ if __name__ == '__main__':
         if script_tag:
 
             # No cache this trick (helps with development, no refresh)
-            headers['Cache-Control'] = "no-cache, must-revalidate"
+            headers['Cache-Control'] = "no-cache"
 
             if content_type == 'text/html':
                 # Convert to script tag replacing document.body
