@@ -10,6 +10,7 @@ import sample.sample_data_books_1_1_1
 import sample.sample_data_books_1_1_1_1
 import sample.sample_data_games_3
 import sample.sample_data_music_4
+import sample.sample_data_music_4_1
 import sample.sample_data_movies_5
 import sample.sample_product_book_413418
 import sample.sample_product_book_465771
@@ -343,6 +344,10 @@ documentos = [
         "target.repo"   : "static"
     },
 
+    #
+    # MUSICA
+    #
+
     ########## /musica/index.html
     {
         "EntityType"    : "SUBJ",
@@ -358,19 +363,68 @@ documentos = [
         "target.path"   : "/musica/index.html",
         "target.repo"   : "dynamic"
     },
+
+    ########## /catalogo/cds/rp_internacional--1.htm
     {
         "EntityType"    : "SUBJ",
         "EntityId"      : 1,
-        "dataset"       : "subjectMain",        "_data" : sample.sample_data_games_3.games_3_main,
-                                                "_url"  : pasatiemposURL,
+        "dataset"       : "subjectMain",
+        "_data"         : sample.sample_data_music_4_1.music_4_1_main,
+        "_url"          : dict(librosURL, **{'cannonical': "/catalogo/cds/rp_internacional--1"}),
         "template"      : "subject/index.html",
         "headers"       : {
             "Content-Type"      : "text/html",
             "Content-Encoding"  : "gzip",
             "Cache-Control"     : "max-age=3600, must-revalidate"
         },
-        "target.path"   : "/juguetes/index.html",
+        "target.path"   : "/catalogo/cds/rp_internacional--1.htm",
         "target.repo"   : "dynamic"
+    },
+    ########## /catalogo/cds/rp_internacional--1 showcase
+    {
+        "EntityType"    : "SUBJ",
+        "EntityId"      : 1,
+        "dataset"       : "subjectShowcase",    "_data" : sample.sample_data_music_4_1.music_4_1_data,
+                                                "_url"  : librosURL,
+        "template"      : "subject/showcase.js",
+        "headers"       : {
+            "Content-Type"      : "text/javascript",        # requerido por IE
+            "Content-Encoding"  : "gzip",
+            "Cache-Control"     : "max-age=3600, must-revalidate"
+        },
+        "target.path"   : "/showcase/catalogo/cds/rp_internacional--1.js",
+        "target.repo"   : "static"
+    },
+    ########## /catalogo/cds/rp_internacional--1 comments
+    {
+        "EntityType"    : "SUBJ",
+        "EntityId"      : 1,
+        "dataset"       : "subjectComments",    "_data" : sample.sample_data_music_4_1.music_4_1_comments,
+                                                "_url"  : librosURL,
+        "template"      : "subject/comments.js",
+        "headers"       : {
+            "Content-Type"      : "text/javascript",        # requerido por IE
+            "Content-Encoding"  : "gzip",
+            "Cache-Control"     : "max-age=3600, must-revalidate"
+        },
+        "target.path"   : "/comments/catalogo/cds/rp_internacional--1.js",
+        "target.repo"   : "static"
+    },
+
+    ########## /catalogo/cds/rp_internacional--1 More
+    {
+        "EntityType"    : "SUBJ",
+        "EntityId"      : 1,
+        "dataset"       : "subjectComments",    "_data" : sample.sample_data_music_4_1.music_4_1_data,
+                                                "_url"  : librosURL,
+        "template"      : "subject/catalog.js",
+        "headers"       : {
+            "Content-Type"      : "text/javascript",
+            "Content-Encoding"  : "gzip",
+            "Cache-Control"     : "max-age=3600, must-revalidate"
+        },
+        "target.path"   : "/catalog/catalogo/cds/rp_internacional--1.js",
+        "target.repo"   : "static"
     },
 
     ########## /peliculas/index.html
@@ -386,6 +440,21 @@ documentos = [
             "Cache-Control"     : "max-age=3600, must-revalidate"
         },
         "target.path"   : "/peliculas/index.html",
+        "target.repo"   : "dynamic"
+    },
+
+    {
+        "EntityType"    : "SUBJ",
+        "EntityId"      : 1,
+        "dataset"       : "subjectMain",        "_data" : sample.sample_data_games_3.games_3_main,
+                                                "_url"  : pasatiemposURL,
+        "template"      : "subject/index.html",
+        "headers"       : {
+            "Content-Type"      : "text/html",
+            "Content-Encoding"  : "gzip",
+            "Cache-Control"     : "max-age=3600, must-revalidate"
+        },
+        "target.path"   : "/juguetes/index.html",
         "target.repo"   : "dynamic"
     },
 
