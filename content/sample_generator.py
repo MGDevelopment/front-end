@@ -364,6 +364,56 @@ documentos = [
         "target.repo"   : "dynamic"
     },
 
+    ########## /catalogo/musica.js More
+    {
+        "EntityType"    : "SUBJ",
+        "EntityId"      : 1,
+        "dataset"       : "subjectComments",    "_data" : sample.sample_data_music_4.music_4_data,
+                                                "_url"  : musicaURL,
+        "template"      : "subject/catalog.js",
+        "headers"       : {
+            "Content-Type"      : "text/javascript",
+            "Content-Encoding"  : "gzip",
+            "Cache-Control"     : "max-age=3600"
+        },
+        "target.path"   : "/catalog/musica.js",
+        "target.repo"   : "static"
+    },
+
+    #
+    # musica - vidrieras
+    #
+    {
+        "EntityType"    : "SUBJ",
+        "EntityId"      : 1,
+        "dataset"       : "subjectShowcase",    "_data" : sample.sample_data_music_4.music_4_data,
+                                                "_url"  : musicaURL,
+        "template"      : "subject/showcase.js",
+        "headers"       : {
+            "Content-Type"      : "text/javascript",        # requerido por IE
+            "Content-Encoding"  : "gzip",
+            "Cache-Control"     : "max-age=3600"
+        },
+        "target.path"   : "/showcase/musica.js",
+        "target.repo"   : "static"
+    },
+    #
+    # musica - comentarios
+    #
+    {
+        "EntityType"    : "SUBJ",
+        "EntityId"      : 1,
+        "dataset"       : "subjectComments",    "_data" : sample.sample_data_music_4.music_4_comments,
+                                                "_url"  : musicaURL,
+        "template"      : "subject/comments.js",
+        "headers"       : {
+            "Content-Type"      : "text/javascript",        # requerido por IE
+            "Content-Encoding"  : "gzip",
+            "Cache-Control"     : "max-age=3600"
+        },
+        "target.path"   : "/comments/musica.js",
+        "target.repo"   : "static"
+    },
     ########## /catalogo/cds/rp_internacional--1.htm
     {
         "EntityType"    : "SUBJ",
