@@ -39,6 +39,11 @@ import jobs
 configPrefix = "content"
 queuePrefix  = configPrefix + ".queue"
 entityTypes  = [ "PAGE", "PROD", "SUBJ" ]
+subtypes     = {
+    "PAGE"   : [ ],
+    "PROD"   : [ ],
+    "SUBJ"   : [ "Seccion", "Grupo", "Familia", "Subfamilia" ]
+}
 maxEntities  = 256
 
 
@@ -50,6 +55,13 @@ def getProducer():
     return ecommerce.queue.queue(config, queuePrefix)
 
 
+#
+# important: write the queries so that the parameters are
+# (IN ORDER):
+#
+#      EntityType
+#      Subtype     (for any other value)
+#
 entityQueries   = {
     ######################################
     #
@@ -65,11 +77,24 @@ SELECT          D.EntityId
     #
     # SUBJ
     #
+    # NOTE: order by a function on subtype, so that
+    #       primary pages are built before secondary
+    #       pages
+    #
     "SUBJ"      : """
-SELECT          D.EntityId
-    FROM        Stage0_Delta D
-    WHERE       D.EntityType = ?
-    ORDER BY    D.EntityId DESC
+SELECT          D.EntityId,
+                CASE S.Subtype
+                    WHEN 'Seccion' THEN             0
+                    WHEN 'Grupo' THEN               1
+                    WHEN 'Familia' THEN             2
+                    WHEN 'Subfamilia' THEN          3
+                END                     AS Orden
+    FROM        Stage0_Subjects S
+    INNER JOIN  Stage0_Delta D
+        ON      S.SubjectId = D.EntityId AND
+                D.EntityType = ?
+    WHERE       S.Subtype = ?
+    ORDER BY    2, D.EntityId
     """,
     ######################################
     #
@@ -88,7 +113,7 @@ SELECT          D.EntityId
     """
 }
 
-def getEntityIds(type):
+def getEntityIds(type, subtype = None):
     """Get the list of all entities of a given type from DB"""
 
     # get a cursor
@@ -100,7 +125,10 @@ def getEntityIds(type):
         return [ ]
 
     # execute the query
-    cursor.execute(entityQueries[type], type)
+    qparams = (type, )
+    if subtype is not None:
+        qparams = (type, subtype)
+    cursor.execute(entityQueries[type], qparams)
 
     # fetch the ids
     elist = [ ]
@@ -128,18 +156,47 @@ def cmd_add():
     while param < len(sys.argv):
 
         # get an entity type and check it's valid
-        type = sys.argv[param]
+        fullType = sys.argv[param]
+        type = fullType
+        subtype = None
+        if "/" in type:
+            (type, waste, subtype) = fullType.partition("/")
         param += 1
         if type not in entityTypes:
             print "ERROR: entity type [%s] is not valid" % type
+            return -1
+        if subtype is not None and subtype not in subtypes[type]:
+            print "ERROR: entity subtype [%s] for type [%s] is not valid" % (subtype, type)
             return -1
 
         # build the list of values
         eList = [ ]
         if sys.argv[param] == "*":
-            # get the list of (ALL) ids from the database
-            eList = getEntityIds(type)
-            param += 1
+
+            # if the entity has subtypes and we have no subtype, iterate
+            if subtype is None and subtypes[type]:
+                # iterate subtypes
+                for subtype in subtypes[type]:
+
+                    # set the fullType
+                    fullType = type + "/" + subtype
+
+                    # get the list of (ALL) ids from the database
+                    eList = getEntityIds(type, subtype)
+                    param += 1
+
+                    # attach the list to the type
+                    entities[fullType] = eList
+
+            else:
+                # no subtypes or subtype specified
+
+                # get the list of (ALL) ids from the database
+                eList = getEntityIds(type, subtype)
+                param += 1
+
+                # attach the list to the type
+                entities[fullType] = eList
         else:
             # process the params
             while param < len(sys.argv):
@@ -149,21 +206,26 @@ def cmd_add():
                     param += 1
                 except ValueError:
                     break
-
-        # attach the list to the type
-        entities[type] = eList
+            # attach the list to the type
+            entities[fullType] = eList
 
     # get a producer
     producer = getProducer()
 
     # start creating jobs
     jobCount = 0
-    for type in entityTypes:
+    for fullType in entities:
+
+        # separate type/subtype
+        type = fullType
+        if "/" in type:
+            (type, waste, subtype) = fullType.partition("/")
 
         # get the list
-        elist = entities[type]
+        elist = entities[fullType]
 
         # build jobs of up to 256 entries
+        localJobCount = 0
         jlist = [ ]
         for i in range(len(elist)):
             # append the entity
@@ -179,7 +241,7 @@ def cmd_add():
                 item = producer.item()
                 item.content = job
                 producer.ready(item)
-                jobCount += 1
+                localJobCount += 1
 
                 # new list
                 jlist = [ ]
@@ -194,10 +256,17 @@ def cmd_add():
             item = producer.item()
             item.content = job
             producer.ready(item)
-            jobCount += 1
+            localJobCount += 1
+
+        # report
+        if localJobCount > 0:
+            print "added %5d jobs for entity %s" % (localJobCount, fullType)
+        jobCount += localJobCount
 
     # report the number of jobs created
-    print "Put %d jobs in queue" % jobCount
+    print ""
+    print "Added a total of %5d jobs in queue" % jobCount
+    print ""
 
     return 0
 
