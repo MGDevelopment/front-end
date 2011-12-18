@@ -3,6 +3,7 @@
 {%- set section_name = d.Title.decode('utf-8') -%}
 {%- set section_name_loc = d.Path[0].Nombre.decode('utf-8')|e -%}
 {%- set subsection_name = d.Path[-1].Nombre.decode('utf-8')|e -%}
+{% set section = d.Categoria_Seccion %}
 {%- if d.Path and d.Path|length == 1 -%}
     {%- set section_page = true -%}
 {%- else -%}
@@ -26,7 +27,6 @@
     <link type="text/css" rel="stylesheet" href="/stage0/css/jquery.treeview.css">
     <link type="text/css" rel="stylesheet" href="/stage0/css/tinycarousel.css">
     <link type="text/css" rel="stylesheet" href="/stage0/css/showcase.css">
-    {% set section = d.Categoria_Seccion %}
     {% if section == 1 %}
         <link href="/stage0/css/books.css" rel="stylesheet" type="text/css">
     {% elif section == 4 %}
@@ -107,7 +107,7 @@
         <input type="hidden" id="seccionBusqueda"
                 value="En Tematika.com">
         <input type="hidden" id="idSeccionPropia" value="1">
-        <input type="hidden" id="idSeccion" value="1">
+        <input type="hidden" id="idSeccion" value="{{ section }}">
         <a id="btnBuscar" class="hBuscButton" title="Buscar"
             href="javascript:APP.setSearch(document.getElementById('optBusqueda').innerHTML,document.getElementById('txtBuscar').value,document.getElementById('idSeccion').value,document.getElementById('idSeccionPropia').value,document.getElementById('seccionBusqueda').value);">&nbsp;</a>
     </div>
