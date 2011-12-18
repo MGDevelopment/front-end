@@ -87,7 +87,7 @@
 
 {% block scripts_extra -%}
 	<!-- JFather -->
-	<script type="text/javascript" src="{{ url.data }}/stage0/js/json2.min.js"></script>
+	<script type="text/javascript" src="/stage0/js/json2.min.js"></script>
 
 	<script type="text/javascript">
 		{% include "fragments/serialize.js" %}
@@ -103,10 +103,10 @@
 	</script>
 
 	<!-- Data Scripts -->
-	<script type="text/javascript" src="{{ url.data }}/home-exchange.js"></script>
-	<script type="text/javascript" src="{{ url.data }}/comments{{ d.LinkBase }}.js"></script>
-	<script type="text/javascript" src="{{ url.data }}/related{{ d.LinkBase }}.js"></script>
-	<script type="text/javascript" src="{{ url.data }}/price{{ d.LinkBase }}.js"></script>
+	<script type="text/javascript" src="/home-exchange.js"></script>
+	<script type="text/javascript" src="/comments{{ d.LinkBase }}.js"></script>
+	<script type="text/javascript" src="/related{{ d.LinkBase }}.js"></script>
+	<script type="text/javascript" src="/price{{ d.LinkBase }}.js"></script>
 
 	{%- if d.Categoria_Seccion == 1 -%}
 	<script type="text/javascript" src="http://www.google.com/jsapi"></script>

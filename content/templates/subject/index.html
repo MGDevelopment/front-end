@@ -22,10 +22,10 @@
 {% endblock %}
 
 {% block head_extra %}
-    <link type="text/css" rel="stylesheet" href="{{ url.data }}/stage0/css/jquery.qtip.min.css">
-    <link type="text/css" rel="stylesheet" href="{{ url.data }}/stage0/css/jquery.treeview.css">
-    <link type="text/css" rel="stylesheet" href="{{ url.data }}/stage0/css/tinycarousel.css">
-    <link type="text/css" rel="stylesheet" href="{{ url.data }}/stage0/css/showcase.css">
+    <link type="text/css" rel="stylesheet" href="/stage0/css/jquery.qtip.min.css">
+    <link type="text/css" rel="stylesheet" href="/stage0/css/jquery.treeview.css">
+    <link type="text/css" rel="stylesheet" href="/stage0/css/tinycarousel.css">
+    <link type="text/css" rel="stylesheet" href="/stage0/css/showcase.css">
     {% set section = d.Categoria_Seccion %}
     {% if section == 1 %}
         <link href="/stage0/css/books.css" rel="stylesheet" type="text/css">
@@ -144,12 +144,12 @@
 
 {% block scripts_extra -%}
 	<!-- JQuery Carousel and qTip -->
-	<script type="text/javascript" src="{{ url.data }}/stage0/js/jquery.tinycarousel.js"></script>
-	<script type="text/javascript" src="{{ url.data }}/stage0/js/jquery.qtip.min.js"></script>
-	<script type="text/javascript" src="{{ url.data }}/stage0/js/jquery.cookie.js"></script>
-	<script type="text/javascript" src="{{ url.data }}/stage0/js/jquery.treeview.js"></script>
+	<script type="text/javascript" src="/stage0/js/jquery.tinycarousel.js"></script>
+	<script type="text/javascript" src="/stage0/js/jquery.qtip.min.js"></script>
+	<script type="text/javascript" src="/stage0/js/jquery.cookie.js"></script>
+	<script type="text/javascript" src="/stage0/js/jquery.treeview.js"></script>
 	<!-- JFather -->
-	<script type="text/javascript" src="{{ url.data }}/stage0/js/json2.min.js"></script>
+	<script type="text/javascript" src="/stage0/js/json2.min.js"></script>
 
 	<script type="text/javascript">
 	 	{% include "fragments/serialize.js" %}
@@ -168,11 +168,11 @@
         {%- set ubase = ubase[:-1] -%} {#- /section/ /section.js #}
     {%- endif -%}
 	<script type="text/javascript"
-            src="{{ url.data }}/comments{{ ubase }}.js"></script>
+            src="/comments{{ ubase }}.js"></script>
 	<script type="text/javascript"
-            src="{{ url.data }}/showcase{{ ubase }}.js"></script>
+            src="/showcase{{ ubase }}.js"></script>
 	<script type="text/javascript"
-            src="{{ url.data }}/catalog{{ ubase }}.js"></script>
+            src="/catalog{{ ubase }}.js"></script>
 
 	<script type="text/javascript">
 
