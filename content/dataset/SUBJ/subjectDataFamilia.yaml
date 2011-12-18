@@ -568,6 +568,7 @@ query_showcase_main:     &query_showcase_main
                           "Categoria_Subfamilia", "Archivo_Imagen", "Row_Number" ]
     query.post:         [ "tmklib.fixes.PROD.title",
                           "tmklib.fixes.PROD.calcImages",
+                          "tmklib.fixes.PROD.filterWithoutImage",
                           "tmklib.url.PROD",
                           "tmklib.fixes.PROD.embedRatings",
                           "tmklib.fixes.IMPR.title",
