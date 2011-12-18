@@ -1,7 +1,8 @@
 {% extends "page.html" %}
 
 {%- set section_name = d.Title.decode('utf-8') -%}
-{%- set subsection_name = d.Path[-1].Nombre.decode('utf-8') -%}
+{%- set section_name_loc = d.Path[0].Nombre.decode('utf-8')|e -%}
+{%- set subsection_name = d.Path[-1].Nombre.decode('utf-8')|e -%}
 {%- if d.Path and d.Path|length == 1 -%}
     {%- set section_page = true -%}
 {%- else -%}
@@ -9,7 +10,7 @@
 {%- endif -%}
 
 {% block head_title %}
-	<title>{{ subsection_name }} - Venta de {{ section_name }}</title>
+	<title>{{ subsection_name }} - Venta de {{ section_name_loc }}</title>
 {% endblock %}
 
 {% block head_canonical %}
