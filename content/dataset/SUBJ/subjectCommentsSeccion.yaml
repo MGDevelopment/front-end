@@ -58,9 +58,9 @@ query_unified:  &query_unified
                     ) CA
                     INNER JOIN  Articulos A
                         ON      CA.Id_Articulo = A.Id_Articulo AND
-                                A.Archivo_Imagen != 'N' AND
                                 A.Activo = 'SI' AND
-                                A.Habilitado_Tematika = 'S'
+                                A.Habilitado_Tematika = 'S' AND
+                                A.Precio_Venta_Vigente >= 7.0
                     INNER JOIN  Comentario_Articulos C
                         ON      CA.Id_Articulo = C.Id_Articulo AND
                                 CA.Id_Comentario = C.Id_Comentario

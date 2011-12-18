@@ -166,8 +166,7 @@ query_products_main:     &query_products_main
                                 -------------- ***** CONDITION
                                 A.Activo = 'SI' AND
                                 A.Habilitado_Tematika = 'S' AND
-                                A.Archivo_Imagen IS NOT NULL AND
-                                A.Archivo_Imagen <> 'N'
+                                A.Precio_Venta_Vigente >= 7.0
                     -------------- Ranking
                     LEFT JOIN   Mas_Vendidos_Seccion MVS
                         ON      A.Categoria_Seccion = MVS.Categoria_Seccion AND
@@ -251,8 +250,7 @@ augment_query_products_rating:  &augment_query_products_rating
                                                         -------------- ***** CONDITION
                                                         A.Activo = 'SI' AND
                                                         A.Habilitado_Tematika = 'S' AND
-                                                        A.Archivo_Imagen IS NOT NULL AND
-                                                        A.Archivo_Imagen <> 'N'
+                                                        A.Precio_Venta_Vigente >= 7.0
                                             -------------- Disponibilidades
                                             INNER JOIN  Disponibilidades D
                                                 ON      A.Id_Disponibilidad = D.Id_Disponibilidad AND
@@ -313,8 +311,7 @@ augment_query_products_authors:  &augment_query_products_authors
                                                         -------------- ***** CONDITION
                                                         A.Activo = 'SI' AND
                                                         A.Habilitado_Tematika = 'S' AND
-                                                        A.Archivo_Imagen IS NOT NULL AND
-                                                        A.Archivo_Imagen <> 'N'
+                                                        A.Precio_Venta_Vigente >= 7.0
                                             -------------- Disponibilidades
                                             INNER JOIN  Disponibilidades D
                                                 ON      A.Id_Disponibilidad = D.Id_Disponibilidad AND
@@ -510,6 +507,7 @@ query_showcase_main:     &query_showcase_main
                                 -------------- ***** CONDITION
                                 A.Activo = 'SI' AND
                                 A.Habilitado_Tematika = 'S' AND
+                                A.Precio_Venta_Vigente >= 7.0 AND
                                 A.Archivo_Imagen IS NOT NULL AND
                                 A.Archivo_Imagen <> 'N' AND
                                 A.Fecha_Alta {{VAR:operator}}
@@ -593,6 +591,7 @@ augment_query_showcase_rating:  &augment_query_showcase_rating
                                                         -------------- ***** CONDITION
                                                         A.Activo = 'SI' AND
                                                         A.Habilitado_Tematika = 'S' AND
+                                                        A.Precio_Venta_Vigente >= 7.0 AND
                                                         A.Archivo_Imagen IS NOT NULL AND
                                                         A.Archivo_Imagen <> 'N' AND
                                                         A.Fecha_Alta {{VAR:operator}}
@@ -658,6 +657,7 @@ augment_query_showcase_authors:  &augment_query_showcase_authors
                                                         -------------- ***** CONDITION
                                                         A.Activo = 'SI' AND
                                                         A.Habilitado_Tematika = 'S' AND
+                                                        A.Precio_Venta_Vigente >= 7.0 AND
                                                         A.Archivo_Imagen IS NOT NULL AND
                                                         A.Archivo_Imagen <> 'N' AND
                                                         A.Fecha_Alta {{VAR:operator}}
