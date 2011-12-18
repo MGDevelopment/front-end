@@ -160,9 +160,14 @@ APP = (function() {
     }
 
     function cartUpdate() {
-        if (!_session)
-            return; /* nothing to do */
-        $.ajax({
+
+        if (!_session) {
+
+            cartSet(obj.Carrito);
+
+        } else {
+
+            $.ajax({
                type: "POST",
                url: "/GetInfoCarrito",
                data: 'par=' + Math.random(),
@@ -171,12 +176,13 @@ APP = (function() {
                     var obj= jQuery.parseJSON(msg);
                     cartSet(obj.Carrito);
                }
-        });
+            });
+        }
     }
 
     function cartSet(cart) {
 
-        if (cart && cart.cantidad && cart.cantidad < 1) {
+        if (!cart || (cart && cart.cantidad && cart.cantidad < 1)) {
 
             $('#textoCarrito').get(0).innerHTML = 'No hay<br> items';
 
@@ -269,6 +275,7 @@ APP = (function() {
         checkAffiliate(); // Called img sets cookies and session
         checkSession();
         cartUpdate();
+        cartSet();
 
     }
 
