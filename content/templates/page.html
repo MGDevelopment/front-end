@@ -76,6 +76,7 @@
         {% endblock %}
         </div>
         <div id="content">
+    <div id="barraCentral" class="barraCentral">
         	{% block left_menu %}
                 <div id="leftmenu">
                     {% include "fragments/left_menu.html" %}
@@ -87,6 +88,7 @@
                     {% include "fragments/right_menu.html" %}
                 </div>
             {% endblock %}
+    </div>
         </div>
         <div id="bottom">
         {% block canvas_footer %}
