@@ -212,6 +212,13 @@ margin:5px 0 0 6px;
 display:inline;
 }
 
+.barraCentral{
+    float:left;
+    width:960px;
+    margin:5px 0px 0px 6px;
+    display:inline
+}
+
 .header {
 float:left;
 width:960px;
