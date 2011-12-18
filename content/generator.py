@@ -370,7 +370,10 @@ def cmd_help():
     
 Where parameters can be one of:
 - add job to the regeneration queue
-    "add" ( <entity type> [ * | <entity id list> ] )+
+    "add" ( <entity type>[/<subtype>] [ * | <entity id list> ] )+
+
+  Where the "/<subtype>" addition is only valid for SUBJ. This provides
+  a greater degree of control of what and in what sequence to generate.
 
 - regenerate internal cache (images, interviews, biographies, etc)
     "cache"
@@ -392,6 +395,9 @@ Where parameters can be one of:
 
 - regenerate the related files for all products
     "related"
+
+- list all the available subtypes
+    "subtypes"
 """
 
     return 0
@@ -498,6 +504,26 @@ SELECT          DISTINCT AR.Id_Articulo
     return 0
 
 
+#########################################################
+#########################################################
+#
+# COMMAND - SUBTYPES
+#
+def cmd_subtypes():
+    """List al entity types with the available subtypes"""
+
+    print "The known entity types (and subtypes) are:"
+    print ""
+
+    # list types
+    for type in entityTypes:
+        sub = ("subtypes: " + ", ".join(subtypes[type])) if subtypes[type] else "no subtypes"
+        print "%s - %s" % (type, sub)
+
+    print ""
+
+    return 0
+
 
 #########################################################
 #########################################################
@@ -513,6 +539,7 @@ commands = {
     "help"          : cmd_help,
     "list"          : cmd_list,
     "related"       : cmd_related,
+    "subtypes"      : cmd_subtypes,
     "__default__"   : cmd_help
 }
 
