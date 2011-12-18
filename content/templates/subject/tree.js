@@ -8,7 +8,7 @@
 var dataTree = {};
 
 {%- if d['Tree'] -%}
-dataTree['tree'] = '{{ render.renderTree(d['Tree'])|replace("\n", "") }}';
+dataTree['tree'] = ('{{ render.renderTree(d['Tree'])|replace("\n", "") }}');
 {%- endif %}
 
 function loadTree() {
