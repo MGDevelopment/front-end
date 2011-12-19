@@ -28,7 +28,7 @@ APP.addData('catalog', [
 	'{{ author }}',
 	'{{ author_url }}',
 	{{ p['Row_Number']|int }},
-	{{ "%.2f"|format(p['PriceAmount']) }},
+	{{ p['PriceAmount'] }},
 	{{ p['PublishingDateValue'] }}
 	]
 	{%- if loop.index < loop.length -%}
@@ -95,7 +95,7 @@ APP.fillCatalog = function (order, page) {
         $(v).find('.celdacontenido a')[0].href      = productLink;
         $(v).find('.celdacontenido a')[1].innerHTML = e[pAuthor];
         $(v).find('.celdacontenido a')[1].href      = e[pAuthorUrl];
-        $(v).find('.celdapreciocomprar .Fprecio')[0].innerHTML = 'Precio $ ' + e[pPrice] + '.-';
+        $(v).find('.celdapreciocomprar .Fprecio')[0].innerHTML = 'Precio $ ' + e[pPrice].toFixed(2) + '.-';
         $(v).find('.divInfo a')[0].href    = productLink;
         $(v).find('.divInfo a img')[0].alt = e[pTitle];
         $(v).find('.divInfo a img')[0].title = e[pAuthor] + ' - ' + e[pTitle];
