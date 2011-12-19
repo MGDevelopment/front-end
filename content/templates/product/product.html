@@ -90,14 +90,27 @@
 		</div>
 	</div>
     <div id="dInfoCompl">
-    	{%- if d.Categoria_Seccion == 1 -%}
+    	{%- if d.Categoria_Seccion != 4 -%}
 	    	{%- if getOnixItem(d.Texts, '17') or getOnixItem(d.Texts, '18') or getOnixItem(d.Texts, '01') or getOnixItem(d.Texts, '02') -%}
 	    	<div class="dSolapas" id="datosCompl">
 				<div class="tmtkMesaMenuMod"><img class="solapasTitDatosPrinc" title="Datos principales"  alt="Datos Principales" src="{{ url.images }}/imagenes/rediseno/imagenes/comun/t-datosPrinc.gif" /></div>
-				<div class="dResena">{%- if getOnixItem(d.Texts, '17') -%}<span>Solapa:</span>{{ getOnixItem(d.Texts, '17') }}{%- endif %}{%- if getOnixItem(d.Texts, '18') -%}<span>Contratapa:</span>{{ getOnixItem(d.Texts, '18') }}{%- endif %}{%- if getOnixItem(d.Texts, '01') -%}<span>Sinopsis:</span>{{ getOnixItem(d.Texts, '01') }} {%- else -%} {%- if getOnixItem(d.Texts, '02') -%}<span>Sinopsis:</span>{{ getOnixItem(d.Texts, '02') }} {%- endif %} {%- endif %}</div>
+				<div class="dResena">
+                    {%- if getOnixItem(d.Texts, '17') -%}
+                        <span>Solapa:</span>{{ getOnixItem(d.Texts, '17') }}
+                    {%- endif %}
+                    {%- if getOnixItem(d.Texts, '18') -%}
+                        <span>Contratapa:</span>{{ getOnixItem(d.Texts, '18') }}
+                    {%- endif %}
+                    {%- if getOnixItem(d.Texts, '01') -%}
+                        <span>Sinopsis:</span>{{ getOnixItem(d.Texts, '01') }}
+                    {%- else -%}
+                    {%- if getOnixItem(d.Texts, '02') -%}
+                        <span>Sinopsis:</span>{{ getOnixItem(d.Texts, '02') }}
+                    {%- endif %}
+            {%- endif %}</div>
 	        </div>
 	        {%- endif %}
-	    {%- elif d.Categoria_Seccion == 4 %}
+	    {%- else -%} {# d.Categoria_Seccion == 4 #}
 	    	{%- if d.Content and d.Content|length > 0 -%}
 	    	<div class="dSolapas" id="datosCompl">
 				<div class="tmtkMesaMenuMod"><img class="solapasTitDatosPrinc" title="Datos principales"  alt="Datos Principales" src="{{ url.images }}/imagenes/rediseno/imagenes/comun/t-datosPrinc.gif" /></div>

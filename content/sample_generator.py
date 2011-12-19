@@ -15,6 +15,7 @@ import sample.sample_data_movies_5
 import sample.sample_product_book_413418
 import sample.sample_product_book_465771
 import sample.sample_product_music_530185
+import sample.sample_product_movie_529368
 
 
 # String to wrap HTML content with JS loader
@@ -608,7 +609,7 @@ documentos = [
        "target.repo"   : "dynamic"
    },
               #
-   # product - comentarios
+   # product music - comentarios
    #
    {
        "EntityType"    : "PAGE",
@@ -673,8 +674,75 @@ documentos = [
        },
        "target.path"   : "/cds/rp_internacional--1/rp_internacional--1/true_sacd--530185.htm",
        "target.repo"   : "dynamic"
+   },
+    #
+    # product movies - comentarios
+    #
+   {
+       "EntityType"    : "PAGE",
+       "EntityId"      : 1,
+       "dataset"       : "productComments",       "_data" : sample.sample_product_movie_529368.products_529368_comments,
+                                               "_url"  : homeURL,
+       "template"      : "product/comments.js",
+       "headers"       : {
+           "Content-Type"      : "text/javascript",        # requerido por IE
+           "Content-Encoding"  : "gzip",
+           "Cache-Control"     : "max-age=3600"
+       },
+       "target.path"   : "/comments/dvds/serie_tv--15/millennium_3_la_reina_en_el_palacio_de_las_corrientes_de_aire--529368.js",
+       "target.repo"   : "static"
+   },
+   #
+   # product - related
+   #
+   {
+       "EntityType"    : "PAGE",
+       "EntityId"      : 1,
+       "dataset"       : "productRelated",       "_data" : sample.sample_product_movie_529368.products_529368_related,
+                                               "_url"  : homeURL,
+       "template"      : "product/related.js",
+       "headers"       : {
+           "Content-Type"      : "text/javascript",        # requerido por IE
+           "Content-Encoding"  : "gzip",
+           "Cache-Control"     : "max-age=3600"
+       },
+       "target.path"   : "/related/dvds/serie_tv--15/millennium_3_la_reina_en_el_palacio_de_las_corrientes_de_aire--529368.js",
+       "target.repo"   : "static"
+   },
+   #
+   # product - price
+   #
+   {
+       "EntityType"    : "PAGE",
+       "EntityId"      : 1,
+       "dataset"       : "productPrice",       "_data" : sample.sample_product_movie_529368.products_529368_price,
+                                               "_url"  : homeURL,
+       "template"      : "product/price.js",
+       "headers"       : {
+           "Content-Type"      : "text/javascript",        # requerido por IE
+           "Content-Encoding"  : "gzip",
+           "Cache-Control"     : "max-age=3600"
+       },
+       "target.path"   : "/price/dvds/serie_tv--15/millennium_3_la_reina_en_el_palacio_de_las_corrientes_de_aire--529368.js",
+       "target.repo"   : "static"
+   },
+########## /index.html
+   {
+       "EntityType"    : "PAGE",
+       "EntityId"      : 1,
+       "dataset"       : "main",          "_data" : sample.sample_product_movie_529368.products_529368_main,
+                                              "_url"  : homeURL,
+        "_url"          : dict(musicaURL, **{'cannonical': "/libros/ficcion_y_literatura--1/novelas--1/general--1/comer__rezar__amar--465771"}),
+       "template"      : "product/index.html",
+       "headers"       : {
+           "Content-Type"      : "text/html",
+           "Content-Encoding"  : "gzip",
+           "Cache-Control"     : "max-age=3600"
+       },
+       "target.path"   : "/dvds/serie_tv--15/millennium_3_la_reina_en_el_palacio_de_las_corrientes_de_aire--529368.htm",
+       "target.repo"   : "dynamic"
    }
-    
+   
 ]
 
 
