@@ -27,7 +27,7 @@
 	{%- if texts is iterable -%}
 		{%- for text in texts -%}
 			{%- if text.EntryCode == code and text.TextContent -%}
-				{{ text.TextContent.decode('utf-8') }}
+				{{ text.TextContent.decode('utf-8')|replace("\n","<br>\n") }}
 			{%- endif %}
 		{%- endfor %}
 	{%- endif %}
@@ -174,11 +174,12 @@
 			<div class="dSolapas" id="entrevista">
 		    	<div class="tmtkMesaMenuMod"><div class="solapasTitEntrev" title="Entrevista"/></div></div>
 				<div class="dResena" id="divEnrevista"><span></span>
-				{%- if getOnixItem(d.Texts, '40')|length > 915 -%}
-	            	<div id="interview">{{ getOnixItem(d.Texts, '40')|truncate(915)}}...<br><a onclick="javascript:changeDiv('interview', 'hideInterview');" href="#entrevista" class="dSolapasPieLink">+&nbsp;seguir leyendo</a></div>
-	            	<div id="hideInterview" style="display: none">{{ getOnixItem(d.Texts, '40') }}<br><a onclick="javascript:changeDiv('hideInterview', 'interview');" href="#entrevista" class="dSolapasPieLink">-&nbsp;seguir leyendo</a></div>
+	            {%- set interview = getOnixItem(d.Texts, '40') -%}
+				{%- if interview|length > 915 -%}
+	            	<div id="interview">{{ interview|truncate(915) }}...<br><a onclick="javascript:changeDiv('interview', 'hideInterview');" href="#entrevista" class="dSolapasPieLink">+&nbsp;seguir leyendo</a></div>
+	            	<div id="hideInterview" style="display: none">{{ interview }}<br><a onclick="javascript:changeDiv('hideInterview', 'interview');" href="#entrevista" class="dSolapasPieLink">-&nbsp;seguir leyendo</a></div>
 	            {%- else -%}
-	            	{{ getOnixItem(d.Texts, '40') }}
+	            	{{ interview }}
 	            {%- endif -%}
 				</div>
 			</div>
