@@ -119,7 +119,7 @@ APP = (function() {
 
             $('#textoCarrito').get(0).innerHTML =  ( cart.cantidad
                 + 'item'   + ((cart.cantidad > 1)?'s': '')
-                + '<br>$ ' + formatCurrency(cart.total) );
+                + '<br>$ ' + cart.total.toFixed(2) );
 
         }
     }
@@ -151,7 +151,7 @@ APP = (function() {
             $('#divCarrito').get(0).className = 'efectoCarritoModError';
         } else {
             $('#msgCarritoOK').get(0).innerHTML = articulo.titulo;
-            $('#precioCarrito').get(0).innerHTML = formatCurrency(articulo.cls_precio);
+            $('#precioCarrito').get(0).innerHTML = articulo.cls_precio.toFixed(2);
             $('#carritoImagen').get(0).src = articulo.cls_urlImagen;
             $('#spnPrecioCarrito').get(0).style.display='';
             $('#msgCarritoERROR').get(0).style.display='none';
@@ -195,6 +195,7 @@ APP = (function() {
         }
     }
 
+    // TODO TO BE DELETED
     function formatCurrency(n) { // XXX missing i18n support
 
         return n;
