@@ -156,6 +156,7 @@ query_products_main:     &query_products_main
                         A.Categoria_Familia             AS Categoria_Familia,
                         A.Categoria_Subfamilia          AS Categoria_Subfamilia,
                         A.Archivo_Imagen                AS Archivo_Imagen,
+                        A.Id_Impuesto                   AS Id_Impuesto,
                         -------------- USED TO LIMIT THE COUNT OF RETRIEVED ITEMS
                         row_number() OVER (PARTITION BY S.SubjectId
                                            ORDER BY A.Fecha_Alta DESC, A.Id_Articulo DESC)
@@ -218,9 +219,11 @@ query_products_main:     &query_products_main
                           "FulfillmentValue", "CurrencyCode", "CurrencyCode_list", 
                           "CurrencyCode_desc", "PriceAmount",
                           "Categoria_Seccion", "Categoria_Grupo", "Categoria_Familia",
-                          "Categoria_Subfamilia", "Archivo_Imagen", "Row_Number" ]
+                          "Categoria_Subfamilia", "Archivo_Imagen", "Id_Impuesto",
+                          "Row_Number" ]
     query.post:         [ "tmklib.fixes.PROD.title",
                           "tmklib.fixes.PROD.calcImages",
+                          "tmklib.PROD.calculateTaxes",
                           "tmklib.url.PROD",
                           "tmklib.fixes.PROD.embedRatings",
                           "tmklib.fixes.IMPR.title",
@@ -504,6 +507,7 @@ query_showcase_main:     &query_showcase_main
                         A.Categoria_Familia             AS Categoria_Familia,
                         A.Categoria_Subfamilia          AS Categoria_Subfamilia,
                         A.Archivo_Imagen                AS Archivo_Imagen,
+                        A.Id_Impuesto                   AS Id_Impuesto,
                         -------------- USED TO LIMIT THE COUNT OF RETRIEVED ITEMS
                         row_number() OVER (PARTITION BY S.SubjectId ORDER BY MVS.Orden)
                                                         AS Row_Number
@@ -565,10 +569,12 @@ query_showcase_main:     &query_showcase_main
                           "FulfillmentValue", "CurrencyCode", "CurrencyCode_list", 
                           "CurrencyCode_desc", "PriceAmount",
                           "Categoria_Seccion", "Categoria_Grupo", "Categoria_Familia",
-                          "Categoria_Subfamilia", "Archivo_Imagen", "Row_Number" ]
+                          "Categoria_Subfamilia", "Archivo_Imagen", "Id_Impuesto",
+                          "Row_Number" ]
     query.post:         [ "tmklib.fixes.PROD.title",
                           "tmklib.fixes.PROD.calcImages",
                           "tmklib.fixes.PROD.filterWithoutImage",
+                          "tmklib.PROD.calculateTaxes",
                           "tmklib.url.PROD",
                           "tmklib.fixes.PROD.embedRatings",
                           "tmklib.fixes.IMPR.title",

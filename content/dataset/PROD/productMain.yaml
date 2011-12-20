@@ -359,7 +359,8 @@ query.sql:          >
             A.Categoria_Grupo               AS Categoria_Grupo,
             A.Categoria_Familia             AS Categoria_Familia,
             A.Categoria_Subfamilia          AS Categoria_Subfamilia,
-            A.Archivo_Imagen                AS Archivo_Imagen
+            A.Archivo_Imagen                AS Archivo_Imagen,
+            A.Id_Impuesto                   AS Id_Impuesto
         FROM        Articulos A
         -------------- Ranking
         LEFT JOIN   Mas_Vendidos_Seccion MVS
@@ -406,9 +407,10 @@ query.columns:      [ "EntityType", "EntityId", "ProductId", "LinkBase",
                       "CurrencyCode", "CurrencyCode_list", "CurrencyCode_desc",
                       "PriceAmount", "Categoria_Seccion", "Categoria_Grupo",
                       "Categoria_Familia", "Categoria_Subfamilia",
-                      "Archivo_Imagen" ]
+                      "Archivo_Imagen", "Id_Impuesto" ]
 query.post:         [ "tmklib.fixes.PROD.title",
                       "tmklib.fixes.PROD.calcImages",
+                      "tmklib.PROD.calculateTaxes",
                       "tmklib.url.PROD",
                       "tmklib.fixes.PROD.embedRatings",
                       "tmklib.PROD.categories",
