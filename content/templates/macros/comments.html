@@ -26,7 +26,12 @@
 {%- endmacro %}
 {%- macro renderComments(comments_data, urls, cols, sectionMore) -%}
     {%- if comments_data and comments_data is iterable -%}
-	<div class="tmtkMesaMenuMod">
+    	{%- if sectionMore -%}
+			<div class="tmtkMesaMenuMod">
+		{%- else -%}
+			<div class="tmtkMesaMenuMod" style="margin:15px 0 0 210px;">
+		{%- endif -%}
+		<div class="{{ classDiv }}">
     	<div class="solapasTitComent"></div>
         <ul class="dropdown">
 			<li onclick="javascript:desplegarOpciones(\'listaComentarios\');" class="dir">
