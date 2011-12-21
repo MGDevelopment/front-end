@@ -81,20 +81,6 @@ documents = {
             "tags"          : [ "main" ],
             "target.path"   : "/home-exchange.js",
             "target.repo"   : "jrunhome"
-        },
-        ####################### app.js
-        {
-            "name"          : "homepage-app",
-            "dataset"       : "homeMain",
-            "template"      : "js/app.js",
-            "headers"       : {
-                "Content-Type"      : "text/javascript",
-                "Content-Encoding"  : "gzip",
-                "Cache-Control"     : "max-age=3600, must-revalidate"
-            },
-            "tags"          : [ "main" ],
-            "target.path"   : "/js0/app.js",
-            "target.repo"   : "static"
         }
     ],
     ##############################################
