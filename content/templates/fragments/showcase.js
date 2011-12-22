@@ -17,6 +17,9 @@ APP.setTips = function () {
                 height: 20
                 }
             },
+        show: {
+            solo: true
+            },
         hide: {
             delay: 300,
             fixed: true
