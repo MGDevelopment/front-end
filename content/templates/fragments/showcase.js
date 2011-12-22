@@ -13,8 +13,8 @@ APP.setTips = function () {
         style: {
             classes: 'ui-tooltip-rounded ui-tooltip-light',
             tip: {
-                width:  15,
-                height: 20
+                width:  12,
+                height: 17
                 }
             },
         show: {

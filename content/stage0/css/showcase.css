@@ -21,19 +21,6 @@ div.ui-tooltip-content table {
     width: 95%;
 }
 
-div.ui-tooltip-content table td.product-popup-titleauthor {
-    width: 70%;
-}
-
-div.ui-tooltip-content table td.product-popup-price {
-    width: 29%;
-}
-
-div.ui-tooltip-content p.product-popup-title,
-        div.ui-tooltip-content p.product-author {
-    padding: 0.3em;
-}
-
 div.ui-tooltip-content p.product-popup-price {
     font-size:   2em;
     font-weight: bold;
