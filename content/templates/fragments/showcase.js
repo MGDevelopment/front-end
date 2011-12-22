@@ -21,7 +21,7 @@ APP.setTips = function () {
             solo: true
             },
         hide: {
-            delay: 300,
+            delay: 200,
             fixed: true
             }
     });
