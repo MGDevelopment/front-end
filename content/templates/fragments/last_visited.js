@@ -100,92 +100,95 @@ function renderLastVisited(divTarget) {
 }
 
 function getNoItems() {
-	return '<table align="center" width="389" border="0" cellpadding="0" cellspacing="0" class="modulosmedio">' +
-	  '<tr>' +
-	  	'<td class="titulosceldas"><table width="387" border="0" cellpadding="0" cellspacing="0" class="titulosceldas2">' +
-	  		'<tr>' +
-	      '<td><img src="{{ url.images }}/imagenes/libros/t-ultimosvisitados.gif" alt="&Uacute;ltimos visitados" width="127" height="10" /></td>' +
-	      	'</tr>' +
-	      	'</table></td>' +
-	   '</tr>' +
-	'<tr>' +
-	'<td><div class="GultvisitadosB" align="center">' +
-	    '<div><img src="{{ url.images }}/imagenes/ultvisitados.gif" height="30" style="margin-top:10px;" alt="" /></div>' +
-	  '<div class="Ftexto03" style="margin-top:10px">EN ESTE SECTOR SE CARGARAN AUTOM&Aacute;TICAMENTE TODOS LOS PRODUCTOS QUE VISITES EN NUESTRO SITIO. </div>' +
-	'</div></td>' +
-	'</tr>' +
-	'</table>';
+    return $(unescape('%3Cdiv>')).html([
+            '&lt;table align="center" width="389" border="0" cellpadding="0" ',
+            'cellspacing="0" class="modulosmedio"&gt;&lt;tr&gt;&lt;td class=',
+            '"titulosceldas"&gt;&lt;table width="387" border="0" cellpadding=',
+            '"0" cellspacing="0" class="titulosceldas2"&gt;&lt;tr&gt;&lt;td',
+            '&gt;&lt;img src="{{ url.images }}/imagenes/libros/t-',
+            'ultimosvisitados.gif" alt="&amp;Uacute;ltimos visitados" width=',
+            '"127" height="10" /&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;',
+            '/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;div class=',
+            '"GultvisitadosB" align="center"&gt;&lt;div&gt;&lt;img src="',
+            '{{ url.images }}/imagenes/ultvisitados.gif" height="30" style=',
+            '"margin-top:10px;" alt="" /&gt;&lt;/div&gt;&lt;div class=',
+            '"Ftexto03" style="margin-top:10px"&gt;EN ESTE SECTOR SE CARGARAN',
+            ' AUTOM&amp;Aacute;TICAMENTE TODOS LOS PRODUCTOS QUE VISITES EN ',
+            'NUESTRO SITIO. &lt;/div&gt;&lt;/div&gt;&lt;/td&gt;&lt;/tr&gt;',
+            '&lt;/table&gt;'].join('')).text();
 }
 
 function getItems(articleList) {
 	var HTML = '';
 	try {
-		HTML = '<table align="center" width="390" border="0" cellpadding="0" cellspacing="0" class="modulosmedio">' +
-			'<tr>' +
-				'<td class="titulosceldas">' +
-					'<table width="390" border="0" cellpadding="0" cellspacing="0" class="titulosceldas2">' +
-						'<tr>' +
-							'<td>' +
-								'<img src="{{ url.images }}/imagenes/libros/t-ultimosvisitados.gif" alt="&Uacute;ltimos visitados" width="127" height="10" />' +
-							'</td>' +
-						'</tr>' +
-					'</table>' +
-				'</td>' +
-			'</tr>';
+		HTML = $(unescape('%3Cdiv>')).html([
+                '&lt;table align="center" width="390" border="0" cellpadding=',
+                '"0" cellspacing="0" class="modulosmedio"&gt;&lt;tr&gt;&lt;td ',
+                'class="titulosceldas"&gt;&lt;table width="390" border="0" ',
+                'cellpadding="0" cellspacing="0" class="titulosceldas2"&gt;',
+                '&lt;tr&gt;&lt;td&gt;&lt;img src="{{ url.images }}/imagenes/',
+                'libros/t-ultimosvisitados.gif" alt="&amp;Uacute;ltimos ',
+                'visitados" width="127" height="10" /&gt;&lt;/td&gt;&lt;/tr',
+                '&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;'].join('')).text();
+                
 		for (var i = 0; i < _numberOfItems; i++) {
 			var article = articleList[i];
 			if (article != null) {
-				HTML = HTML + '<tr>' +
-					'<td>' +
-						'<table align="center" width="386" border="0" cellpadding="0" cellspacing="0" class="Gultimosvitadosprod">' +
-							'<tr>' +
-								'<td colspan="3">' +
-									'<div align="left">' +
-										'<a class="FProductos" href="' + article.getURL()  + '">' + article.getTitle() + '</a>' +
-			        	 				'<span class="FProductos"> | <a href="' + article.getURLPrincipalAttribute() + '" class="Fautores0">' + article.getPrincipalAttribute() + '</a>' +
-			        	 				'</span>' +
-								        '<br>' +
-								        '<a href="' + article.getURLGroup() + '" class="FCategorias">' + article.getGroup() + '</a>' +
-									'</div>' +
-								'</td>' +
-							'</tr>' +
-			   				'<tr>' +
-			     				'<td width="299" valign="bottom" class="Gultimosvitadosprodprecio">' +
-			     					'<div align="left">' +
-	 		     						'<span class="Fprecio">PRECIO: ' + article.getPrice() + '</span>' +
-			     					'</div>' +
-			     				'</td>' +
-			     				'<td valign="bottom">' +
-			     					'<div align="right">' +
-			           					'<table width="2" border="0" cellspacing="0" cellpadding="0" class="divComprar">' +
-			             					'<tr>' +
-			               						'<td height="19" class="divInfo">' +
-				               						'<a class="FProductos" href="' + article.getURL() + '" alt="' + article.getTitle() +'">' +
-					               						'<img src="{{ url.images }}/imagenes/inicio/b-info.gif" alt="" title="" border="0" />' +
-				               						'</a>' +
-			               						'</td>' +
-			               						'<td class="divComprarPedir">';
+				HTML = HTML + $(unescape('%3Cdiv>')).html([
+'&lt;tr>' +
+					'&lt;td>' +
+						'&lt;table align="center" width="386" border="0" cellpadding="0" cellspacing="0" class="Gultimosvitadosprod">' +
+							'&lt;tr>' +
+								'&lt;td colspan="3">' +
+									'&lt;div align="left">' +
+										'&lt;a class="FProductos" href="' + article.getURL()  + '">' + article.getTitle() + '&lt;/a>' +
+			        	 				'&lt;span class="FProductos"> | &lt;a href="' + article.getURLPrincipalAttribute() + '" class="Fautores0">' + article.getPrincipalAttribute() + '&lt;/a>' +
+			        	 				'&lt;/span>' +
+								        '&lt;br>' +
+								        '&lt;a href="' + article.getURLGroup() + '" class="FCategorias">' + article.getGroup() + '&lt;/a>' +
+									'&lt;/div>' +
+								'&lt;/td>' +
+							'&lt;/tr>' +
+			   				'&lt;tr>' +
+			     				'&lt;td width="299" valign="bottom" class="Gultimosvitadosprodprecio">' +
+			     					'&lt;div align="left">' +
+	 		     						'&lt;span class="Fprecio">PRECIO: ' + article.getPrice() + '&lt;/span>' +
+			     					'&lt;/div>' +
+			     				'&lt;/td>' +
+			     				'&lt;td valign="bottom">' +
+			     					'&lt;div align="right">' +
+			           					'&lt;table width="2" border="0" cellspacing="0" cellpadding="0" class="divComprar">' +
+			             					'&lt;tr>' +
+			               						'&lt;td height="19" class="divInfo">' +
+				               						'&lt;a class="FProductos" href="' + article.getURL() + '" alt="' + article.getTitle() +'">' +
+					               						'&lt;img src="{{ url.images }}/imagenes/inicio/b-info.gif" alt="" title="" border="0" />' +
+				               						'&lt;/a>' +
+			               						'&lt;/td>' +
+			               						'&lt;td class="divComprarPedir">'].join('')).text();
 
 			    if (article.getAvailable()) {
-			    	HTML = HTML + '<a href="javascript:APP.cartAdd(\"' + article.getArticleId() + '\");window.scrollTo(0,0);" rel="nofollow">' +
-			               			'<img src="{{ url.images }}/imagenes/inicio/b-comprar.gif" alt="Comprar"  border="0" /></a>';
+			    	HTML = HTML + $(unescape('%3Cdiv>')).html(['&lt;a href="javascript:APP.cartAdd(\"'
+                            + article.getArticleId() +
+                            '\");window.scrollTo(0,0);" rel="nofollow">' +
+			               	'&lt;img src="{{ url.images }}/imagenes/inicio/b-comprar.gif" alt="Comprar"  border="0" />&lt;/a>'].join('')).text();
 			    } else {
-			    	HTML = HTML + '<a href="javascript:if (confirm(\"Este producto no esta disponible actualmente. Desea hacer un pedido?\"))document.location = "/PedidoEspecial?ID_ARTICULO=' + article.getArticleId() + ';" rel="nofollow">' +
-			    					'<img src="{{ url.images }}/imagenes/inicio/b-pedir.gif" alt="Comprar"  border="0"/>' +
-			    				'</a>';
+			    	HTML = HTML + $(unescape('%3Cdiv>')).html([
+                            '&lt;a href="javascript:if (confirm(\"Este producto no esta disponible actualmente. Desea hacer un pedido?\"))document.location = "/PedidoEspecial?ID_ARTICULO=' + article.getArticleId() + ';" rel="nofollow">' +
+			    					'&lt;img src="{{ url.images }}/imagenes/inicio/b-pedir.gif" alt="Comprar"  border="0"/>' +
+			    				'&lt;/a>'].join('')).text();
 			    }
-			    HTML = HTML + '</td>' +
-			             					'</tr>' +
-			           					'</table>' +
-			         				'</div>' +
-			     				'</td>' +
-			   				'</tr>' +
-			 			'</table>' +
-			 		'</td>' +
-				'</tr>';
+			    HTML = HTML + $(unescape('%3Cdiv>')).html(['&lt;/td>' +
+			             					'&lt;/tr>' +
+			           					'&lt;/table>' +
+			         				'&lt;/div>' +
+			     				'&lt;/td>' +
+			   				'&lt;/tr>' +
+			 			'&lt;/table>' +
+			 		'&lt;/td>' +
+				'&lt;/tr>'].join('')).text();
 			}
 		}
-		HTML = HTML + '</table>';
+		HTML = HTML + $(unescape('%3Cdiv>')).html('&lt;/table>').text();
 	} catch (e) {
 		HTML = getNoItems();
 	}
