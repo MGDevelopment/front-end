@@ -79,7 +79,7 @@ background-image:url(/imagenes/rediseno/imagenes/seccionTematika/solapas-back.pn
 
 .tmtkMesa {
 float:left;
-margin:-5px 0 0 5px;
+margin:0;
 display:inline;
 }
 
@@ -523,3 +523,6 @@ table.catalog-info-price {
     width: auto;
 }
 
+div#slider {
+    margin-left: 17px;
+}
