@@ -83,7 +83,7 @@ function getMensaje() {
 }
 function getVisualizaMensaje() {
 
-	document.getElementById('msjMax').innerHTML = $('<div>').html([
+	document.getElementById('msjMax').innerHTML = $(unescape('%3Cdiv>')).html([
             '&lt;div class="panelMsjTit"&gt;Ten&amp;eacute;s&amp;nbsp;&lt;',
             'span id="totalMsg"&gt;&lt;/span&gt;&amp;nbsp;mensajes &amp;gt;',
             '&lt;/div&gt;&lt;div class="panelMsjTxt"&gt;&lt;a href="',
@@ -98,7 +98,7 @@ function getVisualizaMensaje() {
             '" class="pnlMsgComandos" id="msgLeido"&gt;No volver a mostrar ',
             'este mensaje&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;'].join('')).text();
 
-	document.getElementById('msjMin').innerHTML = $('<div>').html([
+	document.getElementById('msjMin').innerHTML = $(unescape('%3Cdiv>')).html([
             '&lt;div class="panelMsjTxt"&gt;&lt;a href="javascript:',
             'mostrarDiv(\'msjMin\'); javascript:mostrarDiv(\'msjMax\');',
             'javascript:setVisualizaMensaje(true)" class="panelMsjAbrir"&gt;',

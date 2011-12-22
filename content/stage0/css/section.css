@@ -478,3 +478,48 @@ img.section-top {
 height: 60px;
 width:  210px;
 }
+
+.Gtablaprincipal
+{
+	background-color:#FFF;
+	padding:20px;
+	text-align:center;
+}
+
+.Gtablacontenido
+{
+	margin-top:15px;
+    width:     600px;
+}
+
+.Gbarraizquierda
+{
+	border-right:solid 1px #CCC;
+	vertical-align:top;
+	width:145px;
+}
+
+.Gbarraderecha
+{
+	border-left:solid 1px #CCC;
+	padding-left:15px;
+	vertical-align:top;
+	width:155px;
+}
+
+.Gcentro
+{
+	vertical-align:top;
+	text-align:center;
+    width:          422px;
+}
+
+.Gcentro table
+{
+    width: 390px;
+}
+
+table.catalog-info-price {
+    width: auto;
+}
+

@@ -1,12 +1,11 @@
 {%- if d.Products -%}
 	<div style="width: 650px; float: right; position:static;">
-	  <table width="600" border="0" cellpadding="0" cellspacing="0"
+	  <table cellpadding="0" cellspacing="0"
 	      class="Gtablacontenido">
 	  <tbody>
 	  <tr>
-	    <td class="Gcentro" width="422">
-	      <table width="390" border="0" cellpadding="0"
-	          cellspacing="0">
+	    <td class="Gcentro">
+	      <table cellpadding="0" cellspacing="0">
 	      <tbody>
 	      <tr>
 	        <td>
@@ -26,21 +25,21 @@
 	      <tr>
 	        <td>
 	          <div>
-	            <table width="390" border="0" cellspacing="0" cellpadding="0"
+	            <table cellspacing="0" cellpadding="0"
 	                class="modulobuscador">
 	            <tbody>
 	            <tr>
 	              <td>
-	                <table width="390" border="0" cellspacing="0" cellpadding="0">
+	                <table cellspacing="0" cellpadding="0">
 	                <tbody>
 	                <tr class="modulosmedio">
 	                  <td>
-	                    <table width="390" border="0" cellspacing="0"
+	                    <table cellspacing="0"
 	                        cellpadding="0" class="titulosceldastabla">
 	                    <tbody>
 	                    <tr>
 	                      <td class="titulosceldas">
-	                        <table width="390" border="0" cellpadding="0"
+	                        <table cellpadding="0"
 	                            cellspacing="0" class="titulosceldas2">
 	                        <tbody>
 	                        <tr>
@@ -83,7 +82,7 @@
 	    {%- set p = d.Products[i] -%}
 	    {%- if p['Authors'] and p['Authors'][0]|length > 0 -%}
 	        {%- set author = p.Authors[0].ContributorName.decode('utf-8')|e -%}
-	        {%- set author_url = p.Authors[0].ContributorURL -%}
+	        {%- set author_url = p.Authors[0].ContributorURL|e -%}
 	    {%- else -%}
 	        {%- set author = '' -%}
 	        {%- set author_url = '' -%}
@@ -91,24 +90,24 @@
 	    {%- set p_id    = p.EntityId -%}
 	    {%- set p_cover = url.images + p.CoverSmall -%}
 	    {%- set p_title = p.Title.decode('utf-8')|e -%}
-	    {%- set p_url   = p.LinkBase + '.htm' -%}
+	    {%- set p_url   = p.LinkBase|e + '.htm' -%}
 	    {%- set p_rank  = p.Row_Number|int -%}
 	    {%- set p_date  = p.PublishingDateValue -%}
 	            <tr>
 	              <td>
-	                <table width="390" border="0" cellspacing="0" cellpadding="0"
+	                <table width="390" cellspacing="0" cellpadding="0"
 	                    class="moduleproductob">
 	                <tbody>
 	                <tr>
 	                  <td>
-	                    <table width="390" border="0" cellspacing="0"
+	                    <table cellspacing="0"
 	                        cellpadding="0">
 	                    <tbody>
 	                    <tr>
-	                      <td width="82" rowspan="5" class="celdafoto">
+	                      <td rowspan="5" class="celdafoto">
 	                        <a href="{{ p_url }}">
 	                        <img src="{{ p_cover }}" alt="{{ p_title }}"
-	                                border="0" class="Gimagesproductos"
+	                                class="Gimagesproductos"
                                     width="{{ section_wh[0] }}"
                                     height="{{ section_wh[1] }}">
 	                        </a>
@@ -120,23 +119,24 @@
 	                      </td>
 	                    </tr>
 	                    <tr>
-	                      <td width="201" valign="bottom" class="celdapreciocomprar">
+	                      <td valign="bottom" class="celdapreciocomprar">
 	                        <div>
 	                          <span class="Fprecio">PRECIO: $ {{ "%.2f"|format(p.PriceAmount) }}.-</span>
 	                        </div>
 	                      </td>
 	                      <td valign="bottom">
-	                        <div align="right">
-	                          <table width="2" border="0" cellspacing="0" cellpadding="0">
+	                        <div>
+	                          <table width="2" cellspacing="0" cellpadding="0"
+                                    class="catalog-info-price">
 	                          <tbody>
 	                          <tr>
-	                            <td height="19" class="divInfo">
-	                              <a href="{{ p_url }}" class="FProductos"><img src="{{ url.images }}/imagenes/libros/b-info.gif" alt="{{ author }} - {{ p_title }}" title="{{ author }} - {{ p_title }}" border="0"></a>
+	                            <td class="divInfo">
+	                              <a href="{{ p_url }}" class="FProductos"><img src="{{ url.images }}/imagenes/libros/b-info.gif" alt="{{ author }} - {{ p_title }}" title="{{ author }} - {{ p_title }}"></a>
 	                            </td>
 	                            <td class="divComprarPedir">
 	                              <a href="javascript:APP.cartAdd('+e[pProductId]+');window.scrollTo(0,0);" rel="nofollow">
 	                                <img src="{{ url.images }}/imagenes/libros/b-comprar.gif"
-	                                    alt="Comprar" border="0">
+	                                    alt="Comprar">
 	                              </a>
 	                            </td>
 	                          </tr>
@@ -176,16 +176,16 @@
 	      </tbody>
 	      </table>
 	    </td>
-	    <td class="Gbarraderecha" width="162">
-	      <table width="155" border="0" cellspacing="0" cellpadding="0">
+	    <td class="Gbarraderecha">
+	      <table cellspacing="0" cellpadding="0">
 	      <tbody>
 	      <tr class="">
 	        <td>
-	          <table width="155" border="0" cellspacing="0" cellpadding="0" class="moduloorden" style="margin-bottom:15px">
+	          <table width="155" cellspacing="0" cellpadding="0" class="moduloorden" style="margin-bottom:15px">
 	          <tbody>
 	          <tr>
 	            <td>
-	              <table border="0" cellspacing="0" cellpadding="0">
+	              <table cellspacing="0" cellpadding="0">
 	              <tbody>
 	              <tr>
 	                <td>

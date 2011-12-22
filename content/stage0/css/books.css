@@ -1049,6 +1049,7 @@ padding-bottom:10px;
 border-right:solid 1px #CCC;
 vertical-align:top;
 text-align:center;
+width: 82px;
 }
 
 .celdacontenido {
@@ -1061,6 +1062,7 @@ padding-left:10px;
 text-align:left;
 height:35px;
 vertical-align:bottom;
+width: 201px;
 }
 
 .celdapaginas {
@@ -1075,6 +1077,7 @@ border-bottom:solid 1px #666;
 padding:10px 7px 12px;
 background-color:#EFF0F2;
 text-align:left;
+width: 155px;
 }
 
 .moduloordencelda {
