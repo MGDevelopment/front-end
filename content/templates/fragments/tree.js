@@ -17,7 +17,7 @@ function fillTree(divName, callback) {
     }
 
     if (document.getElementById(divName)) {
-    	document.getElementById(divName).innerHTML = treeHTML;
+    	document.getElementById(divName).innerHTML = $('<div>').html(treeHTML).text();
     }
 
 	$("#tree").treeview({

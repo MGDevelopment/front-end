@@ -1,35 +1,16 @@
 /* page.css */
-.Gtablaprincipal
-{
-	background-color:#FFF;
-	padding:20px;
-	text-align:center;
+/* reset */
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
 }
-
-.Gtablacontenido
-{
-	margin-top:15px;
-}
-
-.Gbarraizquierda
-{
-	border-right:solid 1px #CCC;
-	vertical-align:top;
-	width:145px;
-}
-
-.Gbarraderecha
-{
-	border-left:solid 1px #CCC;
-	padding-left:15px;
-	vertical-align:top;
-	width:155px;
-}
-
-.Gcentro
-{
-	vertical-align:top;
-	text-align:center;
+img {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
 }
 
 a.Flogin
@@ -661,20 +642,6 @@ a.FCategorias:hover
 	padding-bottom:7px;
 	border-bottom:solid 1px #D8D8D8;
 	text-align:left;
-}
-
-.moduloorden
-{
-	border-top:solid 1px #666;
-	border-bottom:solid 1px #666;
-	padding:10px 7px 12px;
-	background-color:#EFF0F2;
-	text-align:left;
-}
-
-.moduloordencelda
-{
-	padding-top:7px;
 }
 
 .Ftexto06SinAlign

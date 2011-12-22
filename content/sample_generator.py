@@ -180,23 +180,6 @@ documentos = [
         "target.path"   : "/home-comments.js",
         "target.repo"   : "static"
     },
-    #
-    # JS app
-    #
-    {
-        "EntityType"    : "PAGE",
-        "EntityId"      : 1,
-        "dataset"       : "homeComments",       "_data" : {},
-                                                "_url"  : homeURL,
-        "template"      : "js/app.js",
-        "headers"       : {
-            "Content-Type"      : "text/javascript",
-            "Content-Encoding"  : "gzip",
-            "Cache-Control"     : "max-age=3600"
-        },
-        "target.path"   : "/stage0/js/app.js",
-        "target.repo"   : "static"
-    },
     #######################################################
     #
     # libros - html
