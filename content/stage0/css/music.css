@@ -5,10 +5,6 @@
     width: 21px;
 }
 
-.solapaCalle {
-    width: 200px;
-}
-
 /* XXX hack to use same fragment, no need to waste time */
 div.tmtkMesaMenuMod ul {
     display: none;
@@ -488,10 +484,6 @@ width:140px;
 
 .arbolItemMax {
 display:none;
-}
-
-.solapaCalle {
-width:200px;
 }
 
 .hlistas:hover {
