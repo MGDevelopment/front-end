@@ -82,13 +82,29 @@ function getMensaje() {
 
 }
 function getVisualizaMensaje() {
-	// fix mgoldsman 20110831
-	document.getElementById('msjMax').innerHTML = ['<div class="panelMsjTit">Ten&eacute;s&nbsp;<span id="totalMsg"></span>&nbsp;mensajes &gt;</div>',
-			'<div class="panelMsjTxt">',
-			'<a href="javascript:mostrarDiv(\'msjMin\'); javascript:mostrarDiv(\'msjMax\');javascript:setVisualizaMensaje(false)" class="panelMsjCerrar">cerrar</a>',
-			'<span id="pagMsg"></span> <span id="textoMsgActual"></span> <div><a href="javascript:void(0);" class="pnlMsgComandos" id="msgAnterior">&lt;Anterior</a> | <a href="javascript:void(0);" class="pnlMsgComandos" id="msgSiguiente">Siguiente&gt;</a> | <a href="javascript:void(0);" class="pnlMsgComandos" id="msgLeido">No volver a mostrar este mensaje</a></div>',
-			'</div>'].join('');
-	document.getElementById('msjMin').innerHTML = '<div class="panelMsjTxt"><a href="javascript:mostrarDiv(\'msjMin\'); javascript:mostrarDiv(\'msjMax\');javascript:setVisualizaMensaje(true)" class="panelMsjAbrir">abrir panel y ver mensajes</a>   </div>';
+
+	document.getElementById('msjMax').innerHTML = $('<div>').html([
+            '&lt;div class="panelMsjTit"&gt;Ten&amp;eacute;s&amp;nbsp;&lt;',
+            'span id="totalMsg"&gt;&lt;/span&gt;&amp;nbsp;mensajes &amp;gt;',
+            '&lt;/div&gt;&lt;div class="panelMsjTxt"&gt;&lt;a href="',
+            'javascript:mostrarDiv(\'msjMin\'); javascript:',
+            'mostrarDiv(\'msjMax\');javascript:setVisualizaMensaje(false)" ',
+            'class="panelMsjCerrar"&gt;cerrar&lt;/a&gt;&lt;span id="pagMsg"',
+            '&gt;&lt;/span&gt; &lt;span id="textoMsgActual"&gt;&lt;/span&gt; ',
+            '&lt;div&gt;&lt;a href="javascript:void(0);" class="pnlMsgComandos',
+            '" id="msgAnterior"&gt;&amp;lt;Anterior&lt;/a&gt; | &lt;a href="',
+            'javascript:void(0);" class="pnlMsgComandos" id="msgSiguiente"',
+            '&gt;Siguiente&amp;gt;&lt;/a&gt; | &lt;a href="javascript:void(0);',
+            '" class="pnlMsgComandos" id="msgLeido"&gt;No volver a mostrar ',
+            'este mensaje&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;'].join('')).text();
+
+	document.getElementById('msjMin').innerHTML = $('<div>').html([
+            '&lt;div class="panelMsjTxt"&gt;&lt;a href="javascript:',
+            'mostrarDiv(\'msjMin\'); javascript:mostrarDiv(\'msjMax\');',
+            'javascript:setVisualizaMensaje(true)" class="panelMsjAbrir"&gt;',
+            'abrir panel y ver mensajes&lt;/a&gt;   &lt;/div&gt;'
+            ].join('')).text();
+
 	getMensaje();
 }
 function setMensajeUsuario(indice) {
