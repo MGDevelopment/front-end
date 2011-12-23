@@ -1,5 +1,4 @@
 {%- import './macros/slider.html' as renderS -%}
-{%- import './macros/tooltip.html' as renderT -%}
 <div class="tmtkMesaNovedades" id="mesa">
 	<!-- mesa y t&iacute;tulos de secciones -->
 	<a href="/libros" class="tmtkMesaSeccionesTit" title="Libros"
@@ -45,13 +44,7 @@
 									</div></td>
 							</tr>
 							<tr style="display: none;">
-								<td colspan="4" align="center">
-									<!--
-<select id="orden" name="orden" onChange="cargarFiltro()">
-</select>
-<select id="filtro" name="filtro" onChange="cambioDeFiltroOrden()">
-</select>
- --></td>
+								<td colspan="4" align="center"></td>
 							</tr>
 							<tr>
 								<td>
@@ -87,10 +80,3 @@
 		</div>
 	</div>
 </div>
-{#
-<!-- FIN mesa y t&iacute;tulos de secciones -->
-<div id="tooltip_content_books" style="display: none;">{{ renderT.renderToolTip(tooltip['books'][tooltip['books'].keys()[0]], 'books')|replace("\n", "") }}</div>
-<div id="tooltip_content_music" style="display: none;">{{ renderT.renderToolTip(tooltip['music'][tooltip['music'].keys()[0]], 'music')|replace("\n", "") }}</div>
-<div id="tooltip_content_movies" style="display: none;">{{ renderT.renderToolTip(tooltip['movies'][tooltip['movies'].keys()[0]], 'movies')|replace("\n", "") }}</div>
-<div id="tooltip_content_games" style="display: none;">{{ renderT.renderToolTip(tooltip['games'][tooltip['games'].keys()[0]], 'games')|replace("\n", "") }}</div>
-#}
