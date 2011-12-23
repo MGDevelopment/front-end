@@ -109,7 +109,7 @@
         <input type="hidden" id="idSeccionPropia" value="1">
         <input type="hidden" id="idSeccion" value="{{ section }}">
         <a id="btnBuscar" class="hBuscButton" title="Buscar"
-            href="javascript:APP.setSearch(document.getElementById('optBusqueda').innerHTML,document.getElementById('txtBuscar').value,document.getElementById('idSeccion').value,document.getElementById('idSeccionPropia').value,document.getElementById('seccionBusqueda').value);">&nbsp;</a>
+            href="javascript:APP.setSearch(escape(document.getElementById('optBusqueda').innerHTML),document.getElementById('txtBuscar').value,document.getElementById('idSeccion').value,document.getElementById('idSeccionPropia').value,document.getElementById('seccionBusqueda').value);">&nbsp;</a>
     </div>
 {%- endblock -%} {#- search_box -#}
 
