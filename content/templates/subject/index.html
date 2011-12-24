@@ -153,14 +153,15 @@
 	<script type="text/javascript" src="/stage0/js/json2.min.js"></script>
 
 	<script type="text/javascript">
+    	{% include "fragments/showcase.js" %}
 		{% include "subject/tree.js" %}
     	{% include "fragments/tree.js" %}
-	 	{% include "fragments/serialize.js" %}
-	    {% include "fragments/comments.js" %}
+    	fillTree("arbolLibros", callBackTree);
+	    {% include "fragments/serialize.js" %}
 	    {% include "fragments/messages.js" %}
-	    {% include "fragments/showcase.js" %}
-	    {% include "fragments/last_visited.js" %}
 	    {% include "fragments/catalog.js" %}
+	    {% include "fragments/comments.js" %}
+	    {% include "fragments/last_visited.js" %}
 	</script>
 
 	<!-- Data Scripts -->
@@ -187,8 +188,6 @@
 	    fillComments('{{ section_name|lower }}');
 	    {% include "fragments/right_menu.js" %}
 	    {% include "fragments/alliance.js" %}
-
-        fillTree("arbolLibros", callBackTree);
 
 	</script>
 {%- endblock %}
