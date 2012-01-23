@@ -87,7 +87,8 @@ query.sql:          >
                     A.Categoria_Grupo               AS Categoria_Grupo,
                     A.Categoria_Familia             AS Categoria_Familia,
                     A.Categoria_Subfamilia          AS Categoria_Subfamilia,
-                    A.Id_Impuesto                   AS Id_Impuesto
+                    A.Id_Impuesto                   AS Id_Impuesto,
+                    D.Descripcion                   AS Fulfillment_desc
         FROM        Articulos A
         -------------- Disponibilidades
         INNER JOIN  Disponibilidades D
@@ -111,6 +112,7 @@ query.columns:      [ "EntityType", "EntityId", "ProductId", "ProductForm",
                       "FulfillmentType_list", "FulfillmentType_desc", "FulfillmentValue",
                       "CurrencyCode", "CurrencyCode_list", "CurrencyCode_desc",
                       "PriceAmount", "eXtraPoints", "Categoria_Seccion", "Categoria_Grupo",
-                      "Categoria_Familia", "Categoria_Subfamilia", "Id_Impuesto" ]
+                      "Categoria_Familia", "Categoria_Subfamilia", "Id_Impuesto",
+                      "Fulfillment_desc" ]
 query.post:         [ "tmklib.PROD.calculateTaxes"
                     ]
