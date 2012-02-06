@@ -215,7 +215,7 @@ query_recommended_main:     &query_recommended_main
                           "FulfillmentValue", "CurrencyCode", "CurrencyCode_list", 
                           "CurrencyCode_desc", "PriceAmount",
                           "Categoria_Seccion", "Categoria_Grupo", "Categoria_Familia",
-                          "Categoria_Subfamilia", "Archivo_Imagen" ]
+                          "Categoria_Subfamilia", "Archivo_Imagen", "Id_Impuesto" ]
     query.post:         [ "tmklib.fixes.PROD.title",
                           "tmklib.fixes.PROD.calcImages",
                           "tmklib.PROD.calculateTaxes",
