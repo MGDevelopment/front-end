@@ -159,8 +159,7 @@ query_recommended_main:     &query_recommended_main
                 A.Categoria_Familia             AS Categoria_Familia,
                 A.Categoria_Subfamilia          AS Categoria_Subfamilia,
                 A.Archivo_Imagen                AS Archivo_Imagen,
-                A.Id_Impuesto                   AS Id_Impuesto,
-                D.Descripcion                   AS Fulfillment_desc
+                A.Id_Impuesto                   AS Id_Impuesto
             FROM        Articulos_Mesa_Recomendados AMR
             INNER JOIN  Articulos A
                 ON      AMR.Id_Articulo = A.Id_Articulo AND
@@ -216,8 +215,7 @@ query_recommended_main:     &query_recommended_main
                           "FulfillmentValue", "CurrencyCode", "CurrencyCode_list", 
                           "CurrencyCode_desc", "PriceAmount",
                           "Categoria_Seccion", "Categoria_Grupo", "Categoria_Familia",
-                          "Categoria_Subfamilia", "Archivo_Imagen",
-                          "Id_Impuesto", "Fulfillment_desc" ]
+                          "Categoria_Subfamilia", "Archivo_Imagen", "Id_Impuesto" ]
     query.post:         [ "tmklib.fixes.PROD.title",
                           "tmklib.fixes.PROD.calcImages",
                           "tmklib.PROD.calculateTaxes",
