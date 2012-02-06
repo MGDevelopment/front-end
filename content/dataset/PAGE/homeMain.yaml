@@ -152,8 +152,7 @@ query_main:     &query_main
                 A.Categoria_Familia             AS Categoria_Familia,
                 A.Categoria_Subfamilia          AS Categoria_Subfamilia,
                 A.Archivo_Imagen                AS Archivo_Imagen,
-                A.Id_Impuesto                   AS Id_Impuesto,
-                D.Descripcion                   AS Fulfillment_desc
+                A.Id_Impuesto                   AS Id_Impuesto
             FROM        Articulos_Mesa_Recomendados AMR
             INNER JOIN  Articulos A
                 ON      AMR.Id_Articulo = A.Id_Articulo AND
