@@ -1,5 +1,4 @@
 {%- macro renderSlider(product_list, prefix, cols, url) -%}
-{%- set languages = { 'ES': 'Espa&ntilde;ol', 'EN': 'Ingl&eacute;s' } -%}
 <div class="viewport">
     <ul class="overview">
 {%- if product_list is iterable -%}
@@ -95,10 +94,10 @@
                                 {{- (pd[6:8], pd[4:6], pd[0:4])|join('/') -}}
                             </span><br>
                         {%- endif -%}
-                        {%- if p.LanguageCode -%}
+                        {%- if p.LanguageCode_desc -%}
                             Idioma:
                             <span class="product-language">
-                                {{- languages[p.LanguageCode] -}}
+                                {{- p.LanguageCode_desc.decode('utf-8') -}}
                             </span><br>
                         {%- endif -%}
                         {%- if p.ExtentValue -%}

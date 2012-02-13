@@ -1,4 +1,3 @@
-{%- set languages = { 'ES': 'Espa&ntilde;ol', 'EN': 'Ingl&eacute;s' } -%}
 {%- macro getOrigen(id) -%}
 	{%- if id == 1 -%}
 		Editorial
@@ -71,7 +70,7 @@
 
             {%- if d.ExtentUnit -%}<span>{{ d.ExtentUnit_desc.decode('utf-8')|e }}:{{ d.ExtentValue }}</span>{%- endif %}
             {%- set pd = d.PublishingDateValue -%}
-            <span>Publicaci&oacute;n: {{- (pd[6:8], pd[4:6], pd[0:4])|join('/') -}} | Idioma: {{- languages[d.LanguageCode] -}}</span>
+            <span>Publicaci&oacute;n: {{- (pd[6:8], pd[4:6], pd[0:4])|join('/') -}} | Idioma: {{- d.LanguageCode_desc.decode('utf-8')|e -}}</span>
             <div class="dInfoM">{%- if getOnixItem(d.Texts, '24') -%}<a href="#primerCap">[+] Primer capitulo</a>&nbsp;{%- endif %}{%- if getOnixItem(d.Texts, '04') -%}<a href="#indCont">[+] Indice de contenidos</a>&nbsp;{%- endif %}{%- if getOnixItem(d.Texts, '13') -%}<a href="#biogra">[+] Biografia</a>&nbsp;{%- endif %}{%- if getOnixItem(d.Texts, '40') -%}<a href="#entrevista">[+] Ver Entrevista</a>&nbsp;{%- endif %}</div>
             {%- if d.CoverLarge %}<a href="javascript:popitup('{{ url.images ~ d.CoverLarge }}')">Ampliar imagen</a>{%- endif %}
 			<div id="divEvaluacion"><div id="divEvaluacion"><div class="dInfoCalif"><div class="dInfoCalifStarMod"><span>Calificaci&oacute;n de lectores:</span>
