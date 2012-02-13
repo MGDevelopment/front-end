@@ -187,7 +187,7 @@ query_products_main:     &query_products_main
                                 A.AuxVarchar03 = CGRC_PF.RV_Low_Value
                     -------------- Language Code
                     LEFT JOIN   CG_Ref_Codes CGRC_LC
-                        ON      CGRC_LC.RV_Domain = 'CGRC_LC' AND
+                        ON      CGRC_LC.RV_Domain = 'IDIOMA' AND
                                 COALESCE(A.Idioma, 'ES') = CGRC_LC.RV_Low_Value
                     -------------- Editor
                     INNER JOIN  Editores E
@@ -535,7 +535,7 @@ query_showcase_main:     &query_showcase_main
                                 A.AuxVarchar03 = CGRC_PF.RV_Low_Value
                     -------------- Language Code
                     LEFT JOIN   CG_Ref_Codes CGRC_LC
-                        ON      CGRC_LC.RV_Domain = 'CGRC_LC' AND
+                        ON      CGRC_LC.RV_Domain = 'IDIOMA' AND
                                 COALESCE(A.Idioma, 'ES') = CGRC_LC.RV_Low_Value
                     -------------- Editor
                     INNER JOIN  Editores E
