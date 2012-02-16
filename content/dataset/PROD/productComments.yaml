@@ -30,10 +30,14 @@ query_unified:  &query_unified
                         A.Categoria_Seccion             AS Categoria_Seccion,
                         A.Categoria_Grupo               AS Categoria_Grupo,
                         A.Categoria_Familia             AS Categoria_Familia,
-                        A.Categoria_Subfamilia          AS Categoria_Subfamilia
+                        A.Categoria_Subfamilia          AS Categoria_Subfamilia,
+                        TA.Descripcion                  AS TipoArticulo_desc
             FROM        Comentario_Articulos C
             INNER JOIN  Articulos A
                 ON      C.Id_Articulo = A.Id_Articulo
+            -------------- Tipos Articulos
+            INNER JOIN  Tipos_Articulos TA
+                ON      A.Id_Tipo_Articulo = TA.Id_Tipo_Articulo
             ----------- One of these two must have an entry
             LEFT JOIN   Socios2 S
                 ON      C.Id_Sucursal_Socio = S.Id_Sucursal AND
@@ -52,8 +56,9 @@ query_unified:  &query_unified
     query.columns:      [ "ProductId", "EntityType", "EntityId", "RatingId", "CommentStatus",
                           "CommentText", "Rating", "CommentDate", "ProductForm", "NickName",
                           "Categoria_Seccion", "Categoria_Grupo", "Categoria_Familia",
-                          "Categoria_Subfamilia" ]
-
+                          "Categoria_Subfamilia", "TipoArticulo_desc" ]
+    query.post:         [ "tmklib.fixes.PROD.tipoArticulo"
+                        ]
 
 ####################################################################
 ####################################################################

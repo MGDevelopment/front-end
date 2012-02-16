@@ -110,6 +110,7 @@ products_493520_main = {   'Archivo_Imagen': 'C',
                      'TextFormat': '06',
                      'TextFormat_desc': 'Default text format',
                      'TextFormat_list': 'ONIX.34'}],
+    'TipoArticulo_desc': 'Libros',
     'Title': 'Hay Ciertas Cosas que una no Puede Hacer Descalza'}
 
 ##############################
@@ -132,7 +133,8 @@ products_493520_comments = {   'Categoria_Familia': Decimal('1'),
                         'ProductForm': 'BA',
                         'ProductId': Decimal('493520'),
                         'Rating': Decimal('5'),
-                        'RatingId': Decimal('10674')}],
+                        'RatingId': Decimal('10674'),
+                        'TipoArticulo_desc': 'Libros'}],
     'EntityId': Decimal('493520'),
     'EntityType': 'PROD',
     'ProductId': Decimal('493520')}
@@ -219,6 +221,7 @@ products_493520_related = {   'Categoria_Familia': Decimal('1'),
                        'RelationCode': 'YR',
                        'RelationCode_desc': 'Obras relacionadas',
                        'RelationCode_list': 'ONIX.51',
+                       'TipoArticulo_desc': 'Libros',
                        'Title': 'Las Grietas de Jara'},
                    {   'Archivo_Imagen': 'T',
                        'Authors': [   {   'Categoria_Seccion': Decimal('1'),
@@ -292,6 +295,7 @@ products_493520_related = {   'Categoria_Familia': Decimal('1'),
                        'RelationCode': 'YR',
                        'RelationCode_desc': 'Obras relacionadas',
                        'RelationCode_list': 'ONIX.51',
+                       'TipoArticulo_desc': 'Libros',
                        'Title': 'Isla Bajo el Mar, la (Tapa Blanda)'},
                    {   'Archivo_Imagen': 'C',
                        'Authors': [   {   'Categoria_Seccion': Decimal('1'),
@@ -365,6 +369,7 @@ products_493520_related = {   'Categoria_Familia': Decimal('1'),
                        'RelationCode': 'YR',
                        'RelationCode_desc': 'Obras relacionadas',
                        'RelationCode_list': 'ONIX.51',
+                       'TipoArticulo_desc': 'Libros',
                        'Title': 'Ella que Todo lo Tuvo'}]}
 
 ##############################
@@ -396,5 +401,6 @@ products_493520_price = {   'Categoria_Familia': Decimal('1'),
     'ProductForm_desc': 'R\xc3\xbastica',
     'ProductForm_list': 'ONIX.150',
     'ProductId': Decimal('493520'),
+    'TipoArticulo_desc': 'Libros',
     'eXtraPoints': '201'}
 

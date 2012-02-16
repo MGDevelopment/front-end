@@ -105,6 +105,7 @@ products_530251_main = {   'Archivo_Imagen': 'T',
     'Ranking': None,
     'Rating': None,
     'Texts': None,
+    'TipoArticulo_desc': 'Dvd',
     'Title': 'Red'}
 
 ##############################
@@ -160,5 +161,6 @@ products_530251_price = {   'Categoria_Familia': Decimal('1'),
     'ProductForm_desc': 'ESP-DVD Digital Versatile Disk',
     'ProductForm_list': 'ONIX.150',
     'ProductId': Decimal('530251'),
+    'TipoArticulo_desc': 'Dvd',
     'eXtraPoints': '81'}
 

@@ -82,6 +82,7 @@ products_529503_main = {   'Archivo_Imagen': 'T',
                      'TextFormat': '06',
                      'TextFormat_desc': 'Default text format',
                      'TextFormat_list': 'ONIX.34'}],
+    'TipoArticulo_desc': 'Juegos de Mesa',
     'Title': 'Buenos Aires soy Gardel'}
 
 ##############################
@@ -104,7 +105,8 @@ products_529503_comments = {   'Categoria_Familia': Decimal('5'),
                         'ProductForm': 'ZA',
                         'ProductId': Decimal('529503'),
                         'Rating': Decimal('5'),
-                        'RatingId': Decimal('23748')}],
+                        'RatingId': Decimal('23748'),
+                        'TipoArticulo_desc': 'Juegos de Mesa'}],
     'EntityId': Decimal('529503'),
     'EntityType': 'PROD',
     'ProductId': Decimal('529503')}
@@ -150,5 +152,6 @@ products_529503_price = {   'Categoria_Familia': Decimal('5'),
     'ProductForm_desc': None,
     'ProductForm_list': 'ONIX.150',
     'ProductId': Decimal('529503'),
+    'TipoArticulo_desc': 'Juegos de Mesa',
     'eXtraPoints': '471'}
 

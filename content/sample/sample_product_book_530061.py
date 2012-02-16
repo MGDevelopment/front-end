@@ -89,6 +89,7 @@ products_530061_main = {   'Archivo_Imagen': '530061.jpg',
     'Ranking': None,
     'Rating': None,
     'Texts': None,
+    'TipoArticulo_desc': 'Libros',
     'Title': 'No Logo'}
 
 ##############################
@@ -144,5 +145,6 @@ products_530061_price = {   'Categoria_Familia': Decimal('3'),
     'ProductForm_desc': 'R\xc3\xbastica',
     'ProductForm_list': 'ONIX.150',
     'ProductId': Decimal('530061'),
+    'TipoArticulo_desc': 'Libros',
     'eXtraPoints': '186'}
 

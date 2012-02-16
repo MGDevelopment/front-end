@@ -114,6 +114,7 @@ products_529368_main = {   'Archivo_Imagen': 'T',
                      'TextFormat': '06',
                      'TextFormat_desc': 'Default text format',
                      'TextFormat_list': 'ONIX.34'}],
+    'TipoArticulo_desc': 'Dvd',
     'Title': 'Millennium 3: la Reina en el Palacio de las Corrientes de Aire'}
 
 ##############################
@@ -169,5 +170,6 @@ products_529368_price = {   'Categoria_Familia': Decimal('0'),
     'ProductForm_desc': 'ESP-DVD Digital Versatile Disk',
     'ProductForm_list': 'ONIX.150',
     'ProductId': Decimal('529368'),
+    'TipoArticulo_desc': 'Dvd',
     'eXtraPoints': '207'}
 

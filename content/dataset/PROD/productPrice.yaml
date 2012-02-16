@@ -88,13 +88,17 @@ query.sql:          >
                     A.Categoria_Familia             AS Categoria_Familia,
                     A.Categoria_Subfamilia          AS Categoria_Subfamilia,
                     A.Id_Impuesto                   AS Id_Impuesto,
-                    D.Descripcion                   AS Fulfillment_desc
+                    D.Descripcion                   AS Fulfillment_desc,
+                    TA.Descripcion                  AS TipoArticulo_desc
         FROM        Articulos A
         -------------- Disponibilidades
         INNER JOIN  Disponibilidades D
             ON      NVL(A.Id_Disponibilidad, 1) = D.Id_Disponibilidad AND
                     -------------- ***** CONDITION
                     D.Id_Esquema = 'PROD'
+        -------------- Tipos Articulos
+        INNER JOIN  Tipos_Articulos TA
+            ON      A.Id_Tipo_Articulo = TA.Id_Tipo_Articulo
         -------------- Product Form
         LEFT JOIN   CG_Ref_Codes CGRC_PF
             ON      CGRC_PF.RV_Domain = 'ONIX:ProductForm' AND
@@ -113,6 +117,7 @@ query.columns:      [ "EntityType", "EntityId", "ProductId", "ProductForm",
                       "CurrencyCode", "CurrencyCode_list", "CurrencyCode_desc",
                       "PriceAmount", "eXtraPoints", "Categoria_Seccion", "Categoria_Grupo",
                       "Categoria_Familia", "Categoria_Subfamilia", "Id_Impuesto",
-                      "Fulfillment_desc" ]
-query.post:         [ "tmklib.PROD.calculateTaxes"
+                      "Fulfillment_desc", "TipoArticulo_desc" ]
+query.post:         [ "tmklib.PROD.calculateTaxes",
+                      "tmklib.fixes.PROD.tipoArticulo"
                     ]

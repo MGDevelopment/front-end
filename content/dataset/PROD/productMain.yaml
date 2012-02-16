@@ -361,7 +361,8 @@ query.sql:          >
             A.Categoria_Subfamilia          AS Categoria_Subfamilia,
             A.Archivo_Imagen                AS Archivo_Imagen,
             A.Id_Impuesto                   AS Id_Impuesto,
-            D.Descripcion                   AS Fulfillment_desc
+            D.Descripcion                   AS Fulfillment_desc,
+            TA.Descripcion                  AS TipoArticulo_desc
         FROM        Articulos A
         -------------- Ranking
         LEFT JOIN   Mas_Vendidos_Seccion MVS
@@ -372,6 +373,9 @@ query.sql:          >
             ON      NVL(A.Id_Disponibilidad, 1) = D.Id_Disponibilidad AND
                     -------------- ***** CONDITION
                     D.Id_Esquema = 'PROD'
+        -------------- Tipos Articulos
+        INNER JOIN      Tipos_Articulos TA
+            ON          A.Id_Tipo_Articulo = TA.Id_Tipo_Articulo
         -------------- Product Form
         LEFT JOIN   CG_Ref_Codes CGRC_PF
             ON      CGRC_PF.RV_Domain = 'ONIX:ProductForm' AND
@@ -408,7 +412,8 @@ query.columns:      [ "EntityType", "EntityId", "ProductId", "LinkBase",
                       "CurrencyCode", "CurrencyCode_list", "CurrencyCode_desc",
                       "PriceAmount", "Categoria_Seccion", "Categoria_Grupo",
                       "Categoria_Familia", "Categoria_Subfamilia",
-                      "Archivo_Imagen", "Id_Impuesto", "Fulfillment_desc" ]
+                      "Archivo_Imagen", "Id_Impuesto", "Fulfillment_desc",
+                      "TipoArticulo_desc" ]
 query.post:         [ "tmklib.fixes.PROD.title",
                       "tmklib.fixes.PROD.calcImages",
                       "tmklib.PROD.calculateTaxes",
@@ -416,7 +421,8 @@ query.post:         [ "tmklib.fixes.PROD.title",
                       "tmklib.fixes.PROD.embedRatings",
                       "tmklib.PROD.categories",
                       "tmklib.fixes.IMPR.title",
-                      "tmklib.url.IMPR"
+                      "tmklib.url.IMPR",
+                      "tmklib.fixes.PROD.tipoArticulo"
                     ]
 query.augment:
     Authors:

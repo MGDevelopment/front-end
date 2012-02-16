@@ -101,6 +101,7 @@ products_530141_main = {   'Archivo_Imagen': '530141.jpg',
                      'TextFormat': '06',
                      'TextFormat_desc': 'Default text format',
                      'TextFormat_list': 'ONIX.34'}],
+    'TipoArticulo_desc': 'Libros',
     'Title': 'Carlos Paez Vilaro'}
 
 ##############################
@@ -156,5 +157,6 @@ products_530141_price = {   'Categoria_Familia': Decimal('8'),
     'ProductForm_desc': 'R\xc3\xbastica',
     'ProductForm_list': 'ONIX.150',
     'ProductId': Decimal('530141'),
+    'TipoArticulo_desc': 'Libros',
     'eXtraPoints': '195'}
 

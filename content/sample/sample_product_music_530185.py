@@ -201,6 +201,7 @@ products_530185_main = {   'Archivo_Imagen': 'T',
     'Ranking': None,
     'Rating': None,
     'Texts': None,
+    'TipoArticulo_desc': 'Cd Musical',
     'Title': 'True (Sacd)'}
 
 ##############################
@@ -256,5 +257,6 @@ products_530185_price = {   'Categoria_Familia': Decimal('1'),
     'ProductForm_desc': 'Cd Musical',
     'ProductForm_list': 'ONIX.150',
     'ProductId': Decimal('530185'),
+    'TipoArticulo_desc': 'Cd Musical',
     'eXtraPoints': '276'}
 

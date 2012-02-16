@@ -299,7 +299,8 @@ query_unified:  &query_unified
                             A.Categoria_Familia             AS Categoria_Familia,
                             A.Categoria_Subfamilia          AS Categoria_Subfamilia,
                             A.Archivo_Imagen                AS Archivo_Imagen,
-                            A.Id_Impuesto                   AS Id_Impuesto
+                            A.Id_Impuesto                   AS Id_Impuesto,
+                            TA.Descripcion                  AS TipoArticulo_desc
             FROM        (
                 SELECT                      Id_Articulo, Id_Articulo_Relacionado, Row_Number
                     FROM (
@@ -340,6 +341,9 @@ query_unified:  &query_unified
                 ON      NVL(A.Id_Disponibilidad, 1) = D.Id_Disponibilidad AND
                         -------------- ***** CONDITION
                         D.Id_Esquema = 'PROD'
+            -------------- Tipos Articulos
+            INNER JOIN  Tipos_Articulos TA
+                ON      A.Id_Tipo_Articulo = TA.Id_Tipo_Articulo
             -------------- Product Form
             LEFT JOIN   CG_Ref_Codes CGRC_PF
                 ON      CGRC_PF.RV_Domain = 'ONIX:ProductForm' AND
@@ -377,7 +381,7 @@ query_unified:  &query_unified
                           "CurrencyCode", "CurrencyCode_list", "CurrencyCode_desc",
                           "PriceAmount", "Categoria_Seccion", "Categoria_Grupo",
                           "Categoria_Familia", "Categoria_Subfamilia",
-                          "Archivo_Imagen", "Id_Impuesto" ]
+                          "Archivo_Imagen", "Id_Impuesto", "TipoArticulo_desc" ]
     query.post:         [ "tmklib.fixes.PROD.title",
                           "tmklib.fixes.PROD.calcImagesRelated",
                           "tmklib.PROD.calculateTaxes",
@@ -385,7 +389,8 @@ query_unified:  &query_unified
                           "tmklib.fixes.PROD.embedRatings",
                           "tmklib.PROD.categories",
                           "tmklib.fixes.IMPR.title",
-                          "tmklib.url.IMPR"
+                          "tmklib.url.IMPR",
+                          "tmklib.fixes.PROD.tipoArticulo"
                         ]
     query.augment:
         Ratings:

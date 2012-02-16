@@ -82,6 +82,7 @@ products_516261_main = {   'Archivo_Imagen': 'C',
     'Ranking': '   27969',
     'Rating': None,
     'Texts': None,
+    'TipoArticulo_desc': 'Libros',
     'Title': 'Cuba - Lonely Planet'}
 
 ##############################
@@ -170,6 +171,7 @@ products_516261_related = {   'Categoria_Familia': Decimal('1'),
                        'RelationCode': 'YR',
                        'RelationCode_desc': 'Obras relacionadas',
                        'RelationCode_list': 'ONIX.51',
+                       'TipoArticulo_desc': 'Dvd',
                        'Title': 'Beatles X Badia - Volumen 3'},
                    {   'Archivo_Imagen': 'C',
                        'Authors': [   {   'Categoria_Seccion': Decimal('1'),
@@ -243,6 +245,7 @@ products_516261_related = {   'Categoria_Familia': Decimal('1'),
                        'RelationCode': 'YR',
                        'RelationCode_desc': 'Obras relacionadas',
                        'RelationCode_list': 'ONIX.51',
+                       'TipoArticulo_desc': 'Libros',
                        'Title': 'Desnudate Conmigo'},
                    {   'Archivo_Imagen': '517613.jpg',
                        'Authors': [   {   'Categoria_Seccion': Decimal('4'),
@@ -316,6 +319,7 @@ products_516261_related = {   'Categoria_Familia': Decimal('1'),
                        'RelationCode': 'YR',
                        'RelationCode_desc': 'Obras relacionadas',
                        'RelationCode_list': 'ONIX.51',
+                       'TipoArticulo_desc': 'Cd Musical',
                        'Title': 'Luis Miguel'}]}
 
 ##############################
@@ -347,5 +351,6 @@ products_516261_price = {   'Categoria_Familia': Decimal('1'),
     'ProductForm_desc': 'R\xc3\xbastica',
     'ProductForm_list': 'ONIX.150',
     'ProductId': Decimal('516261'),
+    'TipoArticulo_desc': 'Libros',
     'eXtraPoints': '396'}
 

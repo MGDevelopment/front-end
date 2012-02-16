@@ -110,6 +110,7 @@ products_526900_main = {   'Archivo_Imagen': 'T',
                      'TextFormat': '06',
                      'TextFormat_desc': 'Default text format',
                      'TextFormat_list': 'ONIX.34'}],
+    'TipoArticulo_desc': 'Libros',
     'Title': 'La Felicidad como Eleccion'}
 
 ##############################
@@ -206,6 +207,7 @@ products_526900_related = {   'Categoria_Familia': Decimal('5'),
                        'RelationCode': 'YR',
                        'RelationCode_desc': 'Obras relacionadas',
                        'RelationCode_list': 'ONIX.51',
+                       'TipoArticulo_desc': 'Libros',
                        'Title': 'Economia 3D'},
                    {   'Archivo_Imagen': 'T',
                        'Authors': [   {   'Categoria_Seccion': Decimal('1'),
@@ -279,6 +281,7 @@ products_526900_related = {   'Categoria_Familia': Decimal('5'),
                        'RelationCode': 'YR',
                        'RelationCode_desc': 'Obras relacionadas',
                        'RelationCode_list': 'ONIX.51',
+                       'TipoArticulo_desc': 'Libros',
                        'Title': 'Quererme Mas'},
                    {   'Archivo_Imagen': 'C',
                        'Authors': [   {   'Categoria_Seccion': Decimal('1'),
@@ -352,6 +355,7 @@ products_526900_related = {   'Categoria_Familia': Decimal('5'),
                        'RelationCode': 'YR',
                        'RelationCode_desc': 'Obras relacionadas',
                        'RelationCode_list': 'ONIX.51',
+                       'TipoArticulo_desc': 'Libros',
                        'Title': 'La Vida Plena'}]}
 
 ##############################
@@ -383,5 +387,6 @@ products_526900_price = {   'Categoria_Familia': Decimal('5'),
     'ProductForm_desc': 'R\xc3\xbastica',
     'ProductForm_list': 'ONIX.150',
     'ProductId': Decimal('526900'),
+    'TipoArticulo_desc': 'Libros',
     'eXtraPoints': '174'}
 
