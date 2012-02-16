@@ -106,14 +106,14 @@
                                 {{- p.ExtentValue -}}
                             </span><br>
                         {%- endif -%}
-                        {%- if p.ProductForm_desc != None -%}
+                        {%- if p.TipoArticulo_desc != None -%}
                             {%- if book -%}
                                 Edici&oacute;n:
                             {%- else -%}
                                 Formato:
                             {%- endif -%}
                             <span class="product-format">
-                                {{- p.ProductForm_desc.decode('utf-8') -}}
+                                {{- p.TipoArticulo_desc.decode('utf-8') -}}
                             </span><br>
                         {%- endif -%}
                         {#- BUY -#}
