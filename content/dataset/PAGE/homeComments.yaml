@@ -51,7 +51,8 @@ query_unified:  &query_unified
                                 A.Categoria_Grupo               AS Categoria_Grupo,
                                 A.Categoria_Familia             AS Categoria_Familia,
                                 A.Categoria_Subfamilia          AS Categoria_Subfamilia,
-                                A.Archivo_Imagen                AS Archivo_Imagen
+                                A.Archivo_Imagen                AS Archivo_Imagen,
+                                TA.Descripcion                  AS TipoArticulo_desc
                     FROM        (
                         SELECT      CA2.Id_Articulo, CA2.Id_Comentario
                             FROM    Comentario_Articulos CA2
@@ -72,6 +73,9 @@ query_unified:  &query_unified
                                 --------------- condition
                                 D.Id_Esquema = 'PROD' AND
                                 D.Pedido_especial = 'N'
+                    -------------- Tipos Articulos
+                    INNER JOIN  Tipos_Articulos TA
+                        ON      A.Id_Tipo_Articulo = TA.Id_Tipo_Articulo
                     ----------- One of these two must have an entry
                     LEFT JOIN   Socios2 S
                         ON      C.Id_Sucursal_Socio = S.Id_Sucursal AND
@@ -93,10 +97,12 @@ query_unified:  &query_unified
                           "Title", "ProductForm", "NickName",
                           "Categoria_Seccion", "Categoria_Grupo",
                           "Categoria_Familia", "Categoria_Subfamilia",
-                          "Archivo_Imagen" ]
+                          "Archivo_Imagen", "TipoArticulo_desc" ]
     query.post:         [ "tmklib.fixes.PROD.title",
                           "tmklib.fixes.PROD.calcImages",
-                          "tmklib.url.PROD" ]
+                          "tmklib.url.PROD",
+                          "tmklib.fixes.PROD.tipoArticulo"
+                        ]
 
 
 

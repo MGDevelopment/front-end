@@ -160,7 +160,8 @@ query_recommended_main:     &query_recommended_main
                 A.Categoria_Subfamilia          AS Categoria_Subfamilia,
                 A.Archivo_Imagen                AS Archivo_Imagen,
                 A.Id_Impuesto                   AS Id_Impuesto,
-                D.Descripcion                   AS Fulfillment_desc
+                D.Descripcion                   AS Fulfillment_desc,
+                TA.Descripcion                  AS TipoArticulo_desc
             FROM        Articulos_Mesa_Recomendados AMR
             INNER JOIN  Articulos A
                 ON      AMR.Id_Articulo = A.Id_Articulo AND
@@ -175,6 +176,9 @@ query_recommended_main:     &query_recommended_main
                         -------------- ***** CONDITION
                         D.Id_Esquema = 'PROD' AND
                         D.Pedido_Especial = 'N'
+            -------------- Tipos Articulos
+            INNER JOIN  Tipos_Articulos TA
+                ON      A.Id_Tipo_Articulo = TA.Id_Tipo_Articulo
             -------------- Product Form
             LEFT JOIN   CG_Ref_Codes CGRC_PF
                 ON      CGRC_PF.RV_Domain = 'ONIX:ProductForm' AND
@@ -217,14 +221,15 @@ query_recommended_main:     &query_recommended_main
                           "CurrencyCode_desc", "PriceAmount",
                           "Categoria_Seccion", "Categoria_Grupo", "Categoria_Familia",
                           "Categoria_Subfamilia", "Archivo_Imagen", "Id_Impuesto",
-                          "Fulfillment_desc" ]
+                          "Fulfillment_desc", "TipoArticulo_desc" ]
     query.post:         [ "tmklib.fixes.PROD.title",
                           "tmklib.fixes.PROD.calcImages",
                           "tmklib.PROD.calculateTaxes",
                           "tmklib.url.PROD",
                           "tmklib.fixes.PROD.embedRatings",
                           "tmklib.fixes.IMPR.title",
-                          "tmklib.url.IMPR"
+                          "tmklib.url.IMPR",
+                          "tmklib.fixes.PROD.tipoArticulo"
                         ]
 
 #
@@ -474,7 +479,8 @@ query_showcase_main:     &query_showcase_main
                         A.Categoria_Subfamilia          AS Categoria_Subfamilia,
                         A.Archivo_Imagen                AS Archivo_Imagen,
                         A.Id_Impuesto                   AS Id_Impuesto,
-                        D.Descripcion                   AS Fulfillment_desc
+                        D.Descripcion                   AS Fulfillment_desc,
+                        TA.Descripcion                  AS TipoArticulo_desc
                     FROM        Mas_Vendidos_Seccion MVS
                     INNER JOIN  Articulos A
                         ON      MVS.Id_Articulo = A.Id_Articulo AND
@@ -490,6 +496,9 @@ query_showcase_main:     &query_showcase_main
                                 -------------- ***** CONDITION
                                 D.Id_Esquema = 'PROD' AND
                                 D.Pedido_Especial = 'N'
+                    -------------- Tipos Articulos
+                    INNER JOIN  Tipos_Articulos TA
+                        ON      A.Id_Tipo_Articulo = TA.Id_Tipo_Articulo
                     -------------- Product Form
                     LEFT JOIN   CG_Ref_Codes CGRC_PF
                         ON      CGRC_PF.RV_Domain = 'ONIX:ProductForm' AND
@@ -528,7 +537,7 @@ query_showcase_main:     &query_showcase_main
                           "CurrencyCode_desc", "PriceAmount",
                           "Categoria_Seccion", "Categoria_Grupo", "Categoria_Familia",
                           "Categoria_Subfamilia", "Archivo_Imagen", "Id_Impuesto",
-                          "Fulfillment_desc" ]
+                          "Fulfillment_desc", "TipoArticulo_desc" ]
     query.post:         [ "tmklib.fixes.PROD.title",
                           "tmklib.fixes.PROD.calcImages",
                           "tmklib.fixes.PROD.filterWithoutImage",
@@ -536,7 +545,8 @@ query_showcase_main:     &query_showcase_main
                           "tmklib.url.PROD",
                           "tmklib.fixes.PROD.embedRatings",
                           "tmklib.fixes.IMPR.title",
-                          "tmklib.url.IMPR"
+                          "tmklib.url.IMPR",
+                          "tmklib.fixes.PROD.tipoArticulo"
                         ]
 
 #
