@@ -1,33 +1,39 @@
 {%- macro renderRelated(related_data, url) -%}
 	{%- if related_data is iterable -%}
 		{%- set count = 0 -%}
+		{%- set prevId = 0 -%}
 		<div class="dRecomendTit">Obras relacionadas</div>
 		{%- for article in related_data -%}
-		<div class="dRecomendMod">
-		    <div class="tapaContenedor">
-		        <a href="{{ article.LinkBase ~ '.htm' }}">
-		        	<img src="{{ url.images ~ article.CoverSmall }}" class="tapaLibros">
-		        </a>
-		        <div class="tapaInfo" style="visibility: hidden;">
-		    </div>
-		    </div>
-		    <a href="{{ article.LinkBase ~ '.htm' }}" class="fTitulos">{{ article.Title.decode('utf-8')|e }}</a>
-		    <span>Precio:{{ article.CurrencyCode_desc.decode('utf-8') }}&nbsp;{{ "%.2f"|format(article.PriceAmount) }}.-</span>
-		    <div class="calificacionMod">
-		    	{%- if article.Rating -%}
-		    		<span>Calificaci&oacute;n:</span>
-			      	{%- set s = article.Rating|round|int -%}
-					{%- for i in range(s) -%}
-	                    <div class="calificacionStar"></div>
-	                {%- endfor -%}
-	                {%- for i in range(5 - s) -%}
-	                    <div class="calificacionStarDes"></div>
-	                {%- endfor -%}
-	            {%- endif -%}
-		    </div>
+			{%- if count < 3 and prevId != article.RelatedEntityId -%}
+				{%- set count = count + 1 -%}
+				{%- set prevId = article.RelatedEntityId -%}
+				<div class="dRecomendMod">
+			    	<div class="tapaContenedor">
+			        	<a href="{{ article.LinkBase ~ '.htm' }}">
+			        		<img src="{{ url.images ~ article.CoverSmall }}" class="tapaLibros">
+			        	</a>
+			        	<div class="tapaInfo" style="visibility: hidden;">
+			    		</div>
+			    	</div>
+			    <a href="{{ article.LinkBase ~ '.htm' }}" class="fTitulos">{{ article.Title.decode('utf-8')|e }}</a>
+			    <span>Precio:{{ article.CurrencyCode_desc.decode('utf-8') }}&nbsp;{{ "%.2f"|format(article.PriceAmount) }}.-</span>
+			    <div class="calificacionMod">
+			    	{%- if article.Rating -%}
+			    		<span>Calificaci&oacute;n:</span>
+				      	{%- set s = article.Rating|round|int -%}
+						{%- for i in range(s) -%}
+		                    <div class="calificacionStar"></div>
+		                {%- endfor -%}
+		                {%- for i in range(5 - s) -%}
+		                    <div class="calificacionStarDes"></div>
+		                {%- endfor -%}
+		            {%- endif -%}
+			    </div>
+			{%- else -%}
+				<!-- {{ prevId }} : {{ article.RelatedEntityId }} -->
+			{%- endif -%}
 		    {%- if loop.last -%}
-		    	{%- set index = loop.index -%}
-		    	{%- for i in range(index) -%}
+		    	{%- for i in range(count) -%}
 		 			</div>
 				{%- endfor -%}
 		    {%- endif -%}
