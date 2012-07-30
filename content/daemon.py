@@ -14,16 +14,12 @@ import ecommerce.queue
 import tmklib.url
 import tmklib.cache
 
+from   globals import *
 import preprocess
 import jobs
 import documents
 import work
-
-#
-# our logger
-#
-_logger = None
-
+import sitemap
 
 ############################################
 #
@@ -81,7 +77,7 @@ def jobGenerate(id, job):
 
     # get the data from the database, if anything goes wrong, fail the job
     try:
-        result = ecommerce.db.dataset.fetch(datasets)
+        result = ecommerce.db.dataset.fetch(datasets, application)
     except Exception as ex:
         # log an error
         err = traceback.format_exc()
@@ -124,6 +120,22 @@ def jobCache(id, job):
 
 ############################################
 #
+# job - sitemap
+#
+def jobSitemap(id, job):
+    """Regenerate the sitemap files"""
+
+    logger.info("Processing sitemap Job. Begin sitemap generation")
+
+    sitemap.generate()
+
+    logger.info("Processing sitemap Job. Terminated sitemap generation")
+
+    return True
+
+
+############################################
+#
 # job - exit
 #
 _terminating = False
@@ -153,31 +165,18 @@ def jobExit(id, job):
 jobTypes = {
     "exit"      : jobExit,
     "cache"     : jobCache,
-    "generate"  : jobGenerate
+    "generate"  : jobGenerate,
+    "sitemap"   : jobSitemap
 }
 
-def daemon(config, prefix, queue):
+def daemon(config, prefix, log_prefix, queue):
     """The main daemon function
     
     It gets some options from the configuration and
     starts trying to pull jobs from the queue.
     """
 
-    global logger
-
-    # configure logging
-    logging.basicConfig(level = logging.DEBUG, datefmt = '%Y-%m-%d %H:%M:%S')
-    logconf = config.getMulti(prefix, "logging")
-    if logconf is not None:
-
-        # config the logging
-        logging.config.dictConfig(logconf) 
-
-        # get a logger
-        logger = logging.getLogger(prefix)
-    else:
-        logger = logging.getLogger('')
-
+    set_logger(prefix, log_prefix)
 
     # get some config options
     maxrun = config.getMulti(prefix, "daemon.maxrun", 3600)
@@ -188,7 +187,8 @@ def daemon(config, prefix, queue):
     # initialize the work
     work.initialize(config, prefix, logger)
 
-    # set dataset preprocessing
+    # set dataset application and preprocessing
+    ecommerce.db.dataset.configApplication(application)
     ecommerce.db.dataset.setPreProcess(preprocess.preProcess)
 
     # start looping

@@ -64,7 +64,7 @@ documents = {
                 "Content-Encoding"  : "gzip",
                 "Cache-Control"     : "max-age=3600, must-revalidate"
             },
-            "tags"          : [ "main", "comment" ],
+            "tags"          : [ "comment" ],
             "target.path"   : "/home-comments.js",
             "target.repo"   : "jrunhome"
         },
@@ -78,7 +78,7 @@ documents = {
                 "Content-Encoding"  : "gzip",
                 "Cache-Control"     : "max-age=3600, must-revalidate"
             },
-            "tags"          : [ "main" ],
+            "tags"          : [ "price" ],
             "target.path"   : "/home-exchange.js",
             "target.repo"   : "jrunhome"
         }
@@ -113,7 +113,7 @@ documents = {
                 "Content-Encoding"  : "gzip",
                 "Cache-Control"     : "max-age=3600, must-revalidate"
             },
-            "tags"          : [ "main", "related" ],
+            "tags"          : [ "related" ],
             "target.path"   : "/related/{{cannonical}}.js",
             "target.repo"   : "static"
         },
@@ -127,7 +127,7 @@ documents = {
                 "Content-Encoding"  : "gzip",
                 "Cache-Control"     : "max-age=3600, must-revalidate"
             },
-            "tags"          : [ "main", "comment" ],
+            "tags"          : [ "comment" ],
             "target.path"   : "/comments/{{cannonical}}.js",
             "target.repo"   : "static"
         },
@@ -141,7 +141,7 @@ documents = {
                 "Content-Encoding"  : "gzip",
                 "Cache-Control"     : "max-age=3600, must-revalidate"
             },
-            "tags"          : [ "main", "price" ],
+            "tags"          : [ "price" ],
             "target.path"   : "/price/{{cannonical}}.js",
             "target.repo"   : "static"
         }
@@ -205,7 +205,7 @@ documents = {
                 "Content-Encoding"  : "gzip",
                 "Cache-Control"     : "max-age=3600, must-revalidate"
             },
-            "tags"          : [ "main", "comment" ],
+            "tags"          : [ "comment" ],
             "target.path"   : "/comments/{{cannonical}}.js",
             "target.repo"   : "static"
         }

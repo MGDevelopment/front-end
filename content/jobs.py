@@ -63,6 +63,23 @@ def cache(tag = "*", design = "*", store = "*"):
 #########################################################
 #########################################################
 #
+# JOB - SITEMAP
+#
+def sitemap(tag = "*", design = "*", store = "*"):
+    """Create a job of type sitema"""
+
+    job = {
+        "type"      : "sitemap",
+        "tag"       : tag,
+        "design"    : design,
+        "store"     : store
+    }
+    return job
+
+
+#########################################################
+#########################################################
+#
 # JOB - GENERATE
 #
 def generate(entities, tag = "*", design = "*", store = "*"):
