@@ -279,6 +279,10 @@ def execute_task(task_name, task_def):
 
         command = task_def["commands"][c]
 
+        if command == "delta":
+            logger.info("task %s: command %s is ignored" % (task_name, command))
+            continue
+
         logger.info("task %s: dispatching command %s" % (task_name, command))
         command_dispatch(command)
 
