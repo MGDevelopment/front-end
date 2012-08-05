@@ -121,7 +121,7 @@ def getEntityIds(type, subtype = None):
 
 def generateJobs(producer, EntityType, eList, tag = None):
 
-    # build jobs of up to 256 entries
+    # build jobs of up to 64 entries
     jobCount = 0
     jList = [ ]
     for i in range(len(eList)):
@@ -240,7 +240,7 @@ def cmd_add(arguments):
         # get the list
         elist = entities[fullType]
 
-        # build jobs of up to 256 entries
+        # build jobs of up to 64 entries
         partialJobCount = generateJobs(producer, type, elist)
 
         # report

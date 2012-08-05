@@ -25,7 +25,9 @@ subtypes     = {
     "PROD"   : [ ],
     "SUBJ"   : [ "Seccion", "Grupo", "Familia", "Subfamilia" ]
 }
-maxEntities  = 256
+maxEntities  = 64       # do not generate more than this because of
+                        # the oracle 9i buffer size bug (long sql
+                        # sentences generate bogus results)
 
 # the global logger
 _logconf = None
