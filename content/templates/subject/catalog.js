@@ -86,6 +86,7 @@ APP.fillCatalog = function (order, page) {
             //i = elems.length - 1; /* repeat last */
         }
 
+        $(v).show();
         var e = elems[i];
         var productLink  = e[pLink] + '.htm';
         $(v).find('.celdafoto a')[0].href   = productLink;
@@ -138,12 +139,13 @@ APP.fillCatalog = function (order, page) {
     	    		$(v).show();
     	    	}
         	}
-	        if (i === 0) {
+	        if (i == 0) {
 	            v.href = 'javascript:APP.fillCatalog(null,' + prevPage + ');';
-	        } else if (i > lastPage) {
+	        } else if (i > lastPage + 1) {
 	            v.href = 'javascript:APP.fillCatalog(null,' + nextPage + ');';
 	        } else {
-	            if (i === page + 1) {
+	            if (i == page + 1) {
+	            	v.href = 'javascript:APP.fillCatalog(null,' + (nextPage - 1) + ');';
 	                $(v).css({'font-weight' : 'bolder'});
 	            } else {
 	                $(v).css({'font-weight' : 'normal'});
