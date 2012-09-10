@@ -12,12 +12,20 @@
 	{{ id }}
 {%- endmacro -%}
 
+{%- macro getNombre(item) -%}
+	{%- if item.id|int == 0 or item.Nombre.decode('utf-8')|e == 'S / D'-%}
+		Varios
+	{%- else -%}
+		{{ item.Nombre.decode('utf-8')|e }}
+	{%- endif -%}
+{%- endmacro -%}
+
 {%- macro iterateTree2(item) -%}
-		<li id="{{ getId(item) }}"><a href="{{ item.LinkBase }}.htm">{{ item.Nombre.decode('utf-8')|e }}</a></li>
+		<li id="{{ getId(item) }}"><a href="{{ item.LinkBase }}.htm">{{ getNombre(item) }}</a></li>
 {%- endmacro %}
 
 {%- macro iterateTree1(item) -%}
-		<li id="{{ getId(item) }}"><a href="{{ item.LinkBase }}.htm">{{ item.Nombre.decode('utf-8')|e }}</a>
+		<li id="{{ getId(item) }}"><a href="{{ item.LinkBase }}.htm">{{ getNombre(item) }}</a>
 		{%- if item.Children -%}
 				<ul>
 					{%- for subitem in item.Children -%}
@@ -31,7 +39,7 @@
 {%- macro iterateTree(items) -%}
 		{%- for item in items -%}
 			{%- if item.Children -%}
-				<li id="{{ getId(item) }}"><a href="{{ item.LinkBase }}.htm">{{ item.Nombre.decode('utf-8')|e }}</a>
+				<li id="{{ getId(item) }}"><a href="{{ item.LinkBase }}.htm">{{ getNombre(item) }}</a>
 				<ul>
 					{%- for subitem in item.Children -%}
 						{{ iterateTree1(subitem) }}
@@ -40,7 +48,7 @@
 				</li>
 			{%- else -%}
 				{% if item.Nombre %}
-					<li id="{{ getId(item) }}"><a href="{{ item.LinkBase }}.htm">{{ item.Nombre.decode('utf-8')|e }}</a></li>
+					<li id="{{ getId(item) }}"><a href="{{ item.LinkBase }}.htm">{{ getNombre(item) }}</a></li>
 				{% else %}
 					<li id="{{ getId(item) }}"><a href="{{ item.LinkBase }}.htm"></a></li>
 				{% endif %}
