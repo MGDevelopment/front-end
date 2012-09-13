@@ -13,27 +13,29 @@ var pProductId = 0,
 APP.addData('catalog', [
 {%- if d['Products'] -%}
 	{%- for p in d['Products'] -%}
-	    {%- if p['Authors'] and p['Authors'][0]|length > 0 -%}
-	        {%- set author = p['Authors'][0]['ContributorName'].decode('utf-8')|e -%}
-	        {%- set author_url = p['Authors'][0]['ContributorURL'] -%}
-	    {%- else -%}
-	        {%- set author = '' -%}
-	        {%- set author_url = '' -%}
-	    {%- endif -%}
-	[
-	{{ p['EntityId'] }},
-	'{{ p['CoverSmall'] }}',
-	'{{ p['Title'].decode('utf-8')|e }}',
-	'{{ p['LinkBase'] }}',
-	'{{ author }}',
-	'{{ author_url }}',
-	{{ p['Row_Number']|int }},
-	{{ "%.2f"|format(p['PriceAmount']) }},
-	{{ p['PublishingDateValue'] }}
-	]
-	{%- if loop.index < loop.length -%}
-	,
-	{%- endif -%}
+		{%- if (not p['CoverSmallGeneric']) or (p['Categoria_Familia'] == 3) -%}
+		    {%- if p['Authors'] and p['Authors'][0]|length > 0 -%}
+		        {%- set author = p['Authors'][0]['ContributorName'].decode('utf-8')|e -%}
+		        {%- set author_url = p['Authors'][0]['ContributorURL'] -%}
+		    {%- else -%}
+		        {%- set author = '' -%}
+		        {%- set author_url = '' -%}
+		    {%- endif -%}
+			[
+			{{ p['EntityId'] }},
+			'{{ p['CoverSmall'] }}',
+			'{{ p['Title'].decode('utf-8')|e }}',
+			'{{ p['LinkBase'] }}',
+			'{{ author }}',
+			'{{ author_url }}',
+			{{ p['Row_Number']|int }},
+			{{ "%.2f"|format(p['PriceAmount']) }},
+			{{ p['PublishingDateValue'] }}
+			]
+			{%- if loop.index < loop.length -%}
+			,
+			{%- endif -%}
+		{%- endif -%}
 	{%- endfor %}
 {%- endif -%}
 ]);
@@ -71,6 +73,9 @@ APP.fillCatalog = function (order, page) {
     var pageElems = $('.moduleproductob');
     var perPage   = pageElems.length;
     var lastPage  = Math.ceil(c.length/perPage) - 1;
+    if (lastPage > 9) {
+    	lastPage = 9;
+    }
     var page = page || 0; /* default page zero */
     if (page > lastPage+1)
         page = lastPage+1;

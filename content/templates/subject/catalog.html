@@ -161,8 +161,10 @@
 	    {{ showItem(p, 'display:visible;') }}
 	{% endfor %}
 	{% for i in range(diff_per_page) %}
-	    {%- set p = d.Products[i] -%}
-	    {{ showItem(p, 'display:hidden;') }}
+		{%- if per_page > 0 -%}
+		    {%- set p = d.Products[0] -%}
+		    {{ showItem(p, 'display:hidden;') }}
+		{%- endif -%}
 	{% endfor %}
 	{#- set pages = (p_count/per_page)|round(0, 'ceil')|int -#}
 	{%- set pages = 10 -%}
