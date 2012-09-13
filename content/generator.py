@@ -42,7 +42,7 @@ def main():
     # get the arguments
     arguments = sys.argv[1:]
     command_dispatch(arguments)
-
+    sys.exit(0)
 
 if __name__ == "__main__":
     main()
