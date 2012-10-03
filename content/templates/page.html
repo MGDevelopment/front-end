@@ -76,23 +76,25 @@
         {% endblock %}
         </div>
         <div id="content">
-    <div id="barraCentral" class="barraCentral">
-        	{% block left_menu %}
-                <div id="leftmenu">
-                    {% include "fragments/left_menu.html" %}
-                </div>
-            {% endblock %}
-            {% block canvas_content %}{% endblock %}
-            {% block right_menu %}
-                <div id="rightmenu">
-                    {% include "fragments/right_menu.html" %}
-                </div>
-            {% endblock %}
-    </div>
+		    <div id="barraCentral" class="barraCentral">
+		        	{% block left_menu %}
+		                <div id="leftmenu">
+		                    {% include "fragments/left_menu.html" %}
+		                </div>
+		            {% endblock %}
+		            {% block canvas_content %}{% endblock %}
+		            {% block right_menu %}
+		                <div id="rightmenu">
+		                    {% include "fragments/right_menu.html" %}
+		                </div>
+		            {% endblock %}
+		    </div>
         </div>
         <div id="bottom">
         {% block canvas_footer %}
             {% include "fragments/canvas_footer.html" %}
+        {% endblock %}
+        {% block canvas_footer_afip %}
         {% endblock %}
         </div>
     </div>
