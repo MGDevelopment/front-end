@@ -124,12 +124,15 @@ APP = (function() {
         }
     }
 
-    function cartAdd(idArticulo) {
+    
+    function cartAdd(idArticulo, vAsync) {
+    	vAsync = typeof vAsync !== 'undefined' ? vAsync: true;
         $('#modalBack').css("display", "block");
         $('#modalBack').css("visibility", "visible");
         var param = 'idArticulo=' + idArticulo + '&par=' + Math.random();
         $.ajax({
                type: "POST",
+               async: vAsync,
                cache:false,
                url: "/AgregarArticulo",
                data: param,
