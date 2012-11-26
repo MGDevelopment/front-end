@@ -224,7 +224,7 @@ APP = (function() {
 
             _search_in_progress = true;
 
-            encodedParams = "idSeccion=" + idSeccion + "&tipoBusqueda=" + busSeleccionada + "&texto=" + escape(texto) + "&idSeccionPropia=" + idSeccionPropia +"&seccionDeBusqueda=" + seccionDeBusqueda + "";
+            var encodedParams = "idSeccion=" + idSeccion + "&tipoBusqueda=" + busSeleccionada + "&texto='" + escape(texto) + "'&idSeccionPropia=" + idSeccionPropia +"&seccionDeBusqueda=" + seccionDeBusqueda + "";
             window.location.href ="/SetearBusqueda2?" + encodedParams;
 
         }
@@ -235,7 +235,8 @@ APP = (function() {
         if(!_search_in_progress) {
 
             _search_in_progress = true;
-            encodedParams = "idSeccion=" + idSeccion + "&tipoBusqueda=" + busSeleccionada + "&texto=" + escape(texto) + "&idSeccionPropia=" + idSeccionPropia +"&seccionDeBusqueda=" + seccionDeBusqueda +"&mantenerIds=true";
+            
+            var encodedParams = "idSeccion=" + idSeccion + "&tipoBusqueda=" + busSeleccionada + "&texto='" + escape(texto) + "'&idSeccionPropia=" + idSeccionPropia +"&seccionDeBusqueda=" + seccionDeBusqueda +"&mantenerIds=true";
             window.location.href ="/SetearBusqueda2?" + encodedParams;
         }
     }
