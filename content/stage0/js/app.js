@@ -6,6 +6,7 @@ APP = (function() {
     var _session = false; // Is there a site session cookie?
 
     var _search_in_progress = false; // XXX horrible search JS
+    var isIE = /*@cc_on!@*/false; // is browser IE
 
     // Cookie methods inspired by quirksmode.org
     function createCookie(name, value, days) {
@@ -212,6 +213,22 @@ APP = (function() {
             return true;
         }
     }
+    
+    function encodeText(texto) {
+    	 texto = escape(texto);
+    	 // only for IE browser
+         if (isIE) {
+         	while(true) {
+         		texto = texto.replace('%', '\\');
+         		var idx = texto.indexOf('%');
+         		if (idx == -1) {
+         			break;
+         		}
+         	}
+         }
+    	return texto;
+    }
+    
     function setSearch(busSeleccionada, texto, idSeccion, idSeccionPropia,
             seccionDeBusqueda) {
 
@@ -223,12 +240,14 @@ APP = (function() {
         if(!_search_in_progress) {
 
             _search_in_progress = true;
+            
+            texto = encodeText(texto);
 
-            var encodedParams = "idSeccion=" + idSeccion + "&tipoBusqueda=" + busSeleccionada + "&texto='" + escape(texto) + "'&idSeccionPropia=" + idSeccionPropia +"&seccionDeBusqueda=" + seccionDeBusqueda + "";
+            var encodedParams = "idSeccion=" + idSeccion + "&tipoBusqueda=" + busSeleccionada + "&texto=" + texto + "&idSeccionPropia=" + idSeccionPropia +"&seccionDeBusqueda=" + seccionDeBusqueda + "";
             window.location.href ="/SetearBusqueda2?" + encodedParams;
-
         }
     }
+    
     function setSearch2(busSeleccionada, texto, idSeccion, idSeccionPropia,
             seccionDeBusqueda) {
 
@@ -236,7 +255,9 @@ APP = (function() {
 
             _search_in_progress = true;
             
-            var encodedParams = "idSeccion=" + idSeccion + "&tipoBusqueda=" + busSeleccionada + "&texto='" + escape(texto) + "'&idSeccionPropia=" + idSeccionPropia +"&seccionDeBusqueda=" + seccionDeBusqueda +"&mantenerIds=true";
+            texto = encodeText(texto);
+            
+            var encodedParams = "idSeccion=" + idSeccion + "&tipoBusqueda=" + busSeleccionada + "&texto=" + texto + "&idSeccionPropia=" + idSeccionPropia +"&seccionDeBusqueda=" + seccionDeBusqueda +"&mantenerIds=true";
             window.location.href ="/SetearBusqueda2?" + encodedParams;
         }
     }
