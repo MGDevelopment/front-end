@@ -94,11 +94,13 @@
                                 {{- (pd[6:8], pd[4:6], pd[0:4])|join('/') -}}
                             </span><br>
                         {%- endif -%}
-                        {%- if p.LanguageCode_desc -%}
-                            Idioma:
-                            <span class="product-language">
-                                {{- p.LanguageCode_desc.decode('utf-8') -}}
-                            </span><br>
+                        {%- if   book  -%}
+                        	{%- if p.LanguageCode_desc -%}
+                            	Idioma:
+                            	<span class="product-language">
+                                	{{- p.LanguageCode_desc.decode('utf-8') -}}
+                            	</span><br>
+                        	{%- endif -%}
                         {%- endif -%}
                         {%- if p.ExtentValue -%}
                             P&aacute;ginas:
