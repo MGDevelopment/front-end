@@ -188,6 +188,13 @@
 			try {
 	            APP.fillCatalog('rank');
 	        } catch (e) {}
+	        {%- if not d['Showcase'] is iterable -%}
+	        	// Slider: change to Classics
+	        	try {
+	        		fillShowCase('Classics',null,false);
+	        	} catch(e) {}
+	        {%- endif -%}
+	        
 		});
 		/* parse messages */
 		{% include "fragments/messages_parse.js" %}
