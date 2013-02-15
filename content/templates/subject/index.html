@@ -120,7 +120,11 @@
     <div id="seccionTematika">
     	<div style="float: left; display: block; ">
 			<div style="position: fixed; ">
+			{%- if section_name == 'Pasatiempos' -%}
+				<a href="/juguetes">
+			{%- else -%}
 				<a href="/{{ section_name|lower }}">
+			{%- endif -%}
 					<img src="{{ url.images }}/imagenes/blank.gif"
                             class="section-top" alt="home de {{ section_name }}">
 				</a>
