@@ -58,7 +58,17 @@
             {%- if d.Identifiers -%}
             <span>I.S.B.N : {{ d.Identifiers[0].IDValue }}</span>
             {%- endif %}
-            <span>Clasificaci&oacute;n: {%- for categorie in d.Categories -%}<a href="{{ categorie.URL }}">{{ categorie.Title.decode('utf-8')|e }}</a>{%- if not loop.last -%}&nbsp;&raquo;&nbsp;{%- endif %} {%- endfor %}</span>
+            <span>Clasificaci&oacute;n: 
+            {%- for categorie in d.Categories -%}
+            	<a href="{{ categorie.URL }}">
+            	{%- if categorie.Title.decode('utf-8')|e == 'S / D' -%}
+            		Varios
+            	{%- else -%}
+            		{{ categorie.Title.decode('utf-8')|e }}
+            	{%- endif -%}
+            	</a>
+            	{%- if not loop.last -%}&nbsp;&raquo;&nbsp;{%- endif %} 
+            {%- endfor %}</span>
             {%- if d.TipoArticulo_desc -%}<span>Formato: {{ d.TipoArticulo_desc.decode('utf-8')|e }}</span>{%- endif %}
 
             {%- if d.ProductAvailability == '21' and d.FulfillmentValue -%}

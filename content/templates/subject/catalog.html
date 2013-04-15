@@ -139,6 +139,9 @@
 	{%- set section         = d.Categoria_Seccion -%}
 	{%- set section_name    = d.Title.decode('utf-8') -%}
 	{%- set subsection_name = d.Path[-1].Nombre.decode('utf-8') -%}
+	{%- if subsection_name|e == 'S / D'-%}
+		{%- set subsection_name = 'Varios' -%}
+	{%- endif -%}
 	{%- set cat_group       = d.Categoria_Grupo -%}
 	{%- set per_page        = 10 -%}
 	{%- set diff_per_page   = 0 -%}
