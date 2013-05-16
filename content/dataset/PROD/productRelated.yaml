@@ -1,5 +1,3 @@
-﻿---
-
 ####
 #### JLUIS - TODO - FIX PERFORMANCE
 ####
@@ -312,7 +310,7 @@ query_unified:  &query_unified
                                 SELECT      RCO.Id_Articulo_Relacionado,
                                             RCO.Cant_Comprobantes,
                                             RCO.Id_Articulo 
-                                    FROM    Articulos ARR, Articulos ART, RCO_Articulos_Relacionados RCO
+                                    FROM    Articulos ARR, Articulos ART, RCO_Articulos_Relacionados RCO, Disponibilidades DARR
                                     WHERE   ARR.Activo = 'SI' AND
                                             ARR.Id_Articulo = RCO.Id_Articulo_Relacionado AND
                                             ART.Id_Articulo  = RCO.Id_Articulo AND
@@ -320,7 +318,9 @@ query_unified:  &query_unified
                                             RCO.Tipo_Relacion = 'C' AND
                                             {{ID:Id_Articulo#BETWEEN}} AND
                                             ARR.Habilitado_Tematika = 'S' AND
-                                            ARR.Categoria_Seccion IN (1, 3, 4, 5)
+                                            ARR.Categoria_Seccion IN (1, 3, 4, 5) AND
+                                            NVL(ARR.Id_Disponibilidad, 1) = DARR.Id_Disponibilidad AND DARR.Id_Esquema = 'PROD' AND DARR.Pedido_Especial = 'N'
+                                            
                             )
                             ORDER BY        Id_Articulo, Cant_Comprobantes DESC, Id_Articulo_Relacionado DESC
                     )
