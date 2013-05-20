@@ -71,7 +71,7 @@
             {%- endfor %}</span>
             {%- if d.TipoArticulo_desc -%}<span>Formato: {{ d.TipoArticulo_desc.decode('utf-8')|e }}</span>{%- endif %}
 
-            {%- if d.ProductAvailability == '21' and d.FulfillmentValue -%}
+            {%- if (d.ProductAvailability == '21' or d.ProductAvailability == '40') and d.FulfillmentValue -%}
                 {#- <span>Disponibilidad: Salida del dep&oacute;sito en {{ d.FulfillmentValue }} {{ d.FulfillmentType_desc|e }} h&aacute;biles</span> -#}
                 <span>Disponibilidad: {{ d.Fulfillment_desc.decode('utf-8')|e }}</span>
             {%- else  -%}

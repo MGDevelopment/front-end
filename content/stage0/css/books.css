@@ -578,6 +578,10 @@ border-top:dotted 1px #ADC4A1;
 background-image:url(/imagenes/rediseno/imagenes/seccionLibros/b-comprarD.png);
 }
 
+.dNoDisponibleButton {
+background-image:url(/imagenes/rediseno/imagenes/seccionLibros/b-nodispD.png);
+}
+
 .detalleBotonMenu {
 background-image:url(/imagenes/rediseno/imagenes/seccionLibros/detalleBotonMenu-back.png);
 }
