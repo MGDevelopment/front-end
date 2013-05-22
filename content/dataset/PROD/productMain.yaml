@@ -328,7 +328,7 @@ query.sql:          >
             END                             AS ProductAvailability,
             'ONIX.65'                       AS ProductAvailability_list,
             CASE
-               	WHEN D.Id_Disponibilidad = 3   THEN 'Actualmente sin Stock'
+                WHEN D.Id_Disponibilidad = 3   THEN 'Actualmente sin Stock'
                 WHEN D.Pedido_Especial   = 'N' THEN 'En Stock'
                 ELSE                            'Pedido Especial'
             END                             AS ProductAvailability_desc,

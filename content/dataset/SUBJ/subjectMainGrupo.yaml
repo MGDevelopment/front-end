@@ -118,16 +118,16 @@ query_products_main:     &query_products_main
                             ELSE                                                        'Inactivo'
                         END                             AS MarketPublishingStatus_desc,
                         CASE
-			                WHEN D.Id_Disponibilidad = 3   THEN '40'
-			                WHEN D.Pedido_Especial   = 'N' THEN '21'
-			                ELSE                            '22'
-			            END                             AS ProductAvailability,
-			            'ONIX.65'                       AS ProductAvailability_list,
-			            CASE
-			               	WHEN D.Id_Disponibilidad = 3   THEN 'Actualmente sin Stock'
-			                WHEN D.Pedido_Especial   = 'N' THEN 'En Stock'
-			                ELSE                            'Pedido Especial'
-			            END                             AS ProductAvailability_desc,
+                            WHEN D.Id_Disponibilidad = 3   THEN '40'
+                            WHEN D.Pedido_Especial   = 'N' THEN '21'
+                            ELSE                            '22'
+                        END                             AS ProductAvailability,
+                        'ONIX.65'                       AS ProductAvailability_list,
+                        CASE
+                            WHEN D.Id_Disponibilidad = 3   THEN 'Actualmente sin Stock'
+                            WHEN D.Pedido_Especial   = 'N' THEN 'En Stock'
+                            ELSE                            'Pedido Especial'
+                        END                             AS ProductAvailability_desc,
                         CASE D.Tipo_Unidad
                             WHEN 'HORAS' THEN               '01'
                             ELSE                            '02'
@@ -473,16 +473,16 @@ query_showcase_main:     &query_showcase_main
                             ELSE                                                        'Inactivo'
                         END                             AS MarketPublishingStatus_desc,
                         CASE
-			                WHEN D.Id_Disponibilidad = 3   THEN '40'
-			                WHEN D.Pedido_Especial   = 'N' THEN '21'
-			                ELSE                            '22'
-			            END                             AS ProductAvailability,
-			            'ONIX.65'                       AS ProductAvailability_list,
-			            CASE
-			               	WHEN D.Id_Disponibilidad = 3   THEN 'Actualmente sin Stock'
-			                WHEN D.Pedido_Especial   = 'N' THEN 'En Stock'
-			                ELSE                            'Pedido Especial'
-			            END                             AS ProductAvailability_desc,
+                            WHEN D.Id_Disponibilidad = 3   THEN '40'
+                            WHEN D.Pedido_Especial   = 'N' THEN '21'
+                            ELSE                            '22'
+                        END                             AS ProductAvailability,
+                        'ONIX.65'                       AS ProductAvailability_list,
+                        CASE
+                            WHEN D.Id_Disponibilidad = 3   THEN 'Actualmente sin Stock'
+                            WHEN D.Pedido_Especial   = 'N' THEN 'En Stock'
+                            ELSE                            'Pedido Especial'
+                        END                             AS ProductAvailability_desc,
                         CASE D.Tipo_Unidad
                             WHEN 'HORAS' THEN               '01'
                             ELSE                            '02'

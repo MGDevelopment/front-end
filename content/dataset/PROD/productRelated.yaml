@@ -258,14 +258,14 @@ query_unified:  &query_unified
                                 WHEN A.Activo = 'SI' AND A.Habilitado_Tematika = 'S' THEN   'Activo'
                                 ELSE                                                        'Inactivo'
                             END                             AS MarketPublishingStatus_desc,
-                            CASE 
-                            	WHEN D.Id_Disponibilidad = 3   THEN '40'
+                            CASE
+                                WHEN D.Id_Disponibilidad = 3   THEN '40'
                                 WHEN D.Pedido_Especial   = 'N' THEN '21'
                                 ELSE                            '22'
                             END                             AS ProductAvailability,
                             'ONIX.65'                       AS ProductAvailability_list,
-                            CASE 
-                            	WHEN D.Id_Disponibilidad = 3   THEN 'Actualmente sin Stock'
+                            CASE
+                                WHEN D.Id_Disponibilidad = 3   THEN 'Actualmente sin Stock'
                                 WHEN D.Pedido_Especial   = 'N' THEN 'En Stock'
                                 ELSE                            'Pedido Especial'
                             END                             AS ProductAvailability_desc,
