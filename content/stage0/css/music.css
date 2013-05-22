@@ -575,6 +575,10 @@ border-bottom:dotted 1px #FACCDC;
 background-image:url(/imagenes/rediseno/imagenes/seccionMusica/b-comprarD.png);
 }
 
+.dNoDisponibleButton {
+background-image:url(/imagenes/rediseno/imagenes/seccionMusica/b-nodispD.png);
+}
+
 .detalleBotonMenu {
 background-image:url(/imagenes/rediseno/imagenes/seccionMusica/detalleBotonMenu-back.png);
 }
@@ -1601,6 +1605,10 @@ border-bottom:dotted 1px #FACCDC;
 
 .dComprarButton {
 background-image:url(/imagenes/rediseno/imagenes/seccionMusica/b-comprarD.png);
+}
+
+.dNoDisponibleButton {
+background-image:url(/imagenes/rediseno/imagenes/seccionMusica/b-nodispD.png);
 }
 
 .detalleBotonMenu {

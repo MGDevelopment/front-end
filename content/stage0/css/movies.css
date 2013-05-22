@@ -582,6 +582,10 @@ border-bottom:dotted 1px #FECE00;
 background-image:url(/imagenes/rediseno/imagenes/seccionPeliculas/b-comprarD.png);
 }
 
+.dNoDisponibleButton {
+background-image:url(/imagenes/rediseno/imagenes/seccionPeliculas/b-nodispD.png);
+}
+
 .detalleBotonMenu {
 background-image:url(/imagenes/rediseno/imagenes/seccionPeliculas/detalleBotonMenu-back.png);
 }

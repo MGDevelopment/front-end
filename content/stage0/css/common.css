@@ -1410,7 +1410,7 @@ margin:0;
 margin:3px 4px 0;
 }
 
-.dComprarButton,.dFavButton {
+.dComprarButton,.dNoDisponibleButton,.dFavButton {
 width:223px;
 height:52px;
        background-position:center;

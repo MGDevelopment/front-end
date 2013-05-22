@@ -257,6 +257,10 @@ border-bottom:dotted 1px #F5CFAA;
 background-image:url(/imagenes/rediseno/imagenes/seccionTematika/b-comprarD.png);
 }
 
+.dNoDisponibleButton {
+background-image:url(/imagenes/rediseno/imagenes/seccionTematika/b-noDispD.png);
+}
+
 .detalleBotonMenu {
 background-image:url(/imagenes/rediseno/imagenes/seccionTematika/detalleBotonMenu-back.png);
 }
