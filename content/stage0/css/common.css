@@ -1410,7 +1410,7 @@ margin:0;
 margin:3px 4px 0;
 }
 
-.dComprarButton,.dNoDisponibleButton,.dFavButton {
+.dComprarButton,.dFavButton {
 width:223px;
 height:52px;
        background-position:center;
@@ -1418,7 +1418,13 @@ height:52px;
 cursor:pointer;
 margin:3px 0;
 }
-
+.dNoDisponibleButton{
+width:223px;
+height:52px;
+       background-position:center;
+       background-repeat:no-repeat;
+margin:3px 0;
+}
 a.dComprarEnvio {
 display:block;
 padding:4px 0;
