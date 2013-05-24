@@ -33,9 +33,7 @@
 			</a>
 		{%- else -%}
 			{%- if price_data.ProductAvailability == '40' -%}
-				<a href="javascript:void(0);">
-					<div class="dNoDisponibleButton" title="No Disponible"></div>
-				</a>
+				<div class="dNoDisponibleButton" title="No Disponible"></div>
 			{%- else -%}
 				<img style="padding-left: 20px; cursor: pointer;" onclick="javascript:if (confirm(\'Este producto no esta disponible actualmente. Desea hacer un pedido?\'))document.location = \'/PedidoEspecial?ID_ARTICULO={{ price_data.EntityId }}\';"	src="/imagenes/rediseno/imagenes/seccion{{ getSection(price_data.Categoria_Seccion) }}/b-pedir.png"	alt="Pedir" />
 			{%- endif -%}
