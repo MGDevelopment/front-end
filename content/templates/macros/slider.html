@@ -124,7 +124,7 @@
                             <a href="javascript:APP.cartAdd({{ product_id }})" title="agregar al carrito"><img src="{{ url.images }}/imagenes/rediseno/imagenes/seccionTematika/b-comprar.png" alt="agregar al carrito"></a>
                         {%- else -%} 
                             {%- if p.ProductAvailability == '40' -%}
-                                <img src="{{ url.images }}/imagenes/rediseno/imagenes/seccionTematika/b-noDisp.png" alt="No Disponible" title="Actualmente este art&iacute;culo no puede ser solicitado como Pedido EspecialÓ>
+                                <img src="{{ url.images }}/imagenes/rediseno/imagenes/seccionTematika/b-noDisp.png" alt="No Disponible" title="Actualmente este art&iacute;culo no puede ser solicitado como Pedido Especial">
                             {%- else -%} {#- ProductAvailability == '22' -#}
                                 <a href="javascript:if (confirm('Este producto no esta disponible actualmente. Desea hacer un pedido?'))document.location = '/PedidoEspecial?ID_ARTICULO={{ product_id }}';"><img src="{{ url.images}}/imagenes/rediseno/imagenes/seccionTematika/b-pedir.png" alt="Pedir"></a>
                             {%- endif -%}
