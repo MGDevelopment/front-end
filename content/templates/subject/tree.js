@@ -1,7 +1,7 @@
 {%- import 'macros/tree.html' as render -%}
 /**
  * Name:
- * 	- tree.js
+ *     - tree.js
  *
  */
 
@@ -12,11 +12,11 @@ dataTree['tree'] = ('{{ render.renderTree(d['Tree'])|e|replace("\n", "") }}');
 {%- endif %}
 
 function loadTree() {
-	APP.addData('tree', dataTree);
-	return;
+    APP.addData('tree', dataTree);
+    return;
 }
 
 var callBackTree = function () {
-	return;
+    return;
 }
 loadTree();

@@ -2,7 +2,7 @@
  * tree.js
  */
 {%- if d.Categoria_Seccion > 0 and d.Categoria_Grupo < 0 and d.Categoria_Familia < 0 and d.Categoria_Subfamilia < 0 -%}
-	APP.eraseCookie('TMKtreeview-black');
+    APP.eraseCookie('TMKtreeview-black');
 {%- endif -%}
 
 function fillTree(divName, callback) {
@@ -17,21 +17,21 @@ function fillTree(divName, callback) {
     }
 
     if (document.getElementById(divName)) {
-    	document.getElementById(divName).innerHTML = $('<div>').html(treeHTML).text();
+        document.getElementById(divName).innerHTML = $('<div>').html(treeHTML).text();
     }
 
-	$("#tree").treeview({
-		'cookieId': "TMKtreeview-black",
-		collapsed: true,
-		unique: true
-	});
+    $("#tree").treeview({
+        'cookieId': "TMKtreeview-black",
+        collapsed: true,
+        unique: true
+    });
 
-	{%- if d.Categoria_Grupo > 0 -%}
-		$("li[id='arbol-{{ d.Categoria_Seccion }}-{{ d.Categoria_Grupo }}']").children('.hitarea').trigger('click');
-		{%- if d.Categoria_Familia > 0 -%}
-			$("li[id='arbol-{{ d.Categoria_Seccion }}-{{ d.Categoria_Grupo }}-{{ d.Categoria_Familia }}']").children('.hitarea').trigger('click');
-		{%- endif -%}
-	{%- endif -%}
+    {%- if d.Categoria_Grupo > 0 -%}
+        $("li[id='arbol-{{ d.Categoria_Seccion }}-{{ d.Categoria_Grupo }}']").children('.hitarea').trigger('click');
+        {%- if d.Categoria_Familia > 0 -%}
+            $("li[id='arbol-{{ d.Categoria_Seccion }}-{{ d.Categoria_Grupo }}-{{ d.Categoria_Familia }}']").children('.hitarea').trigger('click');
+        {%- endif -%}
+    {%- endif -%}
 
     try {
         if (callback && typeof (callback) === "function") {

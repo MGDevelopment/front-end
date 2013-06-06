@@ -1,5 +1,5 @@
 {%- macro showItem(p, style) -%}
-	{%- if p['Authors'] and p['Authors'][0]|length > 0 -%}
+    {%- if p['Authors'] and p['Authors'][0]|length > 0 -%}
         {%- set author = p.Authors[0].ContributorName.decode('utf-8')|e -%}
         {%- set author_url = p.Authors[0].ContributorURL|e -%}
     {%- else -%}
@@ -75,207 +75,207 @@
 {%- endmacro -%}
  
 {%- if d.Products -%}
-	<div style="width: 650px; float: right; position:static;">
-	  <table cellpadding="0" cellspacing="0"
-	      class="Gtablacontenido">
-	  <tbody>
-	  <tr>
-	    <td class="Gcentro">
-	      <table cellpadding="0" cellspacing="0">
-	      <tbody>
-	      <tr>
-	        <td>
-	        </td>
-	      </tr>
-	      <tr>
-	        <td>
-	          <div style="margin-top:10px">
-	          </div>
-	        </td>
-	      </tr>
-	      <tr>
-	        <td>
-	          &nbsp;
-	        </td>
-	      </tr>
-	      <tr>
-	        <td>
-	          <div>
-	            <table cellspacing="0" cellpadding="0"
-	                class="modulobuscador">
-	            <tbody>
-	            <tr>
-	              <td>
-	                <table cellspacing="0" cellpadding="0">
-	                <tbody>
-	                <tr class="modulosmedio">
-	                  <td>
-	                    <table cellspacing="0"
-	                        cellpadding="0" class="titulosceldastabla">
-	                    <tbody>
-	                    <tr>
-	                      <td class="titulosceldas">
-	                        <table cellpadding="0"
-	                            cellspacing="0" class="titulosceldas2">
-	                        <tbody>
-	                        <tr>
-	                          <td>
-	                            <img src="{{ url.images }}/imagenes/libros/t-otrostitulos.gif"
-	                                alt="Otros títulos">
-	                          </td>
-	                        </tr>
-	                        </tbody>
-	                        </table>
-	                      </td>
-	                    </tr>
-	                    </tbody>
-	                    </table>
-	                  </td>
-	                </tr>
-	                </tbody>
-	                </table>
-	              </td>
-	            </tr>
-	{%- set section         = d.Categoria_Seccion -%}
-	{%- set section_name    = d.Title.decode('utf-8') -%}
-	{%- set subsection_name = d.Path[-1].Nombre.decode('utf-8') -%}
-	{%- if subsection_name|e == 'S / D'-%}
-		{%- set subsection_name = 'Varios' -%}
-	{%- endif -%}
-	{%- set cat_group       = d.Categoria_Grupo -%}
-	{%- set per_page        = 10 -%}
-	{%- set diff_per_page   = 0 -%}
-	{%- set p_count         = d.Products|length -%}
-	{%- if section == 1 -%}   {# Libros #}
-	    {%- set section_wh = (45, 68) -%}
-	{%- elif section == 4 -%} {# Musica #}
-	    {%- set section_wh = (55, 55) -%}
-	{%- elif section == 5 -%} {# Peliculas #}
-	    {%- set section_wh = (50, 75) -%}
-	{%- elif section == 3 -%} {# Juegos #}
-	    {%- set section_wh = (45, 68) -%}
-	{%- endif -%}
-	{%- if p_count < per_page %}
-		{%- set diff_per_page = per_page - p_count -%}
-	    {%- set per_page = p_count -%}
-	{%- endif -%}
-	{% for i in range(per_page) %}
-	    {%- set p = d.Products[i] -%}
-	    {{ showItem(p, 'display:visible;') }}
-	{% endfor %}
-	{% for i in range(diff_per_page) %}
-		{%- if per_page > 0 -%}
-		    {%- set p = d.Products[0] -%}
-		    {{ showItem(p, 'display:hidden;') }}
-		{%- endif -%}
-	{% endfor %}
-	{#- set pages = (p_count/per_page)|round(0, 'ceil')|int -#}
-	{%- set pages = 10 -%}
-	            <tr>
-	              <td class="celdapaginas">
-	                <a href="javascript:APP.fillCatalog(null,0)" id="catalogPrev" class="FAyuda">Anterior</a>
-	                <span class="Ftexto05"> |</span>
-	                <a href="javascript:APP.fillCatalog(null,0)" id="catalogPage_0"  class="FAyuda"
-	                    style="font-weight: bolder;">1</a>
-	{% for i in range(1, pages) %}
-	                <a href="javascript:APP.fillCatalog(null,{{ i }})" id="catalogPage_{{ i }}" class="FAyuda">{{ i + 1 }}</a>
-	{% endfor %}
-	                <span class="Ftexto05">| </span><a href="javascript:APP.fillCatalog(null,{{ 1 }})" id="catalogNext" class="FAyuda">Siguiente</a>
-	              </td>
-	            </tr>
-	            </tbody>
-	            </table>
-	          </div>
-	        </td>
-	      </tr>
-	      </tbody>
-	      </table>
-	    </td>
-	    <td class="Gbarraderecha">
-	      <table cellspacing="0" cellpadding="0">
-	      <tbody>
-	      <tr class="">
-	        <td>
-	          <table width="155" cellspacing="0" cellpadding="0" class="moduloorden" style="margin-bottom:15px">
-	          <tbody>
-	          <tr>
-	            <td>
-	              <table cellspacing="0" cellpadding="0">
-	              <tbody>
-	              <tr>
-	                <td>
-	                  <span class="Ftexto02">ORDENAR T&Iacute;TULOS POR:</span>
-	                </td>
-	              </tr>
-	              <!-- tr>
-	                <td class="moduloordencelda">
-	                  <span class="Ftexto02">
-	                    <a href="javascript:APP.fillCatalog('rank');"
-	                        class="Flink02"
-	                        rel="nofollow">- Los m&aacute;s vendidos</a></span>
-	                </td>
-	              </tr-->
-	              <tr>
-	                <td class="moduloordencelda">
-	                  <span class="Ftexto02">
-	                    <a href="javascript:APP.fillCatalog('price-low');"
-	                        class="Flink02" rel="nofollow">- Precio de venta<br>
-	                      (+econ&oacute;micos primeros)</a></span>
-	                </td>
-	              </tr>
-	              <tr>
-	                <td class="moduloordencelda">
-	                  <span class="Ftexto02">
-	                    <a href="javascript:APP.fillCatalog('price-high');"
-	                        class="Flink02" rel="nofollow">- Precio de venta<br>
-	                      (+costosos primeros)</a></span>
-	                </td>
-	              </tr>
-	              <tr>
-	                <td class="moduloordencelda">
-	                  <span class="Ftexto02">
-	                    <a href="javascript:APP.fillCatalog('date-low');"
-	                        class="Flink02" rel="nofollow">- Fecha de aparici&oacute;n<br>
-	                      (+antiguos primeros)</a></span>
-	                </td>
-	              </tr>
-	              <tr>
-	                <td class="moduloordencelda">
-	                  <span class="Ftexto02">
-	                    <a href="javascript:APP.fillCatalog('date-high');"
-	                        class="Flink02" rel="nofollow">- Fecha de aparici&oacute;n<br>
-	                      (+recientes primeros)</a></span>
-	                </td>
-	              </tr>
-	              <tr>
-	                <td class="moduloordencelda">
-	                  <span class="Ftexto02">
-	                    <a href="javascript:APP.fillCatalog('name-low');"
-	                        class="Flink02"
-	                        rel="nofollow">- Alfab&eacute;ticamente (A-Z)</a></span>
-	                </td>
-	              </tr>
-	              <tr>
-	                <td class="moduloordencelda">
-	                  <span class="Ftexto02">
-	                    <a href="javascript:APP.fillCatalog('name-high');"
-	                        class="Flink02"
-	                        rel="nofollow">- Alfab&eacute;ticamente (Z-A)</a></span>
-	                </td>
-	              </tr>
-	              </tbody>
-	              </table>
-	            </td>
-	          </tr>
-	          </tbody>
-	          </table>
-	        </td>
-	      </tr>
-	      </tbody>
-	      </table>
-	    </td>
-	  </tr>
-	  </tbody>
-	  </table>
-	</div>
+    <div style="width: 650px; float: right; position:static;">
+      <table cellpadding="0" cellspacing="0"
+          class="Gtablacontenido">
+      <tbody>
+      <tr>
+        <td class="Gcentro">
+          <table cellpadding="0" cellspacing="0">
+          <tbody>
+          <tr>
+            <td>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div style="margin-top:10px">
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              &nbsp;
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div>
+                <table cellspacing="0" cellpadding="0"
+                    class="modulobuscador">
+                <tbody>
+                <tr>
+                  <td>
+                    <table cellspacing="0" cellpadding="0">
+                    <tbody>
+                    <tr class="modulosmedio">
+                      <td>
+                        <table cellspacing="0"
+                            cellpadding="0" class="titulosceldastabla">
+                        <tbody>
+                        <tr>
+                          <td class="titulosceldas">
+                            <table cellpadding="0"
+                                cellspacing="0" class="titulosceldas2">
+                            <tbody>
+                            <tr>
+                              <td>
+                                <img src="{{ url.images }}/imagenes/libros/t-otrostitulos.gif"
+                                    alt="Otros títulos">
+                              </td>
+                            </tr>
+                            </tbody>
+                            </table>
+                          </td>
+                        </tr>
+                        </tbody>
+                        </table>
+                      </td>
+                    </tr>
+                    </tbody>
+                    </table>
+                  </td>
+                </tr>
+    {%- set section         = d.Categoria_Seccion -%}
+    {%- set section_name    = d.Title.decode('utf-8') -%}
+    {%- set subsection_name = d.Path[-1].Nombre.decode('utf-8') -%}
+    {%- if subsection_name|e == 'S / D'-%}
+        {%- set subsection_name = 'Varios' -%}
+    {%- endif -%}
+    {%- set cat_group       = d.Categoria_Grupo -%}
+    {%- set per_page        = 10 -%}
+    {%- set diff_per_page   = 0 -%}
+    {%- set p_count         = d.Products|length -%}
+    {%- if section == 1 -%}   {# Libros #}
+        {%- set section_wh = (45, 68) -%}
+    {%- elif section == 4 -%} {# Musica #}
+        {%- set section_wh = (55, 55) -%}
+    {%- elif section == 5 -%} {# Peliculas #}
+        {%- set section_wh = (50, 75) -%}
+    {%- elif section == 3 -%} {# Juegos #}
+        {%- set section_wh = (45, 68) -%}
+    {%- endif -%}
+    {%- if p_count < per_page %}
+        {%- set diff_per_page = per_page - p_count -%}
+        {%- set per_page = p_count -%}
+    {%- endif -%}
+    {% for i in range(per_page) %}
+        {%- set p = d.Products[i] -%}
+        {{ showItem(p, 'display:visible;') }}
+    {% endfor %}
+    {% for i in range(diff_per_page) %}
+        {%- if per_page > 0 -%}
+            {%- set p = d.Products[0] -%}
+            {{ showItem(p, 'display:hidden;') }}
+        {%- endif -%}
+    {% endfor %}
+    {#- set pages = (p_count/per_page)|round(0, 'ceil')|int -#}
+    {%- set pages = 10 -%}
+                <tr>
+                  <td class="celdapaginas">
+                    <a href="javascript:APP.fillCatalog(null,0)" id="catalogPrev" class="FAyuda">Anterior</a>
+                    <span class="Ftexto05"> |</span>
+                    <a href="javascript:APP.fillCatalog(null,0)" id="catalogPage_0"  class="FAyuda"
+                        style="font-weight: bolder;">1</a>
+    {% for i in range(1, pages) %}
+                    <a href="javascript:APP.fillCatalog(null,{{ i }})" id="catalogPage_{{ i }}" class="FAyuda">{{ i + 1 }}</a>
+    {% endfor %}
+                    <span class="Ftexto05">| </span><a href="javascript:APP.fillCatalog(null,{{ 1 }})" id="catalogNext" class="FAyuda">Siguiente</a>
+                  </td>
+                </tr>
+                </tbody>
+                </table>
+              </div>
+            </td>
+          </tr>
+          </tbody>
+          </table>
+        </td>
+        <td class="Gbarraderecha">
+          <table cellspacing="0" cellpadding="0">
+          <tbody>
+          <tr class="">
+            <td>
+              <table width="155" cellspacing="0" cellpadding="0" class="moduloorden" style="margin-bottom:15px">
+              <tbody>
+              <tr>
+                <td>
+                  <table cellspacing="0" cellpadding="0">
+                  <tbody>
+                  <tr>
+                    <td>
+                      <span class="Ftexto02">ORDENAR T&Iacute;TULOS POR:</span>
+                    </td>
+                  </tr>
+                  <!-- tr>
+                    <td class="moduloordencelda">
+                      <span class="Ftexto02">
+                        <a href="javascript:APP.fillCatalog('rank');"
+                            class="Flink02"
+                            rel="nofollow">- Los m&aacute;s vendidos</a></span>
+                    </td>
+                  </tr-->
+                  <tr>
+                    <td class="moduloordencelda">
+                      <span class="Ftexto02">
+                        <a href="javascript:APP.fillCatalog('price-low');"
+                            class="Flink02" rel="nofollow">- Precio de venta<br>
+                          (+econ&oacute;micos primeros)</a></span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="moduloordencelda">
+                      <span class="Ftexto02">
+                        <a href="javascript:APP.fillCatalog('price-high');"
+                            class="Flink02" rel="nofollow">- Precio de venta<br>
+                          (+costosos primeros)</a></span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="moduloordencelda">
+                      <span class="Ftexto02">
+                        <a href="javascript:APP.fillCatalog('date-low');"
+                            class="Flink02" rel="nofollow">- Fecha de aparici&oacute;n<br>
+                          (+antiguos primeros)</a></span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="moduloordencelda">
+                      <span class="Ftexto02">
+                        <a href="javascript:APP.fillCatalog('date-high');"
+                            class="Flink02" rel="nofollow">- Fecha de aparici&oacute;n<br>
+                          (+recientes primeros)</a></span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="moduloordencelda">
+                      <span class="Ftexto02">
+                        <a href="javascript:APP.fillCatalog('name-low');"
+                            class="Flink02"
+                            rel="nofollow">- Alfab&eacute;ticamente (A-Z)</a></span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="moduloordencelda">
+                      <span class="Ftexto02">
+                        <a href="javascript:APP.fillCatalog('name-high');"
+                            class="Flink02"
+                            rel="nofollow">- Alfab&eacute;ticamente (Z-A)</a></span>
+                    </td>
+                  </tr>
+                  </tbody>
+                  </table>
+                </td>
+              </tr>
+              </tbody>
+              </table>
+            </td>
+          </tr>
+          </tbody>
+          </table>
+        </td>
+      </tr>
+      </tbody>
+      </table>
+    </div>
 {%- endif -%}

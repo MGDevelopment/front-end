@@ -6,60 +6,60 @@ var _cookieViewMessagesName = "TMKViewMessagesCookie";
 var _expiration = 1000;
 
 function fillMessages(callback) {
-	// check if cookie exists
-	if (APP.readCookie(_cookieMessagesName) == null) {
-		setMessagesReaded(getToken(0));
-	}
-	getVisualizaMensaje();
-	return;
+    // check if cookie exists
+    if (APP.readCookie(_cookieMessagesName) == null) {
+        setMessagesReaded(getToken(0));
+    }
+    getVisualizaMensaje();
+    return;
 }
 
 function setMessagesReaded(messages) {
-	// create cookie
-	APP.createCookie(_cookieMessagesName, _serialize(escape(messages)), _expiration);
+    // create cookie
+    APP.createCookie(_cookieMessagesName, _serialize(escape(messages)), _expiration);
 }
 function getMessagesReaded() {
-	var messagesReaded = '';
-	if (APP.readCookie(_cookieMessagesName) != null) {
-		messagesReaded = unescape(_unserialize(APP.readCookie(_cookieMessagesName)));
-	}
-	return messagesReaded;
+    var messagesReaded = '';
+    if (APP.readCookie(_cookieMessagesName) != null) {
+        messagesReaded = unescape(_unserialize(APP.readCookie(_cookieMessagesName)));
+    }
+    return messagesReaded;
 }
 function getMessages() {
-	var messages = APP.getData('messages');
-	var messagesReaded = getMessagesReaded();
-	if (messages != null) {
+    var messages = APP.getData('messages');
+    var messagesReaded = getMessagesReaded();
+    if (messages != null) {
         var i;
-		for (i = messages.length - 1; i >= 0; i--) {
-			var msg = messages[i];
-			if (msg == undefined || messagesReaded.indexOf(getToken(msg.getId())) >= 0) {
-				messages.splice(i, 1);
-			}
-		}
-	}
-	return messages;
+        for (i = messages.length - 1; i >= 0; i--) {
+            var msg = messages[i];
+            if (msg == undefined || messagesReaded.indexOf(getToken(msg.getId())) >= 0) {
+                messages.splice(i, 1);
+            }
+        }
+    }
+    return messages;
 }
 
 function removeMessage(msgId) {
-	var messagesReaded = getMessagesReaded();
-	messagesReaded = messagesReaded + getToken(msgId);
-	setMessagesReaded(messagesReaded);
+    var messagesReaded = getMessagesReaded();
+    messagesReaded = messagesReaded + getToken(msgId);
+    setMessagesReaded(messagesReaded);
 }
 
 function getToken(id) {
-	return 'msg.Id=' + id + '@';
+    return 'msg.Id=' + id + '@';
 }
 
 function getViewMessages() {
-	var view = true;
-	if (APP.readCookie(_cookieViewMessagesName) != null) {
-		view = _unserialize(APP.readCookie(_cookieViewMessagesName));
-	}
-	return view;
+    var view = true;
+    if (APP.readCookie(_cookieViewMessagesName) != null) {
+        view = _unserialize(APP.readCookie(_cookieViewMessagesName));
+    }
+    return view;
 }
 
 function setViewMessages(view) {
-	APP.createCookie(_cookieViewMessagesName, _serialize(view), null);
+    APP.createCookie(_cookieViewMessagesName, _serialize(view), null);
 }
 
 
@@ -68,22 +68,22 @@ var listaMensaje = null;
 var indiceMensajeActual = 0;
 
 function getMensaje() {
-	var obj = getMessages();
-	if (obj != undefined) {
-		if (obj.length > 0) {
-			listaMensaje = obj;
-			getMensajeActual();
-		} else {
-			$('#msjMin').get(0).style.display = 'none';
-			$('#msjMax').get(0).style.display = 'none';
-		}
-	} else {
-	}
+    var obj = getMessages();
+    if (obj != undefined) {
+        if (obj.length > 0) {
+            listaMensaje = obj;
+            getMensajeActual();
+        } else {
+            $('#msjMin').get(0).style.display = 'none';
+            $('#msjMax').get(0).style.display = 'none';
+        }
+    } else {
+    }
 
 }
 function getVisualizaMensaje() {
 
-	document.getElementById('msjMax').innerHTML = $(unescape('%3Cdiv>')).html([
+    document.getElementById('msjMax').innerHTML = $(unescape('%3Cdiv>')).html([
             '&lt;div class="panelMsjTit"&gt;Ten&amp;eacute;s&amp;nbsp;&lt;',
             'span id="totalMsg"&gt;&lt;/span&gt;&amp;nbsp;mensajes &amp;gt;',
             '&lt;/div&gt;&lt;div class="panelMsjTxt"&gt;&lt;a href="',
@@ -98,77 +98,77 @@ function getVisualizaMensaje() {
             '" class="pnlMsgComandos" id="msgLeido"&gt;No volver a mostrar ',
             'este mensaje&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;'].join('')).text();
 
-	document.getElementById('msjMin').innerHTML = $(unescape('%3Cdiv>')).html([
+    document.getElementById('msjMin').innerHTML = $(unescape('%3Cdiv>')).html([
             '&lt;div class="panelMsjTxt"&gt;&lt;a href="javascript:',
             'mostrarDiv(\'msjMin\'); javascript:mostrarDiv(\'msjMax\');',
             'javascript:setVisualizaMensaje(true)" class="panelMsjAbrir"&gt;',
             'abrir panel y ver mensajes&lt;/a&gt;   &lt;/div&gt;'
             ].join('')).text();
 
-	getMensaje();
+    getMensaje();
 }
 function setMensajeUsuario(indice) {
-	$('#totalMsg').get(0).innerHTML = listaMensaje.length;
-	$('#pagMsg').get(0).innerHTML = 'Mensaje ' + (indice + 1) + '/' + listaMensaje.length + ':';
-	$('#textoMsgActual').get(0).innerHTML = unescape(listaMensaje[indice].getText());
-	if (getViewMessages()) {
-		$('#msjMax').get(0).style.display = 'block';
-		$('#msjMin').get(0).style.display = 'none';
-	} else {
-		$('#msjMax').get(0).style.display = 'none';
-		$('#msjMin').get(0).style.display = 'block';
-	}
-	if (indice == 0) {
-		$('#msgAnterior').get(0).href = 'javascript:void(0);';
-		$('#msgAnterior').get(0).className = 'linkDisabled';
-	} else {
-		$('#msgAnterior').get(0).href = 'javascript:msgIrAnterior()';
-		$('#msgAnterior').get(0).className = 'pnlMsgComandos';
-	}
-	if (indice == (listaMensaje.length - 1)) {
-		$('#msgSiguiente').get(0).href = 'javascript:void(0);';
-		$('#msgSiguiente').get(0).className = 'linkDisabled';
-	} else {
-		$('#msgSiguiente').get(0).href = 'javascript:msgIrSiguiente()';
-		$('#msgSiguiente').get(0).className = 'pnlMsgComandos';
-	}
-	$('#msgLeido').get(0).className = 'pnlMsgComandos';
-	$('#msgLeido').get(0).href = 'javascript:setMensajeLeido()';
+    $('#totalMsg').get(0).innerHTML = listaMensaje.length;
+    $('#pagMsg').get(0).innerHTML = 'Mensaje ' + (indice + 1) + '/' + listaMensaje.length + ':';
+    $('#textoMsgActual').get(0).innerHTML = unescape(listaMensaje[indice].getText());
+    if (getViewMessages()) {
+        $('#msjMax').get(0).style.display = 'block';
+        $('#msjMin').get(0).style.display = 'none';
+    } else {
+        $('#msjMax').get(0).style.display = 'none';
+        $('#msjMin').get(0).style.display = 'block';
+    }
+    if (indice == 0) {
+        $('#msgAnterior').get(0).href = 'javascript:void(0);';
+        $('#msgAnterior').get(0).className = 'linkDisabled';
+    } else {
+        $('#msgAnterior').get(0).href = 'javascript:msgIrAnterior()';
+        $('#msgAnterior').get(0).className = 'pnlMsgComandos';
+    }
+    if (indice == (listaMensaje.length - 1)) {
+        $('#msgSiguiente').get(0).href = 'javascript:void(0);';
+        $('#msgSiguiente').get(0).className = 'linkDisabled';
+    } else {
+        $('#msgSiguiente').get(0).href = 'javascript:msgIrSiguiente()';
+        $('#msgSiguiente').get(0).className = 'pnlMsgComandos';
+    }
+    $('#msgLeido').get(0).className = 'pnlMsgComandos';
+    $('#msgLeido').get(0).href = 'javascript:setMensajeLeido()';
 }
 function msgIrAnterior() {
-	indiceMensajeActual--;
-	setMensajeUsuario(indiceMensajeActual);
-	setMensajeActual(indiceMensajeActual);
+    indiceMensajeActual--;
+    setMensajeUsuario(indiceMensajeActual);
+    setMensajeActual(indiceMensajeActual);
 }
 function msgIrSiguiente() {
-	indiceMensajeActual++;
-	setMensajeUsuario(indiceMensajeActual);
-	setMensajeActual(indiceMensajeActual);
+    indiceMensajeActual++;
+    setMensajeUsuario(indiceMensajeActual);
+    setMensajeActual(indiceMensajeActual);
 }
 function setVisualizaMensaje(visualiza) {
-	//visualizaMensaje = visualiza;
-	setViewMessages(visualiza);
+    //visualizaMensaje = visualiza;
+    setViewMessages(visualiza);
 }
 function setMensajeLeido() {
-	$('#msgAnterior').get(0).href = 'javascript:void(0);';
-	$('#msgAnterior').get(0).className = 'linkDisabled';
-	$('#msgSiguiente').get(0).href = 'javascript:void(0);';
-	$('#msgSiguiente').get(0).className = 'linkDisabled';
-	$('#msgLeido').get(0).className = 'linkDisabled';
-	$('#msgLeido').get(0).href = 'javascript:void(0);';
-	var id = listaMensaje[indiceMensajeActual].getId();
-	removeMessage(id);
-	if (indiceMensajeActual == (listaMensaje.length - 1)) {
-		indiceMensajeActual--;
-		setMensajeActual(indiceMensajeActual);
-	}
-	getMensaje();
+    $('#msgAnterior').get(0).href = 'javascript:void(0);';
+    $('#msgAnterior').get(0).className = 'linkDisabled';
+    $('#msgSiguiente').get(0).href = 'javascript:void(0);';
+    $('#msgSiguiente').get(0).className = 'linkDisabled';
+    $('#msgLeido').get(0).className = 'linkDisabled';
+    $('#msgLeido').get(0).href = 'javascript:void(0);';
+    var id = listaMensaje[indiceMensajeActual].getId();
+    removeMessage(id);
+    if (indiceMensajeActual == (listaMensaje.length - 1)) {
+        indiceMensajeActual--;
+        setMensajeActual(indiceMensajeActual);
+    }
+    getMensaje();
 }
 function setMensajeActual(indice) {
-	if (indice != -1) {
-		var id = listaMensaje[indice].getId();
-	}
+    if (indice != -1) {
+        var id = listaMensaje[indice].getId();
+    }
 }
 function getMensajeActual() {
-	setMensajeUsuario(indiceMensajeActual);
+    setMensajeUsuario(indiceMensajeActual);
 }

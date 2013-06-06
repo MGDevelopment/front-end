@@ -2,9 +2,9 @@
 {%- set section_name = d['Title']|lower -%}
 /**
 * Name:
-* 	- subject-comments.js
+*     - subject-comments.js
 * expected key:
-* 	- Comments
+*     - Comments
 */
 var dataComments = {};
 
@@ -13,8 +13,8 @@ dataComments['{{ section_name }}'] = '{{ render.renderComments(d["Comments"], ur
 {%- endif %}
 
 function loadComments() {
-	APP.addData('comments', dataComments);
-	return;
+    APP.addData('comments', dataComments);
+    return;
 }
 
 loadComments();

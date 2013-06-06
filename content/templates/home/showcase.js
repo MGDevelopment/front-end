@@ -6,18 +6,18 @@
 var dataShowCase = {};
 
 {%- for key in d -%}
-	{%- set dataKey = key|replace("Recommended-","")|replace("Showcase-","")|lower -%}
-	dataShowCase['{{ key }}'] = '{{ render.renderSlider(d[key], dataKey, 2, url)|replace("\n", "") }}';
+    {%- set dataKey = key|replace("Recommended-","")|replace("Showcase-","")|lower -%}
+    dataShowCase['{{ key }}'] = '{{ render.renderSlider(d[key], dataKey, 2, url)|replace("\n", "") }}';
 {%- endfor -%}
 
 function loadShowCase() {
-	APP.addData('showcase', dataShowCase);
-	return;
+    APP.addData('showcase', dataShowCase);
+    return;
 }
 
 var callBackDropDownShowCase = function (section) {
 
-	return;
+    return;
 }
 loadShowCase();
 

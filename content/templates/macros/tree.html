@@ -1,63 +1,63 @@
 {%- macro getId(item) -%}
-	{%- set id = 'arbol-' + item.Categoria_Seccion|string -%}
-	{%- if item.Categoria_Grupo and item.Categoria_Grupo > 0 -%}
-		{%- set id = id + '-' + item.Categoria_Grupo|string -%}
-		{%- if item.Categoria_Familia and item.Categoria_Familia > 0  -%}
-			{%- set id = id + '-' + item.Categoria_Familia|string -%}
-			{%- if item.Categoria_Subfamilia and item.Categoria_Subfamilia > 0 -%}
-				{%- set id = id + '-' + item.Categoria_Subfamilia|string -%}
-			{%- endif -%}
-		{%- endif -%}
-	{%- endif -%}
-	{{ id }}
+    {%- set id = 'arbol-' + item.Categoria_Seccion|string -%}
+    {%- if item.Categoria_Grupo and item.Categoria_Grupo > 0 -%}
+        {%- set id = id + '-' + item.Categoria_Grupo|string -%}
+        {%- if item.Categoria_Familia and item.Categoria_Familia > 0  -%}
+            {%- set id = id + '-' + item.Categoria_Familia|string -%}
+            {%- if item.Categoria_Subfamilia and item.Categoria_Subfamilia > 0 -%}
+                {%- set id = id + '-' + item.Categoria_Subfamilia|string -%}
+            {%- endif -%}
+        {%- endif -%}
+    {%- endif -%}
+    {{ id }}
 {%- endmacro -%}
 
 {%- macro getNombre(item) -%}
-	{%- if item.id|int == 0 or item.Nombre.decode('utf-8')|e == 'S / D'-%}
-		Varios
-	{%- else -%}
-		{{ item.Nombre.decode('utf-8')|e }}
-	{%- endif -%}
+    {%- if item.id|int == 0 or item.Nombre.decode('utf-8')|e == 'S / D'-%}
+        Varios
+    {%- else -%}
+        {{ item.Nombre.decode('utf-8')|e }}
+    {%- endif -%}
 {%- endmacro -%}
 
 {%- macro iterateTree2(item) -%}
-		<li id="{{ getId(item) }}"><a href="{{ item.LinkBase }}.htm">{{ getNombre(item) }}</a></li>
+        <li id="{{ getId(item) }}"><a href="{{ item.LinkBase }}.htm">{{ getNombre(item) }}</a></li>
 {%- endmacro %}
 
 {%- macro iterateTree1(item) -%}
-		<li id="{{ getId(item) }}"><a href="{{ item.LinkBase }}.htm">{{ getNombre(item) }}</a>
-		{%- if item.Children -%}
-				<ul>
-					{%- for subitem in item.Children -%}
-						{{ iterateTree2(subitem) }}
-					{%- endfor %}
-				</ul>
-		{%- endif -%}
-		</li>
+        <li id="{{ getId(item) }}"><a href="{{ item.LinkBase }}.htm">{{ getNombre(item) }}</a>
+        {%- if item.Children -%}
+                <ul>
+                    {%- for subitem in item.Children -%}
+                        {{ iterateTree2(subitem) }}
+                    {%- endfor %}
+                </ul>
+        {%- endif -%}
+        </li>
 {%- endmacro %}
 
 {%- macro iterateTree(items) -%}
-		{%- for item in items -%}
-			{%- if item.Children -%}
-				<li id="{{ getId(item) }}"><a href="{{ item.LinkBase }}.htm">{{ getNombre(item) }}</a>
-				<ul>
-					{%- for subitem in item.Children -%}
-						{{ iterateTree1(subitem) }}
-					{%- endfor %}
-				</ul>
-				</li>
-			{%- else -%}
-				{% if item.Nombre %}
-					<li id="{{ getId(item) }}"><a href="{{ item.LinkBase }}.htm">{{ getNombre(item) }}</a></li>
-				{% else %}
-					<li id="{{ getId(item) }}"><a href="{{ item.LinkBase }}.htm"></a></li>
-				{% endif %}
-			{%- endif -%}
-		{%- endfor -%}
+        {%- for item in items -%}
+            {%- if item.Children -%}
+                <li id="{{ getId(item) }}"><a href="{{ item.LinkBase }}.htm">{{ getNombre(item) }}</a>
+                <ul>
+                    {%- for subitem in item.Children -%}
+                        {{ iterateTree1(subitem) }}
+                    {%- endfor %}
+                </ul>
+                </li>
+            {%- else -%}
+                {% if item.Nombre %}
+                    <li id="{{ getId(item) }}"><a href="{{ item.LinkBase }}.htm">{{ getNombre(item) }}</a></li>
+                {% else %}
+                    <li id="{{ getId(item) }}"><a href="{{ item.LinkBase }}.htm"></a></li>
+                {% endif %}
+            {%- endif -%}
+        {%- endfor -%}
 {%- endmacro %}
 
 {%- macro renderTree(tree_data) -%}
-	<ul id="tree">
-		{{ iterateTree(tree_data.Children) }}
-	</ul>
+    <ul id="tree">
+        {{ iterateTree(tree_data.Children) }}
+    </ul>
 {%- endmacro -%}

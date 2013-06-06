@@ -51,7 +51,7 @@ function fillShowCase(filter, callback, homePage) {
     section = filter;
 
     try {
-    	section = filter + '-Books';
+        section = filter + '-Books';
         if (APP.getData('showcase')[section]) {
             sliderBooksHTML = APP.getData('showcase')[section];
         }

@@ -1,57 +1,57 @@
 {%- macro getOrigen(id) -%}
-	{%- if id == 1 -%}
-		Editorial
-	{%- elif id == 4-%}
-		Sello discogr&aacute;fico
-	{%- elif id == 5 -%}
-		Productora
-	{%- else -%}
-		Editorial
-	{%- endif -%}
+    {%- if id == 1 -%}
+        Editorial
+    {%- elif id == 4-%}
+        Sello discogr&aacute;fico
+    {%- elif id == 5 -%}
+        Productora
+    {%- else -%}
+        Editorial
+    {%- endif -%}
 {%- endmacro %}
 {%- macro getSection(id) -%}
-	{%- if id == 1 -%}
-		libros
-	{%- elif id == 4-%}
-		musica
-	{%- elif id == 5 -%}
-		peliculas
-	{%- elif id == 3 -%}
-		pasatiempos
-	{%- else -%}
-		libros
-	{%- endif -%}
+    {%- if id == 1 -%}
+        libros
+    {%- elif id == 4-%}
+        musica
+    {%- elif id == 5 -%}
+        peliculas
+    {%- elif id == 3 -%}
+        pasatiempos
+    {%- else -%}
+        libros
+    {%- endif -%}
 {%- endmacro %}
 {%- macro getOnixItem(texts, code) -%}
-	{%- if texts is iterable -%}
-		{%- for text in texts -%}
-			{%- if text.EntryCode == code and text.TextContent -%}
-				{{ text.TextContent.decode('utf-8')|replace("\n","<br>\n") }}
-			{%- endif %}
-		{%- endfor %}
-	{%- endif %}
+    {%- if texts is iterable -%}
+        {%- for text in texts -%}
+            {%- if text.EntryCode == code and text.TextContent -%}
+                {{ text.TextContent.decode('utf-8')|replace("\n","<br>\n") }}
+            {%- endif %}
+        {%- endfor %}
+    {%- endif %}
 {%- endmacro %}
 {%- macro getAvailability(code) -%}
-	{%- if code == '21' -%}
-		true
-	{%- else -%}
-		false
-	{%- endif %}
+    {%- if code == '21' -%}
+        true
+    {%- else -%}
+        false
+    {%- endif %}
 {%- endmacro %}
 <!-- **** SECCION TEMATIKA **** -->
 <div id="divCarrito" class="efectoCarritoMod" style="display:none">
-	<div class="efectoCarritoTxt"><span class="txtMsgCarritoOK" id="msgCarritoOK"></span><br /><div id="msgCarritoERROR" style="font-size:12;color:red"></div><span id="spnPrecioCarrito" class="txtPrecioCarrito">PRECIO: $ <span  class="txtPrecioCarrito" id="precioCarrito"></span>.-</span></div>
-	<div class="efectoCarritoImages"><img id="carritoImagen" src="" class="efectoCarritoImag"></div>
-	<div id="efectoCarritoB"><a href="javascript:APP.cartClose();"><img src="{{ url.images }}/imagenes/b-carrContinuar.gif" alt="Continuar" border="0"></a></div>
+    <div class="efectoCarritoTxt"><span class="txtMsgCarritoOK" id="msgCarritoOK"></span><br /><div id="msgCarritoERROR" style="font-size:12;color:red"></div><span id="spnPrecioCarrito" class="txtPrecioCarrito">PRECIO: $ <span  class="txtPrecioCarrito" id="precioCarrito"></span>.-</span></div>
+    <div class="efectoCarritoImages"><img id="carritoImagen" src="" class="efectoCarritoImag"></div>
+    <div id="efectoCarritoB"><a href="javascript:APP.cartClose();"><img src="{{ url.images }}/imagenes/b-carrContinuar.gif" alt="Continuar" border="0"></a></div>
 </div>
 <!-- <tmpl_var contenidoSEO> -->
 <a href="/{{ getSection(d.Categoria_Seccion) }}" class="panelSeccAct"></a>
 <div class="detalleInfoPrinc">
-   	<div id="dTopLeft">
+       <div id="dTopLeft">
         <div class="dImagenes"><div class="detalleImagen"><img src="{{ url.images ~ d.CoverSmall }}" alt="{{ d.Title.decode('utf-8')|e }}" title="{{ d.Title.decode('utf-8')|e }}"></div></div>
-		<div class="dInfoPrincipal">
-			<div class="dInfoTit"><h1><b style="font-size:20px;">{{ d.Title.decode('utf-8')|e }}</b></h1></div>
-			{%- if d.Authors -%}
+        <div class="dInfoPrincipal">
+            <div class="dInfoTit"><h1><b style="font-size:20px;">{{ d.Title.decode('utf-8')|e }}</b></h1></div>
+            {%- if d.Authors -%}
             <div class="dInfoAutor"><h2>de&nbsp;{%- for contributor in d.Authors -%}<a href="{{ contributor.ContributorURL }}"><b>{{ contributor.ContributorName.decode('utf-8')|e }}</b></a>{%- if not loop.last -%}&nbsp;|&nbsp;{%- endif %}{%- endfor %}</h2></div>
             {%- endif %}
             <span>{{ getOrigen(d.Categoria_Seccion) }}: <a href="{{ d.ImprintURL }}">{{ d.ImprintName.decode('utf-8')|e }}</a></span>
@@ -60,14 +60,14 @@
             {%- endif %}
             <span>Clasificaci&oacute;n: 
             {%- for categorie in d.Categories -%}
-            	<a href="{{ categorie.URL }}">
-            	{%- if categorie.Title.decode('utf-8')|e == 'S / D' -%}
-            		Varios
-            	{%- else -%}
-            		{{ categorie.Title.decode('utf-8')|e }}
-            	{%- endif -%}
-            	</a>
-            	{%- if not loop.last -%}&nbsp;&raquo;&nbsp;{%- endif %} 
+                <a href="{{ categorie.URL }}">
+                {%- if categorie.Title.decode('utf-8')|e == 'S / D' -%}
+                    Varios
+                {%- else -%}
+                    {{ categorie.Title.decode('utf-8')|e }}
+                {%- endif -%}
+                </a>
+                {%- if not loop.last -%}&nbsp;&raquo;&nbsp;{%- endif %} 
             {%- endfor %}</span>
             {%- if d.TipoArticulo_desc -%}<span>Formato: {{ d.TipoArticulo_desc.decode('utf-8')|e }}</span>{%- endif %}
 
@@ -82,33 +82,33 @@
             {%- set pd = d.PublishingDateValue -%}
             <span>Publicaci&oacute;n: {{- (pd[6:8], pd[4:6], pd[0:4])|join('/') -}}
             {%- if d.Categoria_Seccion == 1 -%} 
-            	&nbsp;| Idioma: {{- d.LanguageCode_desc.decode('utf-8')|e -}}
+                &nbsp;| Idioma: {{- d.LanguageCode_desc.decode('utf-8')|e -}}
             {%- endif -%}
             </span>
             <div class="dInfoM">{%- if getOnixItem(d.Texts, '24') -%}<a href="#primerCap">[+] Primer capitulo</a>&nbsp;{%- endif %}{%- if getOnixItem(d.Texts, '04') -%}<a href="#indCont">[+] Indice de contenidos</a>&nbsp;{%- endif %}{%- if getOnixItem(d.Texts, '13') -%}<a href="#biogra">[+] Biografia</a>&nbsp;{%- endif %}{%- if getOnixItem(d.Texts, '40') -%}<a href="#entrevista">[+] Ver Entrevista</a>&nbsp;{%- endif %}</div>
             {%- if d.CoverLarge %}<a href="javascript:popitup('{{ url.images ~ d.CoverLarge }}')">Ampliar imagen</a>{%- endif %}
-			<div id="divEvaluacion"><div id="divEvaluacion"><div class="dInfoCalif"><div class="dInfoCalifStarMod"><span>Calificaci&oacute;n de lectores:</span>
-			{%- if d.Rating -%}
-				{%- set s = d.Rating|round|int -%}
-				{%- for i in range(s) -%}
+            <div id="divEvaluacion"><div id="divEvaluacion"><div class="dInfoCalif"><div class="dInfoCalifStarMod"><span>Calificaci&oacute;n de lectores:</span>
+            {%- if d.Rating -%}
+                {%- set s = d.Rating|round|int -%}
+                {%- for i in range(s) -%}
                     <div class="dInfoCalifStar"></div>
                 {%- endfor -%}
                 {%- for i in range(5 - s) -%}
                     <div class="dInfoCalifStarDes"></div>
                 {%- endfor -%}
-			{%- else -%}
-				<label><a href="/Comentario?ID_ARTICULO={{ d.EntityId }}&idSeccion=">S&eacute; el primero en comentarlo!</a></label>
-			{%- endif %}
-			</div>
-			<div class="dInfoCalifBoton"><span><a href="/Comentario?ID_ARTICULO={{ d.EntityId }}&idSeccion="><div>AGREGAR COMENTARIO</div></a></span></div></div></div></div>
-		</div>
-	</div>
+            {%- else -%}
+                <label><a href="/Comentario?ID_ARTICULO={{ d.EntityId }}&idSeccion=">S&eacute; el primero en comentarlo!</a></label>
+            {%- endif %}
+            </div>
+            <div class="dInfoCalifBoton"><span><a href="/Comentario?ID_ARTICULO={{ d.EntityId }}&idSeccion="><div>AGREGAR COMENTARIO</div></a></span></div></div></div></div>
+        </div>
+    </div>
     <div id="dInfoCompl">
-    	{%- if d.Categoria_Seccion != 4 -%}
-	    	{%- if getOnixItem(d.Texts, '17') or getOnixItem(d.Texts, '18') or getOnixItem(d.Texts, '01') or getOnixItem(d.Texts, '02') -%}
-	    	<div class="dSolapas" id="datosCompl">
-				<div class="tmtkMesaMenuMod"><img class="solapasTitDatosPrinc" title="Datos principales"  alt="Datos Principales" src="{{ url.images }}/imagenes/rediseno/imagenes/comun/t-datosPrinc.gif" /></div>
-				<div class="dResena">
+        {%- if d.Categoria_Seccion != 4 -%}
+            {%- if getOnixItem(d.Texts, '17') or getOnixItem(d.Texts, '18') or getOnixItem(d.Texts, '01') or getOnixItem(d.Texts, '02') -%}
+            <div class="dSolapas" id="datosCompl">
+                <div class="tmtkMesaMenuMod"><img class="solapasTitDatosPrinc" title="Datos principales"  alt="Datos Principales" src="{{ url.images }}/imagenes/rediseno/imagenes/comun/t-datosPrinc.gif" /></div>
+                <div class="dResena">
                     {%- if getOnixItem(d.Texts, '17') -%}
                         <span>Solapa:</span>{{ getOnixItem(d.Texts, '17') }}
                     {%- endif %}
@@ -122,88 +122,88 @@
                         <span>Sinopsis:</span>{{ getOnixItem(d.Texts, '02') }}
                     {%- endif %}
             {%- endif %}</div>
-	        </div>
-	        {%- endif %}
-	    {%- else -%} {# d.Categoria_Seccion == 4 #}
-	    	{%- if d.Content and d.Content|length > 0 -%}
-	    	<div class="dSolapas" id="datosCompl">
-				<div class="tmtkMesaMenuMod"><img class="solapasTitDatosPrinc" title="Datos principales"  alt="Datos Principales" src="{{ url.images }}/imagenes/rediseno/imagenes/comun/t-datosPrinc.gif" /></div>
-				<div class="dResena">Musica: Lista De Temas de <b>{{ d.Title.decode('utf-8')|e }}</b><br>
-				{%- if d.Content -%}
-					{% for content in d.Content %}
-						{{ content.ComponentNumber }}&nbsp;-&nbsp;{{ content.EffectiveTitle.decode('utf-8')|e }}<br>
-					{% endfor %}
-				{%- endif %}
-				</div>
-	        </div>
-	    	{%- endif -%} {# d.Content #}
+            </div>
+            {%- endif %}
+        {%- else -%} {# d.Categoria_Seccion == 4 #}
+            {%- if d.Content and d.Content|length > 0 -%}
+            <div class="dSolapas" id="datosCompl">
+                <div class="tmtkMesaMenuMod"><img class="solapasTitDatosPrinc" title="Datos principales"  alt="Datos Principales" src="{{ url.images }}/imagenes/rediseno/imagenes/comun/t-datosPrinc.gif" /></div>
+                <div class="dResena">Musica: Lista De Temas de <b>{{ d.Title.decode('utf-8')|e }}</b><br>
+                {%- if d.Content -%}
+                    {% for content in d.Content %}
+                        {{ content.ComponentNumber }}&nbsp;-&nbsp;{{ content.EffectiveTitle.decode('utf-8')|e }}<br>
+                    {% endfor %}
+                {%- endif %}
+                </div>
+            </div>
+            {%- endif -%} {# d.Content #}
         {%- endif %}
-		{%- if getOnixItem(d.Texts, '04') -%}
-			<div class="dSolapas" id="indCont">
-	            <div class="tmtkMesaMenuMod"><div class="solapasTitIndCont" title="&Iacute;ndice de contenidos"/></div></div>
-	            <div class="dResena" id="divIndContenido" style="border:thin solid;border-color: white;">
-	            {%- if getOnixItem(d.Texts, '04')|length > 915 -%}
-	            	<div id="indice">{{ getOnixItem(d.Texts, '04')|truncate(915)}}...<br><a onclick="javascript:changeDiv('indice', 'hideIndice');" href="#indCont" class="dSolapasPieLink">+&nbsp;seguir leyendo</a></div>
-	            	<div id="hideIndice" style="display: none">{{ getOnixItem(d.Texts, '04') }}<br><a onclick="javascript:changeDiv('hideIndice', 'indice');" href="#indCont" class="dSolapasPieLink">-&nbsp;seguir leyendo</a></div>
-	            {%- else -%}
-	            	{{ getOnixItem(d.Texts, '04') }}
-	            {%- endif -%}
-	            </div>
-			</div>
-		{%- endif %}
-		{%- if getOnixItem(d.Texts, '24') -%}
-		   	<div class="dSolapas" id="primerCap">
-				<div class="tmtkMesaMenuMod"><div class="solapasTitprimerCap" title="Primer cap&iacute;tulo"/></div></div>
-				<div class="dResena" id="divPrimerCapitulo" style="border:thin solid;border-color: white;">
-				{%- if getOnixItem(d.Texts, '24')|length > 915 -%}
-	            	<div id="primerCapitulo">{{ getOnixItem(d.Texts, '24')|truncate(915)}}...<br><a onclick="javascript:changeDiv('primerCapitulo', 'hidePrimerCap');" href="#primerCap" class="dSolapasPieLink">+&nbsp;seguir leyendo</a></div>
-	            	<div id="hidePrimerCap" style="display: none">{{ getOnixItem(d.Texts, '24') }}<br><a onclick="javascript:changeDiv('hidePrimerCap', 'primerCapitulo');" href="#primerCap" class="dSolapasPieLink">-&nbsp;seguir leyendo</a></div>
-	            {%- else -%}
-	            	{{ getOnixItem(d.Texts, '24') }}
-	            {%- endif -%}
-				</div>
-			</div>
-		{%- endif %}
-		{%- if getOnixItem(d.Texts, '13') or (d.Authors and getOnixItem(d.Authors[0].Texts, '13'))-%}
-			<div class="dSolapas" id="biogra">
-				<div class="tmtkMesaMenuMod"><div class="solapasTitBio" title="&Iacute;ndice de contenidos" /></div></div>
-	        	<div class="dResena" id="divBiografia"><span></span>
-	        	{%- if getOnixItem(d.Texts, '13') -%}
-	        		{{ getOnixItem(d.Texts, '13') }}
-	        		<br>
-	        	{%- endif %}
-	        	{%- if d.Authors -%}
-	        		{%- for author in d.Authors -%}
-	        			{%- if getOnixItem(author.Texts, '13') -%}
-	        				{{ getOnixItem(author.Texts, '13') }}
-	        				<br>
-	        			{%- endif %}
-	        		{%- endfor %}
-	        	{%- endif %}
-	        	</div>
-			</div>
-		{%- endif %}
+        {%- if getOnixItem(d.Texts, '04') -%}
+            <div class="dSolapas" id="indCont">
+                <div class="tmtkMesaMenuMod"><div class="solapasTitIndCont" title="&Iacute;ndice de contenidos"/></div></div>
+                <div class="dResena" id="divIndContenido" style="border:thin solid;border-color: white;">
+                {%- if getOnixItem(d.Texts, '04')|length > 915 -%}
+                    <div id="indice">{{ getOnixItem(d.Texts, '04')|truncate(915)}}...<br><a onclick="javascript:changeDiv('indice', 'hideIndice');" href="#indCont" class="dSolapasPieLink">+&nbsp;seguir leyendo</a></div>
+                    <div id="hideIndice" style="display: none">{{ getOnixItem(d.Texts, '04') }}<br><a onclick="javascript:changeDiv('hideIndice', 'indice');" href="#indCont" class="dSolapasPieLink">-&nbsp;seguir leyendo</a></div>
+                {%- else -%}
+                    {{ getOnixItem(d.Texts, '04') }}
+                {%- endif -%}
+                </div>
+            </div>
+        {%- endif %}
+        {%- if getOnixItem(d.Texts, '24') -%}
+               <div class="dSolapas" id="primerCap">
+                <div class="tmtkMesaMenuMod"><div class="solapasTitprimerCap" title="Primer cap&iacute;tulo"/></div></div>
+                <div class="dResena" id="divPrimerCapitulo" style="border:thin solid;border-color: white;">
+                {%- if getOnixItem(d.Texts, '24')|length > 915 -%}
+                    <div id="primerCapitulo">{{ getOnixItem(d.Texts, '24')|truncate(915)}}...<br><a onclick="javascript:changeDiv('primerCapitulo', 'hidePrimerCap');" href="#primerCap" class="dSolapasPieLink">+&nbsp;seguir leyendo</a></div>
+                    <div id="hidePrimerCap" style="display: none">{{ getOnixItem(d.Texts, '24') }}<br><a onclick="javascript:changeDiv('hidePrimerCap', 'primerCapitulo');" href="#primerCap" class="dSolapasPieLink">-&nbsp;seguir leyendo</a></div>
+                {%- else -%}
+                    {{ getOnixItem(d.Texts, '24') }}
+                {%- endif -%}
+                </div>
+            </div>
+        {%- endif %}
+        {%- if getOnixItem(d.Texts, '13') or (d.Authors and getOnixItem(d.Authors[0].Texts, '13'))-%}
+            <div class="dSolapas" id="biogra">
+                <div class="tmtkMesaMenuMod"><div class="solapasTitBio" title="&Iacute;ndice de contenidos" /></div></div>
+                <div class="dResena" id="divBiografia"><span></span>
+                {%- if getOnixItem(d.Texts, '13') -%}
+                    {{ getOnixItem(d.Texts, '13') }}
+                    <br>
+                {%- endif %}
+                {%- if d.Authors -%}
+                    {%- for author in d.Authors -%}
+                        {%- if getOnixItem(author.Texts, '13') -%}
+                            {{ getOnixItem(author.Texts, '13') }}
+                            <br>
+                        {%- endif %}
+                    {%- endfor %}
+                {%- endif %}
+                </div>
+            </div>
+        {%- endif %}
         <div id="comments_detail"></div>
-		{%- if getOnixItem(d.Texts, '40') -%}
-			<div class="dSolapas" id="entrevista">
-		    	<div class="tmtkMesaMenuMod"><div class="solapasTitEntrev" title="Entrevista"/></div></div>
-				<div class="dResena" id="divEnrevista"><span></span>
-	            {%- set interview = getOnixItem(d.Texts, '40') -%}
-				{%- if interview|length > 915 -%}
-	            	<div id="interview">{{ interview|truncate(915) }}...<br><a onclick="javascript:changeDiv('interview', 'hideInterview');" href="#entrevista" class="dSolapasPieLink">+&nbsp;seguir leyendo</a></div>
-	            	<div id="hideInterview" style="display: none">{{ interview }}<br><a onclick="javascript:changeDiv('hideInterview', 'interview');" href="#entrevista" class="dSolapasPieLink">-&nbsp;seguir leyendo</a></div>
-	            {%- else -%}
-	            	{{ interview }}
-	            {%- endif -%}
-				</div>
-			</div>
-		{%- endif %}
-		<div id="googleBook" class="dSolapas1"><div id="viewerCanvas" style="height: 500px;">
-		</div></div>
-		<input type="hidden" value="{{ d.EntityId }}" id="articulo">
-		<div class="dSolapas" id="listas" style="height: 200px;display: none;"></div>
-		<div class="dSolapas" id="tags"></div>
-	</div>
+        {%- if getOnixItem(d.Texts, '40') -%}
+            <div class="dSolapas" id="entrevista">
+                <div class="tmtkMesaMenuMod"><div class="solapasTitEntrev" title="Entrevista"/></div></div>
+                <div class="dResena" id="divEnrevista"><span></span>
+                {%- set interview = getOnixItem(d.Texts, '40') -%}
+                {%- if interview|length > 915 -%}
+                    <div id="interview">{{ interview|truncate(915) }}...<br><a onclick="javascript:changeDiv('interview', 'hideInterview');" href="#entrevista" class="dSolapasPieLink">+&nbsp;seguir leyendo</a></div>
+                    <div id="hideInterview" style="display: none">{{ interview }}<br><a onclick="javascript:changeDiv('hideInterview', 'interview');" href="#entrevista" class="dSolapasPieLink">-&nbsp;seguir leyendo</a></div>
+                {%- else -%}
+                    {{ interview }}
+                {%- endif -%}
+                </div>
+            </div>
+        {%- endif %}
+        <div id="googleBook" class="dSolapas1"><div id="viewerCanvas" style="height: 500px;">
+        </div></div>
+        <input type="hidden" value="{{ d.EntityId }}" id="articulo">
+        <div class="dSolapas" id="listas" style="height: 200px;display: none;"></div>
+        <div class="dSolapas" id="tags"></div>
+    </div>
 </div>
 <!-- <tmpl_var contenidoSEO> -->
 <div id="divModuloExtra"><div id="price_detail"><div id="dTopRight"><div class="dCompra"><p align="center"></p></div></div></div></div>

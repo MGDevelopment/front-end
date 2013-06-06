@@ -15,7 +15,7 @@ function fillComments(section, callback) {
         commentsHTML = '<!-- Sin comentarios -->';
     }
     if (document.getElementById('comments_detail')) {
-    	document.getElementById('comments_detail').innerHTML = commentsHTML;
+        document.getElementById('comments_detail').innerHTML = commentsHTML;
     }
 
     try {

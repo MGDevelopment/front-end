@@ -12,16 +12,16 @@ function gup( varname ) {
 }
 
 function processAlliance(){
-	if (gup("ID_ALIANZA") != "") {
-    	$.ajax({
-    		type: "GET",
-    		url: "/alianzas/alianzas.jsp?idArticulo={{ d.EntityId }}&ID_ALIANZA=" + gup('ID_ALIANZA') + "&ID_SECCION={{ d.Categoria_Seccion}}",
-    		dataType: "xml",
-    		success: function() {
-    		}
-    	});
-	}
-	return;
+    if (gup("ID_ALIANZA") != "") {
+        $.ajax({
+            type: "GET",
+            url: "/alianzas/alianzas.jsp?idArticulo={{ d.EntityId }}&ID_ALIANZA=" + gup('ID_ALIANZA') + "&ID_SECCION={{ d.Categoria_Seccion}}",
+            dataType: "xml",
+            success: function() {
+            }
+        });
+    }
+    return;
 }
 
 processAlliance();
