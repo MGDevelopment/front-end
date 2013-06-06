@@ -1,21 +1,21 @@
 {% block extra -%}
 <div id="divCarrito" class="efectoCarritoMod"
-	style="display: none; position: fixed;">
-	<div class="efectoCarritoTxt">
-		<span class="txtMsgCarritoOK" id="msgCarritoOK"></span> <span
-			id="msgCarritoERROR" style="font-size: 12; color: red"></span><br>
-		<span id="spnPrecioCarrito" class="txtPrecioCarrito"> PRECIO: $
-			<span class="txtPrecioCarrito" id="precioCarrito"></span>.- </span>
-	</div>
-	<div class="efectoCarritoImages">
-		<img id="carritoImagen" class="efectoCarritoImag" src="" alt="">
-	</div>
-	<div id="efectoCarritoB">
-		<a href="javascript:APP.cartClose()">
+    style="display: none; position: fixed;">
+    <div class="efectoCarritoTxt">
+        <span class="txtMsgCarritoOK" id="msgCarritoOK"></span> <span
+            id="msgCarritoERROR" style="font-size: 12; color: red"></span><br>
+        <span id="spnPrecioCarrito" class="txtPrecioCarrito"> PRECIO: $
+            <span class="txtPrecioCarrito" id="precioCarrito"></span>.- </span>
+    </div>
+    <div class="efectoCarritoImages">
+        <img id="carritoImagen" class="efectoCarritoImag" src="" alt="">
+    </div>
+    <div id="efectoCarritoB">
+        <a href="javascript:APP.cartClose()">
             <img src="{{ url.images }}/imagenes/b-carrContinuar.gif"
                     alt="Continuar" style="border:0;">
         </a>
-	</div>
+    </div>
 </div>
 <div id="modalBack" style="display: none"></div>
 {%- endblock %}

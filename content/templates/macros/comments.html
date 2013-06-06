@@ -1,88 +1,88 @@
 {%- macro getClass(id) -%}
-	{%- if id == 1 -%}
-		tapaLibros
-	{%- elif id == 4-%}
-		tapaMusica
-	{%- elif id == 5 -%}
-		tapaPeliculas
-	{%- elif id == 3 -%}
-		tapaPasatiempos
-	{%- else -%}
-		tapaLibros
-	{%- endif -%}
+    {%- if id == 1 -%}
+        tapaLibros
+    {%- elif id == 4-%}
+        tapaMusica
+    {%- elif id == 5 -%}
+        tapaPeliculas
+    {%- elif id == 3 -%}
+        tapaPasatiempos
+    {%- else -%}
+        tapaLibros
+    {%- endif -%}
 {%- endmacro %}
 {%- macro getSection(id) -%}
-	{%- if id == 1 -%}
-		libros
-	{%- elif id == 4-%}
-		musica
-	{%- elif id == 5 -%}
-		peliculas
-	{%- elif id == 3 -%}
-		pasatiempos
-	{%- else -%}
-		libros
-	{%- endif -%}
+    {%- if id == 1 -%}
+        libros
+    {%- elif id == 4-%}
+        musica
+    {%- elif id == 5 -%}
+        peliculas
+    {%- elif id == 3 -%}
+        pasatiempos
+    {%- else -%}
+        libros
+    {%- endif -%}
 {%- endmacro %}
 {%- macro renderComments(comments_data, urls, cols, sectionMore) -%}
     {%- if comments_data and comments_data is iterable -%}
-    	{%- if sectionMore -%}
-			<div class="tmtkMesaMenuMod">
-		{%- else -%}
-			<div class="tmtkMesaMenuMod" style="margin:15px 0 0 210px;">
-		{%- endif -%}
-    	<div class="solapasTitComent"></div>
+        {%- if sectionMore -%}
+            <div class="tmtkMesaMenuMod">
+        {%- else -%}
+            <div class="tmtkMesaMenuMod" style="margin:15px 0 0 210px;">
+        {%- endif -%}
+        <div class="solapasTitComent"></div>
         <ul class="dropdown">
-			<li onclick="javascript:desplegarOpciones(\'listaComentarios\');" class="dir">
-				<span id="optComentarios">&Uacute;ltimos comentados</span>
-				<ul onmouseout="ocultarOpcionesT(\'listaComentarios\');" onmouseover="clearTimeout(tempo);" id="listaComentarios" style="display: none;">
-					<li><a href="javascript:mostrarBuscarPor(\'lstoptBus1\',\'lstoptBusqueda\',\'listaComentarios\');fillComments(\'books\', callBackDropDownComments);" id="lstoptBus1">Solo libros</a></li>
-					<li><a href="javascript:mostrarBuscarPor(\'lstoptBus2\',\'lstoptBusqueda\',\'listaComentarios\');fillComments(\'music\', callBackDropDownComments);" id="lstoptBus2">Solo musica</a></li>
-					<li><a href="javascript:mostrarBuscarPor(\'lstoptBus3\',\'lstoptBusqueda\',\'listaComentarios\');fillComments(\'movies\', callBackDropDownComments);" id="lstoptBus3">Solo peliculas</a></li>
-					<li><a href="javascript:mostrarBuscarPor(\'lstoptBus4\',\'lstoptBusqueda\',\'listaComentarios\');fillComments(\'all\', callBackDropDownComments);" id="lstoptBus4">&Uacute;ltimos comentados</a></li>
-				</ul>
-			</li>
-		</ul>
-	</div>
-	<div class="solapaModulos">
-		{%- for article in comments_data -%}
-	        <div class="solapaCalle" id="calleLibrosComents" style="height: 250px;">
-				<div class="tapaContenedor">
-				    <a href="{{ article.LinkBase  ~ '.htm' }}">
-				    	<img src="{{ urls.images ~ article.CoverSmall }}" alt="{{ article.Title.decode('utf-8') }}" class="{{ getClass(article.Categoria_Seccion)|trim }}">
-				    </a>
-				    <div class="tapaInfo" style="visibility: hidden;"></div>
-				</div>
-	            <div class="hComentarios" id="comentarios01">
-	            	<a>{{ article.NickName.decode('utf-8')|escape }}</a>  dijo sobre
-	                <a href="{{ article.LinkBase  ~ '.htm' }}" class="fTitulos">{{ article.Title.decode('utf-8') }}</a>
-	                <span>
-	                 	{{ article.CommentText.decode('utf-8')|truncate(100)|replace("\r","")|escape }}
-	                </span>
-	            </div>
-	            <div class="calificacionMod">
-	                <span>Calificaci&oacute;n del producto:</span>
-	                {%- if article.Rating -%}
-		                {%- set s = article.Rating|round|int -%}
-						{%- for i in range(s) -%}
-		                    <div class="calificacionStar"></div>
-		                {%- endfor -%}
-		                {%- for i in range(5 - s) -%}
-		                    <div class="calificacionStarDes"></div>
-		                {%- endfor -%}
-		            {%- endif -%}
-	            {%- if sectionMore -%}
-	            	<a href="/{{ getSection(article.Categoria_Seccion)|trim }}#coment" class="vermas">+ comentarios de {{ getSection(article.Categoria_Seccion)|trim }}</a>
-	            {%- endif %}
-	          </div>
-	        </div>
+            <li onclick="javascript:desplegarOpciones(\'listaComentarios\');" class="dir">
+                <span id="optComentarios">&Uacute;ltimos comentados</span>
+                <ul onmouseout="ocultarOpcionesT(\'listaComentarios\');" onmouseover="clearTimeout(tempo);" id="listaComentarios" style="display: none;">
+                    <li><a href="javascript:mostrarBuscarPor(\'lstoptBus1\',\'lstoptBusqueda\',\'listaComentarios\');fillComments(\'books\', callBackDropDownComments);" id="lstoptBus1">Solo libros</a></li>
+                    <li><a href="javascript:mostrarBuscarPor(\'lstoptBus2\',\'lstoptBusqueda\',\'listaComentarios\');fillComments(\'music\', callBackDropDownComments);" id="lstoptBus2">Solo musica</a></li>
+                    <li><a href="javascript:mostrarBuscarPor(\'lstoptBus3\',\'lstoptBusqueda\',\'listaComentarios\');fillComments(\'movies\', callBackDropDownComments);" id="lstoptBus3">Solo peliculas</a></li>
+                    <li><a href="javascript:mostrarBuscarPor(\'lstoptBus4\',\'lstoptBusqueda\',\'listaComentarios\');fillComments(\'all\', callBackDropDownComments);" id="lstoptBus4">&Uacute;ltimos comentados</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div class="solapaModulos">
+        {%- for article in comments_data -%}
+            <div class="solapaCalle" id="calleLibrosComents" style="height: 250px;">
+                <div class="tapaContenedor">
+                    <a href="{{ article.LinkBase  ~ '.htm' }}">
+                        <img src="{{ urls.images ~ article.CoverSmall }}" alt="{{ article.Title.decode('utf-8') }}" class="{{ getClass(article.Categoria_Seccion)|trim }}">
+                    </a>
+                    <div class="tapaInfo" style="visibility: hidden;"></div>
+                </div>
+                <div class="hComentarios" id="comentarios01">
+                    <a>{{ article.NickName.decode('utf-8')|escape }}</a>  dijo sobre
+                    <a href="{{ article.LinkBase  ~ '.htm' }}" class="fTitulos">{{ article.Title.decode('utf-8') }}</a>
+                    <span>
+                         {{ article.CommentText.decode('utf-8')|truncate(100)|replace("\r","")|escape }}
+                    </span>
+                </div>
+                <div class="calificacionMod">
+                    <span>Calificaci&oacute;n del producto:</span>
+                    {%- if article.Rating -%}
+                        {%- set s = article.Rating|round|int -%}
+                        {%- for i in range(s) -%}
+                            <div class="calificacionStar"></div>
+                        {%- endfor -%}
+                        {%- for i in range(5 - s) -%}
+                            <div class="calificacionStarDes"></div>
+                        {%- endfor -%}
+                    {%- endif -%}
+                {%- if sectionMore -%}
+                    <a href="/{{ getSection(article.Categoria_Seccion)|trim }}#coment" class="vermas">+ comentarios de {{ getSection(article.Categoria_Seccion)|trim }}</a>
+                {%- endif %}
+              </div>
+            </div>
 {%- if not (loop.index % cols) == 0 -%} {#- separate cells -#}
-		        <div class="solapaCalleSeparador" id="calleSeparadorComents" style="height: 250px;"></div>
+                <div class="solapaCalleSeparador" id="calleSeparadorComents" style="height: 250px;"></div>
 {%- else %} {#- end row, start new row -#}
-	</div>
+    </div>
     <div class="solapaModulos">
 {%- endif %}
-		{%- endfor %}
-	</div>
+        {%- endfor %}
+    </div>
     {%- endif -%} {# comments_data is iterable #}
 {%- endmacro %}

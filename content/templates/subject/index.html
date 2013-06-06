@@ -4,7 +4,7 @@
 {%- set section_name_loc = d.Path[0].Nombre.decode('utf-8')|e -%}
 {%- set subsection_name = d.Path[-1].Nombre.decode('utf-8')|e -%}
 {%- if subsection_name == 'S / D' -%}
-	{%- set subsection_name = 'Varios' -%}
+    {%- set subsection_name = 'Varios' -%}
 {%- endif -%}
 {% set section = d.Categoria_Seccion %}
 {%- if d.Path and d.Path|length == 1 -%}
@@ -14,7 +14,7 @@
 {%- endif -%}
 
 {% block head_title %}
-	<title>{{ subsection_name }} - Venta de {{ section_name_loc }}</title>
+    <title>{{ subsection_name }} - Venta de {{ section_name_loc }}</title>
 {% endblock %}
 
 {% block head_canonical %}
@@ -118,18 +118,18 @@
 
 {% block canvas_content -%}
     <div id="seccionTematika">
-    	<div style="float: left; display: block; ">
-			<div style="position: fixed; ">
-			{%- if section_name == 'Pasatiempos' -%}
-				<a href="/juguetes">
-			{%- else -%}
-				<a href="/{{ section_name|lower }}">
-			{%- endif -%}
-					<img src="{{ url.images }}/imagenes/blank.gif"
+        <div style="float: left; display: block; ">
+            <div style="position: fixed; ">
+            {%- if section_name == 'Pasatiempos' -%}
+                <a href="/juguetes">
+            {%- else -%}
+                <a href="/{{ section_name|lower }}">
+            {%- endif -%}
+                    <img src="{{ url.images }}/imagenes/blank.gif"
                             class="section-top" alt="home de {{ section_name }}">
-				</a>
-			</div>
-		</div>
+                </a>
+            </div>
+        </div>
         <div id="tree">
             {% include "fragments/tree.html" %}
         </div>
@@ -151,61 +151,61 @@
 {%- endblock %}
 
 {% block scripts_extra -%}
-	<!-- JQuery Carousel and qTip -->
-	<script type="text/javascript" src="/stage0/js/jquery.tinycarousel.js"></script>
-	<script type="text/javascript" src="/stage0/js/jquery.qtip.min.js"></script>
-	<script type="text/javascript" src="/stage0/js/jquery.cookie.js"></script>
-	<script type="text/javascript" src="/stage0/js/jquery.treeview.js"></script>
-	<!-- JFather -->
-	<script type="text/javascript" src="/stage0/js/json2.min.js"></script>
+    <!-- JQuery Carousel and qTip -->
+    <script type="text/javascript" src="/stage0/js/jquery.tinycarousel.js"></script>
+    <script type="text/javascript" src="/stage0/js/jquery.qtip.min.js"></script>
+    <script type="text/javascript" src="/stage0/js/jquery.cookie.js"></script>
+    <script type="text/javascript" src="/stage0/js/jquery.treeview.js"></script>
+    <!-- JFather -->
+    <script type="text/javascript" src="/stage0/js/json2.min.js"></script>
 
-	<script type="text/javascript">
-    	{% include "fragments/showcase.js" %}
-		{% include "subject/tree.js" %}
-    	{% include "fragments/tree.js" %}
-    	fillTree("arbolLibros", callBackTree);
-	    {% include "fragments/serialize.js" %}
-	    {% include "fragments/messages.js" %}
-	    {% include "fragments/catalog.js" %}
-	    {% include "fragments/comments.js" %}
-	    {% include "fragments/last_visited.js" %}
-	</script>
+    <script type="text/javascript">
+        {% include "fragments/showcase.js" %}
+        {% include "subject/tree.js" %}
+        {% include "fragments/tree.js" %}
+        fillTree("arbolLibros", callBackTree);
+        {% include "fragments/serialize.js" %}
+        {% include "fragments/messages.js" %}
+        {% include "fragments/catalog.js" %}
+        {% include "fragments/comments.js" %}
+        {% include "fragments/last_visited.js" %}
+    </script>
 
-	<!-- Data Scripts -->
+    <!-- Data Scripts -->
     {%- set ubase = d['LinkBase'] -%} {#- /section/sub /section/sub.js #}
     {%- if ubase[-1] == '/' -%}
         {%- set ubase = ubase[:-1] -%} {#- /section/ /section.js #}
     {%- endif -%}
-	<script type="text/javascript"
+    <script type="text/javascript"
             src="/comments{{ ubase }}.js"></script>
-	<script type="text/javascript"
+    <script type="text/javascript"
             src="/showcase{{ ubase }}.js"></script>
-	<script type="text/javascript"
+    <script type="text/javascript"
             src="/catalog{{ ubase }}.js"></script>
 
-	<script type="text/javascript">
+    <script type="text/javascript">
 
-		jQuery(document).ready(function() {
-			$('#sliderSection').tinycarousel({ axis: 'y', display: 1} );
-			renderLastVisited('lastvisited');
-			// workaround pagination catalog
-			try {
-	            APP.fillCatalog('rank');
-	        } catch (e) {}
-	        {%- if not d['Showcase'] is iterable -%}
-	        	// Slider: change to Classics
-	        	try {
-	        		fillShowCase('Classics',null,false);
-	        	} catch(e) {}
-	        {%- endif -%}
-	        
-		});
-		/* parse messages */
-		{% include "fragments/messages_parse.js" %}
-		/* Update data */
-	    fillComments('{{ section_name|lower }}');
-	    {% include "fragments/right_menu.js" %}
-	    {% include "fragments/alliance.js" %}
+        jQuery(document).ready(function() {
+            $('#sliderSection').tinycarousel({ axis: 'y', display: 1} );
+            renderLastVisited('lastvisited');
+            // workaround pagination catalog
+            try {
+                APP.fillCatalog('rank');
+            } catch (e) {}
+            {%- if not d['Showcase'] is iterable -%}
+                // Slider: change to Classics
+                try {
+                    fillShowCase('Classics',null,false);
+                } catch(e) {}
+            {%- endif -%}
+            
+        });
+        /* parse messages */
+        {% include "fragments/messages_parse.js" %}
+        /* Update data */
+        fillComments('{{ section_name|lower }}');
+        {% include "fragments/right_menu.js" %}
+        {% include "fragments/alliance.js" %}
 
-	</script>
+    </script>
 {%- endblock %}

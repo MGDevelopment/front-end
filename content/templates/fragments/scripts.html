@@ -10,31 +10,31 @@
 
     {% include "fragments/popups.js" %}
 
-	$(document).ready(function(){
-		//verificarFiltros();
-		aux = '#ctrlDisabled';
-		if ($(aux) && $(aux).get(0)) {
-			$(aux).get(0).style.display="none";
-		}
-	});
+    $(document).ready(function(){
+        //verificarFiltros();
+        aux = '#ctrlDisabled';
+        if ($(aux) && $(aux).get(0)) {
+            $(aux).get(0).style.display="none";
+        }
+    });
 
-	var idsCat = new Array();
-	var catLibro = 1,catPasatiempo = 3,catMusica = 4,catPelicula = 5;
-	var tamView = new Array();
-	idsCat[0]=catLibro;
-	idsCat[1]=catPasatiempo;
-	idsCat[2]=catMusica;
-	idsCat[3]=catPelicula;
-	tamView[catLibro]= 4;
-	tamView[catPasatiempo]=4;
-	tamView[catMusica]=6;
-	tamView[catPelicula]=4;
+    var idsCat = new Array();
+    var catLibro = 1,catPasatiempo = 3,catMusica = 4,catPelicula = 5;
+    var tamView = new Array();
+    idsCat[0]=catLibro;
+    idsCat[1]=catPasatiempo;
+    idsCat[2]=catMusica;
+    idsCat[3]=catPelicula;
+    tamView[catLibro]= 4;
+    tamView[catPasatiempo]=4;
+    tamView[catMusica]=6;
+    tamView[catPelicula]=4;
 
 </script>
 
 <script type="text/javascript">
-	{% include "fragments/dropDownMenu.js" %} {#- search box -#}
-	{% include "fragments/analytics.js" %}
+    {% include "fragments/dropDownMenu.js" %} {#- search box -#}
+    {% include "fragments/analytics.js" %}
 </script>
 
 {% block scripts_extra -%}

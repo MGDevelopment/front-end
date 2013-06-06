@@ -12,31 +12,31 @@ var pProductId = 0,
 
 APP.addData('catalog', [
 {%- if d['Products'] -%}
-	{%- for p in d['Products'] -%}
-		{%- if (not p['CoverSmallGeneric']) or (p['Categoria_Familia'] == 3) -%}
-		    {%- if p['Authors'] and p['Authors'][0]|length > 0 -%}
-		        {%- set author = p['Authors'][0]['ContributorName'].decode('utf-8')|e -%}
-		        {%- set author_url = p['Authors'][0]['ContributorURL'] -%}
-		    {%- else -%}
-		        {%- set author = '' -%}
-		        {%- set author_url = '' -%}
-		    {%- endif -%}
-			[
-			{{ p['EntityId'] }},
-			'{{ p['CoverSmall'] }}',
-			'{{ p['Title'].decode('utf-8')|e }}',
-			'{{ p['LinkBase'] }}',
-			'{{ author }}',
-			'{{ author_url }}',
-			{{ p['Row_Number']|int }},
-			{{ "%.2f"|format(p['PriceAmount']) }},
-			{{ p['PublishingDateValue'] }}
-			]
-			{%- if loop.index < loop.length -%}
-			,
-			{%- endif -%}
-		{%- endif -%}
-	{%- endfor %}
+    {%- for p in d['Products'] -%}
+        {%- if (not p['CoverSmallGeneric']) or (p['Categoria_Familia'] == 3) -%}
+            {%- if p['Authors'] and p['Authors'][0]|length > 0 -%}
+                {%- set author = p['Authors'][0]['ContributorName'].decode('utf-8')|e -%}
+                {%- set author_url = p['Authors'][0]['ContributorURL'] -%}
+            {%- else -%}
+                {%- set author = '' -%}
+                {%- set author_url = '' -%}
+            {%- endif -%}
+            [
+            {{ p['EntityId'] }},
+            '{{ p['CoverSmall'] }}',
+            '{{ p['Title'].decode('utf-8')|e }}',
+            '{{ p['LinkBase'] }}',
+            '{{ author }}',
+            '{{ author_url }}',
+            {{ p['Row_Number']|int }},
+            {{ "%.2f"|format(p['PriceAmount']) }},
+            {{ p['PublishingDateValue'] }}
+            ]
+            {%- if loop.index < loop.length -%}
+            ,
+            {%- endif -%}
+        {%- endif -%}
+    {%- endfor %}
 {%- endif -%}
 ]);
 
@@ -74,7 +74,7 @@ APP.fillCatalog = function (order, page) {
     var perPage   = pageElems.length;
     var lastPage  = Math.ceil(c.length/perPage) - 1;
     if (lastPage > 9) {
-    	lastPage = 9;
+        lastPage = 9;
     }
     var page = page || 0; /* default page zero */
     if (page > lastPage+1)
@@ -86,8 +86,8 @@ APP.fillCatalog = function (order, page) {
     pageElems.each(function (i, v) {
 
         if (elems.length <= i) {
-        	$(v).hide();
-    		return;
+            $(v).hide();
+            return;
             //i = elems.length - 1; /* repeat last */
         }
 
@@ -120,43 +120,43 @@ APP.fillCatalog = function (order, page) {
 
     /* first and last links are prev and next */
     $('.celdapaginas a.FAyuda').each(function (i,v) {
-    	if (lastPage == 0) {
-    		// hide all links when no pages or only page
-    		$(v).hide();
-    	} else {
-	    	if (i > lastPage+1) {
-	    		if (v.id) {
-	    			// hide page numbers out of range
-	    			$(v).hide();
-	    		}
-	    	}
-    		if (v.id == 'catalogPrev') {
-    	    	if (nextPage == 1) {
-    	    		$(v).hide();
-    	    	} else {
-    	    		$(v).show();
-    	    	}
-        	}
-        	if (v.id == 'catalogNext') {
-    	    	if (nextPage == lastPage+1) {
-    	    		$(v).hide();
-    	    	} else {
-    	    		$(v).show();
-    	    	}
-        	}
-	        if (i == 0) {
-	            v.href = 'javascript:APP.fillCatalog(null,' + prevPage + ');';
-	        } else if (i > lastPage + 1) {
-	            v.href = 'javascript:APP.fillCatalog(null,' + nextPage + ');';
-	        } else {
-	            if (i == page + 1) {
-	            	v.href = 'javascript:APP.fillCatalog(null,' + (nextPage - 1) + ');';
-	                $(v).css({'font-weight' : 'bolder'});
-	            } else {
-	                $(v).css({'font-weight' : 'normal'});
-	            }
-	        }
-    	}
+        if (lastPage == 0) {
+            // hide all links when no pages or only page
+            $(v).hide();
+        } else {
+            if (i > lastPage+1) {
+                if (v.id) {
+                    // hide page numbers out of range
+                    $(v).hide();
+                }
+            }
+            if (v.id == 'catalogPrev') {
+                if (nextPage == 1) {
+                    $(v).hide();
+                } else {
+                    $(v).show();
+                }
+            }
+            if (v.id == 'catalogNext') {
+                if (nextPage == lastPage+1) {
+                    $(v).hide();
+                } else {
+                    $(v).show();
+                }
+            }
+            if (i == 0) {
+                v.href = 'javascript:APP.fillCatalog(null,' + prevPage + ');';
+            } else if (i > lastPage + 1) {
+                v.href = 'javascript:APP.fillCatalog(null,' + nextPage + ');';
+            } else {
+                if (i == page + 1) {
+                    v.href = 'javascript:APP.fillCatalog(null,' + (nextPage - 1) + ');';
+                    $(v).css({'font-weight' : 'bolder'});
+                } else {
+                    $(v).css({'font-weight' : 'normal'});
+                }
+            }
+        }
     });
 
 };

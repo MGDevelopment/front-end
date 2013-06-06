@@ -15,7 +15,7 @@ APP.addData('showcase', dataShowCase);
 // XXX ????
 function callBackDropDownShowCase(section) {
 
-	return;
+    return;
 }
 
 APP.addData('showcaseFilter', 'Showcase');

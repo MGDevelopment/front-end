@@ -3,15 +3,15 @@
 {%- set section_name = d['Title'].decode('utf-8') -%}
 
 <div class="tmtkMesaNovedades" id="mesa">
-	<!-- mesa y t&iacute;tulos de secciones -->
-	<a href="/{{ section_name|lower }}" class="tmtkMesaSeccionesTit" title="{{ section_name }}"
-		onmouseover="javascript:mostrarDiv('tmtkMesaSeccionesTit{{ section_name }}s');"
-		onmouseout="javascript:mostrarDiv('tmtkMesaSeccionesTit{{ section_name }}s');"><object>
-			<div id="tmtkMesaSeccionesTit{{ section_name }}s" style="display: none;"></div>
-		</object>
-	</a>
-	<div class="tmtkMesa-back">
-		<div class="tmtkMesaMenuMod"
+    <!-- mesa y t&iacute;tulos de secciones -->
+    <a href="/{{ section_name|lower }}" class="tmtkMesaSeccionesTit" title="{{ section_name }}"
+        onmouseover="javascript:mostrarDiv('tmtkMesaSeccionesTit{{ section_name }}s');"
+        onmouseout="javascript:mostrarDiv('tmtkMesaSeccionesTit{{ section_name }}s');"><object>
+            <div id="tmtkMesaSeccionesTit{{ section_name }}s" style="display: none;"></div>
+        </object>
+    </a>
+    <div class="tmtkMesa-back">
+        <div class="tmtkMesaMenuMod"
                 style="text-align: center; margin-top: 20px;">
             <a href="javascript:fillShowCase('Showcase',null,false);"
                     style="margin: 0 10px;">
@@ -19,42 +19,42 @@
             <a href="javascript:fillShowCase('Classics',null,false);"
                     style="margin: 0 10px;">
                 <img src="/stage0/images/{{ section_name|lower }}-showcase-classics.png" alt="boton cl&aacute;sicos"></a>
-		</div>
-		<div id="tmtkMesa" class="tmtkMesa">
-			<table border="0" cellpadding="0" cellspacing="0">
-				<tr>
-					<td>
-						<table border="0" cellpadding="0" cellspacing="0">
-							<tr>
-								<td>
-									<div id="ctrlDisabled"
-										style="font-family: 'Tahoma'; text-align: center; vertical-align: middle; font-size: 30px;">
-									</div></td>
-							</tr>
-							<tr style="display: none;">
-								<td align="center">
-									</td>
-							</tr>
-							<tr>
-								<td>
-									<div class="" id="cat1Disabled"></div></td>
-							</tr>
-							<tr>
-								<td>
-								<div id="sliderSection">
-									<a class="buttons prev" id="anterior1" onfocus="this.blur()"
-										href="#"><object>
-											<div id="anterior1DIV" class="mesaAnterior"></div>
-										</object>
-								</a><div id="slider">{{ renderS.renderSlider(d['Showcase'], d['Title'], 6, url) }}</div>
-									 <a class="buttons next" id="siguiente1" onfocus="this.blur()" href="#"><object>
-											<div id="siguiente1DIV" class="mesaSiguiente"></div>
-										</object>
-								</a></div></td>
-							</tr>
-						</table></td>
-				</tr>
-			</table>
-		</div>
-	</div>
+        </div>
+        <div id="tmtkMesa" class="tmtkMesa">
+            <table border="0" cellpadding="0" cellspacing="0">
+                <tr>
+                    <td>
+                        <table border="0" cellpadding="0" cellspacing="0">
+                            <tr>
+                                <td>
+                                    <div id="ctrlDisabled"
+                                        style="font-family: 'Tahoma'; text-align: center; vertical-align: middle; font-size: 30px;">
+                                    </div></td>
+                            </tr>
+                            <tr style="display: none;">
+                                <td align="center">
+                                    </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="" id="cat1Disabled"></div></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                <div id="sliderSection">
+                                    <a class="buttons prev" id="anterior1" onfocus="this.blur()"
+                                        href="#"><object>
+                                            <div id="anterior1DIV" class="mesaAnterior"></div>
+                                        </object>
+                                </a><div id="slider">{{ renderS.renderSlider(d['Showcase'], d['Title'], 6, url) }}</div>
+                                     <a class="buttons next" id="siguiente1" onfocus="this.blur()" href="#"><object>
+                                            <div id="siguiente1DIV" class="mesaSiguiente"></div>
+                                        </object>
+                                </a></div></td>
+                            </tr>
+                        </table></td>
+                </tr>
+            </table>
+        </div>
+    </div>
 </div>

@@ -1,19 +1,19 @@
 {%- import 'macros/productRelated.html' as render -%}
 /**
  * Name:
-* 	- product-related.js
+*     - product-related.js
 * expected keys:
-* 	- d
+*     - d
 */
 var dataRelatedProduct = {};
 
 {%- if d -%}
-	dataRelatedProduct = '{{ render.renderRelated(d.Related, url)|replace("\n", "") }}';
+    dataRelatedProduct = '{{ render.renderRelated(d.Related, url)|replace("\n", "") }}';
 {% endif %}
 
 function loadRelatedProduct() {
-	APP.addData('relatedProduct', dataRelatedProduct);
-	return;
+    APP.addData('relatedProduct', dataRelatedProduct);
+    return;
 }
 
 loadRelatedProduct();
