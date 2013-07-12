@@ -13,7 +13,7 @@ var pProductId = 0,
 APP.addData('catalog', [
 {%- if d['Products'] -%}
     {%- for p in d['Products'] -%}
-        {%- if (not p['CoverSmallGeneric']) or (p['Categoria_Familia'] == 3) -%}
+        {%- if ((not p['CoverSmallGeneric']) or (p['Categoria_Familia'] == 3)) and p['ProductAvailability'] != '40' -%}
             {%- if p['Authors'] and p['Authors'][0]|length > 0 -%}
                 {%- set author = p['Authors'][0]['ContributorName'].decode('utf-8')|e -%}
                 {%- set author_url = p['Authors'][0]['ContributorURL'] -%}
