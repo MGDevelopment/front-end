@@ -12,28 +12,32 @@ var pProductId = 0,
 
 APP.addData('catalog', [
 {%- if d['Products'] -%}
+    {%- set hasOne = False -%}
     {%- for p in d['Products'] -%}
-        {%- if ((not p['CoverSmallGeneric']) or (p['Categoria_Familia'] == 3)) and p['ProductAvailability'] != '40' -%}
-            {%- if p['Authors'] and p['Authors'][0]|length > 0 -%}
-                {%- set author = p['Authors'][0]['ContributorName'].decode('utf-8')|e -%}
-                {%- set author_url = p['Authors'][0]['ContributorURL'] -%}
-            {%- else -%}
-                {%- set author = '' -%}
-                {%- set author_url = '' -%}
-            {%- endif -%}
-            [
-            {{ p['EntityId'] }},
-            '{{ p['CoverSmall'] }}',
-            '{{ p['Title'].decode('utf-8')|e }}',
-            '{{ p['LinkBase'] }}',
-            '{{ author }}',
-            '{{ author_url }}',
-            {{ p['Row_Number']|int }},
-            {{ "%.2f"|format(p['PriceAmount']) }},
-            {{ p['PublishingDateValue'] }}
-            ]
-            {%- if loop.index < loop.length -%}
-            ,
+        {%- if p['Authors'] and p['Authors'][0]|length > 0 -%}
+            {%- set author = p['Authors'][0]['ContributorName'].decode('utf-8')|e -%}
+            {%- set author_url = p['Authors'][0]['ContributorURL'] -%}
+        {%- else -%}
+            {%- set author = '' -%}
+            {%- set author_url = '' -%}
+        {%- endif -%}
+        {%- if p['ProductAvailability'] != '40' -%}
+            {%- if (not p['CoverSmallGeneric']) -%}
+                {%- if hasOne and loop.index < loop.length -%}
+                    ,
+                {%- endif -%}
+                {%- set hasOne = True -%}
+                [
+                 {{ p['EntityId'] }},
+                 '{{ p['CoverSmall'] }}',
+                 '{{ p['Title'].decode('utf-8')|e }}',
+                 '{{ p['LinkBase'] }}',
+                 '{{ author }}',
+                 '{{ author_url }}',
+                 {{ p['Row_Number']|int }},
+                 {{ "%.2f"|format(p['PriceAmount']) }},
+                 {{ p['PublishingDateValue'] }}
+                 ]
             {%- endif -%}
         {%- endif -%}
     {%- endfor %}
