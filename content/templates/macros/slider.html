@@ -21,13 +21,22 @@
         {%- endif -%}
         {%- if p.ProductForm[0] == 'B' -%}
             {%- set book = True -%}
+            {%- set optSeleccionada = 'Autor' -%}
+            {%- set seccionDeBusqueda = 'En Libros' -%}
         {%- elif p.ProductForm[0] == 'A' -%}
             {%- set music = True -%}
+            {%- set optSeleccionada = 'Grupo/Int%E9rprete' -%}
+            {%- set seccionDeBusqueda = 'En Musica' -%}
         {%- elif p.ProductForm[0] == 'V' -%}
             {%- set movie = True -%}
+            {%- set optSeleccionada = 'Director/Actor' -%}
+            {%- set seccionDeBusqueda = 'En Peliculas' -%}
         {%- elif p.ProductForm[0] == 'Z' -%}
             {%- set generic = True -%}
+            {%- set optSeleccionada = 'Autor' -%}
+            {%- set seccionDeBusqueda = 'En Pasatiempos' -%}
         {%- endif -%}
+        {%- set author_url = '/buscar.do?seccion=' ~ section ~ '&idSeccion=' ~ section ~'&criterioDeOrden=2&claveDeBusqueda=porAutor&texto=' ~ author ~ '&idAutor=' ~ author_id ~ '&txtencoded=' ~ author ~ '&optSeleccionada=' ~ optSeleccionada ~ '&seccionDeBusqueda=' ~ seccionDeBusqueda ~ '&idSeccionPropia=' ~ section -%}
         {%- if (loop.index % cols) == 1 -%}
             <li> {#- start row -#}
             <table>
@@ -48,7 +57,7 @@
                         </p>
                         {#- AUTHOR -#}
                         {%- if author -%}
-                            <p class="product-author">de <a href="/buscador/productos.jsp?seccion={{ section }}&amp;idSeccion={{ section }}&amp;criterioDeOrden=2&amp;claveDeBusqueda=porIDdeAutor&amp;texto={{ author|e }}&amp;idAutor={{ author_id }}">{{ author }}</a></p>
+                            <p class="product-author">de <a href="{{ author_url }}">{{ author }}</a></p>
                         {%- endif -%}
                         <p class="product-popup-price">$ {{ price -}}</p>
                         {%- if p.ImprintName != None -%}
