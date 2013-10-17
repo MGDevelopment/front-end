@@ -27,11 +27,13 @@
 {%- macro iterateTree1(item) -%}
         <li id="{{ getId(item) }}"><a href="{{ item.LinkBase }}.htm">{{ getNombre(item) }}</a>
         {%- if item.Children -%}
-                <ul>
-                    {%- for subitem in item.Children -%}
-                        {{ iterateTree2(subitem) }}
-                    {%- endfor %}
-                </ul>
+                {%- if item.Categoria_Seccion != 4 -%}
+                    <ul>
+                        {%- for subitem in item.Children -%}
+                            {{ iterateTree2(subitem) }}
+                        {%- endfor %}
+                    </ul>
+                {%- endif -%}
         {%- endif -%}
         </li>
 {%- endmacro %}
@@ -39,13 +41,19 @@
 {%- macro iterateTree(items) -%}
         {%- for item in items -%}
             {%- if item.Children -%}
-                <li id="{{ getId(item) }}"><a href="{{ item.LinkBase }}.htm">{{ getNombre(item) }}</a>
-                <ul>
+                {%- if item.Categoria_Seccion == 4 -%}
                     {%- for subitem in item.Children -%}
                         {{ iterateTree1(subitem) }}
                     {%- endfor %}
-                </ul>
-                </li>
+                {%- else -%}
+                    <li id="{{ getId(item) }}"><a href="{{ item.LinkBase }}.htm">{{ getNombre(item) }}</a>
+                    <ul>
+                        {%- for subitem in item.Children -%}
+                            {{ iterateTree1(subitem) }}
+                        {%- endfor %}
+                    </ul>
+                    </li>
+                {%- endif -%}
             {%- else -%}
                 {% if item.Nombre %}
                     <li id="{{ getId(item) }}"><a href="{{ item.LinkBase }}.htm">{{ getNombre(item) }}</a></li>
