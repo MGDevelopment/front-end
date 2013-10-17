@@ -22,21 +22,26 @@
         {%- if p.ProductForm[0] == 'B' -%}
             {%- set book = True -%}
             {%- set optSeleccionada = 'Autor' -%}
+            {%- set optSeleccionada2 = 'Editorial' -%}
             {%- set seccionDeBusqueda = 'En Libros' -%}
         {%- elif p.ProductForm[0] == 'A' -%}
             {%- set music = True -%}
             {%- set optSeleccionada = 'Grupo/Int%E9rprete' -%}
+            {%- set optSeleccionada2 = 'Sello Discogr%E1fico' -%}
             {%- set seccionDeBusqueda = 'En Musica' -%}
         {%- elif p.ProductForm[0] == 'V' -%}
             {%- set movie = True -%}
             {%- set optSeleccionada = 'Director/Actor' -%}
+            {%- set optSeleccionada2 = 'Productora' -%}
             {%- set seccionDeBusqueda = 'En Peliculas' -%}
         {%- elif p.ProductForm[0] == 'Z' -%}
             {%- set generic = True -%}
             {%- set optSeleccionada = 'Autor' -%}
+            {%- set optSeleccionada2 = 'Editorial' -%}
             {%- set seccionDeBusqueda = 'En Pasatiempos' -%}
         {%- endif -%}
         {%- set author_url = '/buscar.do?seccion=' ~ section ~ '&idSeccion=' ~ section ~'&criterioDeOrden=2&claveDeBusqueda=porAutor&texto=' ~ author ~ '&idAutor=' ~ author_id ~ '&txtencoded=' ~ author ~ '&optSeleccionada=' ~ optSeleccionada ~ '&seccionDeBusqueda=' ~ seccionDeBusqueda ~ '&idSeccionPropia=' ~ section -%}
+        {%- set editorial_url = '/buscar.do?seccion=' ~ section ~ '&idSeccion=' ~ section ~'&criterioDeOrden=2&claveDeBusqueda=porEditorial&texto=' ~ imprint ~ '&idEditor=' ~ p.ImprintId|string ~ '&txtencoded=' ~ imprint ~ '&optSeleccionada=' ~ optSeleccionada2 ~ '&seccionDeBusqueda=' ~ seccionDeBusqueda ~ '&idSeccionPropia=' ~ section -%}
         {%- if (loop.index % cols) == 1 -%}
             <li> {#- start row -#}
             <table>
@@ -67,7 +72,7 @@
                             {%- else       -%}Editorial:
                             {%- endif -%}
                             <span class="product-imprint">
-                                <a href="/buscador/productos.jsp?seccion={{ section }}&amp;idSeccion={{ section }}&amp;criterioDeOrden=2&amp;claveDeBusqueda=porIDdeEditorial&amp;texto={{ imprint }}&amp;idEditor={{ p.ImprintId|string }}" class="artEditor">{{ imprint }}</a>
+                                <a href="{{ editorial_url }}" class="artEditor">{{ imprint }}</a>
                             </span><br>
                         {%- endif -%}
                         {%- if p.Rating -%}
