@@ -168,7 +168,8 @@ query_main:     &query_main
                 ON      A.Id_Disponibilidad = D.Id_Disponibilidad AND
                         -------------- ***** CONDITION
                         D.Id_Esquema = 'PROD' AND
-                        D.Pedido_Especial = 'N'
+                        D.Pedido_Especial = 'N' AND
+                        D.Id_Disponibilidad <> 3
             -------------- Tipos Articulos
             INNER JOIN  Tipos_Articulos TA
                 ON      A.Id_Tipo_Articulo = TA.Id_Tipo_Articulo
@@ -217,6 +218,7 @@ query_main:     &query_main
                           "Fulfillment_desc", "TipoArticulo_desc" ]
     query.post:         [ "tmklib.fixes.PROD.title",
                           "tmklib.fixes.PROD.calcImages",
+                          "tmklib.fixes.PROD.filterWithoutImage",
                           "tmklib.PROD.calculateTaxes",
                           "tmklib.url.PROD",
                           "tmklib.fixes.PROD.embedRatings",
