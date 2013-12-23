@@ -172,7 +172,9 @@ query_products_main:     &query_products_main
                                 -------------- ***** CONDITION
                                 A.Activo = 'SI' AND
                                 A.Habilitado_Tematika = 'S' AND
-                                A.Precio_Venta_Vigente >= 7.0
+                                A.Precio_Venta_Vigente >= 7.0 AND
+                                A.Archivo_Imagen IS NOT NULL AND
+                                A.Archivo_Imagen <> 'N'
                     -------------- Ranking
                     LEFT JOIN   Mas_Vendidos_Grupo MVS
                         ON      A.Categoria_Seccion = MVS.Categoria_Seccion AND
@@ -228,6 +230,7 @@ query_products_main:     &query_products_main
                           "Fulfillment_desc", "TipoArticulo_desc", "Row_Number" ]
     query.post:         [ "tmklib.fixes.PROD.title",
                           "tmklib.fixes.PROD.calcImages",
+                          "tmklib.fixes.PROD.filterWithoutImage",
                           "tmklib.PROD.calculateTaxes",
                           "tmklib.url.PROD",
                           "tmklib.fixes.PROD.embedRatings",
@@ -264,7 +267,9 @@ augment_query_products_rating:  &augment_query_products_rating
                                                         -------------- ***** CONDITION
                                                         A.Activo = 'SI' AND
                                                         A.Habilitado_Tematika = 'S' AND
-                                                        A.Precio_Venta_Vigente >= 7.0
+                                                        A.Precio_Venta_Vigente >= 7.0 AND
+                                                        A.Archivo_Imagen IS NOT NULL AND
+                                                        A.Archivo_Imagen <> 'N'
                                             -------------- Disponibilidades
                                             INNER JOIN  Disponibilidades D
                                                 ON      A.Id_Disponibilidad = D.Id_Disponibilidad AND
@@ -326,7 +331,9 @@ augment_query_products_authors:  &augment_query_products_authors
                                                         -------------- ***** CONDITION
                                                         A.Activo = 'SI' AND
                                                         A.Habilitado_Tematika = 'S' AND
-                                                        A.Precio_Venta_Vigente >= 7.0
+                                                        A.Precio_Venta_Vigente >= 7.0 AND
+                                                        A.Archivo_Imagen IS NOT NULL AND
+                                                        A.Archivo_Imagen <> 'N'
                                             -------------- Disponibilidades
                                             INNER JOIN  Disponibilidades D
                                                 ON      A.Id_Disponibilidad = D.Id_Disponibilidad AND
