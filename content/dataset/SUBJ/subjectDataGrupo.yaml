@@ -185,7 +185,8 @@ query_products_main:     &query_products_main
                         ON      A.Id_Disponibilidad = D.Id_Disponibilidad AND
                                 -------------- ***** CONDITION
                                 D.Id_Esquema = 'PROD' AND
-                                D.Pedido_Especial = 'N'
+                                D.Pedido_Especial = 'N' AND
+                                D.Id_Disponibilidad <> 3
                     -------------- Tipos Articulos
                     INNER JOIN  Tipos_Articulos TA
                         ON      A.Id_Tipo_Articulo = TA.Id_Tipo_Articulo
